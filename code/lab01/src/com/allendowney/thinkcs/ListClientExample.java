@@ -1,4 +1,4 @@
-package com.flatironschool.javacs;
+package com.allendowney.thinkcs;
 
 import java.util.LinkedList;
 import java.util.List;
