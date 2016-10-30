@@ -49,7 +49,7 @@ public class WikiPhilosophy {
 			} else {
 				visited.add(url);
 			}
-			// YOUR CODE HERE
+			// TODO: YOUR CODE HERE
 		}
 	}
 
@@ -61,7 +61,8 @@ public class WikiPhilosophy {
 	 * @throws IOException
 	 */
 	public static Element getFirstValidLink(String url) throws IOException {
-		// YOUR CODE HERE
+		// TODO: YOUR CODE HERE
+        return null;
 	}
 
 	/**
