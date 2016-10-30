@@ -71,17 +71,8 @@ public class MyTreeMap<K, V> implements Map<K, V> {
 		@SuppressWarnings("unchecked")
 		Comparable<? super K> k = (Comparable<? super K>) target;
 		
-		// the actual search
-        Node node = root;
-        while (node != null) {
-            int cmp = k.compareTo(node.key);
-            if (cmp < 0)
-                node = node.left;
-            else if (cmp > 0)
-                node = node.right;
-            else
-                return node;
-        }
+		// TODO: Your solution here
+
         return null;
 	}
 
@@ -101,6 +92,7 @@ public class MyTreeMap<K, V> implements Map<K, V> {
 
 	@Override
 	public boolean containsValue(Object target) {
+		// TODO: Your code here
 		return containsValueHelper(root, target);
 	}
 
@@ -142,7 +134,7 @@ public class MyTreeMap<K, V> implements Map<K, V> {
 	@Override
 	public Set<K> keySet() {
 		Set<K> set = new LinkedHashSet<K>();
-		addInOrder(root, set);
+		// TODO: Your solution here
 		return set;
 	}
 
@@ -167,31 +159,8 @@ public class MyTreeMap<K, V> implements Map<K, V> {
 	}
 
 	private V putHelper(Node node, K key, V value) {
-		@SuppressWarnings("unchecked")
-		Comparable<? super K> k = (Comparable<? super K>) key;
-		int cmp = k.compareTo(node.key);
-		
-		if (cmp < 0) {
-			if (node.left == null) {
-				node.left = new Node(key, value);
-				size++;
-				return null;
-			} else {
-				return putHelper(node.left, key, value);
-			}
-		}
-		if (cmp > 0) {
-			if (node.right == null) {
-				node.right = new Node(key, value);
-				size++;
-				return null;
-			} else {
-				return putHelper(node.right, key, value);
-			}
-		}
-		V oldValue = node.value;
-		node.value = value;
-		return oldValue;
+		// TODO: Your code here
+		return null;
 	}
 
 	@Override
@@ -203,6 +172,7 @@ public class MyTreeMap<K, V> implements Map<K, V> {
 
 	@Override
 	public V remove(Object key) {
+		// OPTIONAL TODO: Your solution here
 		throw new UnsupportedOperationException();
 	}
 
