@@ -3,7 +3,7 @@
 
 
 ### Teaching Team: Sidd Singal (‘17), Hieu Nguyen (‘18), Katie Hite (‘18), David Abrahams (‘18)
-### NINJAS: Sarah Walters (‘17), Deniz Celik (‘17), Michael Bocamazo (‘17), Nitya Dhanushkodi (‘17)
+### Tentative NINJAS: Sarah Walters (‘17), Deniz Celik (‘17), Michael Bocamazo (‘17), Nitya Dhanushkodi (‘17)
 
 
 ### Data Structures
