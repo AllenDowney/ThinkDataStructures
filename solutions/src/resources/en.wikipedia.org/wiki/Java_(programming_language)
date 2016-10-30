@@ -5,16 +5,16 @@
 <title>Java (programming language) - Wikipedia, the free encyclopedia</title>
 <script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
 <script>(window.RLQ = window.RLQ || []).push(function () {
-mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Java_(programming_language)","wgTitle":"Java (programming language)","wgCurRevisionId":707807094,"wgRevisionId":707807094,"wgArticleId":15881,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["All articles with unsourced statements","Articles with unsourced statements from April 2015","Articles containing potentially dated statements from 2015","All articles containing potentially dated statements","Articles with unsourced statements from June 2013","Articles needing additional references from May 2013","All articles needing additional references","Articles needing cleanup from May 2013","All pages needing cleanup","Articles containing how-to sections","Articles needing cleanup from January 2012","Articles needing additional references from December 2014","Vague or ambiguous time from December 2014","Articles with specifically marked weasel-worded phrases from September 2015","Wikipedia articles that may have off-topic paragraphs","Wikipedia articles with GND identifiers","C programming language family","Class-based programming languages","Concurrent programming languages","Cross-platform software","Java platform","Java (programming language)","Java specification requests","JVM programming languages","Object-oriented programming languages","Programming languages created in 1995","Statically typed programming languages","Sun Microsystems","Articles with example Java code"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Java_(programming_language)","wgRelevantArticleId":15881,"wgIsProbablyEditable":false,"wgRestrictionEdit":["autoconfirmed"],"wgRestrictionMove":["autoconfirmed"],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","usePageImages":true,"usePageDescriptions":true},"wikilove-recipient":"","wikilove-anon":0,"wgPreferredVariant":"en","wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSAcceptLanguageList":["en-us","en"],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgCentralAuthMobileDomain":false,"wgWikibaseItemId":"Q251","wgVisualEditorToolbarScrollOffset":0}); /* @nomin */mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery ) {
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Java_(programming_language)","wgTitle":"Java (programming language)","wgCurRevisionId":709138401,"wgRevisionId":709138401,"wgArticleId":15881,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["All articles with unsourced statements","Articles with unsourced statements from April 2015","Articles containing potentially dated statements from 2015","All articles containing potentially dated statements","Articles with unsourced statements from June 2013","Articles needing additional references from May 2013","All articles needing additional references","Articles needing cleanup from May 2013","All pages needing cleanup","Articles containing how-to sections","Articles needing cleanup from January 2012","Articles needing additional references from December 2014","Vague or ambiguous time from December 2014","Articles with specifically marked weasel-worded phrases from September 2015","Wikipedia articles that may have off-topic paragraphs","Wikipedia articles with GND identifiers","C programming language family","Class-based programming languages","Concurrent programming languages","Cross-platform software","Java platform","Java (programming language)","Java specification requests","JVM programming languages","Object-oriented programming languages","Programming languages created in 1995","Statically typed programming languages","Sun Microsystems","Articles with example Java code"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Java_(programming_language)","wgRelevantArticleId":15881,"wgIsProbablyEditable":false,"wgRestrictionEdit":["autoconfirmed"],"wgRestrictionMove":["autoconfirmed"],"wgRedirectedFrom":"Java_(Programming_Language)","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","usePageImages":true,"usePageDescriptions":true},"wikilove-recipient":"","wikilove-anon":0,"wgPreferredVariant":"en","wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSAcceptLanguageList":[],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgInternalRedirectTargetUrl":"/wiki/Java_(programming_language)","wgCentralAuthMobileDomain":false,"wgWikibaseItemId":"Q251","wgVisualEditorToolbarScrollOffset":0}); /* @nomin */mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery ) {
 mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"}); /* @nomin */ ;
 
-});mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.desktopArticleTarget.init","ext.uls.init","ext.uls.interface","ext.quicksurveys.init","mw.MediaWikiPlayer.loader","mw.PopUpMediaTransform","ext.centralNotice.bannerController","skins.vector.js"]);
+});mw.loader.load(["mediawiki.action.view.redirect","mediawiki.page.startup","mediawiki.legacy.wikibits","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.desktopArticleTarget.init","ext.uls.init","ext.uls.interface","ext.quicksurveys.init","mw.MediaWikiPlayer.loader","mw.PopUpMediaTransform","ext.centralNotice.bannerController","skins.vector.js"]);
 } );</script>
 <link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.pygments%2CwikimediaBadges%7Cext.tmh.thumbnail.styles%7Cext.uls.nojs%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.raggett%2CsectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector" />
 <meta name="ResourceLoaderDynamicStyles" content="" />
 <link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector" />
 <script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
-<meta name="generator" content="MediaWiki 1.27.0-wmf.15" />
+<meta name="generator" content="MediaWiki 1.27.0-wmf.16" />
 <meta name="referrer" content="origin-when-cross-origin" />
 <link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Java_(programming_language)" />
 <link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png" />
@@ -24,7 +24,6 @@ mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","cs
 <link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
 <link rel="canonical" href="https://en.wikipedia.org/wiki/Java_(programming_language)" />
 <link rel="dns-prefetch" href="//meta.wikimedia.org" />
-<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
 </head>
 <body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Java_programming_language skin-vector action-view">
 		<div id="mw-page-base" class="noprint"></div>
@@ -38,7 +37,7 @@ mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","cs
 			<h1 id="firstHeading" class="firstHeading" lang="en">Java (programming language)</h1>
 									<div id="bodyContent" class="mw-body-content">
 									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
-								<div id="contentSub"></div>
+								<div id="contentSub"><span class="mw-redirectedfrom">  (Redirected from <a href="/w/index.php?title=Java_(Programming_Language)&amp;redirect=no" title="Java (Programming Language)">Java (Programming Language)</a>)</span></div>
 												<div id="jump-to-nav" class="mw-jump">
 					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
 				</div>
@@ -567,7 +566,7 @@ Java Control Panel, version 7</div>
 </div>
 <h3><span class="mw-headline" id="Google">Google</span></h3>
 <div role="note" class="hatnote">See also: <a href="/wiki/Oracle_America,_Inc._v._Google,_Inc." title="Oracle America, Inc. v. Google, Inc.">Oracle America, Inc. v. Google, Inc.</a></div>
-<p><a href="/wiki/Google" title="Google">Google</a> and Android, Inc. have chosen to use Java as a key pillar in the creation of the <a href="/wiki/Android_(operating_system)" title="Android (operating system)">Android operating system</a>, an <a href="/wiki/Open_source" title="Open source">open source</a> <a href="/wiki/Mobile_operating_system" title="Mobile operating system">mobile operating system</a>. Although the Android operating system, built on the <a href="/wiki/Linux_kernel" title="Linux kernel">Linux kernel</a>, was written largely in C, the <a href="/wiki/Android_software_development#SDK" title="Android software development">Android SDK</a> uses the Java language as the basis for Android applications. However, Android does not use the Java virtual machine, instead using Java bytecode as an intermediate step and ultimately targeting Android's own <a href="/wiki/Dalvik_(software)" title="Dalvik (software)">Dalvik virtual machine</a> or more recently <a href="/wiki/Android_Runtime" title="Android Runtime">Android Runtime</a> which actually compiles applications to native machine code upon installation.</p>
+<p><a href="/wiki/Google" title="Google">Google</a> and Android, Inc. have chosen to use Java as a key pillar in the creation of the <a href="/wiki/Android_(operating_system)" title="Android (operating system)">Android operating system</a>, an <a href="/wiki/Open_source" title="Open source" class="mw-redirect">open source</a> <a href="/wiki/Mobile_operating_system" title="Mobile operating system">mobile operating system</a>. Although the Android operating system, built on the <a href="/wiki/Linux_kernel" title="Linux kernel">Linux kernel</a>, was written largely in C, the <a href="/wiki/Android_software_development#SDK" title="Android software development">Android SDK</a> uses the Java language as the basis for Android applications. However, Android does not use the Java virtual machine, instead using Java bytecode as an intermediate step and ultimately targeting Android's own <a href="/wiki/Dalvik_(software)" title="Dalvik (software)">Dalvik virtual machine</a> or more recently <a href="/wiki/Android_Runtime" title="Android Runtime">Android Runtime</a> which actually compiles applications to native machine code upon installation.</p>
 <p>Android also does not provide the full Java SE standard library, although the Android class library does include an independent implementation of a large subset of it. This led to a legal dispute between Oracle and Google. On May 7, 2012, a San Francisco jury found that if APIs could be copyrighted, then Google had infringed Oracle's copyrights by the use of Java in Android devices.<sup id="cite_ref-52" class="reference"><a href="#cite_note-52"><span>[</span>52<span>]</span></a></sup> District Judge <a href="/wiki/William_Haskell_Alsup" title="William Haskell Alsup">William Haskell Alsup</a> ruled on May 31, 2012, that APIs cannot be copyrighted,<sup id="cite_ref-53" class="reference"><a href="#cite_note-53"><span>[</span>53<span>]</span></a></sup> but this was reversed by the United States Court of Appeals for the Federal Circuit in May 2014.<sup id="cite_ref-54" class="reference"><a href="#cite_note-54"><span>[</span>54<span>]</span></a></sup><sup id="cite_ref-cnet_appeals_55-0" class="reference"><a href="#cite_note-cnet_appeals-55"><span>[</span>55<span>]</span></a></sup><sup id="cite_ref-cafc_13-1021_56-0" class="reference"><a href="#cite_note-cafc_13-1021-56"><span>[</span>56<span>]</span></a></sup></p>
 <h2><span class="mw-headline" id="Class_libraries">Class libraries</span></h2>
 <table class="metadata plainlinks ambox ambox-content ambox-Refimprove" role="presentation">
@@ -693,6 +692,7 @@ Java Control Panel, version 7</div>
 <li><a href="/wiki/List_of_Java_APIs" title="List of Java APIs">List of Java APIs</a></li>
 <li><a href="/wiki/List_of_JVM_languages" title="List of JVM languages">List of JVM languages</a></li>
 <li><a href="/wiki/Graal_(compiler)" title="Graal (compiler)">Graal</a>, a project aiming to implement a high performance Java dynamic compiler and interpreter</li>
+<li><a href="/wiki/Spring_Framework" title="Spring Framework">Spring Framework</a></li>
 </ul>
 <h3><span class="mw-headline" id="Comparison_of_Java_with_other_languages">Comparison of Java with other languages</span></h3>
 <ul>
@@ -700,6 +700,7 @@ Java Control Panel, version 7</div>
 <li><a href="/wiki/Comparison_of_Java_and_C%2B%2B" title="Comparison of Java and C++">Comparison of Java and C++</a></li>
 <li><a href="/wiki/Comparison_of_C_Sharp_and_Java" title="Comparison of C Sharp and Java">Comparison of C# and Java</a></li>
 </ul>
+<p><br /></p>
 <h2><span class="mw-headline" id="Notes">Notes</span></h2>
 <div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
 <ol class="references">
@@ -1689,40 +1690,40 @@ and standards</th>
 
 <!-- 
 NewPP limit report
-Parsed by mw1090
-Cached time: 20160307215602
+Parsed by mw1001
+Cached time: 20160314073245
 Cache expiry: 86400
 Dynamic content: true
-CPU time usage: 1.291 seconds
-Real time usage: 1.482 seconds
-Preprocessor visited node count: 6694/1000000
+CPU time usage: 1.498 seconds
+Real time usage: 1.739 seconds
+Preprocessor visited node count: 6696/1000000
 Preprocessor generated node count: 0/1500000
-Post‐expand include size: 239443/2097152 bytes
-Template argument size: 13986/2097152 bytes
+Post‐expand include size: 239821/2097152 bytes
+Template argument size: 14124/2097152 bytes
 Highest expansion depth: 15/40
 Expensive parser function count: 12/500
-Lua time usage: 0.525/10.000 seconds
-Lua memory usage: 6.75 MB/50 MB
+Lua time usage: 0.646/10.000 seconds
+Lua memory usage: 6.54 MB/50 MB
 Number of Wikibase entities loaded: 1-->
 
 <!-- 
 Transclusion expansion time report (%,ms,calls,template)
-100.00% 1120.078      1 - -total
- 39.78%  445.582      1 - Template:Reflist
- 28.46%  318.797     53 - Template:Cite_web
-  8.11%   90.851      1 - Template:Infobox_programming_language
-  7.59%   84.988      1 - Template:Infobox
-  6.75%   75.561      5 - Template:Navbox
-  5.70%   63.869      5 - Template:Ambox
-  4.68%   52.419      5 - Template:Fix
-  4.43%   49.614      2 - Template:Citation_needed
-  4.18%   46.837      1 - Template:Multiple_issues
+100.00% 1329.390      1 - -total
+ 41.54%  552.205      1 - Template:Reflist
+ 31.02%  412.406     53 - Template:Cite_web
+  7.94%  105.529      1 - Template:Infobox_programming_language
+  7.36%   97.907      5 - Template:Navbox
+  7.17%   95.286      1 - Template:Infobox
+  5.25%   69.851      5 - Template:Ambox
+  4.58%   60.922      5 - Template:Fix
+  3.96%   52.671      7 - Template:Category_handler
+  3.90%   51.791      2 - Template:Citation_needed
 -->
 
-<!-- Saved in parser cache with key enwiki:pcache:idhash:15881-0!*!0!!en!4!* and timestamp 20160307215600 and revision id 707807094
+<!-- Saved in parser cache with key enwiki:pcache:idhash:15881-0!*!0!!en!4!* and timestamp 20160314073243 and revision id 709138401
  -->
 <noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
-						Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Java_(programming_language)&amp;oldid=707807094">https://en.wikipedia.org/w/index.php?title=Java_(programming_language)&amp;oldid=707807094</a>"					</div>
+						Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Java_(programming_language)&amp;oldid=709138401">https://en.wikipedia.org/w/index.php?title=Java_(programming_language)&amp;oldid=709138401</a>"					</div>
 				<div id='catlinks' class='catlinks' data-mw='interface'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:C_programming_language_family" title="Category:C programming language family">C programming language family</a></li><li><a href="/wiki/Category:Class-based_programming_languages" title="Category:Class-based programming languages">Class-based programming languages</a></li><li><a href="/wiki/Category:Concurrent_programming_languages" title="Category:Concurrent programming languages">Concurrent programming languages</a></li><li><a href="/wiki/Category:Cross-platform_software" title="Category:Cross-platform software">Cross-platform software</a></li><li><a href="/wiki/Category:Java_platform" title="Category:Java platform">Java platform</a></li><li><a href="/wiki/Category:Java_(programming_language)" title="Category:Java (programming language)">Java (programming language)</a></li><li><a href="/wiki/Category:Java_specification_requests" title="Category:Java specification requests">Java specification requests</a></li><li><a href="/wiki/Category:JVM_programming_languages" title="Category:JVM programming languages">JVM programming languages</a></li><li><a href="/wiki/Category:Object-oriented_programming_languages" title="Category:Object-oriented programming languages">Object-oriented programming languages</a></li><li><a href="/wiki/Category:Programming_languages_created_in_1995" title="Category:Programming languages created in 1995">Programming languages created in 1995</a></li><li><a href="/wiki/Category:Statically_typed_programming_languages" title="Category:Statically typed programming languages">Statically typed programming languages</a></li><li><a href="/wiki/Category:Sun_Microsystems" title="Category:Sun Microsystems">Sun Microsystems</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_April_2015" title="Category:Articles with unsourced statements from April 2015">Articles with unsourced statements from April 2015</a></li><li><a href="/wiki/Category:Articles_containing_potentially_dated_statements_from_2015" title="Category:Articles containing potentially dated statements from 2015">Articles containing potentially dated statements from 2015</a></li><li><a href="/wiki/Category:All_articles_containing_potentially_dated_statements" title="Category:All articles containing potentially dated statements">All articles containing potentially dated statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_June_2013" title="Category:Articles with unsourced statements from June 2013">Articles with unsourced statements from June 2013</a></li><li><a href="/wiki/Category:Articles_needing_additional_references_from_May_2013" title="Category:Articles needing additional references from May 2013">Articles needing additional references from May 2013</a></li><li><a href="/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li><li><a href="/wiki/Category:Articles_needing_cleanup_from_May_2013" title="Category:Articles needing cleanup from May 2013">Articles needing cleanup from May 2013</a></li><li><a href="/wiki/Category:All_pages_needing_cleanup" title="Category:All pages needing cleanup">All pages needing cleanup</a></li><li><a href="/wiki/Category:Articles_containing_how-to_sections" title="Category:Articles containing how-to sections">Articles containing how-to sections</a></li><li><a href="/wiki/Category:Articles_needing_cleanup_from_January_2012" title="Category:Articles needing cleanup from January 2012">Articles needing cleanup from January 2012</a></li><li><a href="/wiki/Category:Articles_needing_additional_references_from_December_2014" title="Category:Articles needing additional references from December 2014">Articles needing additional references from December 2014</a></li><li><a href="/wiki/Category:Vague_or_ambiguous_time_from_December_2014" title="Category:Vague or ambiguous time from December 2014">Vague or ambiguous time from December 2014</a></li><li><a href="/wiki/Category:Articles_with_specifically_marked_weasel-worded_phrases_from_September_2015" title="Category:Articles with specifically marked weasel-worded phrases from September 2015">Articles with specifically marked weasel-worded phrases from September 2015</a></li><li><a href="/wiki/Category:Wikipedia_articles_that_may_have_off-topic_paragraphs" title="Category:Wikipedia articles that may have off-topic paragraphs">Wikipedia articles that may have off-topic paragraphs</a></li><li><a href="/wiki/Category:Wikipedia_articles_with_GND_identifiers" title="Category:Wikipedia articles with GND identifiers">Wikipedia articles with GND identifiers</a></li><li><a href="/wiki/Category:Articles_with_example_Java_code" title="Category:Articles with example Java code">Articles with example Java code</a></li></ul></div></div>				<div class="visualClear"></div>
 							</div>
 		</div>
@@ -1806,7 +1807,7 @@ Transclusion expansion time report (%,ms,calls,template)
 
 			<div class="body">
 									<ul>
-						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Java_(programming_language)" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Java_(programming_language)" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Java_(programming_language)&amp;oldid=707807094" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Java_(programming_language)&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q251" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Java_%28programming_language%29&amp;id=707807094" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Java_(programming_language)" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Java_(programming_language)" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Java_(programming_language)&amp;oldid=709138401" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Java_(programming_language)&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q251" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Java_%28programming_language%29&amp;id=709138401" title="Information on how to cite this page">Cite this page</a></li>					</ul>
 							</div>
 		</div>
 			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
@@ -1814,11 +1815,11 @@ Transclusion expansion time report (%,ms,calls,template)
 
 			<div class="body">
 									<ul>
-						<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Java+%28programming+language%29">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Java+%28programming+language%29&amp;returnto=Java+%28programming+language%29&amp;oldid=707807094&amp;writer=rdf2latex">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Java_(programming_language)&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>					</ul>
+						<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Java+%28programming+language%29">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Java+%28programming+language%29&amp;returnto=Java+%28programming+language%29&amp;oldid=709138401&amp;writer=rdf2latex">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Java_(programming_language)&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>					</ul>
 							</div>
 		</div>
 			<div class="portal" role="navigation" id='p-wikibase-otherprojects' aria-labelledby='p-wikibase-otherprojects-label'>
-			<h3 id='p-wikibase-otherprojects-label'>Other projects</h3>
+			<h3 id='p-wikibase-otherprojects-label'>In other projects</h3>
 
 			<div class="body">
 									<ul>
@@ -1837,7 +1838,7 @@ Transclusion expansion time report (%,ms,calls,template)
 		</div>
 		<div id="footer" role="contentinfo">
 							<ul id="footer-info">
-											<li id="footer-info-lastmod"> This page was last modified on 1 March 2016, at 22:15.</li>
+											<li id="footer-info-lastmod"> This page was last modified on 9 March 2016, at 10:15.</li>
 											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
 additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
 									</ul>
@@ -1861,7 +1862,7 @@ additional terms may apply.  By using this site, you agree to the <a href="//wik
 		<script>(window.RLQ = window.RLQ || []).push(function () {
 mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","user":"ready","user.groups":"ready"});mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.eventLogging.subscriber","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.visualEditor.targetLoader","ext.wikimediaEvents","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"]);
 } );</script><script>(window.RLQ = window.RLQ || []).push(function () {
-mw.config.set({"wgBackendResponseTime":84,"wgHostname":"mw1255"}); /* @nomin */
+mw.config.set({"wgBackendResponseTime":113,"wgHostname":"mw1080"}); /* @nomin */
 } );</script>
 	</body>
 </html>
