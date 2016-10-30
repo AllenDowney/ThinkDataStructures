@@ -55,6 +55,11 @@
             <classpath refid="JavaCS.classpath"/>
         </java>
     </target>
+    <target name="WikiNodeExample">
+        <java classname="WikiNodeExample" failonerror="true" fork="yes">
+            <classpath refid="JavaCS.classpath"/>
+        </java>
+    </target>
     <target name="WikiNodeIterable">
         <java classname="WikiNodeIterable" failonerror="true" fork="yes">
             <classpath refid="JavaCS.classpath"/>
