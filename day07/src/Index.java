@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
 
-import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
 /**
