@@ -6,6 +6,7 @@
 * isIndexed
 * add
 * getURLs
+* getCount
 * getCounts
 
 ## Crawler
