@@ -1,5 +1,7 @@
 # Day03 - Stacks and Queues
 
+Implement the following methods:
+
 ### MyStackAL and MyStackLL
 * size()
 * push()
