@@ -39,11 +39,6 @@
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="SelectionSort">
-        <java classname="SelectionSort" failonerror="true" fork="yes">
-            <classpath refid="JavaCS.classpath"/>
-        </java>
-    </target>
     <target name="MyArrayList">
         <java classname="MyArrayList" failonerror="true" fork="yes">
             <classpath refid="JavaCS.classpath"/>

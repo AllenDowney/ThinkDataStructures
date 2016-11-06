@@ -6,5 +6,3 @@
 * add: implement the `add` method of `MyArrayList`.
 * remove: implement the `remove` method of `MyArrayList`.
 
-## SelectionSort
-* this file is only here for observation purposes
