@@ -2,7 +2,7 @@
 
 ## 17.5
 
-in `MyTreeMap`:
+In `MyTreeMap`:
 
 - Fill in the body of `findNode(Object target)`
 
