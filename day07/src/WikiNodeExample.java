@@ -26,7 +26,6 @@ public class WikiNodeExample {
         // select the content text and pull out the paragraphs.
         Element content = doc.getElementById("mw-content-text");
 
-        // TODO: avoid selecting paragraphs from sidebars and boxouts
         Elements paras = content.select("p");
         Element firstPara = paras.get(0);
 
