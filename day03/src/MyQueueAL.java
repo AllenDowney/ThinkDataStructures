@@ -19,28 +19,24 @@ public class MyQueueAL<T> implements QueueADT<T> {
 
     @Override
     public int size() {
-        return size;
+    	// TODO: Implement this method
+    	return 0;
     }
 
     @Override
     public void enqueue(T newItem) {
         // TODO: Implement this method
-        items.add(newItem);
-        size++;
     }
 
     @Override
     public T dequeue() {
         // TODO: Implement this method
-        int toRemove = size - 1;
-        T e = items.remove(toRemove);
-        size--;
-        return e;
+        return null;
     }
 
     @Override
     public boolean isEmpty() {
         // TODO: Implement this method
-        return size == 0;
+        return false;
     }
 }

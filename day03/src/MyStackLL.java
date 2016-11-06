@@ -17,27 +17,23 @@ public class MyStackLL<T> implements StackADT<T> {
 
     @Override
     public int size() {
-        return size;
+        return 0;
     }
 
     @Override
     public void push(T newItem) {
         // TODO: Implement this method
-        items.addLast(newItem);
-        size++;
     }
 
     @Override
     public T pop() {
         // TODO: Implement this method
-        T e = items.removeLast();
-        size--;
-        return e;
+        return null;
     }
 
     @Override
     public boolean isEmpty() {
         // TODO: Implement this method
-        return size == 0;
+        return false;
     }
 }
