@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 
 import java.util.Map;
@@ -18,12 +18,12 @@ public class SillyString {
 	public String toString() {
 		return innerString;
 	}
-	
+
 	@Override
 	public boolean equals(Object other) {
 		return this.toString().equals(other.toString());
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int total = 0;
@@ -33,18 +33,18 @@ public class SillyString {
 		System.out.println(total);
 		return total;
 	}
-	
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		Map<SillyString, Integer> map = new MyBetterMap<SillyString, Integer>();
-		
+
 		map.put(new SillyString("Word1"), 1);
 		map.put(new SillyString("Word2"), 2);
 		Integer value = map.get(new SillyString("Word1"));
 		System.out.println(value);
-		
+
 		for (SillyString key: map.keySet()) {
 			System.out.println(key + ", " + map.get(key));
 		}

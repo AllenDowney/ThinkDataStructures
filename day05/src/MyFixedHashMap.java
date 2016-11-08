@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 
 import java.util.Map;
@@ -7,29 +7,29 @@ import java.util.Map;
 /**
  * Implementation of a HashMap using a collection of MyLinearMap and
  * resizing when there are too many entries.
- * 
+ *
  * @author downey
  * @param <K>
  * @param <V>
  *
  */
 public class MyFixedHashMap<K, V> extends MyHashMap<K, V> implements Map<K, V> {
-	
+
 	private int size = 0;
-	
+
 	@Override
 	public void clear() {
 		super.clear();
 		size = 0;
 	}
-	
+
 	@Override
 	public V put(K key, V value) {
 		MyLinearMap<K, V> map = chooseMap(key);
 		size -= map.size();
 		V oldValue = map.put(key, value);
 		size += map.size();
-		
+
 		if (size() > maps.size() * FACTOR) {
 			size = 0;
 			rehash();

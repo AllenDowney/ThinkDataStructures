@@ -28,7 +28,7 @@ public class WikiSearchTest {
 		map1.put("Page2", 2);
 		map1.put("Page3", 3);
 		search1 = new WikiSearch(map1);
-		
+
 		Map<String, Integer> map2 = new HashMap<String, Integer>();
 		map2.put("Page2", 4);
 		map2.put("Page3", 5);

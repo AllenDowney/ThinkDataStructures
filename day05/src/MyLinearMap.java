@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.allendowney.javacs;
 
@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * Implementation of a Map using a List of entries, so most
  * operations are linear time.
- * 
+ *
  * @author downey
  * @param <K>
  * @param <V>
@@ -26,12 +26,12 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 	public class Entry implements Map.Entry<K, V> {
 		private K key;
 		private V value;
-		
+
 		public Entry(K key, V value) {
 			this.key = key;
 			this.value = value;
 		}
-		
+
 		@Override
 		public K getKey() {
 			return key;
@@ -46,7 +46,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 			return value;
 		}
 	}
-		
+
 	@Override
 	public void clear() {
 		entries.clear();
@@ -58,8 +58,8 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 	}
 
 	/**
-	 * Returns the entry that contains the target key, or null if there is none. 
-	 * 
+	 * Returns the entry that contains the target key, or null if there is none.
+	 *
 	 * @param target
 	 */
 	private Entry findEntry(Object target) {
@@ -73,7 +73,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 
 	/**
 	 * Compares two keys or two values, handling null correctly.
-	 * 
+	 *
 	 * @param target
 	 * @param obj
 	 * @return
@@ -168,7 +168,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 		}
 		return set;
 	}
-	
+
 	/**
 	 * @param args
 	 */
@@ -178,7 +178,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 		map.put("Word2", 2);
 		Integer value = map.get("Word1");
 		System.out.println(value);
-		
+
 		for (String key: map.keySet()) {
 			System.out.println(key + ", " + map.get(key));
 		}
@@ -186,10 +186,10 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 
 	/**
 	 * Returns a reference to `entries`.
-	 * 
+	 *
 	 * This is not part of the Map interface; it is here to provide the functionality
 	 * of `entrySet` in a way that is substantially simpler than the "right" way.
-	 * 
+	 *
 	 * @return
 	 */
 	protected Collection<? extends java.util.Map.Entry<K, V>> getEntries() {

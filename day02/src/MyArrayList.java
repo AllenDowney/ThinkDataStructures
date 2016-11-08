@@ -8,9 +8,9 @@ import java.util.*;
 public class MyArrayList<T> implements List<T> {
 	int size;                    // keeps track of the number of elements
 	private T[] array;           // stores the elements
-	
+
 	/**
-	 * 
+	 *
 	 */
 	public MyArrayList() {
 		// You can't instantiate an array of T[], but you can instantiate an
@@ -30,7 +30,7 @@ public class MyArrayList<T> implements List<T> {
 		mal.add(2);
 		mal.add(3);
 		System.out.println(Arrays.toString(mal.toArray()) + " size = " + mal.size);
-		
+
 		mal.remove(new Integer(2));
 		System.out.println(Arrays.toString(mal.toArray()) + " size = " + mal.size);
 	}
@@ -42,7 +42,7 @@ public class MyArrayList<T> implements List<T> {
 			T[] bigger = (T[]) new Object[array.length * 2];
 			System.arraycopy(array, 0, bigger, 0, array.length);
 			array = bigger;
-		} 
+		}
 		array[size] = element;
 		size++;
 		return true;
@@ -55,7 +55,7 @@ public class MyArrayList<T> implements List<T> {
 		}
 		// add the element to get the resizing
 		add(element);
-		
+
 		// shift the elements
 		for (int i=size-1; i>index; i--) {
 			array[i] = array[i-1];
@@ -119,9 +119,9 @@ public class MyArrayList<T> implements List<T> {
 	}
 
 	/** Checks whether an element of the array is the target.
-	 * 
+	 *
 	 * Handles the special case that the target is null.
-	 * 
+	 *
 	 * @param target
 	 * @param object
 	 */
@@ -236,6 +236,6 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public <T> T[] toArray(T[] array) {
-		throw new UnsupportedOperationException();		
+		throw new UnsupportedOperationException();
 	}
 }

@@ -19,7 +19,7 @@ import org.jfree.ui.RefineryUtilities;
  *
  */
 public class Profiler extends ApplicationFrame {
-	
+
 	/**
 	 * This is here because extending ApplicationFrame requires it.
 	 */
@@ -27,20 +27,20 @@ public class Profiler extends ApplicationFrame {
 
 	/**
 	 * Timeable defines the methods an object must provide to work with Profiler
-	 * 
+	 *
 	 */
 	public interface Timeable {
 		/*
 		 * setup is invoked before the clock starts.
 		 */
 		public void setup(int n);
-		
+
 		/*
 		 * timeMe does whatever operation we are timing.
 		 */
 		public void timeMe(int n);
 	}
-	
+
 	private Timeable timeable;
 
 	public Profiler(String title, Timeable timeable) {
@@ -50,7 +50,7 @@ public class Profiler extends ApplicationFrame {
 
 	/**
 	 * Invokes timeIt with a range of `n` from `startN` until runtime exceeds `endMillis`.
-	 * 
+	 *
 	 * @param data.timeable
 	 * @param n
 	 * @return
@@ -62,21 +62,21 @@ public class Profiler extends ApplicationFrame {
 		for (int i=0; i<20; i++) {
 			// run it once to warm up
 			timeIt(n);
-			
+
 			// then start timing
 			long total = 0;
-			
+
 			// run 10 times and add up total runtime
 			for (int j=0; j<10; j++) {
 				total += timeIt(n);
 			}
 			System.out.println(n + ", " + total);
-			
+
 			// don't store data until we get to 4ms
 			if (total > 4) {
 				series.add(n, total);
 			}
-			
+
 			// stop when the runtime exceeds the end threshold
 			if (total > endMillis) {
 				break;
@@ -86,10 +86,10 @@ public class Profiler extends ApplicationFrame {
 		}
 		return series;
 	}
-	
+
 	/**
 	 * Invokes setup and timeMe on the embedded Timeable.
-	 * 
+	 *
 	 * @param n
 	 * @return
 	 */
@@ -103,16 +103,16 @@ public class Profiler extends ApplicationFrame {
 
 	/**
 	 * Plots the results.
-	 * 
+	 *
 	 * @param series
 	 */
 	public void plotResults(XYSeries series) {
 		double slope = estimateSlope(series);
 		System.out.println("Estimated slope= " + slope);
-		
+
 		final XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(series);
-        
+
         final JFreeChart chart = ChartFactory.createXYLineChart(
             "",          // chart title
             "",               // domain axis label
@@ -138,10 +138,10 @@ public class Profiler extends ApplicationFrame {
         RefineryUtilities.centerFrameOnScreen(this);
         setVisible(true);
 	}
-	
+
 	/**
 	 * Uses simple regression to estimate the slope of the series.
-	 * 
+	 *
 	 * @param series
 	 * @return
 	 */

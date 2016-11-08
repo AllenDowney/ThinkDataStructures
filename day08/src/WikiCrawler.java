@@ -8,7 +8,7 @@ import java.util.Queue;
 public class WikiCrawler {
 	// keeps track of where we started
 	private final String source;
-	
+
 	// the index where the results go
 	private JedisIndex index;
 

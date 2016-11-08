@@ -4,7 +4,7 @@ import java.util.List;
 import org.jfree.data.xy.XYSeries;
 
 public class ProfileAdd {
-	
+
 	/**
 	 * @param args
 	 */
@@ -36,7 +36,7 @@ public class ProfileAdd {
 		int endMillis = 1000;
 		runProfiler("ArrayList add end", timeable, startN, endMillis);
 	}
-	
+
 	/**
 	 * Characterize the run time of adding to the beginning of an ArrayList
 	 */
@@ -60,7 +60,7 @@ public class ProfileAdd {
 
 	/**
 	 * Runs the profiles and displays results.
-	 * 
+	 *
 	 * @param timeable
 	 * @param startN
 	 * @param endMillis

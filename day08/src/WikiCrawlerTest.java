@@ -47,14 +47,14 @@ public class WikiCrawlerTest {
 
 	/**
 	 * Test method for {@link WikiCrawler#crawl()}.
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@Test
 	public void testCrawl() throws IOException {
 		String url1 = "https://en.wikipedia.org/wiki/Java_(programming_language)";
 		String url2 = "https://en.wikipedia.org/wiki/Programming_language";
 		String url3 = "https://en.wikipedia.org/wiki/Concurrent_computing";
-		
+
 		String res = wc.crawl(true);
 		assertThat(res.equals(url1), is(true));
 		assertThat(wc.queueSize(), is(396));

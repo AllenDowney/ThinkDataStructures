@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 
 import java.util.ArrayList;
@@ -12,20 +12,20 @@ import java.util.Set;
 /**
  * Implementation of a Map using a collection of MyLinearMap, and
  * using `hashCode` to determine which map each key should go in.
- * 
+ *
  * @author downey
  * @param <K>
  * @param <V>
  *
  */
 public class MyBetterMap<K, V> implements Map<K, V> {
-	
+
 	// MyBetterMap uses a collection of MyLinearMap
 	protected List<MyLinearMap<K, V>> maps;
-	
+
 	/**
 	 * Initialize the map with 2 sub-maps.
-	 * 
+	 *
 	 */
 	public MyBetterMap() {
 		makeMaps(2);
@@ -33,7 +33,7 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 
 	/**
 	 * Makes a collection of `k` MyLinearMap
-	 * 
+	 *
 	 * @param k
 	 */
 	protected void makeMaps(int k) {
@@ -42,7 +42,7 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 			maps.add(new MyLinearMap<K, V>());
 		}
 	}
-		
+
 	@Override
 	public void clear() {
 		// clear the sub-maps
@@ -53,14 +53,14 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 
 	/**
 	 * Uses the hashCode to find the map that would/should contain the given key.
-	 * 
+	 *
 	 * @param key
 	 * @return
 	 */
 	protected MyLinearMap<K, V> chooseMap(Object key) {
 		int index = key==null ? 0 : Math.abs(key.hashCode()) % maps.size();
 		return maps.get(index);
-	}	
+	}
 
 	@Override
 	public boolean containsKey(Object target) {
@@ -140,7 +140,7 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 		}
 		return set;
 	}
-	
+
 	/**
 	 * @param args
 	 */
@@ -150,7 +150,7 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 		map.put("Word2", 2);
 		Integer value = map.get("Word1");
 		System.out.println(value);
-		
+
 		for (String key: map.keySet()) {
 			System.out.println(key + ", " + map.get(key));
 		}

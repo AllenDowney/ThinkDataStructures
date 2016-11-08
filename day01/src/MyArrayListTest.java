@@ -31,7 +31,7 @@ public class MyArrayListTest {
 		list.add(1);
 		list.add(2);
 		list.add(3);
-		
+
 		mylist = new MyArrayList<Integer>();
 		mylist.addAll(list);
 	}
@@ -65,7 +65,7 @@ public class MyArrayListTest {
 		//System.out.println(Arrays.toString(mal.toArray()));
 		Assert.assertThat(mylist.get(1), CoreMatchers.is(new Integer(5)));
 		Assert.assertThat(mylist.size(), CoreMatchers.is(4));
-		
+
 		try {
 		    mylist.set(-1, 0);
 		    Assert.fail();
@@ -75,7 +75,7 @@ public class MyArrayListTest {
 		    mylist.set(4, 0);
 		    Assert.fail();
 		} catch (IndexOutOfBoundsException e) {} // good
-		
+
 		mylist.add(0, 6);
 		//System.out.println(Arrays.toString(mal.toArray()));
 		Assert.assertThat(mylist.get(0), CoreMatchers.is(6));
@@ -144,7 +144,7 @@ public class MyArrayListTest {
 		Assert.assertThat(mylist.indexOf(3), CoreMatchers.is(2));
 		Assert.assertThat(mylist.indexOf(4), CoreMatchers.is(-1));
 	}
-	
+
 	/**
 	 * Test method for {@link MyArrayList#indexOf(java.lang.Object)}.
 	 */
@@ -202,13 +202,13 @@ public class MyArrayListTest {
 		Assert.assertThat(mylist.size(), CoreMatchers.is(1));
 		Assert.assertThat(mylist.get(0), CoreMatchers.is(new Integer(3)));
 		//System.out.println(Arrays.toString(mal.toArray()));
-		
+
 		flag = mylist.remove(new Integer(5));
 		Assert.assertThat(flag, CoreMatchers.equalTo(false));
 		Assert.assertThat(mylist.size(), CoreMatchers.is(1));
 		Assert.assertThat(mylist.get(0), CoreMatchers.is(new Integer(3)));
 		//System.out.println(Arrays.toString(mal.toArray()));
-		
+
 		flag = mylist.remove(new Integer(3));
 		Assert.assertThat(flag, CoreMatchers.equalTo(true));
 		Assert.assertThat(mylist.size(), CoreMatchers.is(0));

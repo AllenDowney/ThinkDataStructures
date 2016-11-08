@@ -2,14 +2,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ListClientExample {
-	private List list;
-	
+	private List list
+
 	public ListClientExample() {
 		list = new LinkedList();
 	}
 
 	public List getList() {
-		return list;		
+		return list;
 	}
 
 	public static void main(String[] args) {
