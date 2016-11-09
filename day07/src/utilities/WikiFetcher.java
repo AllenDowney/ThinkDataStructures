@@ -1,3 +1,5 @@
+package utilities;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,6 +16,17 @@ public class WikiFetcher {
 	private long lastRequestTime = -1;
 	private long minInterval = 1000;
 
+    /**
+     * Parses the DOM tree of the page
+     *
+     * @param doc
+     * @return Elements
+     */
+	public Elements getParagraphs(Document doc) {
+        Element content = doc.getElementById("mw-content-text");
+        return content.select("p");
+    }
+
 	/**
 	 * Fetches and parses a URL string, returning a list of paragraph elements.
 	 *
@@ -28,11 +41,7 @@ public class WikiFetcher {
 		Connection conn = Jsoup.connect(url);
 		Document doc = conn.get();
 
-		// select the content text and pull out the paragraphs.
-		Element content = doc.getElementById("mw-content-text");
-
-		Elements paras = content.select("p");
-		return paras;
+	    return getParagraphs(doc);
 	}
 
 	/**
@@ -53,10 +62,7 @@ public class WikiFetcher {
 		InputStream stream = WikiFetcher.class.getClassLoader().getResourceAsStream(filename);
 		Document doc = Jsoup.parse(stream, "UTF-8", filename);
 
-		// parse the contents of the file
-		Element content = doc.getElementById("mw-content-text");
-		Elements paras = content.select("p");
-		return paras;
+		return getParagraphs(doc);
 	}
 
 	/**
@@ -85,7 +91,7 @@ public class WikiFetcher {
 	public static void main(String[] args) throws IOException {
 		WikiFetcher wf = new WikiFetcher();
 		String url = "https://en.wikipedia.org/wiki/Java_(programming_language)";
-		Elements paragraphs = wf.readWikipedia(url);
+		Elements paragraphs = wf.fetchWikipedia(url);
 
 		for (Element paragraph: paragraphs) {
 			System.out.println(paragraph);
