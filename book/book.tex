@@ -213,78 +213,136 @@ Permission is granted to copy, distribute, and/or modify this work under the ter
 
 \section*{The philosophy behind the book}
 
-Here are the guiding principles that make the book the way it is:
+Data structures and algorithms are among the most important inventions
+of the last 50 years, and they are fundamental tools
+software engineers need to know.  But in my opinion, most of the books
+on these topics are too theoretical, too big, and too ``bottom up'':
 
-\begin{itemize}
+\begin{description}
 
-\item {\em One concept at a time.}
-We break down topics that give beginners trouble into a series of small steps, so that they can exercise each new concept in isolation before continuing.
+\item[Too theoretical]:  Mathematical analysis of algorithms is based
+on simplifying assumptions that limit its usefulness in practice.
+Many presentations of this topic gloss over the simplifications and
+focus on the math.  In this book I present the most practical subset
+of this material and eliminate the rest.
 
-\item {\em Balance of Java and concepts.}
-The book is not primarily about Java; it uses code examples to demonstrate computer science.
-Most chapters start with language features and end with concepts.
+\item[Too big]: Most books on these topics are at least 500 pages,
+and some are more than 1000.  By focusing on the topics I think are
+most useful for software engineers, I kept this book under
+250 pages.
 
-\item {\em Conciseness.}
-An important goal of the book is to be small enough so that students can read and understand the entire text in a one-semester college or AP course.
-%Students can read 1--2 chapters per week, depending on the pace of the instruction.
+%TODO: check this page count at the end
 
-\item {\em Emphasis on vocabulary.}
-We try to introduce the minimum number of terms and define them carefully when they are first used.
-We also organize them in glossaries at the end of each chapter.
+\item[Too ``bottom up'']: Many data structures books focus on how data
+  structures work (the implementations), with less about how to use
+  them (the interfaces).  In this book, I go ``top down'', starting
+  with the interfaces.  Readers learn to use the structures in the
+  Java Collections Framework before getting into the details of how
+  they work.
 
-\item {\em Program development.}
-There are many strategies for writing programs, including bottom-up, top-down, and others.
-We demonstrate multiple program development techniques, allowing readers to choose methods that work best for them.
+\end{description}
 
-\item {\em Multiple learning curves.}
-To write a program, you have to understand the algorithm, know the programming language, and be able to debug errors.
-We discuss these and other aspects throughout the book, and include an appendix that summarizes our advice.
+Finally, many present this material out of context and without
+motivation: it's just one damn data structure after another!
 
-\end{itemize}
+I try to alleviate the boredom by organizing the topics around an
+application -- web search -- that uses data structures extensively,
+and is an interesting and important topic in its own right.
 
+This application also motivates some topics that are not usually
+covered in an introductory data structures class, including persistent
+data structures, with Redis, and streaming algorithms.
 
+I have made difficult decisions about what to leave out, but 
+I have made some compromises.  I include a few topics
+that most readers will never use, but that they might be expected to
+know, possibly in a technical interview.  For these topics, I
+present both the conventional wisdom as well as my reasons to be
+skeptical. 
+
+This book also presents basic aspects of software engineering practice,
+including version control and unit testing.  Each chapter ends with
+an exercise that allows readers to apply what they have learned.
+Each exercise includes automated tests that check the solution.
+And for most exercises, I present my solution at the beginning of
+the next chapter.
+
+This book is intended for college students in computer science and related
+fields, as well as professional software engineers, people training in
+software engineering, and people preparing for technical interviews.
+
+I assume that the reader knows Java at an intermediate level,
+but I explain some Java features along the way, and provide pointers
+to supplementary material.
+
+People who have read {\it Think Java} or {\it Head First
+Java} are prepared for this book.
 
 
 \section*{Working with the code}
 \label{code}
 
-Most of the code examples in this book are available from a Git repository at \url{https://github.com/AllenDowney/ThinkJavaCode}.
-Git is a ``version control system'' that allows you to keep track of the files that make up a project.
-A collection of files under Git's control is called a ``repository''.
+The code for this book is in a Git repository at
+\url{https://github.com/AllenDowney/ThinkCS}.
+
+Git is a ``version control system'' that allows you to keep track of
+the files that make up a project.  A collection of files under Git's
+control is called a ``repository''.
 
 \index{repository}
 \index{GitHub}
 
-GitHub is a hosting service that provides storage for Git repositories and a convenient web interface.
-It provides several ways to work with the code:
+GitHub is a hosting service that provides storage for Git repositories
+and a convenient web interface.  It provides several ways to work with
+the code:
 
 \begin{itemize}
 
-\item You can create a copy of the repository on GitHub by pressing the {\sf Fork} button.
-If you don't already have a GitHub account, you'll need to create one.
-After forking, you'll have your own repository on GitHub that you can use to keep track of code you write.
-Then you can ``clone'' the repository, which downloads a copy of the files to your computer.
+\item You can create a copy of the repository on GitHub by pressing
+  the {\sf Fork} button.  If you don't already have a GitHub account,
+  you'll need to create one.  After forking, you'll have your own
+  repository on GitHub that you can use to keep track of code you
+  write.  Then you can ``clone'' the repository, which downloads a
+  copy of the files to your computer.
 
 \item Alternatively, you could clone the repository without forking.
-If you choose this option, you don't need a GitHub account, but you won't be able to save your changes on GitHub.
+  If you choose this option, you don't need a GitHub account, but you
+  won't be able to save your changes on GitHub.
 
-\item If you don't want to use Git at all, you can download the code in a ZIP archive using the {\sf Download ZIP} button on the GitHub page, or this link: \url{http://tinyurl.com/ThinkJavaCodeZip}.
+\item If you don't want to use Git at all, you can download the code
+  in a ZIP archive using the {\sf Download ZIP} button on the GitHub
+  page, or this link:
+  \url{https://github.com/AllenDowney/ThinkCS/archive/master.zip}.
+
+% or http://tinyurl.com/ThinkCSCode
 
 \end{itemize}
 
-After you clone the repository or unzip the ZIP file, you should have a directory called {\tt ThinkJavaCode} with a subdirectory for each chapter in the book.
+After you clone the repository or unzip the ZIP file, you should have
+a directory called {\tt ThinkCS} with a subdirectory called {\tt code}.
 
-All examples in this book were developed and tested using Java SE Development Kit 8.
-If you are using a more recent version, the examples in this book should still work.
-If you are using an older version, some of them may not.
+The examples in this book were developed and tested using Java SE
+Development Kit 7.  If you an older version, some examples will not
+work.  If you are using a more recent version, they should all work.
 
 
 \section*{Contributors}
 
+This book is an adapted version of a curriculum I wrote for the
+Flatiron School, which offers a variety of online classes related
+to programming and web development.  They offer a class based
+on this material, which provides an online development environment,
+help from instructors and other students, and a certificate of
+completion.  You can find more information at \url{???}.
+
+
 \begin{itemize}
 
-\item Flatiron?
 
+\item At the Flatiron School, Joe Burgess, Ann John, and Charles
+Pletcher provided guidance, suggestions, and corrections from the
+initial specification all the way through implementation and testing.
+Thank you all!
 
 % ENDCONTRIB
 
@@ -293,12 +351,14 @@ If you are using an older version, some of them may not.
 
 Additional contributors who found one or more typos: 
 
-If you have additional comments or ideas about the text, please send them to: \href{mailto:feedback@greenteapress.com}{\tt feedback@greenteapress.com}.
+If you have additional comments or ideas about the text, please send
+them to: \href{mailto:feedback@greenteapress.com}{\tt
+  feedback@greenteapress.com}.
 
 
 \mainmatter
 
-\chapter{Interfaces}
+\chapter{Interfaces and implementations}
 \label{cs-lists-programming-to-an-interface-readme}
 
 This book presents three topics:
@@ -309,7 +369,7 @@ This book presents three topics:
 Collections Framework (JCF), you will learn how to use data structures
 like lists and maps, and you will see how they work.
 
-\item Analysis of algorithms: I will present techniques for analyzing
+\item Analysis of algorithms: I present techniques for analyzing
 code and predicting how fast it will run and how much space (memory) it
 will require.
 
@@ -378,7 +438,7 @@ to a set of classes and methods that provide certain capabilities.
 
 In the context of Java, it also refers to a language feature, similar to
 a class, that specifies a set of methods. To help avoid confusion,
-we'll use ``interface'' in the normal typeface for the general idea of
+I'll use ``interface'' in the normal typeface for the general idea of
 an interface, and \java{interface} in the code typeface for the Java
 language feature.
 
@@ -388,11 +448,22 @@ like \java{ArrayList<Integer>}.
 If not, you can read about type parameters at
 \url{https://docs.oracle.com/javase/tutorial/java/generics/types.html}.
 
-Finally, you should be familiar with the Java
-Collections Framework (JCF), which you can read about at
+You should be familiar with the Java Collections Framework
+(JCF), which you can read about at
 \url{https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html}.
-In particular, you should know about the \java{interface} \java{List}
+In particular, you should know about the \java{List} \java{interface}
 and the classes \java{ArrayList} and \java{LinkedList}.
+
+Ideally you should be familiar with {\tt ant}, which is...
+
+You can read more about Ant at
+\url{https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html}
+
+
+And {\tt JUnit}, which is...
+
+TODO: write these
+
 
 
 \section{Why are there two kinds of \java{List}?}
@@ -400,23 +471,25 @@ and the classes \java{ArrayList} and \java{LinkedList}.
 
 When people start working with the Java Collections Framework, they
 are sometimes confused about \java{ArrayList} and
-\java{LinkedList}. Why does Java provide two implementations of the
-\java{List} \java{interface}? And how should we choose which one to
+\java{LinkedList}.  Why does Java provide two implementations of the
+\java{List} \java{interface}?  And how should we choose which one to
 use? We will answer these questions in the next few chapters.
 
-We'll start by reviewing \java{interface}s and classes that implement
+We'll start by reviewing \java{interface}s, and the classes that implement
 them, and we'll present the idea of ``programming to an
 interface''.
 
 In the first two exercises, you'll implement classes
 similar to \java{ArrayList} and \java{LinkedList}, so you'll know how
-they work, and we'll see that each of them has pros and cons. Some
+they work, and we'll see that each of them has pros and cons.  Some
 operations are faster or use less space with \java{ArrayList}; others
-are faster or smaller with \java{LinkedList}. Which one is better for
+are faster or smaller with \java{LinkedList}.  Which one is better for
 a particular application depends on which operations it performs most
 often.
 
-\section{Interfaces in Java}\label{interfaces-in-java}
+
+\section{Interfaces in Java}
+\label{interfaces-in-java}
 
 A Java \java{interface} specifies a set of methods; any class that
 implements this \java{interface} has to provide these methods. For
@@ -463,10 +536,10 @@ This class extends \java{Number}, so it inherits the methods and
 instance variables of \java{Number}; and it implements
 \java{Comparable<Integer>}, so it provides a
 method named \java{compareTo} that takes an \java{Integer} and
-returns an `int'.
+returns an \java{int}.
 
 When a class declares that it implements an \java{interface}, the compiler
-checks that it provides implementations of all methods defined by the
+checks that it provides all methods defined by the
 \java{interface}.
 
 
@@ -477,8 +550,8 @@ The Java collections framework (JCF) defines an \java{interface} called
 \java{List} and provides two implementations, \java{ArrayList} and
 \java{LinkedList}.
 
-The \java{interface} defines what it means to be a
-\java{List}; any class that implements this \java{interface} has to provide a
+The \java{interface} defines what it means to be a \java{List}; any
+class that implements this \java{interface} has to provide a
 particular set of methods, including \java{add}, \java{get},
 \java{remove}, and about 20 more.
 
@@ -512,7 +585,7 @@ public class ListClientExample {
 \java{ListClientExample} doesn't do anything useful, but it has the
 essential elements of a class that {\bf encapsulates} a
 \java{List}; that is, it contains a \java{List} as an instance
-variable. I'll use this class to make a point, and then you'll work
+variable.  I'll use this class to make a point, and then you'll work
 with it in the first exercise.
 
 The \java{ListClientExample} constructor initializes \java{list} by
@@ -542,10 +615,9 @@ interface the library provides; it should not depend on details of the
 implementation. That way, if the implementation of the library changes
 in the future, your code will still work.
 
-On the other hand, if the
-interface changes, the code that depends on it has to change, too.
-That's why library developers avoid changing interfaces unless
-absolutely necessary.
+On the other hand, if the interface changes, the code that depends on
+it has to change, too.  That's why library developers avoid changing
+interfaces unless absolutely necessary.
 
 
 \section{Exercise 1}
@@ -554,47 +626,47 @@ absolutely necessary.
 Since this is the first exercise, we'll keep it simple. You will take
 the code from the previous section and {\bf swap the implementation};
 that is, you will replace the \java{LinkedList} with an
-\java{ArrayList}. Because the code programs to an interface, you will
+\java{ArrayList}.  Because the code programs to an interface, you will
 be able to swap the implementation by changing a single line (and
 adding an \java{import} statement).
 
 Start by setting up your development environment. For all of the
-exercises, you will need to be able to compile and run Java code. I
-developed the examples using the Java SE Development Kit 7. If you are
-using a more recent version, everything should still work. If you are
+exercises, you will need to be able to compile and run Java code.  I
+developed the examples using the Java SE Development Kit 7.  If you are
+using a more recent version, everything should still work.  If you are
 using an older version, you might find some incompatibilities.
 
-I recommend using an interactive development environment (IDE) like
-Eclipse that provides syntax-checking, auto-completion, and source
-code refactoring. These features help you avoid errors or find them
-quicky. However, if you are preparing for a technical interview,
+I recommend using an interactive development environment (IDE) that
+provides syntax-checking, auto-completion, and source code
+refactoring.  These features help you avoid errors or find them
+quicky.  However, if you are preparing for a technical interview,
 remember that you will not have these tools during the interview, so
 you might also want to practice writing code without them.
 
-The next step is to check out the repository for this exercise.
-<DETAILS HERE>
+If you have not already downloaded the code for this book, see the
+instructions in Section~\ref{code}.
 
-In the directory {\tt exercise01}, you should find these files:
+
+In the directory named {\tt code}, you should find these files and directories:
 
 \begin{itemize}
   \item
-    build.xml is an Ant file that makes it easier to compile and run the
+    \texttt{build.xml} is an Ant file that makes it easier to compile and run the
     code.
   \item
-    lib contains the libraries you'll need (for this exercise, just JUnit).
+    \texttt{lib} contains the libraries you'll need (for this exercise, just JUnit).
   \item
-    src contains the source code.
+    \texttt{src} contains the source code.
 
 \end{itemize}
 
-And if you navigate into \java{src/com/flatironschool/javacs},
+And if you navigate into \texttt{src/com/allendowney/javacs},
 you'll find the source code for this exercise:
 
 \begin{itemize}
 
   \item
-    \java{ListClientExample.java} contains the code from the previous
-    README.
+    \java{ListClientExample.java} contains the code from the previous section.
 
   \item
     \java{ListClientExampleTest.java} contains a JUnit test for
@@ -604,21 +676,19 @@ you'll find the source code for this exercise:
 \end{itemize}
 
 Review \java{ListClientExample} and make sure you understand what it
-does. Then compile and run it. If you use Ant, you can navigate to
-{\tt exercise01} and run {\tt ant ListClientExample}.
+does. Then compile and run it. If you use Ant, you can navigate to the
+{\tt code} directory and run {\tt ant ListClientExample}.
 
-You can read about Ant here at \url{https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html}
-
-NOTE: You might get a warning like
+You might get a warning like
 
 \begin{verbatim}
 List is a raw type. References to generic type List<E> 
 should be parameterized.
 \end{verbatim}
 
-To keep the example simple, we didn't bother to specify the type of
-the elements in the List. If this warning bothers you, you can
-suppress it by replacing each List or LinkedList with
+To keep the example simple, I didn't bother to specify the type of
+the elements in the List.  If this warning bothers you, you can
+suppress it by replacing each \java{List} or \java{LinkedList} with
 \java{List<Integer>} or \java{LinkedList<Integer>}.
 
 Review \java{ListClientExampleTest}. It runs one test, which creates a
@@ -743,7 +813,7 @@ Most simple algorithms fall into just a few categories.
 
 For example, here's an implementation of a simple algorithm called
 {\bf selection sort}
-(see \url{https://en.wikipedia.org/wiki/Selection_sort):
+(see \url{https://en.wikipedia.org/wiki/Selection_sort}):
 
 \begin{verbatim}
 public class SelectionSort {
@@ -910,7 +980,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory that contains the code for this
 lab, \java{javacs-lab02}.
 
-In the subdirectory \java{javacs-lab02/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab02/src/com/allendowney/javacs}
 you'll find the source files you need for this exercise:
 
 \begin{verbatim}
@@ -1499,7 +1569,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory that contains the code for this
 lab, \java{javacs-lab03}.
 
-In the subdirectory \java{javacs-lab03/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab03/src/com/allendowney/javacs}
 you'll find the source files you need for this exercise:
 
 \begin{verbatim}
@@ -2121,7 +2191,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory that contains the code for this
 lab, \java{javacs-lab04}.
 
-In the subdirectory \java{javacs-lab04/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab04/src/com/allendowney/javacs}
 you'll find the source files you need for this exercise:
 
 \begin{enumerate}
@@ -3052,7 +3122,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory that contains the code for this
 lab, \java{javacs-lab05}.
 
-In the subdirectory \java{javacs-lab05/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab05/src/com/allendowney/javacs}
 you'll find the source files you need for this exercise:
 
 \begin{enumerate}
@@ -3627,7 +3697,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory with the code for this exercise,
 \java{javacs-lab06}.
 
-In the subdirectory \java{javacs-lab06/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab06/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{verbatim}
@@ -3877,7 +3947,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory with the code for this exercise,
 \java{javacs-lab07}.
 
-In the subdirectory \java{javacs-lab07/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab07/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{verbatim}
@@ -4378,7 +4448,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory with the code for this exercise,
 \java{javacs-lab08}.
 
-In the subdirectory \java{javacs-lab08/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab08/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{itemize}
@@ -5095,7 +5165,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory with the code for this exercise,
 \java{javacs-lab09}.
 
-In the subdirectory \java{javacs-lab09/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab09/src/com/allendowney/javacs}
 you'll find these source files:
 
 \begin{itemize}
@@ -5902,7 +5972,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory with the code for this exercise,
 \java{javacs-lab10}.
 
-In the subdirectory \java{javacs-lab10/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab10/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{itemize}
@@ -6666,7 +6736,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory with the code for this exercise,
 \java{javacs-lab11}.
 
-In the subdirectory \java{javacs-lab11/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab11/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{verbatim}
@@ -7035,7 +7105,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory with the code for this exercise,
 \java{javacs-lab12}.
 
-In the subdirectory \java{javacs-lab12/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab12/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{itemize}
@@ -7512,7 +7582,7 @@ directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
 \java{README.md}, and the directory with the code for this exercise,
 \java{javacs-lab13}.
 
-In the subdirectory \java{javacs-lab12/src/com/flatironschool/javacs}
+In the subdirectory \java{javacs-lab12/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{itemize}
