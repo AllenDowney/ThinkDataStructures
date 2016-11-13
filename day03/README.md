@@ -35,9 +35,13 @@ Implement your queue in the `MyQueue` class.
 
 ### Analysis
 
-- Use the code in the `TimeTest` to make sure your `MyStack` and `MyQueue` operations happen in constant time.
+- Use the code in the `TimeTest` to make sure your `MyStack` and `MyQueue` operations happen in constant time. Your time per operation for both the stack and queue should not be more than a few milliseconds.
 
 ### Challenge Problems
 
-* Modify your `MyStack` and add the following function: `public T maxElement()`. All operations (including `maxElement`) should still be constant time.
+**Solve one of the following problems:**
+
+* Modify your `MyStack` and add the following function: `public T maxElement()`. All operations (including `maxElement`) should still be constant time. Uncomment the tests in `StackTest` to test your implementation.
 * Implement the function `maxInWindows(int[] arr, int k)`, which takes in an array of ints length `n`, and returns the local maximums in each sliding window of size `k`. Your solution should be at worst `O(kn)`. It's possible to solve this problem in `O(n-k)` time.
+
+Note: Took David ~30 minutes to implement the Stack and the Queue, and make the Stack have a min. This is why I decided to make them only solve one challenge problem.
