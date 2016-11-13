@@ -8,7 +8,10 @@
 
 After completing this assignment you should be able to:
 * Understand the key concepts of hashing
+  * Understand hash functions and considerations when creating them
+  * Understand how a hash map chooses which sub-map to place objects in
 * Compare the efficiency of various hash map implementations
+  * Understand how a hash map achieves average constant time
 * Identify when using a hash map is effective
 
 ## Assignment
