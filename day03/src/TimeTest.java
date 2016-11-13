@@ -9,7 +9,7 @@ public class TimeTest {
         int[] numOperations = new int[]{1000, 10000, 100000, 1000000};
         long[] runTimes = new long[numOperations.length];
         for (int i = 0; i < numOperations.length; i++) {
-            QueueADT<Integer> q = new MyQueue<>();
+            QueueADT<Integer> q = new MyQueue();
             long startTime = System.currentTimeMillis();
             for (int j = 0; j < numOperations[i]; j++) {
                 q.enqueue(j);
@@ -34,7 +34,7 @@ public class TimeTest {
         int[] numOperations = new int[]{1000, 10000, 100000, 1000000};
         long[] runTimes = new long[numOperations.length];
         for (int i = 0; i < numOperations.length; i++) {
-            StackADT<Integer> q = new MyStack<>();
+            StackADT<Integer> q = new MyStack();
             long startTime = System.currentTimeMillis();
             for (int j = 0; j < numOperations[i]; j++) {
                 q.push(j);

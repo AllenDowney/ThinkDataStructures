@@ -3,14 +3,14 @@ import ADTs.StackADT;
 /**
  * An implementation of the Stack interface.
  */
-public class MyStack<T> implements StackADT<T> {
+public class MyStack implements StackADT<Integer> {
     @Override
-    public void push(T e) {
+    public void push(Integer e) {
         // TODO: YOUR CODE HERE
     }
 
     @Override
-    public T pop() {
+    public Integer pop() {
         // TODO: YOUR CODE HERE
         return null;
     }

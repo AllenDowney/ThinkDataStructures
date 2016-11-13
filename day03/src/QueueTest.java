@@ -5,7 +5,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class QueueTest {
-    protected MyQueue<Integer> queue;
+
+    private MyQueue queue;
 
     /**
      * @throws Exception
@@ -13,7 +14,7 @@ public class QueueTest {
     @Before
     public void setUp() throws Exception {
 
-        queue = new MyQueue<>();
+        queue = new MyQueue();
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
