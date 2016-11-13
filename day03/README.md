@@ -1,15 +1,43 @@
 # Day03 - Stacks and Queues
 
-Implement the following methods:
+## Learning Goals
 
-### MyStackAL and MyStackLL
-* size()
-* push()
-* pop()
-* isEmpty()
+After completing this homework, students will be to:
 
-### MyQueueAL and MyQueueLL (optional: WeirdQueue)
-* size()
-* enqueue()
-* dequeue()
-* isEmpty()
+* Identify problems where stacks or queues can contribute to an effective solution.
+* Implement a stack and a queue that uses `O(n)` space and has `O(1)` per-operation time complexity.
+
+## Assignment
+
+### Implementation
+
+#### Stack
+
+A `Stack` follows the paradigm: "First in, last out." When you `pop` an item off a stack, the item popped is the most recently `push`ed item.
+
+Design an implementation of a `Stack`. It should:
+
+- use `O(n)` space-complexity
+- have each of the its four functions (`push`, `pop`, `isEmpty`, and `size`) take constant `O(1)` time.
+
+Implement your stack in the `MyStack` class.
+
+#### Queue
+
+A `Queue` follows the paradigm: "First in, first out." When you `dequeue` an item from a `Queue`, the item dequeued is the first `enqueue`ed item.
+
+Design an implementation of a `Queue`. It should also:
+
+- use `O(n)` space-complexity
+- have each of the its four functions (`enqueue`, `dequeue`, `isEmpty`, and `size`) take constant `O(1)` time.
+
+Implement your queue in the `MyQueue` class.
+
+### Analysis
+
+- Use the code in the `TimeTest` to make sure your `MyStack` and `MyQueue` operations happen in constant time.
+
+### Challenge Problems
+
+* Modify your `MyStack` and add the following function: `public T maxElement()`. All operations (including `maxElement`) should still be constant time.
+* Implement the function `maxInWindows(int[] arr, int k)`, which takes in an array of ints, and returns the local maximums in each sliding window of size `k`.
