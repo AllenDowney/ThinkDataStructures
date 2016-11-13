@@ -24,10 +24,9 @@ Draw a balanced binary search tree using the nodes [17, 19, 12, 76, 9, 50, 72, 2
 Briefly explain the advantages and disadvantages of using a BST rather than a hash table.
 
 ## Problems
-(Writing starter files and better descriptions)
 
 Given a tree, write a function to determine if it is a binary search tree.
 
 Choose one of the following problems:
-* Card Shuffle
-* Stock Market Winner
+* Card Shuffle - Fill in the function definitions in CardShuffle.java following the instructions in the file. 
+* Stock Market Winner - Fill in the function definitions in StockMarket.java following the instructions in the file.
