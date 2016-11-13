@@ -40,4 +40,4 @@ Implement your queue in the `MyQueue` class.
 ### Challenge Problems
 
 * Modify your `MyStack` and add the following function: `public T maxElement()`. All operations (including `maxElement`) should still be constant time.
-* Implement the function `maxInWindows(int[] arr, int k)`, which takes in an array of ints, and returns the local maximums in each sliding window of size `k`.
+* Implement the function `maxInWindows(int[] arr, int k)`, which takes in an array of ints length `n`, and returns the local maximums in each sliding window of size `k`. Your solution should be at worst `O(kn)`. It's possible to solve this problem in `O(n-k)` time.
