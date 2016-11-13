@@ -9,9 +9,7 @@ After completing this homework, students will be to:
 
 ## Assignment
 
-### Implementation
-
-#### Stack
+### Stack
 
 A `Stack` follows the paradigm: "First in, last out." When you `pop` an item off a stack, the item popped is the most recently `push`ed item.
 
@@ -22,7 +20,7 @@ Design an implementation of a `Stack`. It should:
 
 Implement your stack in the `MyStack` class.
 
-#### Queue
+### Queue
 
 A `Queue` follows the paradigm: "First in, first out." When you `dequeue` an item from a `Queue`, the item dequeued is the first `enqueue`ed item.
 
@@ -33,15 +31,13 @@ Design an implementation of a `Queue`. It should also:
 
 Implement your queue in the `MyQueue` class.
 
-### Analysis
-
-- Use the code in the `TimeTest` to make sure your `MyStack` and `MyQueue` operations happen in constant time. Your time per operation for both the stack and queue should not be more than a few milliseconds.
-
-### Challenge Problems
-
-**Solve one of the following problems:**
+### Solve one of the Following
 
 * Modify your `MyStack` and add the following function: `public T maxElement()`. All operations (including `maxElement`) should still be constant time. Uncomment the tests in `StackTest` to test your implementation.
 * Implement the function `maxInWindows(int[] arr, int k)`, which takes in an array of ints length `n`, and returns the local maximums in each sliding window of size `k`. Your solution should be at worst `O(kn)`. It's possible to solve this problem in `O(n-k)` time.
+
+### Analysis
+
+- Use the code in the `TimeTest` to make sure your `MyStack` and `MyQueue` operations happen in constant time. Your time per operation for both the stack and queue should not be more than a few milliseconds.
 
 Note: Took David ~30 minutes to implement the Stack and the Queue, and make the Stack have a min. This is why I decided to make them only solve one challenge problem.
