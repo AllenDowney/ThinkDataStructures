@@ -4,68 +4,49 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class StackTest {
-    protected MyStackLL<Double> stackLL;
-    protected MyStackAL<String> stackAL;
+
+    private MyStack stack;
 
     /**
      * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
-        stackAL = new MyStackAL<>();
-        stackAL.push("Hello");
-        stackAL.push("World");
-        stackAL.push("Java");
-
-        stackLL = new MyStackLL<>();
-        stackLL.push(1.5);
-        stackLL.push(Math.PI);
-        stackLL.push(Math.E);
+        stack = new MyStack();
+        stack.push(1);
+        stack.push(4);
+        stack.push(2);
     }
 
     /**
-     * Tests functionality of the ArrayList-based stack
+     * Tests functionality of the stack
      */
     @Test
-    public void testStackAL() {
-        assertThat(stackAL.size(), is(3));
-        stackAL.push("Fourth");
-        assertThat(stackAL.size(), is(4));
+    public void testStack() {
+        assertThat(stack.size(), is(3));
+        stack.push(3);
+        assertThat(stack.size(), is(4));
 
-        String e = stackAL.pop();
-        assertThat(e, is("Fourth"));
-        assertThat(stackAL.size(), is(3));
 
-        assertThat(stackAL.isEmpty(), is(false));
-        stackAL.pop();
-        stackAL.pop();
-        e = stackAL.pop();
-        assertThat(e, is("Hello"));
+        // TODO: Uncomment these tests if you implemented maxElement
+//        assertThat(stack.maxElement(), is(4));
+        int e = stack.pop();
+        assertThat(e, is(3));
+        assertThat(stack.size(), is(3));
 
-        assertThat(stackAL.isEmpty(), is(true));
+        int bigNumber = 6;
+        stack.push(bigNumber);
+//        assertThat(stack.maxElement(), is(bigNumber));
+
+        assertThat(stack.isEmpty(), is(false));
+        stack.pop();
+        stack.pop();
+        stack.pop();
+//        assertThat(stack.maxElement(), is(1));
+        e = stack.pop();
+        assertThat(e, is(1));
+
+        assertThat(stack.isEmpty(), is(true));
     }
 
-    /**
-     * Tests functionality of the LinkedList-based stack
-     */
-    @Test
-    public void testStackLL() {
-        assertThat(stackLL.size(), is(3));
-        Double e = stackLL.pop();
-        assertThat(e, is(Math.E));
-        assertThat(stackLL.size(), is(2));
-
-        stackLL.push(1.41);
-        assertThat(stackLL.size(), is(3));
-        assertThat(stackLL.isEmpty(), is(false));
-
-        stackLL.pop();
-        assertThat(stackLL.isEmpty(), is(false));
-
-        stackLL.pop();
-        assertThat(stackLL.isEmpty(), is(false));
-
-        stackLL.pop();
-        assertThat(stackLL.isEmpty(), is(true));
-    }
 }
