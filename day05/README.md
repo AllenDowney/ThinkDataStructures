@@ -16,7 +16,7 @@ After completing this assignment you should be able to:
 
 ## Assignment
 
-Write a brief paragraph describingthe main purpose of a hash function.  Are there any requirements or limitations when hashing?
+Write a couple of sentences describing the main purpose of a hash function.  Are there any requirements or limitations when hashing?
 
 Finish the implementation of MyBetterMap (ch. 15.3):
 * In MyBetterMap: Fill in the body of `containsKey`
