@@ -2,7 +2,7 @@
 
 ## Learning Goals
 
-After completing this homework, students will be to:
+After completing this homework, students will be able to:
 
 * Identify problems where stacks or queues can contribute to an effective solution.
 * Implement a stack and a queue that uses `O(n)` space and has `O(1)` per-operation time complexity.
