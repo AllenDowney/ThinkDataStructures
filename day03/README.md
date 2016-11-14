@@ -31,8 +31,7 @@ Design an implementation of a `Queue`. It should also:
 
 Implement your queue in the `MyQueue` class.
 
-### Solve one of the Following (in order from easy to hard)
-
+### Solve one of the Following
 * Modify your `MyStack` and add the following function: `public T maxElement()`. All operations (including `maxElement`) should still be constant time. Uncomment the tests in `StackTest` to test your implementation.
 * Implement the function `maxInWindows(int[] arr, int k)`, which takes in an array of ints length `n`, and returns the local maximums in each sliding window of size `k`. Your solution should be at worst `O(kn)`. It's possible to solve this problem in `O(n)` time. If you want to know the queue-based `O(n)` solution, read [this](http://codercareer.blogspot.com/2012/02/no-33-maximums-in-sliding-windows.html)!
 
