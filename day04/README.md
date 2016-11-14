@@ -9,7 +9,7 @@ Students will be able to:
 
 ## Assignment
 
-## 13.4 - MyLinearMap
+### 13.4 - MyLinearMap
 
 In `MyLinearMap`:
 
@@ -17,7 +17,11 @@ In `MyLinearMap`:
 - In MyLinearMap: Fill in the body of `put(K key, V value)`
 - In MyLinearMap: Fill in the body of `remove(Object key)`
 
-## Problems
+*Hint: Use the built in `equals` function to compare object equality and handle `null`s correctly.*
+
+Run `MyLinearMapTest` to test your `Map` implementation. If your code isn't passing tests, make sure you understand what each of your functions is supposed to do by reading the [Map API](https://docs.oracle.com/javase/7/docs/api/java/util/Map.html).
+
+### Problems
 
 - Write the function `countInts(int[] arr)`,  that returns a `List` of appearance counts for each integer in the array, in the order they first appear.
 - Write the function `pairsThatAddTo(int[] arr, int k)`, that returns a `List` of pairs of integers in `arr` that add up to `k`. Each individual element in `arr` can only be used once. *Only iterate over `arr` once.*
