@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author downey
+ * @author David Abrahams
  *
  */
 public class MapProblemsTest {
