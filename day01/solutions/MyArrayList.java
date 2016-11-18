@@ -35,10 +35,10 @@ public class MyArrayList<T> {
 
 	public T remove(int index){
 
+		if(index >= numElems) throw new IndexOutOfBoundsException("Index out of bounds.");
 		if(numElems<elems.length/4 && elems.length > 10){
 			halfSize();
 		}
-		if(index >= numElems) throw new IndexOutOfBoundsException("Index out of bounds.");
 		T toRemove = get(index);
 		index++;
 		while(index < numElems){
@@ -52,6 +52,7 @@ public class MyArrayList<T> {
 
 	public void add(int index, T c){
 
+		if(index > numElems) throw new IndexOutOfBoundsException("Index out of bounds.");
 		if(numElems==elems.length){
 			doubleSize();
 		}
