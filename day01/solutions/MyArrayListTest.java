@@ -6,25 +6,25 @@ import static org.junit.Assert.assertEquals;
 public class MyArrayListTest {
 
 	// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 8
-	MyArrayList cows;
+	//MyArrayList cows;
 
 	// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-7
-	//MyArrayList<Cow> cows;
+	MyArrayList<Cow> cows;
 
 	@Before
 	public void setUp() throws Exception{
 
 		// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 8
-		cows = new MyArrayList();
+		//cows = new MyArrayList();
 
 		// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-7
-		// cows = new MyArrayList<Cow>();
+		cows = new MyArrayList<Cow>();
 
 		cows.add(new Cow("Delilah", 10, "blue"));
 		cows.add(new Cow("Georgy", 8, "green"));
 		cows.add(new Cow("Lily", 4, "yellow"));
 		cows.add(new Cow("Jimi", 13, "black"));
-
+	
 	}
 
 	@Test
