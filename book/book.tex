@@ -1,12 +1,12 @@
 \documentclass[12pt]{book}
 
-\title{Think Algorithms}
+\title{Think Data Structures}
 \author{Allen B. Downey}
 
-\newcommand{\thetitle}{Think Algorithms}
-\newcommand{\thesubtitle}{Algorithms and Data Structures in Java}
+\newcommand{\thetitle}{Think Data Structures}
+\newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.1.0}
+\newcommand{\theversion}{0.4.0}
 
 %%%% Both LATEX and PLASTEX
 
@@ -166,7 +166,8 @@ Permission is granted to copy, distribute, and/or modify this work under the ter
 The original form of this book is \LaTeX\ source code.
 Compiling this code has the effect of generating a device-independent representation of the book, which can be converted to other formats and printed.
 
-The \LaTeX\ source for this book is available from \url{???}.
+The \LaTeX\ source for this book is available from
+\url{???}.
 
 %--table of contents------------------------------------------
 
@@ -646,8 +647,8 @@ you might also want to practice writing code without them.
 If you have not already downloaded the code for this book, see the
 instructions in Section~\ref{code}.
 
-
-In the directory named {\tt code}, you should find these files and directories:
+In the directory named {\tt code}, you should find these files and
+directories:
 
 \begin{itemize}
   \item
@@ -692,9 +693,9 @@ suppress it by replacing each \java{List} or \java{LinkedList} with
 \java{List<Integer>} or \java{LinkedList<Integer>}.
 
 Review \java{ListClientExampleTest}. It runs one test, which creates a
-\java{ListClientExample} invokes \java{getList}, and then checks
-whether the result is an ArrayList. Initially, this test will fail
-because the result is a LinkedList, not an ArrayList. Run this test
+\java{ListClientExample}, invokes \java{getList}, and then checks
+whether the result is an \java{ArrayList}. Initially, this test will fail
+because the result is a \java{LinkedList}, not an \java{ArrayList}. Run this test
 and confirm that it fails.
 
 NOTE: This test makes sense for this exercise, but it is not a good
@@ -702,18 +703,18 @@ example of a test. Good tests should check whether the class under
 test satisfies the requirements of the \emph{interface}; they should
 not depend on the details of the \emph{implementation}.
 
-In the \java{ListClientExample}, replace LinkedList with ArrayList.
-You might have to add an import statement. Compile and run
+In the \java{ListClientExample}, replace \java{LinkedList} with \java{ArrayList}.
+You might have to add an \java{import} statement. Compile and run
 \java{ListClientExample}. Then run the test again. With this change,
 the test should now pass.
 
-To make this test pass, you only had to replace \java{LinkedList} with
-\java{ArrayList} in the constructor. You did not have to change any of
-the places where \java{List} appears. What happens if you do?  Go
-ahead and replace one or more appearances of \java{List} with
-\java{ArrayList}. The program should still work correctly, but now it
-is ``overspecified''. If you change your mind in the future and want
-to swap the interface again, you would have to change more code.
+To make this test pass, you only had to change \java{LinkedList} in
+the constructor; you did not have to change any of the places where
+\java{List} appears. What happens if you do?  Go ahead and replace one
+or more appearances of \java{List} with \java{ArrayList}. The program
+should still work correctly, but now it is ``overspecified''. If you
+change your mind in the future and want to swap the interface again,
+you would have to change more code.
 
 In the \java{ListClientExample} constructor, what happens if you
 replace \java{ArrayList} with \java{List}? Why can't you instantiate a
@@ -725,7 +726,7 @@ replace \java{ArrayList} with \java{List}? Why can't you instantiate a
 \chapter{Analysis of algorithms}
 \label{cs-analysis-of-algorithms-readme}
 
-As I mentioned in the previous chapter, Java provides two
+As we saw in the previous chapter, Java provides two
 implementations of the\java{List} interface, \java{ArrayList} and
 \java{LinkedList}. For some applications \java{LinkedList} is faster;
 for other applications \java{ArrayList} is faster.
@@ -736,80 +737,76 @@ called ``profiling'' has a few problems:
 
 \begin{enumerate}
 
-\item
-  Before you can compare the algorithms, you have to implement them both.
+\item Before you can compare the algorithms, you have to implement
+  them both.
 
-\item
-  The results might depend on what kind of computer you use. One
+\item The results might depend on what kind of computer you use. One
   algorithm might be better on one machine; the other might be better on
   a different machine.
 
-\item
-  The results might depend on the size of the problem or the data
+\item The results might depend on the size of the problem or the data
   provided as input.
 
 \end{enumerate}
 
 We can address some of these problems using {\bf analysis of
-  algorithms}. When it works, algorithm analysis makes it possible to compare
-algorithms without having to implement them. But we have to make some
-assumptions:
+  algorithms}. When it works, algorithm analysis makes it possible to
+compare algorithms without having to implement them. But we have to
+make some assumptions:
 
 \begin{enumerate}
 
-\item
-  To avoid dealing with the details of computer hardware, we usually
-  identify the basic operations that make up an algorithm --- like
-  addition, multiplication, and comparison of numbers --- and count the
-  number of operations each algorithm requires.
+\item To avoid dealing with the details of computer hardware, we
+  usually identify the basic operations that make up an algorithm ---
+  like addition, multiplication, and comparison of numbers --- and
+  count the number of operations each algorithm requires.
 
-\item
-  To avoid dealing with the details of the input data, we try to analyze
-  the average performance for the inputs we expect. If that's not
-  possible, a common alternative is to analyze the worst case scenario.
+\item To avoid dealing with the details of the input data, the best
+  option is to analyze the average performance for the inputs we
+  expect. If that's not possible, a common alternative is to analyze
+  the worst case scenario.
 
-\item
-  Finally, we have to deal with the possibility that one algorithm works
-  best for small problems and another for big ones. In that case, we
-  usually focus on the big ones, because for small problems the difference
-  probabily doesn't matter, but for big problems the difference can
-  be huge.
+\item Finally, we have to deal with the possibility that one algorithm
+  works best for small problems and another for big ones. In that
+  case, we usually focus on the big ones, because for small problems
+  the difference probabily doesn't matter, but for big problems the
+  difference can be huge.
 
 \end{enumerate}
 
 This kind of analysis lends itself to simple classification of
 algorithms. For example, if we know that the run time of Algorithm A
-tends to be proportional to the size of the input, $n$,
-and Algorithm B tends to be proportional to $n^2$, we
-expect A to be faster than B, at least for large values of $n$.
+tends to be proportional to the size of the input, $n$, and Algorithm
+B tends to be proportional to $n^2$, we expect A to be faster than B,
+at least for large values of $n$.
 
 Most simple algorithms fall into just a few categories.
 
 \begin{itemize}
 
-\item
-  Constant time: An algorithm is ``constant time'' if the run time does
-  not depend on the size of the input. For example, if you have an array
-  of $n$ elements and you use the bracket operator
+\item Constant time: An algorithm is ``constant time'' if the run time
+  does not depend on the size of the input. For example, if you have
+  an array of $n$ elements and you use the bracket operator
   (\java{[]}) to access one of the elements, this operation takes
-  pretty much the same amount of time regardless of how big the array
+  the same number of operations regardless of how big the array
   is.
 
-\item
-  Linear: An algorithm is ``linear'' if the run time is
+\item Linear: An algorithm is ``linear'' if the run time is
   proportional to the size of the input. For example, if you add up the
   elements of an array, you have to access $n$ elements and
   perform $n-1$ additions. The total number of operations
   (element accesses and additions) is $2n-1$, which is
   proportional to $n$.
 
-\item
-  Quadratic: An algorithm is ``quadratic'' if the run time is
+\item Quadratic: An algorithm is ``quadratic'' if the run time is
   proportional to $n^2$. For example, if the input has 2 elements,
   it might require 4 operations; with 3 elements, it might require 9,
   and so on.
 
 \end{itemize}
+
+\section{Selection sort}
+\label{selection-sort}
 
 For example, here's an implementation of a simple algorithm called
 {\bf selection sort}
@@ -829,7 +826,7 @@ public class SelectionSort {
 
     /**
      * Finds the index of the lowest value
-     * starting from the index at `start` (inclusive)
+     * starting from the index at \java{start} (inclusive)
      * and going to the end of the array.
      */
     public static int indexLowest(int[] array, int start) {
@@ -856,7 +853,7 @@ public class SelectionSort {
 
 The first method, \java{swapElements}, swaps two elements of the
 array. Reading and writing elements are constant time operations,
-regardless of the size of the array. That works because if we know where
+because if we know where
 the beginning of the array is, we can compute the location of element
 \java{i} or \java{j} with one multiplication and one addition, and
 those are constant time operations. Since everything in
@@ -872,15 +869,12 @@ count the number of comparisons.
 
 \begin{enumerate}
 
-\item
-  If \java{start} is 0, \java{indexLowest} traverses the entire
+\item If \java{start} is 0, \java{indexLowest} traverses the entire
   array, and the total number of comparisons is \java{n}.
 
-\item
-  If \java{start} is 1, the number of comparisons is \java{n-1}.
+\item If \java{start} is 1, the number of comparisons is \java{n-1}.
 
-\item
-  In general, the number of comparisons is \java{n-start}.
+\item In general, the number of comparisons is \java{n-start}.
 
 \end{enumerate}
 
@@ -892,8 +886,8 @@ The third method, \java{selectionSort}, sorts the array. It loops from
 time, it calls \java{indexLowest} and then performs a constant time
 operation, \java{swapElements},
 
-The first time \java{selectionSort} calls \java{indexLowest}, it
-performs \java{n} comparisons. The second time it performs
+The first time \java{indexLowest} is called, it
+performs \java{n} comparisons. The second time, it performs
 \java{n-1} comparisons, and so on. The total number of comparisons is
 
 \begin{verbatim}
@@ -910,7 +904,9 @@ To get to the same result a different way, we can think of
 to $n$. We call it $n$ times, so the total number of
 operations is proportional to $n^2$.
 
-\section{Big O notation}\label{big-o-notation}
+
+\section{Big O notation}
+\label{big-o-notation}
 
 All constant time algorithms belong to a set called $O(1)$. So another way
 to say that an algorithm is constant time is to say that it is in $O(1)$.
@@ -934,75 +930,70 @@ If you perform two linear operations, the total is still linear:
 If $f ∈ O(n)$ and $g ∈ O(n)$, $f+g ∈ O(n)$.
 
 In fact, if you perform a linear operation any number of times,
-\java{k}, the total is linear, as long as \java{k} is a constant
-that does not depend on \java{n}.
+$k$, the total is linear, as long as $k$ is a constant
+that does not depend on $n$.
 
 If $f ∈ O(n)$ and $k$ is a constant, $kf ∈ O(n)$.
 
-But if you perform a linear operation \java{n} times, the result is
+But if you perform a linear operation $n$ times, the result is
 quadratic:
 
 If $f ∈ O(n)$, $nf ∈ O(n^2)$.
 
-In general, we only care about the largest exponent of \java{n}. So if
+In general, we only care about the largest exponent of $n$. So if
 the total number of operations is $2n + 1$, it belongs to
 $O(n)$. The leading constant, 2, and the additive term, 1, are
 not important for this kind of analysis. Similarly, $n^2 + 100n + 1000$ is
 in $O(n^2)$.  Don't be distracted by the big numbers!
 
-One other piece of vocabulary you should know: an {\bf order of growth} is
-a set of algorithms whose runtimes grow in the same way as problem size
-increases; for example, all linear algorithms belong to the same order
-of growth because their runtimes increase linearly with problem size.
+One other piece of vocabulary you should know: an {\bf order of
+  growth} is a set of algorithms whose runtimes are in the same big O
+category; for example, all linear algorithms belong to the same order
+of growth because their runtimes are in $O(n)$.
 
-NOTE: In this context, an ``order'' is a group, like the \emph{Order of
+In this context, an ``order'' is a group, like the \emph{Order of
 the Knights of the Round Table}, which is a group of knights, not a way
 of lining them up. So you can imagine the \emph{Order of Linear
 Algorithms} as a set of brave, chivalrous, and particularly efficient
 algorithms.
 
 
-\chapter{ArrayList}
+\section{Exercise 2}
+\label{exercise2}
 
-\section{Implementing an Array-backed
-List}\label{implementing-an-array-backed-list}
+The exercise for this chapter is to implement a \java{List} that
+uses a Java array to store the elements. 
 
-For this lesson we provide a partial implementation of an ArrayList that
-uses a Java array to store the elements. We left four of the methods
-incomplete; your job is to fill them in. We provide JUnit tests you can
-use to check your work.
+In the code repository for this book (see Section~\ref{code}),
+you'll find the source files you'll need:
 
-\section{Instructions}\label{instructions-1}
+\begin{itemize}
+\item \java{MyArrayList.java} contains a partial implementation of the
+ \java{List} interface.  Four of the methods are incomplete; your job
+ is to fill them in.
 
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in the previous exercise. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory that contains the code for this
-lab, \java{javacs-lab02}.
+\item \java{MyArrayListTest.java} contains JUnit tests you can use to
+check your work.
 
-In the subdirectory \java{javacs-lab02/src/com/allendowney/javacs}
-you'll find the source files you need for this exercise:
+\end{itemize}
 
-\begin{verbatim}
-*  `MyArrayList.java` contains a partial implementation of the `List` interface using a Java array to store the elements.
+You'll also find the Ant build file
+\java{build.xml}. 
 
-*  `MyArrayListTest.java` contains JUnit tests for `MyArrayList`.
-\end{verbatim}
+%TODO: either make the build step automatic or add instructions
 
-In \java{javacs-lab02}, you'll find the Ant build file
-\java{build.xml}. If you are in this directory, you should be able to
+From the {\tt code} directory, you should be able to
 run \java{ant MyArrayList} to run \java{MyArrayList.java}, which
 contains a few simple tests. Or you can run \java{ant MyArrayListTest}
 to run the JUnit test.
 
 When you run the tests, several of them should fail. If you examine the
-source code, you'll find four \java{TODO} comments indicating which
-methods you will fill in.
+source code, you'll find four \java{TODO} comments indicating the
+methods you should fill in.
 
-\section{\java{MyArrayList} code}\label{myarraylist-code}
-
-Before you start filling in the missing methods, let's walk through some
-of the code. Here are the instance variables and the constructor.
+Before you start filling in the missing methods, let's walk through
+some of the code. Here are the class definition, instance variables,
+and constructor.
 
 \begin{verbatim}
 public class MyArrayList<E> implements List<E> {
@@ -1025,13 +1016,19 @@ The constructor creates an array of 10 elements, which are initially
 of the array is bigger than \java{size}, so there are unused slots in
 the array.
 
-One detail about Java: You can't instantiate an array of T{[}{]}, so you
-have to instantiate an array of Object and then typecast it. You can
-\url{http://www.ibm.com/developerworks/java/library/j-jtp01255/index.html}{read
-more about this issue here}.
+One detail about Java: You can't instantiate an array using a type
+parameter; for example, the following will not work:
 
-Next we'll look at the method that adds elements to the list. Here's our
-implementation of \java{add}:
+\begin{verbatim}
+        array = new E[10];
+\end{verbatim}
+
+To work around this limitation, you
+have to instantiate an array of Object and then typecast it. You can
+read more about this issue at
+\url{http://www.ibm.com/developerworks/java/library/j-jtp01255/index.html}.
+
+Next we'll look at the method that adds elements to the list:
 
 \begin{verbatim}
     public boolean add(E element) {
@@ -1052,16 +1049,18 @@ array and copy over the elements. Then we can store the element in the
 array and increment \java{size}.
 
 It might not be obvious why this method returns a boolean, since it
-seems like it always returns \java{true}. As always,
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html\#add(E)}{you
-can find the answer in the documentation}.
+seems like it always returns \java{true}. As always, you can find the
+answer in the documentation:
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html#add(E)}.
 
 It's also not obvious how to analyze the performance of this method. In
 the normal case, it's constant time, but if we have to resize the array,
-it's linear. In the next README we'll explain how we can handle this.
+it's linear. In the next ??? I'll explain how to handle this.
 
-We'll look at \java{get} next, and then you can fill in \java{set}.
-Actually, \java{get} is pretty simple:
+%TODO: where?
+
+Finally, let's look at \java{get}; then you can get started on the
+exercises.
 
 \begin{verbatim}
     public T get(int index) {
@@ -1072,19 +1071,14 @@ Actually, \java{get} is pretty simple:
     }
 \end{verbatim}
 
-If the index is out of bounds, it throws an exception; otherwise it
+Actually, \java{get} is pretty simple:
+if the index is out of bounds, it throws an exception; otherwise it
 reads and returns an element of the array. Notice that it checks whether
 the index is less than \java{size}, not \java{array.length}, so it's
 not possible to access the unused elements of the array.
 
-\section{Instructions}\label{instructions-2}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  In \java{MyArrayList.java}, you'll find a stub for \java{set} that
-  looks like this:
-\end{itemize}
+In \java{MyArrayList.java}, you'll find a stub for \java{set} that
+looks like this:
 
 \begin{verbatim}
     public T set(int index, T element) {
@@ -1093,40 +1087,32 @@ not possible to access the unused elements of the array.
     }
 \end{verbatim}
 
-Read
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#set(int,\%20E)}{the
-documentation of set}, then fill in the body of this method. If you run
+Read the documentation of \java{set} at
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#set(int,\%20E)}, then fill in the body of this method. If you run
 \java{MyArrayListTest} again, \java{testSet} should pass.
 
 HINT: Try to avoid repeating the index-checking code.
 
-\begin{itemize}
-\item
-  Your next mission is to fill in \java{indexOf}. As usual, you should
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#indexOf(java.lang.Object)}{read
+Your next mission is to fill in \java{indexOf}. As usual, you should
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#indexOf(java.lang.Object)}{read
   the documentation} so you know what it's supposed to do. In
-  particular, notice how it is supposed to handle \java{null}.
+particular, notice how it is supposed to handle \java{null}.
 
-  To make things a little easier, we've provided a helper method called
-  \java{equals} that compares an element from the array to a target
-  value and returns \java{true} if they are equal (and it handles
-  \java{null} correctly). Notice that this method is private because
-  it is used inside this class but it is not part of the \java{List}
-  interface.
-\end{itemize}
+To make things a little easier, we've provided a helper method called
+\java{equals} that compares an element from the array to a target
+value and returns \java{true} if they are equal (and it handles
+\java{null} correctly). Notice that this method is private because it
+is used inside this class but it is not part of the \java{List}
+interface.
 
 When you are done, run \java{MyArrayListTest} again;
 \java{testIndexOf} should pass now, as well as the other tests that
 depend on it.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Only two more methods to go, and you'll be done with this exercise. The
+Only two more methods to go, and you'll be done with this exercise. The
   next one is an overloaded version of \java{add} that takes an index
   and stores the new value at the given index, shifting the other
   elements to make room, if necessary.
-\end{itemize}
 
 Again,
 \url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#add(int,\%20E)}{read
@@ -1135,47 +1121,27 @@ confirmation.
 
 HINT: Avoid repeating the code that makes the array bigger.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Last one: fill in the body of \java{remove}.
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#remove(int)}{The
+Last one: fill in the body of \java{remove}.
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#remove(int)}{The
   documentation is here}. When you finish this one, all tests should
-  pass.
-\end{itemize}
+pass.
 
 Once you have your implementation working, compare it to mine, which you
-can find by checking out the solutions branch of the repo, or
-\url{https://github.com/learn-co-students/cs-implementing-an-arraylist-lab-codeU/tree/solution}{you
-can read it on GitHub}.
+can read on GitHub:
+\url{???}
 
-View Implementing an Array List on Learn.co and start learning to code
-for free.
 
 \chapter{Analyzing ArrayList}
 \label{cs-analyzing-our-arraylist-readme}
 
-\section{Overview}\label{overview-2}
 
-This README kills two birds with one stone: we present solutions to the
-previous exercise, and also use them to demonstrate analysis of algorithms.
+This chapter kills two birds with one stone: I present solutions to
+the previous exercise and demonstrate a way to classify
+algorithms using {\bf amortized analysis}.
 
-\section{Objectives}\label{objectives-4}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Read and understand solutions to \textbf{Implementing an ArrayList}
-  exercise.
-\item
-  Classify the methods in \java{MyArrayList}.
-\item
-  Use amortized analysis to classify appropriate algorithms.
-\end{enumerate}
-
-\section{Classifying MyArrayList
-methods}\label{classifying-myarraylist-methods}
+\section{Classifying MyArrayList methods}
+\label{classifying-myarraylist-methods}
 
 For many methods, we can identify the order of growth by examining the
 code. For example, here's the implementation of \java{get} from
@@ -1254,7 +1220,7 @@ all of the elements. On average, we expect to test half of the elements,
 so this method is considered linear except in the (unlikely) case that
 we know the target element is at the beginning of the array.
 
-The analysis of \java{remove} is similar. Here's our implementation:
+The analysis of \java{remove} is similar. Here's my implementation:
 
 \begin{verbatim}
     public E remove(int index) {
@@ -1272,12 +1238,15 @@ array, starting from \java{index}. If we remove the element at the end
 of the list, the loop never runs and this method is constant time. If we
 remove the first element, we loop through all of the remaining elements,
 which is linear. So, again, this method is considered linear except in
-the special case where we know the element is at the end.
+the special case where we know the element is at the end or a constant
+distance from the end.
 
-\section{Classifying \java{add}}\label{classifying-add}
 
-In the previous exercise, you wrote a version of \java{add} that takes an
-index and an element as parameters. Here's our solution:
+\section{Classifying \java{add}}
+\label{classifying-add}
+
+Here's a version of \java{add} that takes an
+index and an element as parameters:
 
 \begin{verbatim}
     public void add(int index, E element) {
@@ -1296,8 +1265,8 @@ index and an element as parameters. Here's our solution:
     }
 \end{verbatim}
 
-This two-parameter version, which we'll call \java{add(int, E)}, uses
-the one-parameter version, which we'll call \java{add(E)}, to put the
+This two-parameter version, called \java{add(int, E)}, uses
+the one-parameter version, called \java{add(E)}, to put the
 new element at the end. Then it shifts the other elements to the right,
 and puts the new element in the correct place.
 
@@ -1318,7 +1287,7 @@ to classify the one-parameter \java{add(E)}:
     }
 \end{verbatim}
 
-This one-parameter version turns out to be hard to analyze. If there is
+The one-parameter version turns out to be hard to analyze. If there is
 an unused space in the array, it is constant time, but if we have to
 resize the array, it's linear. So which is it?
 
@@ -1327,39 +1296,50 @@ operations per add over a series of \java{n} adds. For simplicity,
 assume we start with an array that has room for 2 elements.
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   The first time we call add, it finds unused space in the array, so it
   stores 1 element.
+
 \item
   The second time, it finds unused space in the array, so it stores 1
   element.
+
 \item
   The third time, we have to resize the array, copy 2 elements, and
   store 1 element. Now the size of the array is 4.
+
 \item
   The fourth time stores 1 element.
+
 \item
   The fifth time resizes the array, copies 4 elements, and stores 1
   element. Now the size of the array is 8.
+
 \item
   The next 3 adds store 3 elements.
+
 \item
-  The next one copies 8 and stores 1. Now the size is 16
+  The next add copies 8 and stores 1. Now the size is 16
+
 \item
   The next 7 adds store 7 elements.
+
 \end{itemize}
 
 And so on. Adding things up:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   After 4 adds, we've stored 4 elements and copied 2.
+
 \item
   After 8 adds, we've stored 8 elements and copied 6.
+
 \item
   After 16 adds, we've stored 16 elements and copied 14.
+
 \end{itemize}
 
 By now you should see the pattern: to do \java{n} adds, we have to
@@ -1373,16 +1353,17 @@ only care about the largest exponent of \java{n}, we can think of
 \java{add} as constant time.
 
 It might seem strange that an algorithm that is sometimes linear can be
-constant time, on average. The key is that we double the length of the
+constant time on average. The key is that we double the length of the
 array each time it gets resized. That limits the number of times each
 element gets copied. Otherwise --- if we add a fixed amount to the
 length of the array, rather than multiplying by a fixed amount --- the
 analysis doesn't work.
 
 This way of classifying an algorithm, by computing the average time in a
-series of invocations, is called
-\url{https://en.wikipedia.org/wiki/Amortized_analysis}{amortized
-analysis}. The idea is that the extra cost of copying the array is
+series of invocations, is called {\bf amortized analysis}.  You can
+read more about it at 
+\url{https://en.wikipedia.org/wiki/Amortized_analysis}. 
+The key idea is that the extra cost of copying the array is
 spread, or ``amortized'', over a series of invocations.
 
 Now, if \java{add(E)} is constant time, what about
@@ -1394,7 +1375,8 @@ the special case where we are adding at the end of the list. So
 This is an example of a tricky API, where two methods that seem similar
 have qualitatively different performance.
 
-\section{Classifying \java{removeAll}}\label{classifying-removeall}
+\section{Classifying \java{removeAll}}
+\label{classifying-removeall}
 
 The last example we'll consider is \java{removeAll}; here's the
 implementation in \java{MyArrayList}:
@@ -1413,61 +1395,42 @@ Each time through the loop, \java{removeAll} invokes \java{remove},
 which is linear. So it is tempting to think that \java{removeAll} is
 quadratic. But that's not necessarily the case.
 
-In this method, the loop runs once for each element in the Collection
-\java{c}. If \java{c} contains m elements and the list we are
-removing from contains \java{n} elements, this method is in O(nm). If
-the size of the collection can be considered constant,
+In this method, the loop runs once for each element in
+\java{collection}. If \java{colection} contains m elements and the list we are
+removing from contains \java{n} elements, this method is in $O(nm)$. If
+the size of \java{collection} can be considered constant,
 \java{removeAll} is linear. But if the size of the collection is
-proportional to n, it's quadratic. For example, if \java{c} always
+proportional to n, it's quadratic. For example, if \java{collection} always
 contains 100 or fewer elements, \java{removeAll} is linear. But if
-\java{c} generally contains 1\% of the elements in the list,
+\java{collection} generally contains 1\% of the elements in the list,
 \java{removeAll} is quadratic.
 
 Sometimes when we talk about ``problem size'' we have to be careful
 about which size, or sizes, we are talking about. This example
 demonstrates a pitfall of algorithm analysis, which is the tendency to
-count loops. If there is one loop, the algorithm is \emph{often} linear.
-If there are two loops (one nested inside the other), the algorithm is
-\emph{often} quadratic. But be careful! You have to think about how many
-times each loop runs. If the number of iterations is proportional to
-\java{n}, you can get away with just counting the loops. But if, as in
-this example, the number of iterations does not depend on \java{n},
-you have to give it more thought.
+count loops. If there is one loop, the algorithm is \emph{often}
+linear.  If there are two loops (one nested inside the other), the
+algorithm is \emph{often} quadratic. But be careful! You have to think
+about how many times each loop runs. If the number of iterations is
+proportional to \java{n} for all loops, you can get away with just
+counting the loops. But if, as in this example, the number of
+iterations is not always proportional to \java{n}, you have to give it
+more thought.
 
-\section{Resources}\label{resources-2}
+\section{Exercise 3}
+\label{exercise3}
 
-\url{https://en.wikipedia.org/wiki/Amortized_analysis}{Amortized
-analysis}: Wikipedia page.
-
-View Analyzing Our Array List on Learn.co and start learning to code for
-free.
-
-\chapter{LinkedList}
-\label{cs-implementing-a-linkedlist-lab}
-
-\section{Objectives}\label{objectives-5}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Implement a linked list in Java.
-\item
-  Write an implementation of the List interface.
-\end{enumerate}
-
-\section{Overview}\label{overview-3}
-
-For this exercise we provide a partial implementation of the List interface
-that uses a linked list to store the elements. We left three of the
-methods incomplete; your job is to fill them in. We provide JUnit tests
+For this exercise I provide a partial implementation of the List interface
+that uses a linked list to store the elements. Three of the
+methods are incomplete; your job is to fill them in. I provide JUnit tests
 you can use to check your work.
 
-If you are not familiar with a linked list, you might want to read
-\url{https://en.wikipedia.org/wiki/Linked_list}{the Wikipedia page
-about it}, but we'll also start with a brief introduction.
+If you are not familiar with linked lists, you can read about them at
+\url{https://en.wikipedia.org/wiki/Linked_list},
+but we'll also start with a brief introduction.
 
-\section{Linked data structures}\label{linked-data-structures}
+\section{Linked data structures}
+\label{linked-data-structures}
 
 A data structure is ``linked'' if it is made up of objects, often called
 ``nodes'', that contain references to other nodes. In a linked
@@ -1511,18 +1474,18 @@ public class ListNode {
 }
 \end{verbatim}
 
-The ListNode object has two instance variables: \java{cargo} is a
+The \java{ListNode} object has two instance variables: \java{cargo} is a
 reference to some kind of Object, and \java{next} is a reference to
 the next node in the list. In the last node in the list, by convention,
 \java{next} is \java{null}.
 
-ListNode provides several constructors, allowing you to provide values
+\java{ListNode} provides several constructors, allowing you to provide values
 for \java{cargo} and \java{next}, or initialize them to the default
 value, \java{null}.
 
-You can think of each ListNode as a list with a single element, but more
+You can think of each \java{ListNode} as a list with a single element, but more
 generally, a list can contain any number of nodes. There are several
-ways to make a new list. A simple way is to create a set of ListNode
+ways to make a new list. A simple way is to create a set of \java{ListNode}
 objects, like this:
 
 \begin{verbatim}
@@ -1549,48 +1512,46 @@ can do it like this:
 
 After this sequence of instructions, we have four Nodes containing the
 Integers 0, 1, 2, and 3 as cargo, linked up in increasing order. In the
-code that has 3 as \java{cargo}, the \java{next} field is
+node that has 3 as \java{cargo}, the \java{next} field is
 \java{null}.
 
 The following diagram shows these variables and the objects they refer
 to:
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://raw.githubusercontent.com/learn-co-curriculum/cs-imple%menting-a-linkedlist-lab/wip-master/linked_list_diagram1.png?token=ABy37cdeV93h%tosX2oR_IzQFjgfknxHJks5W2F5gwA\%3D\%3D}
-%\caption{alt tag}
-%\end{figure}
+% TODO: make the figure.
 
-\section{Getting set up}\label{getting-set-up}
 
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory that contains the code for this
-lab, \java{javacs-lab03}.
+\section{MyLinkedList}
+\label{getting-set-up}
 
-In the subdirectory \java{javacs-lab03/src/com/allendowney/javacs}
+In the repository for this book,
 you'll find the source files you need for this exercise:
+???
 
-\begin{verbatim}
-*  `MyLinkedList.java` contains a partial implementation of the `List` interface using a linked list to store the elements.
+%TODO: exercise boilerplate
 
-*  `MyLinkedListTest.java` contains JUnit tests for `MyLinkedList`.
-\end{verbatim}
+\begin{itemize}
 
-In \java{javacs-lab03}, you'll find the Ant build file
+\item \java{MyLinkedList.java} contains a partial implementation of
+  the \java{List} interface using a linked list to store the elements.
+
+\item \java{MyLinkedListTest.java} contains JUnit tests for
+  \java{MyLinkedList}.
+
+\end{itemize}
+
+In the \java{code} directory, you'll find the Ant build file
 \java{build.xml}. If you are in this directory, you should be able to
 run \java{ant MyArrayList} to run \java{MyArrayList.java}, which
-contains a few simple tests. Or you can run \java{ant test} to run the
-JUnit test.
+contains a few simple tests. 
 
-When you run the tests, several of them should fail. If you examine the
-source code, you'll find three \java{TODO} comments indicating which
+Then you can run \java{ant MyArrayListTest}
+to run the JUnit tests.
+Several of them should fail. If you examine the
+source code, you'll find three \java{TODO} comments indicating the
 methods you will fill in.
 
-\section{\java{MyLinkedList code}}\label{mylinkedlist-code}
-
-Before you start filling in the missing methods, let's walk through some
+Before you start, let's walk through some
 of the code. Here are the instance variables and the constructor for
 \java{MyLinkedList}:
 
@@ -1609,7 +1570,7 @@ public class MyLinkedList<E> implements List<E> {
 
 As the comments indicate, \java{size} keeps track of how many elements
 are in \java{MyLinkedList}; \java{head} is a reference to the first
-Node in the list, or \java{null} if the list is empty.
+Node in the list or \java{null} if the list is empty.
 
 Storing the number of elements is not necessary, and in general it is
 risky to keep redundant information, because if it's not updated
@@ -1630,9 +1591,8 @@ empty list, and sets \java{size} to 0.
 
 This class uses the type parameter \java{E} for the type of the
 elements. If you are not familiar with type parameters, you might want
-to read
-\url{https://docs.oracle.com/javase/tutorial/java/generics/types.html}{this
-tutorial}.
+to read this tutorial:
+\url{https://docs.oracle.com/javase/tutorial/java/generics/types.html}.
 
 The type parameter also appears in the definition of \java{Node},
 which is nested inside \java{MyLinkedList}:
@@ -1651,11 +1611,14 @@ which is nested inside \java{MyLinkedList}:
 
 Other than that, \java{Node} is similar to \java{ListNode} above.
 
-\section{Adding nodes}\label{adding-nodes}
 
-At this point you should have a general idea of how this implementation
-of linked lists works. But before you get started on the exercises,
-we'll look at one more method. Here's my implementation of \java{add}:
+\section{Adding nodes}
+\label{adding-nodes}
+
+At this point you should have a general idea of how this
+implementation of linked lists works. But before you start the
+exercises, let's look at one more method. Here's my implementation of
+\java{add}:
 
 \begin{verbatim}
     public boolean add(E element) {
@@ -1675,58 +1638,53 @@ we'll look at one more method. Here's my implementation of \java{add}:
 This example demonstrates two patterns you'll need for your solutions:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   For many methods, we have to handle the first element of the list as a
   special case. In this example, if we are adding the first element of a
   list, we have to modify \java{head}. Otherwise, we traverse the
   list, find the end, and add the new node.
+
 \item
   This method shows how to use a \java{for} loop to traverse the nodes
   in a list. In your solutions, you will probably write several
   variations on this loop. Notice that we have to declare \java{node}
   before the loop so we can access it after the loop.
+
 \end{enumerate}
 
-\section{Instructions}\label{instructions-3}
+Now it's your turn.  Fill in the body of \java{indexOf}.  As usual,
+you should read the documentation, at
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#indexOf(java.lang.Object)},
+so you know what it is supposed to do. In particular, notice how it's
+supposed to handle \java{null}.
 
-Now it's your turn:
+To make things a little easier, I've provided a helper method called
+\java{equals} that compares an element from the array to a target
+value and checks whether they are equal --- and it handles \java{null}
+correctly. This method is private because it is used inside this class
+but it is not part of the \java{List} interface.
 
-\begin{itemize}
-\item
-  Fill in the body of \java{indexOf}. As usual, you should
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#indexOf(java.lang.Object)}{read
-  the documentation} so you know what it's supposed to do. In
-  particular, notice how it is supposed to handle \java{null}.
+When you are done, run the tests again; \java{testIndexOf}
+should pass now, as well as the other tests that depend on it.
 
-  To make things a little easier, I've provided a helper method called
-  \java{equals} that compares an element from the array to a target
-  value and checks whether they are equal --- and it handles
-  \java{null} correctly. This method is private because it is used
-  inside this class but it is not part of the \java{List} interface.
+Next, you should fill in the two-parameter version of \java{add},
+which takes an index and stores the new value at the given index.
+Again, read the documentation at
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#add(int,\%20E)}, write an implementation, and run the tests for
+confirmation.
 
-  When you are done, run \java{ant test} again; \java{testIndexOf}
-  should pass now, as well as the other tests that depend on it.
-\item
-  Next, you should fill in the two-parameter version of \java{add},
-  which takes an index and stores the new value at the given index.
-  Again,
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#add(int,\%20E)}{read
-  the documentation}, write an implementation, and run the tests for
-  confirmation.
-\item
-  Last one: fill in the body of \java{remove}.
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#remove(int)}{The
-  documentation is here}. When you finish this one, all tests should
-  pass.
-\item
-  Once you have your implementation working, compare it to mine, which
-  you can find by checking out the solutions branch of the repo, or
-  \url{https://TODO:\%20add_this_later}{you can read it on GitHub}.
-\end{itemize}
+Last one: fill in the body of \java{remove}.  The documentation is
+here:
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#remove(int)}.
+When you finish this one, all tests should pass.
 
-\chapter{A note on garbage
-collection}\label{a-note-on-garbage-collection}
+Once you have your implementation working, compare it to the version
+in the \java{solution} directory of the repo.
+
+
+\section{A note on garbage collection}
+\label{a-note-on-garbage-collection}
 
 In \java{MyArrayList} from the previous exercise, the array grows if
 necessary, but it never shrinks. The array never gets garbage collected,
@@ -1756,45 +1714,27 @@ it gets garbage collected, too. This process continues until all
 So how should we classify \java{clear}? The method itself contains two
 constant time operations, so it sure looks like it's constant time. But
 when you invoke it, you make the garbage collector do work that's
-proportional to the number of elements. So there's an argument that we
+proportional to the number of elements. So maybe we
 should consider it linear!
 
-This is a subtle example of what is sometimes called a ``performance
-bug'': a program that is correct in the sense that it does the right
-thing, but it doesn't belong to the order of growth we expected. In
-languages like Java that do a lot of work, like garbage collection,
-behind the scenes, this kind of error can be hard to find.
+This is an example of what is sometimes called a {\bf performance bug}:
+a program that is correct in the sense that it does the right thing,
+but it doesn't belong to the order of growth we expected. In languages
+like Java that do a lot of work, like garbage collection, behind the
+scenes, this kind of error can be hard to find.
 
-\section{Resources}\label{resources-3}
-
-\url{https://en.wikipedia.org/wiki/Linked_list}{Linked list Wikipedia
-page}
-\url{https://docs.oracle.com/javase/tutorial/java/generics/types.html}{Generic
-types} \# cs-analyzing-our-linkedlist-readme
 
 \chapter{Analysis of LinkedList}
 
-\section{Overview}\label{overview-4}
+This chapter solutions to the
+previous exercise and continues the discussion of analysis of algorithms.
 
-This README kills two birds with one stone: we present solutions to the
-previous exercise, and continue the discussion of analysis of algorithms.
 
-\section{Objectives}\label{objectives-6}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Read and understand solutions to the previous exercise.
-\item
-  Classify the methods in \java{MyLinkedList}.
-\end{enumerate}
-
-\section{Classifying \java{MyLinkedList}
-methods}\label{classifying-mylinkedlist-methods}
+\section{Classifying \java{MyLinkedList} methods}
+\label{classifying-mylinkedlist-methods}
 
 My implementation of \java{indexOf} is below. Read through it and see
-if you can classify it before you read the explanation.
+if you can identify its order of growth before you read the explanation.
 
 \begin{verbatim}
     public int indexOf(Object target) {
@@ -1813,10 +1753,11 @@ Initially \java{node} gets a copy of \java{head}, so they both refer
 to the same Node. The loop variable, \java{i}, counts from 0 to
 \java{size-1}. Each time through the loop, we use \java{equals} to
 see if we've found the target. If so, we return \java{i} immediately.
-Otherwise we advance to the next Node in the list. Normally we would
+Otherwise we advance to the next Node in the list.
+
+Normally we would
 check to make sure the next Node is not \java{null}, but in this case
-it is safe because the loop ends when we get to the end of the list (as
-long as \java{size} is consistent with the actual number of Nodes in
+it is safe because the loop ends when we get to the end of the list (assuming \java{size} is consistent with the actual number of Nodes in
 the list).
 
 If we get through the loop without finding the target, we return
@@ -1825,15 +1766,17 @@ If we get through the loop without finding the target, we return
 So what is the order of growth for this method?
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Each time through the loop we invoke \java{equals}, which is
   constant time (it might depend on the size of \java{target} or
   \java{cargo}, but it doesn't depend on the size of the list). The
   other operations in the loop are also constant time.
+
 \item
   The loop might run \java{n} times, because in the worse case, we
   might have to traverse the whole list.
+
 \end{enumerate}
 
 So this method is linear.
@@ -1884,13 +1827,15 @@ you understand it.
 So, what's the order of growth for \java{add}?
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
-  Starting with \java{getNode}, it is very similar to
+  \java{getNode} is similar to
   \java{indexOf}, and it is linear for the same reason.
+
 \item
   In \java{add}, everything before and after \java{getNode} is
   constant time.
+
 \end{enumerate}
 
 So all together, \java{add} is linear.
@@ -1930,15 +1875,16 @@ So, what's the order of growth for \java{remove}? Everything in
 When people see two linear operations, they sometimes think the result
 is quadratic, but that only applies if one operation is nested inside
 the other. If you invoke one operation after the other, the runtimes
-add. If they are both in O(\java{n}), the sum is also in
-O(\java{n}).
+add. If they are both in $O(n)$, the sum is also in
+$O(n)$.
 
-\section{Comparing \java{MyLinkedList} and
-\java{MyArrayList}}\label{comparing-mylinkedlist-and-myarraylist}
+
+\section{Comparing \java{MyLinkedList} and \java{MyArrayList}}
+\label{comparing-mylinkedlist-and-myarraylist}
 
 The following table summarizes the differences between
 \java{MyLinkedList} and \java{MyArrayList}, where \java{1} means
-O(\java{1}) or constant time and \java{n} means O(\java{n}) or
+$O(1)$ or constant time and \java{n} means $O(n)$ or
 linear.
 
 \begin{longtable}[c]{@{}lll@{}}
@@ -1967,6 +1913,8 @@ remove (in general) & n & n
 \bottomrule
 \end{longtable}
 
+% TODO: how does this table look?
+
 The operations where \java{MyArrayList} has an advantage are adding at
 the end, removing from the end, getting and setting.
 
@@ -1978,23 +1926,12 @@ of growth.
 
 Which implementation is better? It depends on which operations you are
 likely to use the most. And that's why Java provides more than one
-implementation, because it depends. \# 
+implementation, because it depends.
 
 
-\chapter{Performance profiling}
+\section{Profiling}
 
-\section{Objectives}\label{objectives-7}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Classify algorithms by measuring runtime for a range of problem sizes.
-\end{enumerate}
-
-\section{Overview}\label{overview-5}
-
-For this exercise we provide a class called \java{Profiler} that contains
+For the next exercise we provide a class called \java{Profiler} that contains
 code for running code with a range of problem sizes, measuring runtimes,
 then plotting and analyzing the results.
 
@@ -2004,8 +1941,6 @@ of the \java{add} method for the Java implementations of
 
 You'll need to ``test'' that you've got the right output for this lesson
 by making sure that your results conform to the runtime expectations.
-
-\section{Profiler}\label{profiler}
 
 Here's an example that shows how to use the profiler:
 
@@ -2049,11 +1984,12 @@ does whatever operation we are trying to measure; in this case it adds
 The code that creates \java{timeable} is an anonymous class that
 defines a new implementation of the \java{Timeable} interface and
 creates an instance of the new class at the same time. If you are not
-familiar with anonymous classes, you can
-\url{https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html}{read
-about them here}. But you really don't need to know much for this exercise;
-even if you are not comfortable with anonymous classes, you can do the
-exercises by copying and modifying the example code.
+familiar with anonymous classes, you can read about them here:
+\url{https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html}.
+
+But you don't need to know much for the next exercise; even if you
+are not comfortable with anonymous classes, you can
+copy and modify the example code.
 
 The next step is to create the \java{Profiler} object, passing the
 \java{Timeable} object and a title as parameters.
@@ -2065,16 +2001,19 @@ with a range of values of \java{n}. \java{timingLoop} takes two
 parameters:
 
 \begin{itemize}
+
 \item
   \java{startN} is the value of \java{n} the timing loop should
   start at.
+
 \item
   \java{endMillis} is a threshold in milliseconds. As
   \java{timingLoop} increases the problem size, the runtime increases;
   when the runtime exceeds this threshold, \java{timingLoop} stops.
+
 \end{itemize}
 
-When you run these experiments, you might have to adjust these
+When you run the experiments, you might have to adjust these
 parameters. If \java{startN} is too low, the runtime might be too
 short to measure accurately. If \java{endMillis} is too low, you might
 not get enough data to see a clear relationship between problem size and
@@ -2113,7 +2052,10 @@ generates a plot like this:
 %\caption{alt tag}
 %\end{figure}
 
+%TODO: include this figure
+
 The next section explains how to interpret it.
+
 
 \section{Interpreting results}\label{interpreting-results}
 
@@ -2126,7 +2068,9 @@ and we should see a straight line, at least for problem sizes that are
 big enough to measure accurately. Mathematically, we can write the
 function for that line:
 
-runtime = a + b * n
+%TODO: format runtime
+
+\[ runtime = a + b n \]
 
 Where \java{a} is the intercept of the line and \java{b} is the
 slope.
@@ -2135,34 +2079,34 @@ On the other hand, if \java{add} is linear, the total time for
 \java{n} adds would be quadratic. If we plot runtime versus problem
 size, we expect to see a parabola. Or mathematically, something like:
 
-runtime = a + b * n + c * n2
+\[ runtime = a + b n + c n^2 \]
 
 With perfect data, we might be able to tell the difference between a
 straight line and a parabola, but if the measurements are noisy, it can
 be hard to tell. A better way to interpret noisy measurements is to plot
 runtime and problem size on a \textbf{log-log} scale.
 
-Why? Let's suppose that runtime is proportional to \java{n}k, but we
-don't know what the exponent \java{k} is. We can write the
+Why? Let's suppose that runtime is proportional to $n^k$, but we
+don't know what the exponent $k$ is. We can write the
 relationship like this:
 
-runtime = a + b * n + \ldots{} + c * nk
+\[ runtime = a + b n + \ldots + c n^k \]
 
 For large values of \java{n}, the term with the largest exponent is
 the most important, so:
 
-runtime ≈ c * nk
+\[ runtime \approx c n^k \]
 
-Where ≈ is the symbol for ``approximately equal''. Now, if we take the
+Where $\approx$ is the symbol for ``approximately equal''. Now, if we take the
 log of both sides of this equation:
 
-log(runtime) ≈ log(c) + k * log(n)
+\[ log(runtime) \approx \log(c) + k \log(n) \]
 
-This equation implies that if we plot runtime versus \java{n} on a
+This equation implies that if we plot runtime versus $n$ on a
 log-log scale, we expect to see a straight line with intercept
-\java{log(c)} and slope \java{k}. We don't care much about the
+$\log(c)$ and slope $k$. We don't care much about the
 intercept, but the slope indicates the order of growth: if
-\java{k==1}, the algorithm is linear; if \java{k==2}, it's
+$k=1$, the algorithm is linear; if $k=2$, it's
 quadratic.
 
 Looking at the figure in the previous section, you can estimate the
@@ -2170,85 +2114,78 @@ slope by eye. But when you call \java{plotResults} it computes a least
 squares fit to the data and prints the estimated slope. In this example:
 
 \begin{verbatim}
-Estimated slope= 1.06194352346708
+Estimated slope = 1.06194352346708
 \end{verbatim}
 
 Which is close to 1; and that suggests that the total time for
-\java{n} adds is linear, so each add is constant time, as expected.
+$n$ adds is linear, so each add is constant time, as expected.
 
 One important point: if you see a straight line on a graph like this,
 that does \textbf{not} mean that the algorithm is linear. If the run
-time is proportional to \java{n}k for any exponent \java{k}, we
-expect to see a straight line with slope \java{k}. If the slope is
+time is proportional to $n^k$ for any exponent $k$, we
+expect to see a straight line with slope $k$. If the slope is
 close to 1, that suggests the algorithm is linear. If it is close to 2,
 it's probably quadratic.
 
-\section{Instructions}\label{instructions-4}
+\section{Exercise 4}
+\label{instructions-4}
 
-When you check out the respository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory that contains the code for this
-lab, \java{javacs-lab04}.
-
-In the subdirectory \java{javacs-lab04/src/com/allendowney/javacs}
+In the repository for this book
 you'll find the source files you need for this exercise:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   \java{Profiler.java} contains the implementation of the
   \java{Profiler} class described above. You will use this class, but
   you don't have to know how it works. But feel free to read the source.
+
 \item
   \java{ProfileAdd.java} contains starter code for this exercise, including
   the example, above, which profiles \java{ArrayList.add}. You will
   modify this file to profile a few other methods.
+
 \end{enumerate}
 
-Also, in \java{javacs-lab04}, you'll find the Ant build file
+Also, in the \java{code}directory , you'll find the Ant build file
 \java{build.xml}.
 
-\begin{itemize}
-\item
-  In \java{javacs-lab04} run \java{ant ProfileAdd} to run
-  \java{ProfileAdd.java}. You should get results similar to ours, but
-  you might have to adjust \java{startN} or \java{endMillis}. The
-  estimated slope should be close to 1, indicating that performing
-  \java{n} add operations takes time proportional to \java{n} raised
-  to the exponent 1; that is, it is O(\java{n}).
-\item
-  In \java{ProfileAdd.java}, you'll find an empty method named
-  \java{profileArrayListAddBeginning}. Fill in the body of this method
-  with code that tests \java{ArrayList.add}, always putting the new
-  element at the beginning. If you start with a copy of
-  \java{profileArrayListAddEnd}, you should only have to make a few
-  changes. Add a line in \java{main} to invoke this method.
+Run \java{ant ProfileAdd} to run \java{ProfileAdd.java}. You should
+get results similar to Figure~\ref{???}, but you might have to adjust
+\java{startN} or \java{endMillis}. The estimated slope should be close
+to 1, indicating that performing $n$ add operations takes time
+proportional to $n$ raised to the exponent 1; that is, it is
+in $O(n)$.
 
-  Run \java{ant ProfileAdd} again and interpret the results. Based on
-  our understanding of how \java{ArrayList} works, we expect each add
-  operation to be linear, so the total time for \java{n} adds should
-  be quadratic. If so, the estimated slope of the line, on a log-log
-  scale, should be near 2. Is it?
-\item
-  Now let's compare that to the performance of \java{LinkedList}. Fill
-  in the body of \java{profileLinkedListAddBeginning} and use it to
-  classify \java{LinkedList.add} when we put the new element at the
-  beginning. What performance do you expect? Are the results consistent
-  with your expectations?
-\item
-  Finally, fill in the body of \java{profileLinkedListAddEnd} and use
-  it to classify \java{LinkedList.add} when we put the new element at
-  the end. What performance do you expect? Are the results consistent
-  with your expectations?
-\end{itemize}
+In \java{ProfileAdd.java}, you'll find an empty method named
+\java{profileArrayListAddBeginning}. Fill in the body of this method
+with code that tests \java{ArrayList.add}, always putting the new
+element at the beginning. If you start with a copy of
+\java{profileArrayListAddEnd}, you should only have to make a few
+changes. Add a line in \java{main} to invoke this method.
 
-We'll present our results and answer these questions in the next README.
+Run \java{ant ProfileAdd} again and interpret the results. Based on
+our understanding of how \java{ArrayList} works, we expect each add
+operation to be linear, so the total time for $n$ adds should be
+quadratic. If so, the estimated slope of the line, on a log-log scale,
+should be near 2. Is it?
 
-\section{Resources}\label{resources-4}
+Now let's compare that to the performance of \java{LinkedList}. Fill
+in the body of \java{profileLinkedListAddBeginning} and use it to
+classify \java{LinkedList.add} when we put the new element at the
+beginning. What performance do you expect? Are the results consistent
+with your expectations?
 
-\url{https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html}{Anonymous
-classes}: Java tutorial. 
+Finally, fill in the body of \java{profileLinkedListAddEnd} and use it
+to classify \java{LinkedList.add} when we put the new element at the
+end. What performance do you expect? Are the results consistent with
+your expectations?
+
+I'll present results and answer these questions in the next chapter.
+
+%TODO: move this
+\end{document}
+
 
 \chapter{Doubly-linked list}
 
@@ -3701,13 +3638,13 @@ In the subdirectory \java{javacs-lab06/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{verbatim}
-*  `TermCounter.java` contains the code from the previous section.
+*  \java{TermCounter.java} contains the code from the previous section.
 
-*  `Index.java` contains the class definition for the next part of this exercise.
+*  \java{Index.java} contains the class definition for the next part of this exercise.
 
-*  `WikiFetcher.java` contains the class we used in the previous exercise to download and parse Web pages.
+*  \java{WikiFetcher.java} contains the class we used in the previous exercise to download and parse Web pages.
 
-*  `WikiNodeIterable.java` contains the class we used to traverse the nodes in a DOM tree.
+*  \java{WikiNodeIterable.java} contains the class we used to traverse the nodes in a DOM tree.
 \end{verbatim}
 
 Also, in \java{javacs-lab06}, you'll find the Ant build file
@@ -3951,9 +3888,9 @@ In the subdirectory \java{javacs-lab07/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{verbatim}
-*  `MyLinearMap.java` contains starter code for the first part of the exercise.
+*  \java{MyLinearMap.java} contains starter code for the first part of the exercise.
 
-*  `MyLinearMapTest.java` contains the unit tests for `MyLinearMap`.
+*  \java{MyLinearMapTest.java} contains the unit tests for \java{MyLinearMap}.
 \end{verbatim}
 
 And in \java{javacs-lab07}, you'll find the Ant build file
@@ -6377,7 +6314,7 @@ work on:
 
 \begin{verbatim}
     /**
-     * Adds a URL to the set associated with `term`.
+     * Adds a URL to the set associated with \java{term}.
      */
     public void add(String term, TermCounter tc) {}
 
@@ -6740,20 +6677,20 @@ In the subdirectory \java{javacs-lab11/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{verbatim}
-*  `WikiCrawler.java`, which contains starter code for your crawler.
+*  \java{WikiCrawler.java}, which contains starter code for your crawler.
 
-*  `WikiCrawlerTest.java`, which contains test code for `WikiCrawler`.
+*  \java{WikiCrawlerTest.java}, which contains test code for \java{WikiCrawler}.
 
-*  `JedisIndex.java`, which is our solution to the previous exercise.
+*  \java{JedisIndex.java}, which is our solution to the previous exercise.
 \end{verbatim}
 
 You'll also find some of the helper classes we've used in previous lavs
 
 \begin{verbatim}
-*  `JedisMaker.java`
-*  `WikiFetcher.java`
-*  `TermCounter.java`
-*  `WikiNodeIterable.java`
+*  \java{JedisMaker.java}
+*  \java{WikiFetcher.java}
+*  \java{TermCounter.java}
+*  \java{WikiNodeIterable.java}
 \end{verbatim}
 
 And as usual, in \java{javacs-lab11}, you'll find the Ant build file
