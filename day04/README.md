@@ -24,5 +24,7 @@ Run `MyLinearMapTest` to test your `Map` implementation. If your code isn't pass
 
 ### Problems
 
+**Solve one of the following**
+
 - Write the function `getCountMap(int[] arr)`,  that returns a `MyLinearMap` that maps from `int`s to their appearance counts, in the order they first appear. For example, if the input is `[1, 1, 3, 4, 1, 4, 5]`, the output should be `MyLinearMap` containing `{1:3, 3:1, 4:2, 5:1}`, because `1` appears three times, `3` appears once, `4` appears twice, and `5` appears once.
 - Write the function `pairsThatAddTo(int[] arr, int k)`, that returns a `List<int[]>` of pairs (represented as length 2 arrays) of integers in `arr` that add up to `k`. Each individual element in `arr` can only be used once. *Only iterate over `arr` once.* For example, if the input is `[1, 4, 6, 5, 0, 5, 1, 2, 3, 5], 6`, the answer would be `[[1, 5], [4, 2], [6, 0], [1, 5]]`. Note that each element can only be used once.
