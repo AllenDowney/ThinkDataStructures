@@ -2183,56 +2183,40 @@ your expectations?
 
 I'll present results and answer these questions in the next chapter.
 
-%TODO: move this
-\end{document}
-
 
 \chapter{Doubly-linked list}
 
-\section{Overview}\label{overview-6}
-
-This README reviews results from the previous exercise an introduces yet
+This chapter reviews results from the previous exercise and introduces yet
 another implementation of the \java{List} interface, the doubly-linked
 list.
 
-\section{Objectives}\label{objectives-8}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Interpret results from the previous exercise.
-\item
-  Understand the implementation of the doubly-linked list.
-\item
-  Analyze the performance of doubly-linked list operations.
-\end{enumerate}
-
-\section{Performance profiling
-results}\label{performance-profiling-results}
+\section{Performance profiling results}
+\label{performance-profiling-results}
 
 In the previous exercise, we used \java{Profiler.java} to run various
 \java{ArrayList} and \java{LinkedList} operations with a range of
-problem sizes. We plotted the runtime versus problem size on a log-log
+problem sizes. We plotted runtime versus problem size on a log-log
 scale and estimated the slope of the resulting curve, which indicates
 the leading exponent of the relationship between run time and problem
-size. For example, when we used the \java{add} method to add elements
+size.
+
+For example, when we used the \java{add} method to add elements
 to the end of an \java{ArrayList}, we found that the total time to
-perform \java{n} adds was proportional to \java{n}; that is, the
-estimated slope was close to 1. We concluded that performing \java{n}
-adds is in O(\java{n}), so on average the time for a single add is
-constant time, or O(1), which is what we expected based on algorithm
+perform $n$ adds was proportional to $n$; that is, the
+estimated slope was close to 1. We concluded that performing $n$
+adds is in $O(n)$, so on average the time for a single add is
+constant time, or $O(1)$, which is what we expect based on algorithm
 analysis.
 
-The exercise asked you to fill in the body of
+The exercise asks you to fill in the body of
 \java{profileArrayListAddBeginning}, which tests the performance of
 adding new elements at the beginning of an ArrayList. Based on our
 analysis, we expect each add to be linear, because it has to shift the
-other elements to the right; so we expect \java{n} adds to be
+other elements to the right; so we expect $n$ adds to be
 quadratic.
 
-Here's our solution to the exercise, which you can see and run by
-checking out the \java{solutions} branch of the exercise:
+Here's a solution to the exercise, which you can find in
+the {\tt solution} directory of the repository.
 
 \begin{verbatim}
     public static void profileArrayListAddBeginning() {
@@ -2280,25 +2264,27 @@ Here's the graph of runtime versus problem size:
 %\caption{alt tag}
 %\end{figure}
 
+%TODO: include this figure
+
 Remember that a straight line on this graph does \textbf{not} mean that
 the algorithm is linear. Rather, if the runtime is proportional to
-\java{n}k for any exponent, \java{k}, we expect to see a straight
-line with slope \java{k}. In this case, we expect the total time for
-\java{n} adds to be proportional to \java{n}2, so we expect a
+$n^k$ for any exponent, $k$, we expect to see a straight
+line with slope $k$. In this case, we expect the total time for
+$n$ adds to be proportional to $n^2$, so we expect a
 straight line with slope 2. In fact, the estimated slope is 1.992, which
-is so close we would be afraid to fake data this good.
+is so close I would be afraid to fake data this good.
 
-\section{Profiling \java{LinkedList}
-methods}\label{profiling-linkedlist-methods}
+\section{Profiling \java{LinkedList} methods}
+\label{profiling-linkedlist-methods}
 
-The next exercise asked you to profile the peformance of adding new
+The next exercise asks you to profile the peformance of adding new
 elements at the beginning of a \java{LinkedList}. Based on our
 analysis, we expect each \java{add} to take constant time, because in
 a linked list, we don't have to shift the existing elements; we can just
 add a new node at the beginning. So we expect the total time for
-\java{n} adds to be linear.
+$n$ adds to be linear.
 
-Here's our solution:
+Here's a solution:
 
 \begin{verbatim}
     public static void profileLinkedListAddBeginning() {
@@ -2321,10 +2307,10 @@ Here's our solution:
     }
 \end{verbatim}
 
-Again, we only had a make a few small changes, replacing
+We only had a make a few changes, replacing
 \java{ArrayList} with \java{LinkedList} and adjusting
-\java{startN} and \java{endMillis} to get a good range of data. We
-found that these measurements were noisier than the previous batch; here
+\java{startN} and \java{endMillis} to get a good range of data.
+The measurements were noisier than the previous batch; here
 are the results:
 
 \begin{verbatim}
@@ -2346,20 +2332,22 @@ And here's the graph:
 %\caption{alt tag}
 %\end{figure}
 
+%TODO: include figure
+
 It's not a very straight line, and the slope is not exactly 1; the slope
 of the least squares fit is 1.23. But these results indicate that the
-total time for \java{n} adds is at least approximately O(\java{n}),
+total time for $n$ adds is at least approximately $O(n)$,
 so each add is constant time.
 
-\section{Adding to the end of a
-\java{LinkedList}}\label{adding-to-the-end-of-a-linkedlist}
+\section{Adding to the end of a \java{LinkedList}}
+\label{adding-to-the-end-of-a-linkedlist}
 
 Adding elements at the beginning is one of the operations where we
 expect \java{LinkedList} to be faster than \java{ArrayList}. But for
 adding elements at the end, we expect \java{LinkedList} to be slower.
-In our implementation, we have to traverse the entire list to add an
+In my implementation, we have to traverse the entire list to add an
 element to the end, which is linear. So we expect the total time for
-\java{n} adds to be quadratic.
+$n$ adds to be quadratic.
 
 Well, it's not.
 
@@ -2408,42 +2396,47 @@ And here's the graph:
 %\caption{alt tag}
 %\end{figure}
 
+%TODO: include figure
+
 Again, the measurements are noisy and the line is not perfectly
 straight, but the estimated slope is 1.24, which is almost exactly what
 we got adding elements at the beginning, and not very close to 2, which
 is what we expected based on our analysis. In fact, it is closer to 1,
-which suggests that adding elements at the end is at least approximately
-linear. What's going on?
+which suggests that adding elements at the end is constant time.
+What's going on?
 
-\section{Doubly-linked list}\label{doubly-linked-list}
+\section{Doubly-linked list}
+\label{doubly-linked-list}
 
 Our implementation of a linked list, \java{MyLinkedList}, uses a
 singly-linked list; that is, each element contains a link to the next,
 and the \java{MyArrayList} object itself has a link to the first node.
 
-But if you read
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html}{the
-documentation of \java{LinkedList}}, it says
+But if you read the documentation of \java{LinkedList} at
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html},
+it says
 
 \begin{quote}
-\emph{Doubly-linked list implementation of the List and Deque
-interfaces. {[}\ldots{}{]} } \emph{All of the operations perform as
-could be expected for a doubly-linked list. } \emph{Operations that
+Doubly-linked list implementation of the List and Deque
+interfaces \ldots All of the operations perform as
+could be expected for a doubly-linked list. Operations that
 index into the list will traverse the list from the beginning or the
-end, } \emph{whichever is closer to the specified index.}
+end, whichever is closer to the specified index.
 \end{quote}
 
-If you are not familiar with doubly-linked lists, you can
-\url{https://en.wikipedia.org/wiki/Doubly_linked_list}{read more about
-them here}, but the short version is:
+If you are not familiar with doubly-linked lists, you can read more
+about them at \url{https://en.wikipedia.org/wiki/Doubly_linked_list},
+but the short version is:
 
 \begin{itemize}
 \item
   Each node contains a link to the next node and a link to the previous
   node.
+
 \item
   The \java{LinkedList} object contains links to the first and last
   elements of the list.
+
 \end{itemize}
 
 So we can start at either end of the list and traverse it in either
@@ -2480,6 +2473,8 @@ remove (in general) & n & n & n
 \bottomrule
 \end{longtable}
 
+%TODO: check appearance of this table
+
 The doubly-linked implementation is better than \java{ArrayList} for
 adding and removing at the beginning, and just as good as
 \java{ArrayList} for adding and removing at the end. So the only
@@ -2501,107 +2496,90 @@ for large problems. There are other factors to consider:
   runtime for your application -- that is, if your applications spends
   most of its time doing other things -- then your choice of a
   \java{List} implementation won't matter very much.
+
 \item
   If the lists you are working with are not very big, you might not get
-  the performance you expect. For small problems, an quadratic algorithm
+  the performance you expect. For small problems, a quadratic algorithm
   might be faster than a linear algorithm, or linear might be faster
   than constant time. And for small problems, the difference probably
   doesn't matter.
+
 \item
   Also, don't forget about space. So far we have focused on runtime, but
   different implementations require different amounts of space. In an
   \java{ArrayList}, the elements are stored side-by-side in a single
-  chunk of memory, so there is very little wasted space, and computer
+  chunk of memory, so there is little wasted space, and computer
   hardware is often faster with contiguous chunks. In a linked list,
   each element requires a node with one or two links. The links take up
   space (sometimes more than the cargo!), and with nodes scattered
   around in memory, the hardware might be less efficient.
+
 \end{itemize}
 
 In summary, analysis of algorithms provides some guidance for choosing
 data structures, but only if
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   The runtime of your application is important,
+
 \item
   The runtime of your application depends on your choice of data
   structure, and
+
 \item
   The problem size is large enough that the order of growth actually
   predicts which data structure is better.
+
 \end{enumerate}
 
 You could have a long career as a software engineer without ever finding
 yourself in this situation.
 
 
-\section{Resources}\label{resources-5}
-
-\url{https://en.wikipedia.org/wiki/Doubly_linked_list}{Doubly linked
-list} at Wikipedia.
-
-View Interpreting Performance Profiles on Learn.co and start learning to
-code for free.
-
 \chapter{Tree traversal}
 \label{cs-traversing-trees}
 
-\section{Learning goals}\label{learning-goals}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Parse HTML using jsoup.
-\item
-  Traverse a DOM tree.
-\item
-  Use the \java{Deque} interface and its implementations.
-\end{enumerate}
-
-
-\section{Overview}\label{overview-7}
-
-This README introduces the application we will develop during the
-upcoming units. We describe the elements of a Web search engine and
+This chapter introduces the application we will develop during the
+rest of the book, a Web search engine.
+I describe the elements of a search engine and
 introduce the first application, a Web crawler that downloads and parses
-pages from Wikipedia. We present a recursive implementation of
+pages from Wikipedia. This chapter also presents a recursive implementation of
 depth-first search and an iterative implementation that uses a Java
 \java{Deque} to implement a ``last in, first out'' stack.
 
-\section{The road ahead}\label{the-road-ahead}
 
-At the end of each unit, you will have a chance to work on an
-application that's a bit more substantial than a exercise. You will write
-more code, and you'll have to make more design decisions, rather than
-just filling in methods.
+\section{Search engines}
+\label{the-road-ahead}
 
-By the time we get to the end of this track, you will have built a
-simple \textbf{Web search engine}, which is a tool, like Google Search
+A \textbf{Web search engine}, which is a tool, like Google Search
 and Bing, that takes a set of ``search terms'' and returns a list of web
 pages that are relevant to those terms (we'll discuss what ``relevant''
-means later). If you are not familiar with search engines,
-\url{https://en.wikipedia.org/wiki/Web_search_engine}{you can read more
-here}, but we'll explain what you need as we go along.
+means later). 
+You can read more at 
+\url{https://en.wikipedia.org/wiki/Web_search_engine},
+but we'll explain what you need as we go along.
 
 The essential pieces of a search engine are:
 
 \begin{itemize}
+
 \item
   Crawling: We'll need a program that can download a web page, parse it,
   and extract the text and any links to other pages.
+
 \item
   Indexing: We'll need an index that makes it possible to look up a
   search term and find the pages that contain it.
+
 \item
   Retrieval: And we'll need a way to collect results from the Index and
   identify pages that are most relevant to the search terms.
+
 \end{itemize}
 
-We'll start with the Crawler; the goal of a Crawler is to discover and
+We'll start with the Crawler.  The goal of a Crawler is to discover and
 download a set of web pages. For search engines like Google and Bing,
 the goal is to find \emph{all} web pages, but often Crawlers are limited
 to a smaller domain. In our case, we will only read pages from
@@ -2613,27 +2591,28 @@ will use this Crawler to test the ``Getting to Philosophy'' conjecture,
 which states:
 
 \begin{quote}
-\emph{Clicking on the first lowercase link in the main text of a
+Clicking on the first lowercase link in the main text of a
 Wikipedia article, and then repeating the process for subsequent
-articles, usually eventually gets one to the Philosophy article.}
+articles, usually eventually gets one to the Philosophy article.
 \end{quote}
 
-This conjecture is
-\url{https://en.wikipedia.org/wiki/Wikipedia:Getting_to_Philosophy}{stated
-on this Wikipedia page}, and you can read its history there.
+This conjecture is stated at
+\url{https://en.wikipedia.org/wiki/Wikipedia:Getting_to_Philosophy}{},
+and you can read its history there.
 
 Testing the conjecture will allow us to build the basic pieces of a
 Crawler without having to crawl the entire web, or even all of
-Wikipedia. And we think the exercise is kind of fun!
+Wikipedia. And I think the exercise is kind of fun!
 
-In the next unit, we'll work on the Indexer, and then we'll get to the
+In a few chapters, we'll work on the Indexer, and then we'll get to the
 Retriever.
 
-\section{Parsing HTML}\label{parsing-html}
+\section{Parsing HTML}
+\label{parsing-html}
 
 When you download a web page, the contents are written in
-\url{https://en.wikipedia.org/wiki/HTML}{HyperText Markup Language},
-aka HTML. For example, here is a minimal HTML document:
+HyperText Markup Language, aka HTML.
+For example, here is a minimal HTML document:
 
 \begin{verbatim}
 <!DOCTYPE html>
@@ -2681,6 +2660,8 @@ following figure represents this tree graphically:
 %\caption{DOM tree}
 %\end{figure}
 
+%TODO: include figure
+
 Each node contains links to its children; in addition, each node
 contains a link to its \textbf{parent}, so from any node it is possible
 to navigate up and down the tree. The DOM tree for real pages is usually
@@ -2690,15 +2671,13 @@ Most web browsers provide tools for inspecting the DOM of the page you
 are viewing. In Chrome, you can right-click on any part of a web page
 and select ``''Inspect" from the menu that pops up. In Firefox, you can
 right-click and select ``Inspect Element'' from the menu. Safari
-provides a tool called Web Inspector,
-\url{https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html\#//apple_ref/doc/uid/TP40007874-CH2-SW1}{which
-you can read about here}. For Internet Explorer,
-\url{http://support.janova.us/entries/20181293-How-to-inspect-an-Element-in-Internet-Explorer}{you
-can read the instructions here}.
+provides a tool called Web Inspector, which you can read about at
+\url{https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html\#//apple_ref/doc/uid/TP40007874-CH2-SW1}.
+For Internet Explorer, you can read the instructions at
+\url{http://support.janova.us/entries/20181293-How-to-inspect-an-Element-in-Internet-Explorer}.
 
-Here is a screenshot of the DOM for
-\url{https://en.wikipedia.org/wiki/Java_(programming_language)}{the
-Wikipedia page on Java}.
+Here is a screenshot of the DOM for the Wikipedia page on Java,
+\url{https://en.wikipedia.org/wiki/Java_(programming_language)}.
 
 %\begin{figure}[htbp]
 %\centering
@@ -2706,13 +2685,16 @@ Wikipedia page on Java}.
 %\caption{DOM Inspector}
 %\end{figure}
 
+% TODO: include figure
+
 The element that's highlighted is the first paragraph of the main text
 of the article, which is contained in a
 \java{<div>} element with
 \java{id="mw-content-text"}. We'll use this element id to identify the
 main text of each article we download.
 
-\section{Using jsoup}\label{using-jsoup}
+\section{Using jsoup}
+\label{using-jsoup}
 
 Jsoup makes it easy to download and parse web pages, and to navigate the
 DOM tree. Here's an example:
@@ -2726,20 +2708,19 @@ DOM tree. Here's an example:
 
     // select the content text and pull out the paragraphs.
     Element content = doc.getElementById("mw-content-text");
-
-    // TODO: avoid selecting paragraphs from sidebars and boxouts
-    Elements paras = content.select("p");
+    Elements paragraphs = content.select("p");
 \end{verbatim}
 
 \java{Jsoup.connect} takes a URL as a String and makes a connection to
 the web server; the \java{get} method downloads the HTML, parses it,
 and returns a \java{Document} object, which represents the DOM.
 
-\java{Document} provides lots of helpful methods for navigating the
+\java{Document} provides methods for navigating the
 tree and selecting nodes. In fact, it provides so many methods, it can
 be confusing. This example demonstrates two ways to select nodes:
 
 \begin{itemize}
+
 \item
   \java{getElementById} takes a String and searches the tree for an
   element that has a matching ``id'' field. Here it selects the node
@@ -2753,20 +2734,23 @@ be confusing. This example demonstrates two ways to select nodes:
   object that represents this \java{<div>} and
   contains the elements in the \java{<div>} as
   children, grandchildren, etc.
+
 \item
   \java{select} takes a String, traverses the tree, and returns all
   the elements with tags that match the String. In this example, it
   returns all paragraph tags that appear in \java{content}. The return
   value is an \java{Elements} object, which is a Collection that
   contains multiple elements.
+
 \end{itemize}
 
 Before you go on, you should skim the documentation of these classes so
-you know what they can do. The most important classes are:
-\url{http://jsoup.org/apidocs/org/jsoup/nodes/Element.html}{\java{Element}},
-\url{http://jsoup.org/apidocs/org/jsoup/select/Elements.html}{\java{Elements}},
-and
-\url{http://jsoup.org/apidocs/org/jsoup/nodes/Node.html}{\java{Node}}.
+you know what they can do. The most important classes are
+\java{Element}, \java{Elements}, \java{Node}, which you can read 
+about at 
+\url{http://jsoup.org/apidocs/org/jsoup/nodes/Element.html},
+\url{http://jsoup.org/apidocs/org/jsoup/select/Elements.html}, and
+\url{http://jsoup.org/apidocs/org/jsoup/nodes/Node.html}.
 
 It's easy to get \java{Node} and \java{Element} confused:
 \java{Node} is the superclass of \java{Element}, so every
@@ -2774,15 +2758,17 @@ It's easy to get \java{Node} and \java{Element} confused:
 \java{Element}. Other kinds of Nodes include \java{TextNode} (which
 we will use soon), \java{DataNode}, and \java{Comment}.
 
-\section{Iterating through the DOM}\label{iterating-through-the-dom}
 
-To make your life easier, we've provided a class called
+\section{Iterating through the DOM}
+\label{iterating-through-the-dom}
+
+To make your life easier, I provide a class called
 \java{WikiNodeIterable} that lets you iterate through the nodes in a
 DOM tree. Here's an example that shows how to use it:
 
 \begin{verbatim}
-    Elements paras = content.select("p");
-    Element firstPara = paras.get(0);
+    Elements paragraphs = content.select("p");
+    Element firstPara = paragraphs.get(0);
 
     Iterable<Node> iter = new WikiNodeIterable(firstPara);
     for (Node node: iter) {
@@ -2793,7 +2779,7 @@ DOM tree. Here's an example that shows how to use it:
 \end{verbatim}
 
 This example picks up where the previous one leaves off. It selects the
-first paragraph in \java{paras} and the creates a
+first paragraph in \java{paragraphs} and then creates a
 \java{WikiNodeIterable}, which implements
 \java{Iterable<Node>}. The \java{for} loop
 iterates the nodes in the tree using a ``depth first search'', which
@@ -2805,16 +2791,21 @@ the \java{Element} objects that represent tags. The result is the
 plain text of the HTML paragraph without any markup. The output is:
 
 \begin{quote}
-\emph{Java is a general-purpose computer programming language that is
+Java is a general-purpose computer programming language that is
 concurrent, class-based, object-oriented,{[}13{]} and specifically
-designed\ldots{}}
+designed \ldots
 \end{quote}
 
 At this point, you know what you need for the next exercise, so you can skip
 ahead. But if you are not familiar with depth-first search, you should
 keep reading.
 
-\section{Depth-first search}\label{depth-first-search}
+
+\end{document}
+
+
+\section{Depth-first search}
+\label{depth-first-search}
 
 There are several ways you might reasonably traverse a tree, each with
 different applications. We'll start with ``depth-first search,'' or DFS.
@@ -3237,8 +3228,8 @@ public class WikiFetcher {
         Connection conn = Jsoup.connect(url);
         Document doc = conn.get();
         Element content = doc.getElementById("mw-content-text");
-        Elements paras = content.select("p");
-        return paras;
+        Elements paragraphs = content.select("p");
+        return paragraphs;
     }
 
     private void sleepIfNeeded() {
@@ -3257,6 +3248,8 @@ public class WikiFetcher {
     }
 }
 \end{verbatim}
+
+%TODO: avoid wraparound
 
 The only public method is \java{fetchWikipedia}, which takes a URL as
 a String and returns an \java{Elements} collection that contains one
@@ -3839,7 +3832,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
     private List<Entry> entries = new ArrayList<Entry>();
 \end{verbatim}
 
-This class uses two type parameters, \java{K}, which is the type of
+This class uses two type parameters, $k$, which is the type of
 the keys, and \java{V}, which is the type of the values.
 \java{MyLinearMap} implements \java{Map}, which means it has to
 provide the methods in the \java{Map} interface.
@@ -3872,7 +3865,7 @@ definition:
 
 There's not much to it; an \java{Entry} is just a container for a key
 and a value. This definition is nested inside \java{MyLinearList}, so
-it uses the same type parameters, \java{K} and \java{V}.
+it uses the same type parameters, $k$ and \java{V}.
 
 That's all you need to do the exercise, so let's get started.
 
@@ -3992,11 +3985,11 @@ private boolean equals(Object target, Object obj) {
 
 The runtime of \java{equals} might depend on the size of the
 \java{target} and the \java{keys}, but does not generally depend on
-the number of entries, \java{n}. So \java{equals} is constant time.
+the number of entries, $n$. So \java{equals} is constant time.
 
 In \java{findEntry}, we might get lucky and find the key we're looking
 for at the beginning, but we can't count on it. In general, the number
-of entries we have to search is proportional to \java{n}, so
+of entries we have to search is proportional to $n$, so
 \java{findEntry} is linear.
 
 Most of the core methods in \java{MyLinearMap} use \java{findEntry},
@@ -4108,7 +4101,7 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 
 The instance variable, \java{maps} is a collection of
 \java{MyLinearMap} objects. The constructor takes a parameter,
-\java{k}, that determines how many maps to use, at least initially.
+$k$, that determines how many maps to use, at least initially.
 Then \java{makeMaps} creates the embedded maps and stores them in an
 \java{ArrayList}.
 
@@ -4176,13 +4169,13 @@ the right sub-map and then invoke a method on the sub-map. In the next
 lab, you'll have a chance to finish off a few other methods. But first,
 let's think about performance.
 
-If there are \java{n} entries split up among \java{k} sub-maps,
+If there are $n$ entries split up among $k$ sub-maps,
 there will be \java{n/k} entries per map, on average. When we look up
 a key, we have to compute its hash code, which takes some time, then we
 search the corresponding sub-map. Because the entry lists in
-\java{MyBetterMap} are \java{k} times shorter than the entry list in
-\java{MyLinearMap}, we expect the search to be \java{k} times
-faster. But the run time is still proportional to \java{n}, so
+\java{MyBetterMap} are $k$ times shorter than the entry list in
+\java{MyLinearMap}, we expect the search to be $k$ times
+faster. But the run time is still proportional to $n$, so
 \java{MyBetterMap} is still linear. In the next exercise, you'll see how we
 can fix that.
 
@@ -4263,8 +4256,8 @@ yield the same total, like \java{"ac"} and \java{"bb"}.
 
 If many objects have the same hash code, they end up in the same
 sub-map, and some sub-maps have more entries than others. In that case,
-the speedup when we have \java{k} maps might be much less than
-\java{k}. So one of the goals of a hash function is to be uniform;
+the speedup when we have $k$ maps might be much less than
+$k$. So one of the goals of a hash function is to be uniform;
 that is, it should be equally likely to produce any value in the range.
 You can \url{https://en.wikipedia.org/wiki/Hash_function}{read more
 about designing good hash functions here}.
@@ -4438,13 +4431,13 @@ Also, in \java{javacs-lab08}, you'll find the Ant build file
 
 Like \java{put} and \java{get}, this implementation of
 \java{containsKey} is linear, because it has to search one of the
-embedded sub-maps. If there are \java{n} entries and \java{k}
+embedded sub-maps. If there are $n$ entries and $k$
 sub-maps, the size of the sub-maps is \java{n/k} on average, which is
-still proportional to \java{n}.
+still proportional to $n$.
 
-But if we increase \java{k} along with \java{n}, we can limit the
-size of \java{n/k}. For example, suppose we double \java{k} every
-time \java{n} exceeds \java{k}; in that case the number of entries
+But if we increase $k$ along with $n$, we can limit the
+size of \java{n/k}. For example, suppose we double $k$ every
+time $n$ exceeds $k$; in that case the number of entries
 per map would be less than 1 on average, and pretty much always less
 than 10, as long as the hash function spreads out the keys reasonably
 well.
@@ -4487,8 +4480,8 @@ methods defined there. The only method it overrides is \java{put}
 which calls \java{put} in the superclass --- that is, it calls the
 version of \java{put} in \java{MyBetterMap} --- and then it checks
 whether it has to rehash. Calling \java{size} returns the total number
-of entries, \java{n}. Calling \java{maps.size} returns the number of
-embedded maps, \java{k}.
+of entries, $n$. Calling \java{maps.size} returns the number of
+embedded maps, $k$.
 
 The constant \java{FACTOR}, which is called the \textbf{load factor},
 determines the maximum number of entries per sub-map, on average. If
@@ -4509,7 +4502,7 @@ Fill in the body of \java{rehash} to collect the entries in the table,
 resize the table, and then put the entries back in. We provide two
 methods that might come in handy: \java{MyBetterMap.makeMaps} and
 \java{MyLinearMap.getEntries}. Your solution should double the number
-of maps, \java{k}, each time it is called.
+of maps, $k$, each time it is called.
 
 \section{Analyzing \java{MyHashMap}}\label{analyzing-myhashmap}
 
@@ -4545,7 +4538,7 @@ Again, the argument is based on
 \url{https://en.wikipedia.org/wiki/Amortized_analysis}{amortized
 analysis}.
 
-Suppose the initial number of sub-maps, \java{k}, is 2, and the load
+Suppose the initial number of sub-maps, $k$, is 2, and the load
 factor is 1. Now let's see how much work it takes to \java{put} a
 series of keys. As the basic ``unit of work'', we'll count the number of
 times we have to hash a key and add it to a sub-map.
@@ -4575,7 +4568,7 @@ which shows that the average work per \java{put} is about 2 units. And
 that means that \java{put} is constant time on average.
 
 This diagram also shows why it is important to double the number of
-sub-maps, \java{k}, when we rehash. If we only add to \java{k}
+sub-maps, $k$, when we rehash. If we only add to $k$
 instead of multiplying, the towers would be too close together and
 (eventually) they would start piling up. And that would not be constant
 time.
@@ -4614,7 +4607,7 @@ time in \java{MyLinearMap} have become linear. For example:
 \end{verbatim}
 
 \java{clear} has to clear all of the sub-maps, and the number of
-sub-maps is proportional to \java{n}, so it's linear. Fortunately,
+sub-maps is proportional to $n$, so it's linear. Fortunately,
 this operation is not used very often, so for most applications this
 tradeoff is acceptable.
 
@@ -4629,7 +4622,7 @@ constant time.
   files. Then run \java{ant ProfileMapPut}. It measures the runtime of
   \java{HashMap.put} (provided by Java) with a range of problem sizes,
   and plots runtime versus problem size on a log-log scale. If this
-  operation is constant time, the total time for \java{n} operations
+  operation is constant time, the total time for $n$ operations
   should be linear, so the result should be a straight line with slope
   1. When we ran this code, the estimated slope was close to 1, which is
   consistent with our analysis. You should get something similar.
@@ -4694,8 +4687,8 @@ inherited from \java{MyBetterMap}:
 \end{verbatim}
 
 To add up the total size it has to iterate the sub-maps. Since we
-increase the number of sub-maps, \java{k}, as the number of entries,
-\java{n}, increases, \java{k} is proportional to \java{n}, so
+increase the number of sub-maps, $k$, as the number of entries,
+$n$, increases, $k$ is proportional to $n$, so
 \java{size} is linear.
 
 And that makes \java{put} linear, too, because it uses \java{size}:
@@ -4797,7 +4790,7 @@ Now the implementation of the \java{size} method is simple:
 And that's pretty clearly constant time.
 
 When we profiled this solution, we found that the total time for putting
-\java{n} keys is proportional to \java{n}, which means that each
+$n$ keys is proportional to $n$, which means that each
 \java{put} is constant time, as it's supposed to be.
 
 \section{UML class diagrams}\label{uml-class-diagrams}
@@ -4987,7 +4980,7 @@ comparisons is proportional to the height of the tree, not the number of
 keys in the tree.
 
 So what can we say about the relationship between the height of the
-tree, \java{h}, and the number of nodes, \java{n}? Starting small
+tree, \java{h}, and the number of nodes, $n$? Starting small
 and working up:
 
 \begin{itemize}
@@ -5155,8 +5148,8 @@ tree. From the signature of \java{get} and \java{containsKey}, the
 compiler considers \java{target} to be an \java{Object}. But we need
 to be able to compare keys, so we typecast \java{target} to
 \java{Comparable<? super K>}, which means that
-it is comparable to an instance of type \java{K}, or any superclass of
-\java{K}.\\If you are not familiar with this use of ``type
+it is comparable to an instance of type $k$, or any superclass of
+$k$.\\If you are not familiar with this use of ``type
 wildcards'',
 \url{http://docs.oracle.com/javase/tutorial/extra/generics/morefun.html}{you
 can read more here}.
@@ -5185,7 +5178,7 @@ not search the whole tree!
 
 Unlike your previous solution for \java{findNode}, your solution for
 \java{containsValue} \emph{does} have to search the whole tree, so its
-runtime will proportional to the number of keys, \java{n}, not the
+runtime will proportional to the number of keys, $n$, not the
 height of the tree, \java{h}.
 
 \begin{itemize}
@@ -5235,7 +5228,7 @@ Fill in \java{putHelper} so it searches the tree and:
 \end{enumerate}
 
 Your implementation of \java{put} should take time proportional to
-\java{h}, not \java{n}. Ideally you should search the tree only
+\java{h}, not $n$. Ideally you should search the tree only
 once, but if you find it easier to search twice, you can do that; it
 will be slower, but it doesn't change the order of growth.
 
@@ -5352,7 +5345,7 @@ first part of this function in the previous exercise:
   typecast it to some kind of \java{Comparable}. The ``type wildcard''
   used here is as permissive as possible; that is, it works with any
   type that implements \java{Comparable} and whose \java{compareTo}
-  method accepts \java{K} or any supertype of \java{K}.
+  method accepts $k$ or any supertype of $k$.
 \end{itemize}
 
 After all that, the actual search is relatively simple. We initialize a
@@ -5580,7 +5573,7 @@ added.
 So we can conclude that this method adds all keys in the correct order.
 
 Because this method visits every node in the tree, like
-\java{containsValue}, it takes time proportional to \java{n}.
+\java{containsValue}, it takes time proportional to $n$.
 
 \section{The logarithmic methods}\label{the-logarithmic-methods}
 
@@ -5637,8 +5630,8 @@ linear search, that's almost 500 times faster.
 This performance is typical with random strings or other keys that are
 added in no particular order. The final height of the tree might be 2-3
 times the theoretical minimum, but it is still proportional to
-\java{log n}, which is much less than \java{n}. In fact,
-\java{log n} grows so slowly as \java{n} increases, it can be
+\java{log n}, which is much less than $n$. In fact,
+\java{log n} grows so slowly as $n$ increases, it can be
 difficult to distinguish logarithmic time from constant time in
 practice.
 
@@ -5679,7 +5672,7 @@ in the tree, so we always choose the right subtree, and always add the
 new node as the right child of the rightmost node. The result is an
 ``unbalanced'' tree that only contains right children.
 
-The height of this tree is proportional to \java{n}, not
+The height of this tree is proportional to $n$, not
 \java{log n}, so the performance of \java{get} and \java{put} is
 linear, not logarithmic.
 
@@ -6535,7 +6528,7 @@ efficient.
 
 \section{Analysis of lookup}\label{analysis-of-lookup}
 
-Suppose we have indexed \java{N} pages and discovered \java{M}
+Suppose we have indexed $N$ pages and discovered \java{M}
 unique seach terms. How long will it take to look up a search term?
 Think about your answer before you continue.
 
@@ -7459,45 +7452,50 @@ This example shows how to call this function with a \java{List} of
 \java{insertionSort}, has two nested loops, so you might guess that
 its runtime is quadratic. In this case, that turns out to be correct,
 but before you jump to that conclusion, you have to check that the
-number of times each loop runs is proportional to \java{n}, the size
+number of times each loop runs is proportional to $n$, the size
 of the array.
 
-The outer loop iterates from 1 to \java{n}, so it is clearly linear.
+The outer loop iterates from 1 to $n$, so it is clearly linear.
 The inner loop iterates from \java{i} to 0, so it is also linear, and
 the total number of times the inner loop runs is quadratic.
 
 If you are not sure about that, here's the argument:
 
 \begin{itemize}
+
 \item
-  The first time through, \java{i=1} and the inner loop runs at most
+  The first time through, $i=1$ and the inner loop runs at most
   once.
+
 \item
-  The second time, \java{i=2} and the inner loop runs at most twice.
+  The second time, $i=2$ and the inner loop runs at most twice.
+
 \item
-  The last time, \java{i=n-1} and the inner loop runs at most
-  \java{n-1} times.
+  The last time, $i=n-1$ and the inner loop runs at most
+  $n-1$ times.
+
 \end{itemize}
 
 So the total number of times the inner loop runs is the sum of the
-series 1, 2, \ldots{} n-1, which is \java{n (n-1) / 2}. And the
+series $1, 2, \ldots , n-1$, which is $n (n-1) / 2$. And the
 leading term of that expression (the one with the highest exponent) is
-\java{n^2}.
+$n^2$.
 
 In the worst case, insertion sort is quadratic. However:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   If the elements are already sorted, or nearly so, insertion sort is
-  linear. Specifically, if each element is no more than \java{k}
+  linear. Specifically, if each element is no more than $k$
   locations away from where it should be, the inner loop never runs more
-  than \java{k} times, and the total runtime is \java{O(kn)}.
+  than $k$ times, and the total runtime is $O(kn)$.
+
 \item
   Because the implementation is simple, the overhead is low; that is,
   even if the runtime is
-  \java{a n^2},
-  the coefficient of the leading term, \java{a}, is probably small.
+  $a n^2$, the coefficient of the leading term, $a$, is probably small.
+
 \end{enumerate}
 
 So if we know that the array is nearly sorted, or is not very big,
@@ -7523,10 +7521,13 @@ In the subdirectory \java{javacs-lab12/src/com/allendowney/javacs}
 you'll find the source files for this exercise:
 
 \begin{itemize}
+
 \item
   \java{ListSorter.java},
+
 \item
   \java{ListSorterTest.java},
+
 \end{itemize}
 
 Run \java{ant build} to compile the source files, then run
@@ -7587,7 +7588,7 @@ and \java{testMergeSortInPlace} should pass.
 
 To classify the runtime of merge sort, it helps to think about the
 algorithm in terms of levels of recursion and how much work is done on
-each level. Suppose we start with a list that contains \java{n}
+each level. Suppose we start with a list that contains $n$
 elements. Here are the steps of the algorithm:
 
 \begin{enumerate}
@@ -7620,15 +7621,15 @@ of recursion:
 %\caption{alt tag}
 %\end{figure}
 
-At the top level, we have \java{1} list with \java{n} elements. At
+At the top level, we have \java{1} list with $n$ elements. At
 the next level there are \java{2} lists with \java{n/2} elements.
 Then \java{4} lists with \java{n/4} elements, and so on until we get
-to \java{n} lists with \java{1} element.
+to $n$ lists with \java{1} element.
 
-On every level we have a total of \java{n} elements. On the way down,
+On every level we have a total of $n$ elements. On the way down,
 we have to split the arrays in half, which takes time proportional to
-\java{n} on every level. On the way back up, we have to merge a total
-of \java{n} elements, which is also linear.
+$n$ on every level. On the way back up, we have to merge a total
+of $n$ elements, which is also linear.
 
 If the number of levels is \java{h}, the total amount of work for the
 algorithm is \java{O(nh)}. So how many levels are there? There are two
@@ -7637,20 +7638,20 @@ ways to think about that:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  How many times do we have to cut \java{n} in half to get to 1. Or,
+  How many times do we have to cut $n$ in half to get to 1. Or,
 \item
   How many times do we have to double \java{1} before we get to
-  \java{n}.
+  $n$.
 \end{enumerate}
 
 Another way to ask the second question is ``what power of 2 is
-\java{n}''?
+$n$''?
 
-\java{2}\java{h} = \java{n}
+\java{2}\java{h} = $n$
 
-Taking the \java{log}\java{n} of both sides yields
+Taking the \java{log}$n$ of both sides yields
 
-\java{h = log}\java{2} \java{n}
+\java{h = log}\java{2} $n$
 
 So the total time is \java{O(n log n)}. I didn't bother to write the
 base of the logarithm because logarithms with different bases differ by
@@ -7725,8 +7726,8 @@ buckets. As long as the buckets allow addition in constant time, each
 pass is linear.
 
 The number of passes, which we'll call \java{w}, depends on the length
-of the words, but it doesn't depend on the number of words, \java{n}.
-So the order of growth is \java{O(wn)}, which is linear in \java{n}.
+of the words, but it doesn't depend on the number of words, $n$.
+So the order of growth is \java{O(wn)}, which is linear in $n$.
 
 There are many variations on radix sort, and many ways to implement each
 one. You can \url{http://en.wikipedia.org/wiki/Radix_sort}{read more
@@ -7739,14 +7740,14 @@ In addition to radix sort, which applies when the things you want to
 sort are bounded in size, there is one other special-purpose sorting
 algorithm you might encounter: bounded heap sort. Bounded heap sort is
 useful if you are working with a very large dataset and you want to
-report the ``Top 10'', or ``Top k'' for some value of \java{k} much
-smaller than \java{n}.
+report the ``Top 10'', or ``Top k'' for some value of $k$ much
+smaller than $n$.
 
 For example, suppose you are monitoring a Web service that handles a
 billion transactions per day. At the end of each day, you want to report
-the \java{k} biggest transactions (or slowest, or any other
+the $k$ biggest transactions (or slowest, or any other
 superlative). One option is to store all transactions, sort them at the
-end of the day, and select the top \java{k}. That would take time
+end of the day, and select the top $k$. That would take time
 proportional to \java{n log n}, and it would be very slow because we
 probably can't fit a billion transactions in the memory of a single
 program. We would have to use an ``out of core'' sort algorithm. You can
@@ -7800,7 +7801,7 @@ The Java \java{PriorityQueue} is implemented using a heap.
 \end{itemize}
 
 Given a \java{PriorityQueue}, you can easily sort of a collection of
-\java{n} elements like this:
+$n$ elements like this:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -7817,8 +7818,8 @@ queue, the elements are added to the \java{List} in ascending order.
 This way of sorting is called
 \url{https://en.wikipedia.org/wiki/Heapsort}{heap sort}.
 
-Adding \java{n} elements to the queue takes \java{n log n} time. So
-does removing \java{n} elements. So the run time for heap sort is
+Adding $n$ elements to the queue takes \java{n log n} time. So
+does removing $n$ elements. So the run time for heap sort is
 \java{O(n log n)}.
 
 \begin{itemize}
@@ -7831,9 +7832,9 @@ does removing \java{n} elements. So the run time for heap sort is
 
 \section{Bounded heap}\label{bounded-heap}
 
-A bounded heap is a heap that is limited to contain at most \java{k}
-elements. If you have \java{n} elements, you can keep track of the
-\java{k} largest elements like this:
+A bounded heap is a heap that is limited to contain at most $k$
+elements. If you have $n$ elements, you can keep track of the
+$k$ largest elements like this:
 
 For each element, \java{x}:
 
@@ -7843,7 +7844,7 @@ For each element, \java{x}:
 \item
   Branch 2: If the heap is full, compare \java{x} to the
   \emph{smallest} element in the heap. If \java{x} is smaller, it
-  cannot be one of the largest \java{k} elements, so you can discard
+  cannot be one of the largest $k$ elements, so you can discard
   it.
 \item
   Branch 3: If the heap is full and \java{x} is greater than the
@@ -7852,7 +7853,7 @@ For each element, \java{x}:
 \end{itemize}
 
 Using a heap with the smallest element at the top, we can keep track of
-the largest \java{k} elements. Let's analyze the performance of this
+the largest $k$ elements. Let's analyze the performance of this
 algorithm. For each element, we perform one of:
 
 \begin{itemize}
@@ -7866,15 +7867,15 @@ algorithm. For each element, we perform one of:
 \end{itemize}
 
 In the worst case, if the elements appear in ascending order, we always
-run Branch 3. In that case, the total time to process \java{n}
-elements is \java{O(n log k)}, which is linear in \java{n}.
+run Branch 3. In that case, the total time to process $n$
+elements is \java{O(n log k)}, which is linear in $n$.
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   In \java{ListSorter.java} you'll find the outline of a method called
   \java{topK} that takes a \java{List}, a \java{Comparator}, and
-  an integer \java{k}. It should return the \java{k} largest
+  an integer $k$. It should return the $k$ largest
   elements in the \java{List} in ascending order. Fill it in and then
   run \java{ant test} to confirm that it works.
 \end{itemize}
@@ -7891,7 +7892,7 @@ space requirement down to \java{O(n)}.
 In contrast, insertion sort doesn't copy the data because it sorts the
 elements in place. It uses temporary variables to compare two elements
 at a time, and it uses a few other local variables. But its space use
-doesn't depend on \java{n}.
+doesn't depend on $n$.
 
 Our implementation of heap sort creates a new \java{PriorityQueue} to
 store the elements, so the space is \java{O(n)}; but if you are
@@ -7899,9 +7900,9 @@ allowed to sort the list in place, you can run heap sort with
 \java{O(1)} space.
 
 One of the benefits of the bounded heap algorithm you just implemented
-is that it only needs space proportional to \java{k} (the number of
-elements we want to keep), and \java{k} is often much smaller than
-\java{n}.
+is that it only needs space proportional to $k$ (the number of
+elements we want to keep), and $k$ is often much smaller than
+$n$.
 
 Software develpers tend to pay more attention to runtime than space, and
 for many applications, that's appropriate. But for large datasets, space
