@@ -29,6 +29,15 @@ public class WeightedGraph extends Graph {
         map2.put(v, weight);
     }
 
+    public double distanceBetween(int v, int w) {
+
+        if (!hasEdgeBetween(v, w))
+            throw new IllegalArgumentException("There is no edge connecting " + v + " and " + w);
+
+        return adjacency.get(v).get(w);
+
+    }
+
     public Map<Integer, Double> getWeightedNeighbors(int v) {
         return adjacency.get(v);
     }

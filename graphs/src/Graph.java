@@ -14,16 +14,16 @@ public class Graph {
 
     }
 
-    public List<Integer> vertices(int v) {
+    public List<Integer> vertices() {
         return null;
     }
 
     public int numVertices() {
-        return -1;
+        return 0;
     }
 
     public int numEdges() {
-        return -1;
+        return 0;
     }
 
     public Iterable<Integer> getNeighbors(int v) {
