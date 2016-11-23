@@ -2801,9 +2801,6 @@ ahead. But if you are not familiar with depth-first search, you should
 keep reading.
 
 
-\end{document}
-
-
 \section{Depth-first search}
 \label{depth-first-search}
 
@@ -2837,21 +2834,23 @@ prints the contents. If the \java{Node} has any children, it invokes
 
 In this example, we print the contents of each \java{TextNode} before
 traversing the children, so this is an example of a ``pre-order''
-traversal. \url{https://en.wikipedia.org/wiki/Tree_traversal}{You can
+traversal. You can
 read about ``pre-order'', ``post-order'', and ``in-order'' traversals
-here}. For this application, the traversal order doesn't matter.
+at \url{https://en.wikipedia.org/wiki/Tree_traversal}.
+For this application, the traversal order doesn't matter.
 
-By making recursive calls, \java{recursiveDFS} uses the
-\url{https://en.wikipedia.org/wiki/Call_stack}{call stack} to keep
+By making recursive calls, \java{recursiveDFS} uses the call stack
+(\url{https://en.wikipedia.org/wiki/Call_stack}) to keep
 track of the child nodes and process them in the right order. As an
 alternative, we can use a stack data structure to keep track of the
 nodes ourselves; if we do that, we can avoid the recursion and traverse
 the tree iteratively.
 
-\section{Stacks in Java}\label{stacks-in-java}
+\section{Stacks in Java}
+\label{stacks-in-java}
 
-Before we can explain the iterative version of DFS, we have to explain
-the stack data structure. We'll start with the general concept of a
+Before I explain the iterative version of DFS, I'll explain
+the stack data structure.  We'll start with the general concept of a
 stack, which we'll call a ``stack'' with a lowercase ``s''. Then we'll
 talk about two Java implementations of a stack, which are called
 \java{Stack} and \java{Deque}.
@@ -2862,16 +2861,20 @@ difference between a stack and a list is that the stack provides fewer
 methods. In the usual convention, it provides:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \java{push}: which adds an element to the top of the stack.
+
 \item
   \java{pop}: which removes the top-most element from the stack.
+
 \item
   \java{peek}: which returns the top-most element without modifying
   the stack.
+
 \item
   \java{isEmpty}: which indicates whether the stack is empty.
+
 \end{itemize}
 
 Because \java{pop} always returns the top-most element, a stack is
@@ -2885,14 +2888,15 @@ provide fewer capabilities. So why not use lists for everything? There
 are two reasons:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   If you limit yourself to a small set of methods --- that is, a small
   API --- your code will be more readable and less error-prone. For
   example, if you use a list to represent a stack, you might
   accidentally remove an element in the wrong order. With the stack API,
   this kind of mistake is literally impossible. And the best way to
-  avoid errors it to make them impossible.
+  avoid errors is to make them impossible.
+
 \item
   If a data structure provides a small API, it is easier to implement
   efficiently. For example, a simple way to implement a stack is a
@@ -2901,36 +2905,41 @@ are two reasons:
   from the beginning. For a linked list, adding and removing from the
   beginning are constant time operations, so this implementation is
   efficient. Conversely, big APIs are harder to implement efficiently.
+
 \end{enumerate}
 
 To implement a stack in Java, you have three options:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Go ahead and use \java{ArrayList} or \java{LinkedList}. If you use
   \java{ArrayList}, be sure to add and remove from the \emph{end},
   which is a constant time operation. And be careful not to add elements
   in the wrong place or remove them in the wrong order.
+
 \item
   Java provides a class called \java{Stack} that provides the standard
   set of stack methods. But this class is an old part of Java: it is not
   consistent with the Java Collections Framework, which came later, and
   it does not handle synchronization as well as more recent classes.
+
 \item
   Probably the best choice is to use one of the implementations of the
   \java{Deque} interface, like \java{ArrayDeque}.
+
 \end{enumerate}
 
 ``Deque'' stands for ``double-ended queue''; it's supposed to be
 pronounced ``deck'', but some people say ``deek''. In Java, the
 \java{Deque} interface provides \java{push}, \java{pop},
 \java{peek}, and \java{isEmpty}, so you can use a \java{Deque} as
-a stack. It provides other methods
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html}{you
-can read about here}, but we won't use them for now.
+a stack. It provides other methods, which you can read about at
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html},
+but we won't use them for now.
 
-\section{Iterative DFS}\label{iterative-dfs}
+\section{Iterative DFS}
+\label{iterative-dfs}
 
 Here is an iterative version of DFS that uses an \java{ArrayDeque} to
 represent a stack of \java{Node} objects:
@@ -2960,7 +2969,7 @@ The parameter, \java{root}, is the root of the tree we want to
 traverse, so we start by creating the stack and pushing the root onto
 it.
 
-The loop continues until the stack it empty. Each time through, it pops
+The loop continues until the stack is empty. Each time through, it pops
 a \java{Node} off the stack. If it gets a \java{TextNode}, it prints
 the contents. Then it pushes the children onto the stack. In order to
 process the children in the right order, we have to push them onto the
@@ -2968,9 +2977,9 @@ stack in reverse order; we do that by copying the children into an
 \java{ArrayList}, reversing the elements in place, and then iterating
 through the reversed \java{ArrayList}.
 
-One advantage of the iterative version of DFS is that it it easier to
-implement as a Java \java{Iterator}; you'll find out how in the next
-lab. But first, one last note about the \java{Deque} interface: in
+One advantage of the iterative version of DFS is that it is easier to
+implement as a Java \java{Iterator}; you'll see how in the next
+exercise. But first, one last note about the \java{Deque} interface: in
 addition to \java{ArrayDeque}, Java provides another implementation of
 \java{Deque}, our old friend \java{LinkedList}. \java{LinkedList}
 implements both interfaces, \java{List} and \java{Deque}. Which
@@ -3000,49 +3009,17 @@ You can use \emph{all} the methods. But if you combine methods from
 different interfaces, your code will be less readable and more
 error-prone.
 
-\section{Resources}\label{resources-6}
-
-\url{https://en.wikipedia.org/wiki/Web_search_engine}{Web search
-engine}: Wikipedia.
-
-\url{https://en.wikipedia.org/wiki/HTML}{HyperText Markup Language}:
-Wikipedia
-
-\url{http://jsoup.org/apidocs/org/jsoup/nodes/Element.html}{\java{Element}}:
-jsoup documentation
-\url{http://jsoup.org/apidocs/org/jsoup/select/Elements.html}{\java{Elements}}:
-jsoup documentation
-\url{http://jsoup.org/apidocs/org/jsoup/nodes/Node.html}{\java{Node}}:
-jsoup documentation
-
-\url{https://en.wikipedia.org/wiki/Tree_traversal}{Tree traversal}:
-Wikipedia \url{https://en.wikipedia.org/wiki/Call_stack}{Call stack}:
-Wikipedia
-
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html}{Deque
-interface}: Java documentation \# cs-wikipedia-philosophy-lab
 
 \chapter{Getting to Philosophy}
 
-\section{Objectives}\label{objectives-9}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Select data structures for an application.
-\item
-  Use Java data structures to write a simple Web crawler.
-\end{enumerate}
-
-\section{Overview}\label{overview-8}
 
 The goal of this exercise is to write a Web crawler that tests the ``Getting
 to Philosophy'' conjecture, which we presented in the previous exercise.
 We'll provide some code to help you get started, but you will write more
 code for this exercise than for the previous ones.
 
-\section{Getting started}\label{getting-started}
+\section{Getting started}
+\label{getting-started}
 
 When you check out the respository for this exercise, you should find a file
 structure similar to what you saw in previous exercises. The top level
@@ -3054,47 +3031,52 @@ In the subdirectory \java{javacs-lab05/src/com/allendowney/javacs}
 you'll find the source files you need for this exercise:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   \java{WikiNodeExample.java} contains the code from the previous
   README, demonstrating recursive and iterative implementations of
   depth-first search (DFS) in a DOM tree.
+
 \item
   \java{WikiNodeIterable.java} contains an \java{Iterable} class for
   traversing a DOM tree. We'll explain this code in the next section.
+
 \item
   \java{WikiFetcher.java} contains a utility class that uses jsoup to
   download pages from Wikipedia. To help you comply with Wikipedia's
   terms of service, this class limits how fast you can download pages;
   if you request more than one page per second, it sleeps before
   downloading the next page.
+
 \item
   \java{WikiPhilosophy.java} contains an outline of the code you will
   write for this exercise. We'll walk you through it below.
+
 \end{enumerate}
 
 Also, in \java{javacs-lab05}, you'll find the Ant build file
 \java{build.xml}. If you run \java{ant WikiPhilosophy}, it will run
 a simple bit of starter code.
 
-\section{\java{Iterables} and
-\java{Iterators}}\label{iterables-and-iterators}
 
-In the previous README, we presented an iterative depth-first search
+\section{\java{Iterables} and \java{Iterators}}
+\label{iterables-and-iterators}
+
+In the previous chapter, I presented an iterative depth-first search
 (DFS), and suggested that an advantage of the iterative version,
 compared to the recursive version, it that it is easier to wrap in an
 \java{Iterator} object. In this section we'll see how to do that.
 
 If you are not familiar with the \java{Iterator} and \java{Iterable}
-interfaces, you can read about them
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html}{here}
+interfaces, you can read about them at
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html}
 and
-\url{https://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html}{here}.
+\url{https://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html}.
 
 Take a look at the contents of \java{WikiNodeIterable.java}. The outer
 class, \java{WikiNodeIterable} implements the
 \java{Iterable<Node>} interface, so we can use
-it in an ``enchanced for loop'' like this:
+it in a for loop like this:
 
 \begin{verbatim}
     Node root = ...
@@ -3111,13 +3093,15 @@ a \java{Node}.
 The implementation of WikiNodeIterable follows a conventional formula:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   The constructor takes and stores a reference to the root
   \java{Node}.
+
 \item
   The \java{iterator} method creates a returns an \java{Iterator}
   object.
+
 \end{enumerate}
 
 Here's what it looks like:
@@ -3176,36 +3160,43 @@ This code is almost identical to the iterative version of DFS, but now
 it's split into three methods:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   The constructor initializes the stack (which is implemented using an
   \java{ArrayDeque}) and pushes the root node onto it.
+
 \item
   \java{isEmpty} checks whether the stack is empty.
+
 \item
   \java{next} pops the next \java{Node} off the stack, pushes its
   children in reverse order, and returns the \java{Node} it popped. If
   someone invokes \java{next} on an empty \java{Iterator}, it throws
   an exception.
+
 \end{enumerate}
 
-\section{\java{WikiFetcher}}\label{wikifetcher}
+
+\section{\java{WikiFetcher}}
+\label{wikifetcher}
 
 When you write a Web crawler, it is easy to download too many pages too
-fast, which might violate the terms of service of the server you are
-downloading from. To help you avoid that, we provide a class called
+fast, which might violate the terms of service for the server you are
+downloading from. To help you avoid that, I provide a class called
 \java{WikiFetcher} that does two things
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   It encapsulates the code we demonstrated in the previous README for
   downloading pages from Wikipedia, parsing the HTML, and selecting the
   content text.
+
 \item
   It measures the time between requests and, if we don't leave enough
   time between requests, it sleeps until a reasonable interval has
   elapsed. By default, the interval is one second.
+
 \end{enumerate}
 
 Here's the definition of \java{WikiFetcher}
@@ -3240,7 +3231,8 @@ public class WikiFetcher {
                 try {
                     Thread.sleep(nextRequestTime - currentTime);
                 } catch (InterruptedException e) {
-                    System.err.println("Warning: sleep interrupted in fetchWikipedia.");
+                    System.err.println(
+                        "Warning: sleep interrupted in fetchWikipedia.");
                 }
             }
         }
@@ -3284,31 +3276,36 @@ minimum interval between requests.
 NOTE: My implementation of \java{WikiFetcher} is simple, but it would
 be easy for someone to mis-use it by creating multiple instances. You
 could avoid this problem by making \java{WikiFetcher} a ``singleton'',
-\url{https://en.wikipedia.org/wiki/Singleton_pattern}{which you can
-read about here}.
+which you can read about at
+\url{https://en.wikipedia.org/wiki/Singleton_pattern}.
 
-\section{Filling in
-\java{WikiPhilosophy}}\label{filling-in-wikiphilosophy}
+\section{Filling in \java{WikiPhilosophy}}
+\label{filling-in-wikiphilosophy}
 
 In \java{WikiPhilosophy.java} you'll find a simple \java{main}
 method that shows how to use some of these pieces. Starting with this
 code, your job is to write a crawler that:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Takes a URL for a Wikipedia page, downloads it, and parses it.
+
 \item
   It should traverse the resulting DOM tree to find the first
   \emph{valid} link. We'll explain what ``valid'' means below.
+
 \item
   If the page has no links, or if the first link is a page we have
   already seen, the program should indicate failure and exit.
+
 \item
   If the link matches the URL of the Wikipedia page on philosophy, the
   program should indicate success and exit.
+
 \item
   Otherwise it should go back to Step 1.
+
 \end{enumerate}
 
 The program should build a \java{List} of the URLs it visits and
@@ -3319,18 +3316,22 @@ Various versions of the ``Getting to Philosophy'' conjecture use
 slightly different rules, but here are some options:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   The link should be in the content text of the page, not in a sidebar
   or boxout.
+
 \item
   It should not be in italics or in parentheses.
+
 \item
   You should skip external links, links to the current page, and red
   links.
+
 \item
   In some versions, you should skip a link if the text starts with an
   uppercase letter.
+
 \end{enumerate}
 
 You don't have to enforce all of these rules, but we recommend that you
@@ -3340,66 +3341,41 @@ If you feel like you have enough information to get started, go ahead.
 Or you might want to read these hints:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   As you traverse the tree, the two kinds of \java{Node} you will need
   to deal with are \java{TextNode} and \java{Element}. If you find
   an \java{Element}, you will probably have to typecast it to access
   the tag and other information.
+
 \item
   When you find an \java{Element} that contains a link, you can check
   whether it is in italics by following parent links up the tree. If
   there is an \java{i} or \java{em} tag in the parent chain, the
   link is in italics.
+
 \item
   To check whether a link is in parentheses, you will have to scan
   through the text as you traverse the tree and keep track of opening
   and closing parentheses (ideally your solution should be able to
   handle nested parentheses (like this)).
+
 \item
-  If you start from
-  \url{https://en.wikipedia.org/wiki/Java_(programming_language)}{the
-  Java page}, you should get to
-  \url{https://en.wikipedia.org/wiki/Philosophy}{Philosophy} after
-  following seven links (unless something has changed since we ran the
-  code).
+  If you start from the Java page
+  (\url{https://en.wikipedia.org/wiki/Java_(programming_language)}),
+  you should get to Philosophy
+  (\url{https://en.wikipedia.org/wiki/Philosophy} after following
+  seven links, unless something has changed since I ran the code.
+
 \end{enumerate}
 
-Ok, that's all the help you're going to get from us. Now it's up to you.
+Ok, that's all the help you're going to get. Now it's up to you.
 Have fun!
 
-\section{Resources}\label{resources-7}
+\end{document}
 
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html}{Iterator}:
-Java documentation.
-
-\url{https://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html}{Iterable}:
-Java documentation.
-
-\url{https://en.wikipedia.org/wiki/Singleton_pattern}{Singleton
-pattern}: Wikipedia. 
 
 \chapter{Indexer}
-
-\section{Learning goals}\label{learning-goals-1}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Understand the design of a Web indexer and fill in missing methods.
-\item
-  Choose appropriate data structures from the Java Collections Framework
-  (JCF).
-\item
-  Use Java's \java{Map} interface and the \java{HashMap}
-  implementation.
-\item
-  Use the \java{Set} interface and the \java{HashSet}
-  implementation.
-\end{enumerate}
-
-\section{Overview}\label{overview-9}
 
 At this point we have built a basic Web crawler; the next piece we will
 work on is the \textbf{index}. In the context of Web search, an index is
@@ -3420,7 +3396,9 @@ the ones about Java programming.
 Now that we understand what the index is and what operations it
 performs, we can design a data structure to represent it.
 
-\section{Data structure selection}\label{data-structure-selection}
+
+\section{Data structure selection}
+\label{data-structure-selection}
 
 The fundamental operation of the index is a \textbf{lookup};
 specifically, we need the ability to look up a term and find all pages
