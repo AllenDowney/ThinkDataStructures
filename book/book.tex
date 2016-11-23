@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.4.0}
+\newcommand{\theversion}{0.7.0}
 
 %%%% Both LATEX and PLASTEX
 
@@ -350,11 +350,10 @@ Thank you all!
 \end{itemize}
 
 
-Additional contributors who found one or more typos: 
+% Additional contributors who found one or more typos: coming soon, I'm sure.
 
-If you have additional comments or ideas about the text, please send
-them to: \href{mailto:feedback@greenteapress.com}{\tt
-  feedback@greenteapress.com}.
+If you have comments or ideas about the text, please send
+them to: {\tt feedback@greenteapress.com}.
 
 
 \mainmatter
@@ -921,24 +920,24 @@ mathematical treatment, see
 This notation provides a convenient way to write general rules about how
 algorithms behave when we compose them. For example, if you perform a
 linear time algorithm followed by a constant algorithm, the total run
-time is linear. Using $∈$ to mean ``is a member of'':
+time is linear. Using $\in$ to mean ``is a member of'':
 
-If $f ∈ O(n)$ and $g ∈ O(1)$, $f+g ∈ O(n)$.
+If $f \in O(n)$ and $g \in O(1)$, $f+g \in O(n)$.
 
 If you perform two linear operations, the total is still linear:
 
-If $f ∈ O(n)$ and $g ∈ O(n)$, $f+g ∈ O(n)$.
+If $f \in O(n)$ and $g \in O(n)$, $f+g \in O(n)$.
 
 In fact, if you perform a linear operation any number of times,
 $k$, the total is linear, as long as $k$ is a constant
 that does not depend on $n$.
 
-If $f ∈ O(n)$ and $k$ is a constant, $kf ∈ O(n)$.
+If $f \in O(n)$ and $k$ is a constant, $kf \in O(n)$.
 
 But if you perform a linear operation $n$ times, the result is
 quadratic:
 
-If $f ∈ O(n)$, $nf ∈ O(n^2)$.
+If $f \in O(n)$, $nf \in O(n^2)$.
 
 In general, we only care about the largest exponent of $n$. So if
 the total number of operations is $2n + 1$, it belongs to
@@ -3372,7 +3371,6 @@ Or you might want to read these hints:
 Ok, that's all the help you're going to get. Now it's up to you.
 Have fun!
 
-\end{document}
 
 
 \chapter{Indexer}
@@ -7906,28 +7904,6 @@ can be just as important or more so. For example,
 So those are some reasons you should know at least a little bit about
 the space needs of algorithms.
 
-\section{Resources}\label{resources-16}
-
-\begin{itemize}
-\item
-  \url{https://en.wikipedia.org/wiki/Comparison_sort}{Comparison sort}
-\item
-  \url{https://en.wikipedia.org/wiki/Merge_sort}{Merge sort}
-\item
-  \url{https://en.wikipedia.org/wiki/Insertion_sort}{Insertion sort}
-\item
-  \url{http://en.wikipedia.org/wiki/Radix_sort}{Radix sort}
-\item
-  \url{https://en.wikipedia.org/wiki/External_sorting}{External
-  sorting}
-\item
-  \url{https://en.wikipedia.org/wiki/Heap_(data_structure)}{Heap data
-  structure}
-\item
-  \url{https://en.wikipedia.org/wiki/Heapsort}{Heap sort}
-\item
-  \url{https://en.wikipedia.org/wiki/CPU_cache}{CPU cache}
-\end{itemize}
 
 
 
