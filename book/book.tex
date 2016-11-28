@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.7.0}
+\newcommand{\theversion}{0.8.0}
 
 %%%% Both LATEX and PLASTEX
 
@@ -869,7 +869,7 @@ count the number of comparisons.
 \begin{enumerate}
 
 \item If \java{start} is 0, \java{indexLowest} traverses the entire
-  array, and the total number of comparisons is \java{n}.
+  array, and the total number of comparisons is $n$.
 
 \item If \java{start} is 1, the number of comparisons is \java{n-1}.
 
@@ -881,12 +881,12 @@ count the number of comparisons.
 %have additional information about \java{start}.
 
 The third method, \java{selectionSort}, sorts the array. It loops from
-\java{0} to \java{n-1}, so the loop executes \java{n} times. Each
+\java{0} to \java{n-1}, so the loop executes $n$ times. Each
 time, it calls \java{indexLowest} and then performs a constant time
 operation, \java{swapElements},
 
 The first time \java{indexLowest} is called, it
-performs \java{n} comparisons. The second time, it performs
+performs $n$ comparisons. The second time, it performs
 \java{n-1} comparisons, and so on. The total number of comparisons is
 
 \begin{verbatim}
@@ -1291,7 +1291,7 @@ an unused space in the array, it is constant time, but if we have to
 resize the array, it's linear. So which is it?
 
 We can classify this method by thinking about the average number of
-operations per add over a series of \java{n} adds. For simplicity,
+operations per add over a series of $n$ adds. For simplicity,
 assume we start with an array that has room for 2 elements.
 
 \begin{itemize}
@@ -1341,14 +1341,14 @@ And so on. Adding things up:
 
 \end{itemize}
 
-By now you should see the pattern: to do \java{n} adds, we have to
-store \java{n} elements and copy \java{n-2}. So the total number of
+By now you should see the pattern: to do $n$ adds, we have to
+store $n$ elements and copy \java{n-2}. So the total number of
 operations is \java{n + n - 2}, which is \java{2n-2}.
 
 To get the average number of operations per add, we divide the total by
-\java{n}; the result is \java{2 - 2/n}. As \java{n} gets big, the
+$n$; the result is \java{2 - 2/n}. As $n$ gets big, the
 second term, \java{2/n}, gets small. Invoking the principle that we
-only care about the largest exponent of \java{n}, we can think of
+only care about the largest exponent of $n$, we can think of
 \java{add} as constant time.
 
 It might seem strange that an algorithm that is sometimes linear can be
@@ -1396,7 +1396,7 @@ quadratic. But that's not necessarily the case.
 
 In this method, the loop runs once for each element in
 \java{collection}. If \java{colection} contains m elements and the list we are
-removing from contains \java{n} elements, this method is in $O(nm)$. If
+removing from contains $n$ elements, this method is in $O(nm)$. If
 the size of \java{collection} can be considered constant,
 \java{removeAll} is linear. But if the size of the collection is
 proportional to n, it's quadratic. For example, if \java{collection} always
@@ -1411,9 +1411,9 @@ count loops. If there is one loop, the algorithm is \emph{often}
 linear.  If there are two loops (one nested inside the other), the
 algorithm is \emph{often} quadratic. But be careful! You have to think
 about how many times each loop runs. If the number of iterations is
-proportional to \java{n} for all loops, you can get away with just
+proportional to $n$ for all loops, you can get away with just
 counting the loops. But if, as in this example, the number of
-iterations is not always proportional to \java{n}, you have to give it
+iterations is not always proportional to $n$, you have to give it
 more thought.
 
 \section{Exercise 3}
@@ -1773,7 +1773,7 @@ So what is the order of growth for this method?
   other operations in the loop are also constant time.
 
 \item
-  The loop might run \java{n} times, because in the worse case, we
+  The loop might run $n$ times, because in the worse case, we
   might have to traverse the whole list.
 
 \end{enumerate}
@@ -1883,7 +1883,7 @@ $O(n)$.
 
 The following table summarizes the differences between
 \java{MyLinkedList} and \java{MyArrayList}, where \java{1} means
-$O(1)$ or constant time and \java{n} means $O(n)$ or
+$O(1)$ or constant time and $n$ means $O(n)$ or
 linear.
 
 \begin{longtable}[c]{@{}lll@{}}
@@ -1978,7 +1978,7 @@ object that provides two methods: \java{setup} and \java{timeMe}.
 The \java{setup} method does whatever needs to be done before we start
 the clock; in this case it creates an empty list. Then \java{timeMe}
 does whatever operation we are trying to measure; in this case it adds
-\java{n} elements to the list.
+$n$ elements to the list.
 
 The code that creates \java{timeable} is an anonymous class that
 defines a new implementation of the \java{Timeable} interface and
@@ -1996,13 +1996,13 @@ The next step is to create the \java{Profiler} object, passing the
 The \java{Profiler} provides \java{timingLoop} which uses the
 \java{Timeable} object stored as an attribute. It invokes the
 \java{timeMe} method on the \java{Timeable} object several times
-with a range of values of \java{n}. \java{timingLoop} takes two
+with a range of values of $n$. \java{timingLoop} takes two
 parameters:
 
 \begin{itemize}
 
 \item
-  \java{startN} is the value of \java{n} the timing loop should
+  \java{startN} is the value of $n$ the timing loop should
   start at.
 
 \item
@@ -2037,7 +2037,7 @@ lab. When we ran it, we got this output:
 16384000, 1325
 \end{verbatim}
 
-The first column is problem size, \java{n}; the second column is
+The first column is problem size, $n$; the second column is
 runtime in milliseconds. The first few measurements are pretty noisy, it
 might have been better to set \java{startN} around 64000.
 
@@ -2045,13 +2045,12 @@ The result from \java{timingLoop} is an \java{XYSeries} that
 contains this data. If you pass this series to \java{plotResults}, it
 generates a plot like this:
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://raw.githubusercontent.com/learn-co-curriculum/cs-perfo%rmance-profiling-lab/wip-master/figure01small.png?token=ABy37cfczPApUYfj3_8OB_H%6TZwO4GMgks5W2dLGwA\%3D\%3D}
-%\caption{alt tag}
-%\end{figure}
-
-%TODO: include this figure
+\begin{figure}
+\centering
+\includegraphics[height=2.5in]{figs/figure01small.png}
+\caption{Profiling results: runtime versus problem size for
+adding $n$ elements to the end of an \java{ArrayList}.}
+\end{figure}
 
 The next section explains how to interpret it.
 
@@ -2060,25 +2059,25 @@ The next section explains how to interpret it.
 
 Based on our understanding of how \java{ArrayList} works, we expect
 the \java{add} method to take constant time when we add elements to
-the end. So the total time to add \java{n} elements should be linear.
+the end. So the total time to add $n$ elements should be linear.
 
 To test that theory, we could plot total runtime versus problem size,
 and we should see a straight line, at least for problem sizes that are
 big enough to measure accurately. Mathematically, we can write the
 function for that line:
 
-%TODO: format runtime
+\newcommand{\runtime}{\mbox{runtime}}
 
-\[ runtime = a + b n \]
+\[ \runtime = a + b n \]
 
-Where \java{a} is the intercept of the line and \java{b} is the
+Where $a$ is the intercept of the line and $b$ is the
 slope.
 
 On the other hand, if \java{add} is linear, the total time for
-\java{n} adds would be quadratic. If we plot runtime versus problem
+$n$ adds would be quadratic. If we plot runtime versus problem
 size, we expect to see a parabola. Or mathematically, something like:
 
-\[ runtime = a + b n + c n^2 \]
+\[ \runtime = a + b n + c n^2 \]
 
 With perfect data, we might be able to tell the difference between a
 straight line and a parabola, but if the measurements are noisy, it can
@@ -2089,17 +2088,17 @@ Why? Let's suppose that runtime is proportional to $n^k$, but we
 don't know what the exponent $k$ is. We can write the
 relationship like this:
 
-\[ runtime = a + b n + \ldots + c n^k \]
+\[ \runtime = a + b n + \ldots + c n^k \]
 
-For large values of \java{n}, the term with the largest exponent is
+For large values of $n$, the term with the largest exponent is
 the most important, so:
 
-\[ runtime \approx c n^k \]
+\[ \runtime \approx c n^k \]
 
-Where $\approx$ is the symbol for ``approximately equal''. Now, if we take the
-log of both sides of this equation:
+Where $\approx$ means ``approximately equal''. Now, if we
+take the log of both sides of this equation:
 
-\[ log(runtime) \approx \log(c) + k \log(n) \]
+\[ \log(\runtime) \approx \log(c) + k \log(n) \]
 
 This equation implies that if we plot runtime versus $n$ on a
 log-log scale, we expect to see a straight line with intercept
@@ -2257,13 +2256,12 @@ milliseconds on the right):
 
 Here's the graph of runtime versus problem size:
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://curriculum-content.s3.amazonaws.com/javacs/interpretin%g_results_figure02.small.png}
-%\caption{alt tag}
-%\end{figure}
-
-%TODO: include this figure
+\begin{figure}
+\centering
+\includegraphics{figs/figure02small.png}
+\caption{Profiling results: runtime versus problem size for adding
+$n$ elements at the beginning of an \java{ArrayList}.}
+\end{figure}
 
 Remember that a straight line on this graph does \textbf{not} mean that
 the algorithm is linear. Rather, if the runtime is proportional to
@@ -2272,6 +2270,7 @@ line with slope $k$. In this case, we expect the total time for
 $n$ adds to be proportional to $n^2$, so we expect a
 straight line with slope 2. In fact, the estimated slope is 1.992, which
 is so close I would be afraid to fake data this good.
+
 
 \section{Profiling \java{LinkedList} methods}
 \label{profiling-linkedlist-methods}
@@ -2325,18 +2324,18 @@ are the results:
 
 And here's the graph:
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://curriculum-content.s3.amazonaws.com/javacs/interpretin%g_results_figure03.small.png}
-%\caption{alt tag}
-%\end{figure}
-
-%TODO: include figure
+\begin{figure}
+\centering
+\includegraphics{figs/figure03small.png}
+\caption{Profiling results: runtime versus problem size for adding
+$n$ elements at the beginning of a \java{LinkedList}.}
+\end{figure}
 
 It's not a very straight line, and the slope is not exactly 1; the slope
 of the least squares fit is 1.23. But these results indicate that the
 total time for $n$ adds is at least approximately $O(n)$,
 so each add is constant time.
+
 
 \section{Adding to the end of a \java{LinkedList}}
 \label{adding-to-the-end-of-a-linkedlist}
@@ -2389,13 +2388,12 @@ Here are the results:
 
 And here's the graph:
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://curriculum-content.s3.amazonaws.com/javacs/interpretin%g_results_figure04.small.png}
-%\caption{alt tag}
-%\end{figure}
-
-%TODO: include figure
+\begin{figure}
+\centering
+\includegraphics{figs/figure04small.png}
+\caption{Profiling results: runtime versus problem size for adding
+$n$ elements at the end of a \java{LinkedList}.}
+\end{figure}
 
 Again, the measurements are noisy and the line is not perfectly
 straight, but the estimated slope is 1.24, which is almost exactly what
@@ -2403,6 +2401,7 @@ we got adding elements at the beginning, and not very close to 2, which
 is what we expected based on our analysis. In fact, it is closer to 1,
 which suggests that adding elements at the end is constant time.
 What's going on?
+
 
 \section{Doubly-linked list}
 \label{doubly-linked-list}
@@ -2653,13 +2652,12 @@ The \java{<head>} node has one child,
 \java{<p>} (which stands for ``paragraph). The
 following figure represents this tree graphically:
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://curriculum-content.s3.amazonaws.com/javacs/cs-traversi%ng-trees-readme/DOMtree01.png}
-%\caption{DOM tree}
-%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[height=2.5in]{figs/DOMtree01.png}
+\caption{DOM tree for a simple HTML page.}
+\end{figure}
 
-%TODO: include figure
 
 Each node contains links to its children; in addition, each node
 contains a link to its \textbf{parent}, so from any node it is possible
@@ -2678,13 +2676,12 @@ For Internet Explorer, you can read the instructions at
 Here is a screenshot of the DOM for the Wikipedia page on Java,
 \url{https://en.wikipedia.org/wiki/Java_(programming_language)}.
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://curriculum-content.s3.amazonaws.com/javacs/cs-traversi%ng-trees-readme/DOMinspector.png}
-%\caption{DOM Inspector}
-%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[height=2.5in]{figs/DOMinspector.png}
+\caption{Screenshot of the Chrome DOM Inspector.}
+\end{figure}
 
-% TODO: include figure
 
 The element that's highlighted is the first paragraph of the main text
 of the article, which is contained in a
@@ -3012,28 +3009,23 @@ error-prone.
 \chapter{Getting to Philosophy}
 
 
-The goal of this exercise is to write a Web crawler that tests the ``Getting
-to Philosophy'' conjecture, which we presented in the previous exercise.
-We'll provide some code to help you get started, but you will write more
-code for this exercise than for the previous ones.
+The goal of this exercise is to write a Web crawler that tests the
+``Getting to Philosophy'' conjecture, which we presented in the
+previous exercise.  We'll provide some code to help you get started,
+but you will write more code for this exercise than for the previous
+ones.
 
 \section{Getting started}
 \label{getting-started}
 
-When you check out the respository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory that contains the code for this
-lab, \java{javacs-lab05}.
-
-In the subdirectory \java{javacs-lab05/src/com/allendowney/javacs}
+In the repository for this book,
 you'll find the source files you need for this exercise:
 
 \begin{enumerate}
 
 \item
   \java{WikiNodeExample.java} contains the code from the previous
-  README, demonstrating recursive and iterative implementations of
+  chapter, demonstrating recursive and iterative implementations of
   depth-first search (DFS) in a DOM tree.
 
 \item
@@ -3053,8 +3045,8 @@ you'll find the source files you need for this exercise:
 
 \end{enumerate}
 
-Also, in \java{javacs-lab05}, you'll find the Ant build file
-\java{build.xml}. If you run \java{ant WikiPhilosophy}, it will run
+You'll also find the Ant build file
+\java{build.xml}.  If you run \java{ant WikiPhilosophy}, it will run
 a simple bit of starter code.
 
 
@@ -3187,7 +3179,7 @@ downloading from. To help you avoid that, I provide a class called
 \begin{enumerate}
 
 \item
-  It encapsulates the code we demonstrated in the previous README for
+  It encapsulates the code we demonstrated in the previous chapter for
   downloading pages from Wikipedia, parsing the HTML, and selecting the
   content text.
 
@@ -3277,6 +3269,7 @@ be easy for someone to mis-use it by creating multiple instances. You
 could avoid this problem by making \java{WikiFetcher} a ``singleton'',
 which you can read about at
 \url{https://en.wikipedia.org/wiki/Singleton_pattern}.
+
 
 \section{Filling in \java{WikiPhilosophy}}
 \label{filling-in-wikiphilosophy}
@@ -3418,13 +3411,16 @@ Java provides an interface called \java{Map} that specifies the
 methods a map should provide; the most important are:
 
 \begin{itemize}
+
 \item
   \java{get(key)}: This method looks up a key and returns the
   corresponding value.
+
 \item
   \java{put(key, value)}: This method adds a new key-value pair to the
   \java{Map}, or if the key is already in the map, it replaces the
   value associated with \java{key}.
+
 \end{itemize}
 
 Java provides several implementations of \java{Map}, including the two
@@ -3450,12 +3446,15 @@ implement intersection and other set operations efficiently. The core
 \java{Set} methods are:
 
 \begin{itemize}
+
 \item
   \java{add(element)}: This method adds an element to a set; if the
   element is already in the set, it has no effect.
+
 \item
   \java{contains(element)}: This method checks whether the given
   element is in the set.
+
 \end{itemize}
 
 Again, Java provides several implementation of \java{Set}; the ones we
@@ -3465,7 +3464,9 @@ to them later.
 Now that we've designed our data structures from the top down, we'll
 implement them from the inside out, starting with \java{TermCounter}.
 
-\section{TermCounter}\label{termcounter}
+
+\section{TermCounter}
+\label{termcounter}
 
 \java{TermCounter} is a class that represents a mapping from search
 terms to the number of times they appear in a page. Here is the first
@@ -3489,7 +3490,7 @@ terms to counts, and \java{label}, which identifies the document the
 terms came from; we'll use it to store URLs.
 
 To implement the mapping, I chose \java{HashMap}, which is the most
-commonly-used \java{Map}. Coming up in a few lessons, you will see how
+commonly-used \java{Map}. Coming up in a few chapters, you will see how
 it works and why it is a common choice.
 
 \java{TermCounter} provides \java{put} and \java{get}, which are
@@ -3556,22 +3557,28 @@ with indexing Web pages:
     }
 \end{verbatim}
 
+% TODO: break up the long line
+
 \begin{itemize}
+
 \item
   \java{processElements} takes an \java{Elements} object, which is a
   collection of jsoup \java{Element} objects. It iterates through the
   collection and calls \java{processTree} on each.
+
 \item
   \java{processTree} takes a jsoup \java{Node} that represents the
   root of a DOM tree. It iterates through the tree to find the nodes
   that contain text; then it extracts the text and passes it to
   \java{processText}.
+
 \item
   \java{processText} takes a String that contains words, spaces,
   punctuation, etc. It removes punctuation characters by replacing them
   with spaces, converts the remaining letters to lowercase, then splits
   the text into words. Then it loops through the words it found and
   calls \java{incrementTermCount} on each.
+
 \end{itemize}
 
 Finally, here's an example that demonstrates how \java{TermCounter} is
@@ -3594,35 +3601,30 @@ Wikipedia and parse the main text. Then it creates a
 In the next section, you'll have a chance to run this code and test your
 understanding by filling in a missing method.
 
-\section{Finishing off
-\java{TermCounter}}\label{finishing-off-termcounter}
 
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory with the code for this exercise,
-\java{javacs-lab06}.
+\section{Exercise 5}
+\label{exercise5}
 
-In the subdirectory \java{javacs-lab06/src/com/allendowney/javacs}
+In the repository for this book,
 you'll find the source files for this exercise:
 
-\begin{verbatim}
-*  \java{TermCounter.java} contains the code from the previous section.
+\begin{itemize}
 
-*  \java{Index.java} contains the class definition for the next part of this exercise.
+\item  \java{TermCounter.java} contains the code from the previous section.
 
-*  \java{WikiFetcher.java} contains the class we used in the previous exercise to download and parse Web pages.
+\item  \java{Index.java} contains the class definition for the next part of this exercise.
 
-*  \java{WikiNodeIterable.java} contains the class we used to traverse the nodes in a DOM tree.
-\end{verbatim}
+\item  \java{WikiFetcher.java} contains the class we used in the previous exercise to download and parse Web pages.
 
-Also, in \java{javacs-lab06}, you'll find the Ant build file
+\item  \java{WikiNodeIterable.java} contains the class we used to traverse the nodes in a DOM tree.
+
+\end{itemize}
+
+You'll also find the Ant build file
 \java{build.xml}.
 
-\begin{itemize}
-\item
-  In \java{javacs-lab06}, run \java{ant build} to compile the source
-  files. Then run \java{ant TermCounter}, it should run the code from
+Run \java{ant build} to compile the source
+  files. Then run \java{ant TermCounter}; it should run the code from
   the previous section and print a list of terms and their counts. The
   output should look something like this
 
@@ -3634,32 +3636,28 @@ servletresponse, 2
 occur, 2
 Total of all counts = -1
 \end{verbatim}
-\end{itemize}
 
 When you run it, the order of the terms might be different.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  The last line is supposed to print the total of the term counts, but
+The last line is supposed to print the total of the term counts, but
   it returns \java{-1} because the method \java{size} is incomplete.
   Fill in this method and run \java{ant TermCounter} again. The result
   should be \java{4798}.
-\end{itemize}
 
-Run \java{ant test1} to confirm that this part of the exercise is complete
-and correct.
+Run \java{ant TestTermCounter} to confirm that this part of the
+exercise is complete and correct.
 
-\section{Finishing off \java{Index}}\label{finishing-off-index}
+%TODO: section break?
 
-For the second part of the exercise, we'll present our implementation of an
+For the second part of the exercise, I'll present an implementation of an
 \java{Index} object and you will fill in a missing method. Here's the
 beginning of the class definition:
 
 \begin{verbatim}
 public class Index {
 
-    private Map<String, Set<TermCounter>> index = new HashMap<String, Set<TermCounter>>();
+    private Map<String, Set<TermCounter>> index = 
+        new HashMap<String, Set<TermCounter>>();
 
     public void add(String term, TermCounter tc) {
         Set<TermCounter> set = get(term);
@@ -3705,7 +3703,7 @@ unpack this data structure:
         for (String term: keySet()) {
             System.out.println(term);
 
-            // for each term, print the pages where it appears and the count
+            // for each term, print pages where it appears and frequencies
             Set<TermCounter> tcs = get(term);
             for (TermCounter tc: tcs) {
                 Integer count = tc.get(term);
@@ -3719,14 +3717,10 @@ The outer loop iterates the search terms. The inner loop iterates the
 \java{TermCounter} objects that represent the pages where the search
 term appears.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Run \java{ant build} to make sure your source code is compiled, and
+Run \java{ant build} to make sure your source code is compiled, and
   then run \java{ant Index}. It downloads two Wikipedia pages, indexes
   them, and prints the results; but when you run it you won't see any
   output because we've left one of the methods empty.
-\end{itemize}
 
 Your job is to fill in \java{indexPage}, which takes a URL (as a
 String) and an \java{Elements} object, and updates the index. The
@@ -3740,9 +3734,7 @@ public void indexPage(String url, Elements paragraphs) {
 }
 \end{verbatim}
 
-\begin{itemize}
-\item
-  When it's working, run \java{ant Index} again, and you should see
+When it's working, run \java{ant Index} again, and you should see
   output like this:
 
 \begin{verbatim}
@@ -3757,31 +3749,22 @@ servletresponse
 occur
     https://en.wikipedia.org/wiki/Java_(programming_language) 2
 \end{verbatim}
-\end{itemize}
 
 The order of the search terms might be different when you run it.
 
-Also, run \java{ant test2} to confirm that this part of the exercise is
+Also, run \java{ant TestIndex} to confirm that this part of the exercise is
 complete.
 
 This exercise involved more reading that some of the others, and not as much
 programming. But we hope you learned a lot. Congratulations on getting
-to the end! 
+to the end!
+
 
 \chapter{The Map interface}
 
-\section{Learning goals}\label{learning-goals-2}
+% TODO: check if it's two exercises
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Write a simple implementation of the \java{Map} interface.
-\end{enumerate}
-
-\section{Overview}\label{overview-10}
-
-In the next few exercises, we present several implementations of the
+In the next two exercises, we present several implementations of the
 \java{Map} interface. One of them, like the \java{HashMap} provided
 by Java, is based on a \textbf{hash table}, which is arguably the most
 magical data structure ever invented. Another, which is similar to
@@ -3795,8 +3778,8 @@ But before we can explain hash tables, we'll start with a simple
 implementation of a \java{Map} using a \java{List} of key-value
 pairs.
 
-\section{Implementing
-\java{MyLinearMap}}\label{implementing-mylinearmap}
+\section{Implementing \java{MyLinearMap}}
+\label{implementing-mylinearmap}
 
 As usual, we provide starter code and you will fill in the missing
 methods. Here's the beginning of the \java{MyLinearMap} class
@@ -3845,34 +3828,31 @@ it uses the same type parameters, $k$ and \java{V}.
 
 That's all you need to do the exercise, so let's get started.
 
-\section{Instructions}\label{instructions-5}
 
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory with the code for this exercise,
-\java{javacs-lab07}.
+\section{Exercise 6}
+\label{exercise6}
 
-In the subdirectory \java{javacs-lab07/src/com/allendowney/javacs}
+In the repository for this book,
 you'll find the source files for this exercise:
 
-\begin{verbatim}
-*  \java{MyLinearMap.java} contains starter code for the first part of the exercise.
+\begin{itemize}
 
-*  \java{MyLinearMapTest.java} contains the unit tests for \java{MyLinearMap}.
-\end{verbatim}
+\item \java{MyLinearMap.java} contains starter code for the first part
+  of the exercise.
 
-And in \java{javacs-lab07}, you'll find the Ant build file
+\item \java{MyLinearMapTest.java} contains the unit tests for
+  \java{MyLinearMap}.
+
+\end{itemize}
+
+You'll also find the Ant build file
 \java{build.xml}.
 
-\begin{itemize}
-\item
-  In \java{javacs-lab07}, run \java{ant build} to compile the source
-  files. Then run \java{ant test}, which runs
-  \java{MyLinearMapTest}. Several tests should fail, because you have
-  some work to do!
-\item
-  First, fill in the body of \java{findEntry}. This is a helper
+Run \java{ant build} to compile the source files. Then run \java{ant
+  MyLinearMapTest}; several tests should fail, because you have some
+work to do!
+
+First, fill in the body of \java{findEntry}. This is a helper
   function that is not part of the \java{Map} interface, but once you
   get it working, you can use it for several methods. Given a target
   key, it should search through the entries and return the entry that
@@ -3880,55 +3860,39 @@ And in \java{javacs-lab07}, you'll find the Ant build file
   not there. Notice that we have provided an \java{equals} method that
   compares two keys and handles \java{null} correctly.
 
-  You can run \java{ant test} again, but even if your
+You can run \java{ant MyLinearMapTest} again, but even if your
   \java{findEntry} is correct, the tests won't pass because
   \java{put} is not complete.
-\item
-  Fill in \java{put}. You should read the documentation of
+
+Fill in \java{put}. You should read the documentation of
   \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#put(K,\%20V)}{\java{Map.put}}
   so you know what it is supposed to do. You might want to start with a
   version of \java{put} that always adds a new entry and does not
   modify an existing entry; that way you can test the simple case first.
   Or if you feel more confident, you can write the whole thing at once.
 
-  Once you've got \java{put} working, the test for
+Once you've got \java{put} working, the test for
   \java{containsKey} should pass.
-\item
-  Read the documentation of
+
+Read the documentation of
   \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#get(java.lang.Object)}{\java{Map.get}}
   and then fill in the method. Run the tests again.
-\item
-  Finally, read the documentation of
+
+Finally, read the documentation of
   \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#remove(java.lang.Object)}{\java{Map.remove}}
   and then fill in the method.
 
-  At this point, all tests should pass. Congratulations!
-\end{itemize}
+At this point, all tests should pass. Congratulations!
 
 In the next lesson, we'll present our solutions, analyze the performance
 of the core \java{Map} methods, and introduce a more efficient
 implementation.
 
-\chapter{Hashing}\label{cs-maps-hashing-readme}
 
-\section{Learning goals}\label{learning-goals-3}
+\chapter{Hashing}
+\label{cs-maps-hashing-readme}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Analyze the performance of a simple \java{Map} implementation.
-\item
-  Implement the \java{Map} interface using multiple lists.
-\item
-  Implement a hash table.
-\item
-  Write a hash function for String-like objects.
-\end{enumerate}
-
-\section{Overview}\label{overview-11}
-
-In this readme, we'll look at solutions to the previous exercise and analyze
+In this chapter, we'll look at solutions to the previous exercise and analyze
 the performance of \java{MyLinearMap}. Then we'll define
 \java{MyBetterMap}, an implementation of the \java{Map} interface
 that uses many instances of \java{MyLinearMap}; and we'll introduce
@@ -4238,7 +4202,8 @@ that is, it should be equally likely to produce any value in the range.
 You can \url{https://en.wikipedia.org/wiki/Hash_function}{read more
 about designing good hash functions here}.
 
-\section{Hashing and mutation}\label{hashing-and-mutation}
+\section{Hashing and mutation}
+\label{hashing-and-mutation}
 
 Strings are immutable and \java{SillyString} is also immutable because
 \java{innerString} is declared to be \java{final}. Once you create a
@@ -4313,33 +4278,11 @@ structures that use hashing, which includes \java{MyBetterMap} and
 while they are in the map, or that any changes won't affect the hash
 code, it might be okay. But it is probably a good idea to avoid it.
 
-\section{Resources}\label{resources-8}
 
-\url{https://en.wikipedia.org/wiki/Code_point}{Unicode code point}:
-Wikipedia.
-
-\url{https://en.wikipedia.org/wiki/Hash_function}{Hash function}:
-Wikipedia. 
-
-\chapter{Hash table implementation}
-
-\section{Learning goals}\label{learning-goals-4}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Implement the \java{Map} interface using a hash table.
-\item
-  Analyze the performance of the hash table implementation.
-\item
-  Identify and fix performance bugs.
-\end{enumerate}
-
-\section{Overview}\label{overview-12}
+\section{Exercise xx}
 
 In this exercise, you will finish off the implementation of
-\java{MyBetterMap}. In the previous README, we showed that the core
+\java{MyBetterMap}. In the previous chapter, we showed that the core
 methods of \java{MyBetterMap} are faster than \java{MyLinearMap},
 but they are still linear. We'll see how to to solve that problem by
 allowing the hash table to grow, which you will implement in
@@ -4362,7 +4305,7 @@ you'll find the source files for this exercise:
   \java{MyLinearMap.java} contains our solution to the previous exercise,
   which we will build on in this exercise.
 \item
-  \java{MyBetterMap.java} contains the code from the previous README
+  \java{MyBetterMap.java} contains the code from the previous chapter
   with some methods you will fill in.
 \item
   \java{MyHashMap.java} contains the outline of a hash table that
@@ -4395,7 +4338,7 @@ Also, in \java{javacs-lab08}, you'll find the Ant build file
   some work to do!
 \item
   Review the implementation of \java{put} and \java{get} from the
-  previous README. Then fill in the body of \java{containsKey}. Hint:
+  previous chapter. Then fill in the body of \java{containsKey}. Hint:
   use \java{chooseMap}. Run \java{ant test1} again and confirm that
   \java{testContainsKey} passes.
 \item
@@ -4532,11 +4475,9 @@ The following figure shows the pattern, with the normal work of hashing
 a new key shown across the bottom and extra work of rehashing shown as a
 tower.
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://raw.githubusercontent.com/learn-co-curriculum/cs-imple%menting-a-hashtable-lab/wip-master/hashtable.png?token=ABy37X7YjrZerzf9j2RtiOxt%qv48qltMks5W8VCMwA\%3D\%3D}
-%\caption{alt tag}
-%\end{figure}
+\centerline{
+\includegraphics{figs/hashtable.png}
+}
 
 As the arrows suggest, if we knock down the towers, each one fills the
 space before the next tower. The result is a uniform height of 2 units,
@@ -4641,7 +4582,7 @@ constant time.
 
 \section{Overview}\label{overview-13}
 
-This README presents our solution to the previous exercise: a map
+This chapter presents our solution to the previous exercise: a map
 implementation called \java{MyFixedHashMap} because it fixes the
 performance bug in \java{MyHashMap}. We'll also introduce the UML
 class diagram, which is a graphical representation of the relationships
@@ -4801,16 +4742,16 @@ In a class diagram, each class is represented by a box, and
 relationships between classes are represented by arrows. Here is a UML
 class diagram for the classes from the previous exercise:
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{http://yuml.me/9e9efaa9}
-%\caption{alt tag}
-%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=5in]{figs/yuml1.png}
+\caption{UML diagram for the classes in this exercise.}
+\end{figure}
 
 Different relationships are represented by different arrows:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   Arrows with a solid head indicate HAS-A relationships. For example,
   each instance of \java{MyBetterMap} contains multiple instances of
@@ -4834,7 +4775,7 @@ deployment to document the design.
 \section{Resources}\label{resources-10}
 
 \url{http://yuml.me/}{yUML} is the online tool we used to draw the
-diagram in this README. 
+diagram in this chapter. 
 
 \chapter{TreeMap}
 
@@ -4892,7 +4833,8 @@ In this exercise, we'll explain how binary search trees work and then you
 will use one to implement a \java{Map}. Along the way, we'll analyze
 the performance of the core map methods when imlemented using a tree.
 
-\section{Binary search tree}\label{binary-search-tree}
+\section{Binary search tree}
+\label{binary-search-tree}
 
 A binary search tree (BST) is a tree where each node contains a key, and
 every \java{node} has the ``BST property'':
@@ -4910,16 +4852,15 @@ every \java{node} has the ``BST property'':
 
 The following diagram shows a tree of integers that has this property.
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://curriculum-content.s3.amazonaws.com/javacs/200px-Binar%y_search_tree.svg.png}
-%\caption{alt tag}
-%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[height=2.5in]{figs/200px-Binary_search_tree-svg.png}
+\caption{Example of a binary search tree.}
+\end{figure}
 
-This figure is from the
-\url{https://en.wikipedia.org/wiki/Binary_search_tree}{Wikipedia page
-on binary search trees}, which you might find useful while you work on
-this exercise.
+This figure is from the Wikipedia page on binary search trees at
+\url{https://en.wikipedia.org/wiki/Binary_search_tree}, which you
+might find useful while you work on this exercise.
 
 The key in the root is 8, and you can confirm that all keys to the left
 of the root are less than 8, and all keys to the right are greater. You
@@ -5238,7 +5179,7 @@ method, you might want to make it recursive, and you might want to
 \url{https://en.wikipedia.org/wiki/Tree_traversal\#In-order}{read about
 in-order tree traversal}.
 
-When you are done, all tests should pass. In the next README, we'll go
+When you are done, all tests should pass. In the next chapter, we'll go
 over our solutions and test the performance of the core methods.
 
 \section{Resources}\label{resources-11}
@@ -5270,7 +5211,7 @@ Wikipedia.
 
 \section{Overview}\label{overview-15}
 
-This README presents solutions to the previous exercise, then tests the
+This chapter presents solutions to the previous exercise, then tests the
 performance of our tree-backed map. We present a problem with our
 implementation and explain how Java's \java{TreeMap} solves this
 problem.
@@ -6523,14 +6464,14 @@ To look up a search term, we run \java{getCounts}, which
 
 \java{getURLs} takes time proportional to the number of URLs that
 contain the search term. For rare terms, that might be a small number,
-but for common terms it might be as large as \java{N}.
+but for common terms it might be as large as $N$.
 
 Inside the loop, we run \java{getCount}, which finds a
 \java{TermCounter} on Redis, looks up a term, and adds an entry to a
 HashMap. Those are all constant time operations, so the overall
-complexity of \java{getCounts} is O(N) in the worst case. However, in
+complexity of \java{getCounts} is $O(N)$ in the worst case. However, in
 practice the runtime is proportional to the number of pages that contain
-the term, which is normally much less than \java{N}.
+the term, which is normally much less than $N$.
 
 This algorithm is about as efficient as it can be, in terms of
 algorithmic complexity, but it is very slow because it sends many small
@@ -6556,11 +6497,13 @@ Pushing the \java{TermCounter} to Redis requires deleting a
 Then for each term we have to
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Add an element to a \java{URLSet}, and
+
 \item
   Add an element to a Redis \java{TermCounter}.
+
 \end{enumerate}
 
 Both of these are constant time operations, so the total time to push
@@ -7568,7 +7511,7 @@ each level. Suppose we start with a list that contains $n$
 elements. Here are the steps of the algorithm:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Make two new arrays and copy half of the elements into each.
 \item
@@ -7579,11 +7522,11 @@ elements. Here are the steps of the algorithm:
 
 The following figure shows these steps.
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://curriculum-content.s3.amazonaws.com/javacs/cs-applicat%ion-sorting-lab/figure1.png}
-%\caption{alt tag}
-%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[height=2.5in]{figs/figure1.png}
+\caption{Example of merge sort.}
+\end{figure}
 
 The first step copies each of the elements once, so it is linear. The
 third step also copies each element once, so it is also linear. Now we
@@ -7591,11 +7534,11 @@ need to figure out the complexity of step 2. To do that, it helps to
 looks at a different picture of the computation, which shows the levels
 of recursion:
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://curriculum-content.s3.amazonaws.com/javacs/cs-applicat%ion-sorting-lab/figure2.png}
-%\caption{alt tag}
-%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[height=2.5in]{figs/figure2.png}
+\caption{Example of merge sort showing all levels of recursion.}
+\end{figure}
 
 At the top level, we have \java{1} list with $n$ elements. At
 the next level there are \java{2} lists with \java{n/2} elements.
@@ -7683,11 +7626,11 @@ At this point each bucket contains one element, and the buckets are
 sorted in ascending order. The following diagram shows an example with
 3-letter words:
 
-%\begin{figure}[htbp]
-%\centering
-%\includegraphics{https://curriculum-content.s3.amazonaws.com/javacs/cs-applicat%ion-sorting-lab/figure3.png}
-%\caption{alt tag}
-%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[height=2.5in]{figs/figure3.png}
+\caption{TODO}
+\end{figure}
 
 The top show shows the unsorted words. The second rows shows what the
 buckets look like after the first pass. The words in each bucket begin
@@ -7768,25 +7711,30 @@ The Java \java{PriorityQueue} is implemented using a heap.
 \java{Queue} interface, including \java{offer} and \java{poll}:
 
 \begin{itemize}
+
 \item
   \java{offer}: Adds an element to the queue, updating the heap so
   that every node has the ``heap property''. Takes \java{log n} time.
+
 \item
   \java{poll}: Removes the smallest element in the queue from the root
   and updates the heap. Takes \java{log n} time.
+
 \end{itemize}
 
 Given a \java{PriorityQueue}, you can easily sort of a collection of
 $n$ elements like this:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Add all elements of the collection to a \java{PriorityQueue} using
   \java{offer}.
+
 \item
   Remove the elements from the queue using \java{poll} and add them to
   a \java{List}.
+
 \end{enumerate}
 
 Because \java{poll} returns the smallest element remaining in the
