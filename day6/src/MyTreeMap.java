@@ -1,7 +1,6 @@
 /**
  * 
  */
-package com.allendowney.javacs;
 
 import java.util.Collection;
 import java.util.Deque;
