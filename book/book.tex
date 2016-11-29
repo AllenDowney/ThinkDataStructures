@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.8.0}
+\newcommand{\theversion}{0.9.0}
 
 %%%% Both LATEX and PLASTEX
 
@@ -3271,8 +3271,8 @@ which you can read about at
 \url{https://en.wikipedia.org/wiki/Singleton_pattern}.
 
 
-\section{Filling in \java{WikiPhilosophy}}
-\label{filling-in-wikiphilosophy}
+\section{Exercise 5}
+\label{exercise5}
 
 In \java{WikiPhilosophy.java} you'll find a simple \java{main}
 method that shows how to use some of these pieces. Starting with this
@@ -3476,10 +3476,10 @@ part of the class definition:
 public class TermCounter {
 
     private Map<String, Integer> map;
-    private String exerciseel;
+    private String label;
 
-    public TermCounter(String exerciseel) {
-        this.label = exerciseel;
+    public TermCounter(String label) {
+        this.label = label;
         this.map = new HashMap<String, Integer>();
     }
 }
@@ -3602,8 +3602,8 @@ In the next section, you'll have a chance to run this code and test your
 understanding by filling in a missing method.
 
 
-\section{Exercise 5}
-\label{exercise5}
+\section{Exercise 6}
+\label{exercise6}
 
 In the repository for this book,
 you'll find the source files for this exercise:
@@ -3829,8 +3829,8 @@ it uses the same type parameters, $k$ and \java{V}.
 That's all you need to do the exercise, so let's get started.
 
 
-\section{Exercise 6}
-\label{exercise6}
+\section{Exercise 7}
+\label{exercise7}
 
 In the repository for this book,
 you'll find the source files for this exercise:
@@ -3865,26 +3865,28 @@ You can run \java{ant MyLinearMapTest} again, but even if your
   \java{put} is not complete.
 
 Fill in \java{put}. You should read the documentation of
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#put(K,\%20V)}{\java{Map.put}}
-  so you know what it is supposed to do. You might want to start with a
-  version of \java{put} that always adds a new entry and does not
-  modify an existing entry; that way you can test the simple case first.
-  Or if you feel more confident, you can write the whole thing at once.
+{\java{Map.put} at
+  \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#put(K, V)}
+ so you know what it is supposed to do. You might want to start with
+  a version of \java{put} that always adds a new entry and does not
+  modify an existing entry; that way you can test the simple case
+  first.  Or if you feel more confident, you can write the whole thing
+  at once.
 
-Once you've got \java{put} working, the test for
-  \java{containsKey} should pass.
+Once you've got \java{put} working, the test for \java{containsKey}
+should pass.
 
-Read the documentation of
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#get(java.lang.Object)}{\java{Map.get}}
+Read the documentation of {\java{Map.get} at
+  \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#get(java.lang.Object)}
   and then fill in the method. Run the tests again.
 
-Finally, read the documentation of
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#remove(java.lang.Object)}{\java{Map.remove}}
-  and then fill in the method.
+Finally, read the documentation of {\java{Map.remove} at
+  \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#remove(java.lang.Object)}
+  and fill in the method.
 
 At this point, all tests should pass. Congratulations!
 
-In the next lesson, we'll present our solutions, analyze the performance
+In the next lesson, I'll present a solutions, analyze the performance
 of the core \java{Map} methods, and introduce a more efficient
 implementation.
 
@@ -3900,9 +3902,11 @@ that uses many instances of \java{MyLinearMap}; and we'll introduce
 Finally, we'll demonstrate a function that implements hashing for a
 String-like object.
 
-\section{Analyzing \java{MyLinearMap}}\label{analyzing-mylinearmap}
 
-We'll start with our solutions to the previous exercise and then analyze
+\section{Analyzing \java{MyLinearMap}}
+\label{analyzing-mylinearmap}
+
+We'll start with solutions to the previous exercise and analyze
 their performance. Here are \java{findEntry} and \java{equals}:
 
 \begin{verbatim}
@@ -3924,7 +3928,7 @@ private boolean equals(Object target, Object obj) {
 \end{verbatim}
 
 The runtime of \java{equals} might depend on the size of the
-\java{target} and the \java{keys}, but does not generally depend on
+\java{target} and the keys, but does not generally depend on
 the number of entries, $n$. So \java{equals} is constant time.
 
 In \java{findEntry}, we might get lucky and find the key we're looking
@@ -3948,7 +3952,9 @@ public V put(K key, V value) {
         return oldValue;
     }
 }
+\end{verbatim}
 
+\begin{verbatim}
 public V get(Object key) {
     Entry entry = findEntry(key);
     if (entry == null) {
@@ -3956,7 +3962,9 @@ public V get(Object key) {
     }
     return entry.getValue();
 }
+\end{verbatim}
     
+\begin{verbatim}
 public V remove(Object key) {
     Entry entry = findEntry(key);
     if (entry == null) {
@@ -3974,7 +3982,7 @@ time. Remember that \java{entries} is an \java{ArrayList}, so adding
 an element \emph{at the end} is constant time, on average. If the key is
 already in the map, we don't have to add an entry, but we have to call
 \java{entry.getValue} and \java{entry.setValue}, and those are both
-constant time. Adding it all up, \java{put} is linear.
+constant time. Putting it all together, \java{put} is linear.
 
 By the same reasoning, \java{get} is also linear.
 
@@ -3997,11 +4005,12 @@ magic.
 We'll explain how it works in two steps:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Instead of storing entries in one big \java{List}, we'll break them
   up into lots of short lists. For each key, we'll use a \textbf{hash
   code} (explained in the next section) to determine which list to use.
+
 \item
   Using lots of short lists is faster than using just one, but as we'll
   explain, it doesn't change the order of growth; the core operations
@@ -4009,9 +4018,12 @@ We'll explain how it works in two steps:
   number of lists to limit the number of entries per list, the result is
   a constant-time map. You'll see the details in the next exercise, but
   first: hashing!
+
 \end{enumerate}
 
-\section{Hashing}\label{hashing}
+
+\section{Hashing}
+\label{hashing}
 
 To improve the performance of \java{MyLinearMap}, we'll define a new
 class, called \java{MyBetterMap}, that contains a collection of
@@ -4041,7 +4053,7 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 
 The instance variable, \java{maps} is a collection of
 \java{MyLinearMap} objects. The constructor takes a parameter,
-$k$, that determines how many maps to use, at least initially.
+\java{k}, that determines how many maps to use, at least initially.
 Then \java{makeMaps} creates the embedded maps and stores them in an
 \java{ArrayList}.
 
@@ -4058,17 +4070,18 @@ efficient implementation of a \java{Map}. We can't assume we already
 have one.
 
 A better approach is to use a \textbf{hash function}, which takes an
-Object, any Object, and returns an integer called a \textbf{hash code}.
-Importantly, if it sees the same Object more than once, it always
-returns the same hash code. That way, if we use the hash code to store a
-key, we'll get the same hash code when we look it up.
+\java{Object}, any \java{Object}, and returns an integer called a
+\textbf{hash code}.  Importantly, if it sees the same \java{Object}
+more than once, it always returns the same hash code. That way, if we
+use the hash code to store a key, we'll get the same hash code when we
+look it up.
 
 In Java, every \java{Object} provides a method called
 \java{hashCode} that computes a hash function. The implementation of
 this method is different for different objects; we'll see an example
 soon.
 
-Here's the helper function we wrote to choose the right sub-map for a
+Here's a helper function that chooses the right sub-map for a
 given key:
 
 \begin{verbatim}
@@ -4087,10 +4100,10 @@ a reference to the map it chose.
 
 We use \java{chooseMap} in both \java{put} and \java{get}, so when
 we look up a key, we get the same map we chose when we added the key. At
-least, we should --- we'll explain a little later why this might not
+least, we should -- we'll explain a little later why this might not
 work.
 
-Here's our implementation of \java{put} and \java{get}:
+Here's my implementation of \java{put} and \java{get}:
 
 \begin{verbatim}
 public V put(K key, V value) {
@@ -4105,12 +4118,12 @@ public V get(Object key) {
 \end{verbatim}
 
 Pretty simple, right? In both methods, we use \java{chooseMap} to find
-the right sub-map and then invoke a method on the sub-map. In the next
-lab, you'll have a chance to finish off a few other methods. But first,
-let's think about performance.
+the right sub-map and then invoke a method on the sub-map. 
+
+That's how it works; now let's think about performance.
 
 If there are $n$ entries split up among $k$ sub-maps,
-there will be \java{n/k} entries per map, on average. When we look up
+there will be $n/k$ entries per map, on average. When we look up
 a key, we have to compute its hash code, which takes some time, then we
 search the corresponding sub-map. Because the entry lists in
 \java{MyBetterMap} are $k$ times shorter than the entry list in
@@ -4121,7 +4134,8 @@ can fix that.
 
 But first, a little more about hashing.
 
-\section{How does hashing work?}\label{how-does-hashing-work}
+\section{How does hashing work?}
+\label{how-does-hashing-work}
 
 The fundamental requirement for a hash function is that the same object
 should produce the same hash code every time. For immutable objects,
@@ -4149,27 +4163,27 @@ This class is not very useful, which is why it's called
 its own hash function:
 
 \begin{verbatim}
-@Override
-public boolean equals(Object other) {
-    return this.toString().equals(other.toString());
-}
-    
-@Override
-public int hashCode() {
-    int total = 0;
-    for (int i=0; i<innerString.length(); i++) {
-        total += innerString.charAt(i);
+    @Override
+    public boolean equals(Object other) {
+        return this.toString().equals(other.toString());
     }
-    System.out.println(total);
-    return total;
-}
+    
+    @Override
+    public int hashCode() {
+        int total = 0;
+        for (int i=0; i<innerString.length(); i++) {
+            total += innerString.charAt(i);
+        }
+        System.out.println(total);
+        return total;
+    }
 \end{verbatim}
 
 Notice that \java{SillyString} overrides both \java{equals} and
 \java{hashCode}. This is important. In order to work properly,
 \java{equals} has to be consistent with \java{hashCode}, which means
-that if two objects are considered equal --- that is, \java{equals}
-returns \java{true} --- they should have the same hash code. But this
+that if two objects are considered equal -- that is, \java{equals}
+returns \java{true} -- they should have the same hash code. But this
 requirement only works one way; if two objects have the same hash code,
 they don't necessarily have to be equal.
 
@@ -4181,31 +4195,32 @@ their \java{innerString} attributes are equal.
 String and adding them up. When you add a character to an \java{int},
 Java converts the character to an integer using its Unicode code point.
 You don't need to know anything about Unicode to understand this
-example, but if you are curious,
-\url{https://en.wikipedia.org/wiki/Code_point}{you can read more here}.
+example, but if you are curious, you can read more at 
+\url{https://en.wikipedia.org/wiki/Code_point}.
 
 This hash function satisfies the requirement: if two
 \java{SillyString} objects contain embedded strings that are equal,
 they will get the same hash code.
 
-This works correctly, but the performance might not be very good,
+This works correctly, but it might not yield good performance,
 because it returns the same hash code for many different strings. If two
 strings contain the same letters in any order, they will have the same
 hash code. And even if they don't contain the same letters, they might
 yield the same total, like \java{"ac"} and \java{"bb"}.
 
 If many objects have the same hash code, they end up in the same
-sub-map, and some sub-maps have more entries than others. In that case,
-the speedup when we have $k$ maps might be much less than
-$k$. So one of the goals of a hash function is to be uniform;
-that is, it should be equally likely to produce any value in the range.
-You can \url{https://en.wikipedia.org/wiki/Hash_function}{read more
-about designing good hash functions here}.
+sub-map.  If some sub-maps have more entries than others, the speedup
+when we have $k$ maps might be much less than $k$. So one of the goals
+of a hash function is to be uniform; that is, it should be equally
+likely to produce any value in the range.  You can read more about
+designing good hash functions at
+\url{https://en.wikipedia.org/wiki/Hash_function}.
+
 
 \section{Hashing and mutation}
 \label{hashing-and-mutation}
 
-Strings are immutable and \java{SillyString} is also immutable because
+Strings are immutable, and \java{SillyString} is also immutable because
 \java{innerString} is declared to be \java{final}. Once you create a
 \java{SillyString}, you can't make \java{innerString} refer to a
 different String, and you can change the String it refers to. Therefore,
@@ -4279,83 +4294,76 @@ while they are in the map, or that any changes won't affect the hash
 code, it might be okay. But it is probably a good idea to avoid it.
 
 
-\section{Exercise xx}
+\section{Exercise 8}
 
 In this exercise, you will finish off the implementation of
-\java{MyBetterMap}. In the previous chapter, we showed that the core
+\java{MyBetterMap}. In the previous sections, I claimed that the core
 methods of \java{MyBetterMap} are faster than \java{MyLinearMap},
 but they are still linear. We'll see how to to solve that problem by
 allowing the hash table to grow, which you will implement in
 \java{MyHashMap}. Then we will profile the performance of
 \java{MyHashMap} and the \java{HashMap} provided by Java.
 
-\section{Finishing \java{MyBetterMap}}\label{finishing-mybettermap}
-
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory with the code for this exercise,
-\java{javacs-lab08}.
-
-In the subdirectory \java{javacs-lab08/src/com/allendowney/javacs}
+In the repository for this book,
 you'll find the source files for this exercise:
 
 \begin{itemize}
+
 \item
   \java{MyLinearMap.java} contains our solution to the previous exercise,
   which we will build on in this exercise.
+
 \item
   \java{MyBetterMap.java} contains the code from the previous chapter
   with some methods you will fill in.
+
 \item
   \java{MyHashMap.java} contains the outline of a hash table that
   grows when needed, which you will complete.
+
 \item
   \java{MyLinearMapTest.java} contains the unit tests for
   \java{MyLinearMap}.
+
 \item
   \java{MyBetterMapTest.java} contains the unit tests for
   \java{MyBetterMap}.
+
 \item
   \java{MyHashMapTest.java} contains the unit tests for
   \java{MyHashMap}.
+
 \item
   \java{Profiler.java} contains code for measuring and plotting
   runtime versus problem size.
+
 \item
   \java{ProfileMapPut.java} contains code that profiles the
   \java{Map.put} method.
 \end{itemize}
 
-Also, in \java{javacs-lab08}, you'll find the Ant build file
-\java{build.xml}.
-
-\begin{itemize}
-\item
-  In \java{javacs-lab08}, run \java{ant build} to compile the source
-  files. Then run \java{ant test1}, which runs
-  \java{MyBetterMapTest}. Several tests should fail, because you have
+As usual, you should run \java{ant build} to compile the source
+  files. Then run \java{ant MyBetterMapTest}. Several tests should fail, because you have
   some work to do!
-\item
-  Review the implementation of \java{put} and \java{get} from the
+
+Review the implementation of \java{put} and \java{get} from the
   previous chapter. Then fill in the body of \java{containsKey}. Hint:
-  use \java{chooseMap}. Run \java{ant test1} again and confirm that
+  use \java{chooseMap}. Run \java{ant MyBetterMapTest} again and confirm that
   \java{testContainsKey} passes.
-\item
-  Fill in the body of \java{containsValue}. Hint: \emph{don't} use
-  \java{chooseMap}. Run \java{ant test1} again and confirm that
+
+Fill in the body of \java{containsValue}. Hint: \emph{don't} use
+  \java{chooseMap}.  Run \java{ant MyBetterMapTest} again and confirm that
   \java{testContainsValue} passes. Notice that we have to do more work
   to find a value than to find a key.
-\end{itemize}
 
 Like \java{put} and \java{get}, this implementation of
 \java{containsKey} is linear, because it has to search one of the
 embedded sub-maps. If there are $n$ entries and $k$
-sub-maps, the size of the sub-maps is \java{n/k} on average, which is
+sub-maps, the size of the sub-maps is $n/k$ on average, which is
 still proportional to $n$.
 
 But if we increase $k$ along with $n$, we can limit the
-size of \java{n/k}. For example, suppose we double $k$ every
+size of $n/k$. For example, suppose we double $k$ every
 time $n$ exceeds $k$; in that case the number of entries
 per map would be less than 1 on average, and pretty much always less
 than 10, as long as the hash function spreads out the keys reasonably
@@ -4369,8 +4377,8 @@ and \java{get} constant time.
 
 We'll see how that works in the next section.
 
-\section{Implementing
-\java{MyHashMap}}\label{implementing-myhashmap}
+\section{Exercise 9}
+\label{implementing-myhashmap}
 
 In \java{MyHashMap.java}, we provide the outline of a hash table that
 grows when needed. Here's the beginning of the definition:
@@ -4396,8 +4404,8 @@ public class MyHashMap<K, V> extends MyBetterMap<K, V> implements Map<K, V> {
 
 \java{MyHashMap} extends \java{MyBetterMap}, so it inherits the
 methods defined there. The only method it overrides is \java{put}
-which calls \java{put} in the superclass --- that is, it calls the
-version of \java{put} in \java{MyBetterMap} --- and then it checks
+which calls \java{put} in the superclass -- that is, it calls the
+version of \java{put} in \java{MyBetterMap} -- and then it checks
 whether it has to rehash. Calling \java{size} returns the total number
 of entries, $n$. Calling \java{maps.size} returns the number of
 embedded maps, $k$.
@@ -4408,14 +4416,10 @@ determines the maximum number of entries per sub-map, on average. If
 \java{n/k > FACTOR}, which means the number of entries
 per sub-map exceeds the threshold, so we call \java{rehash}.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  In \java{javacs-lab08}, run \java{ant build} to compile the source
-  files. Then run \java{ant test2}, which runs \java{MyHashMapTest}.
-  It should fail because our implementation of \java{rehash} throws an
+Run \java{ant build} to compile the source
+  files. Then run \java{ant MyHashMapTest}.
+  It should fail because the implementation of \java{rehash} throws an
   exception. Your job is to fill it in.
-\end{itemize}
 
 Fill in the body of \java{rehash} to collect the entries in the table,
 resize the table, and then put the entries back in. We provide two
@@ -4423,9 +4427,11 @@ methods that might come in handy: \java{MyBetterMap.makeMaps} and
 \java{MyLinearMap.getEntries}. Your solution should double the number
 of maps, $k$, each time it is called.
 
-\section{Analyzing \java{MyHashMap}}\label{analyzing-myhashmap}
 
-If the number of entries per sub-map, \java{n/k}, is constant, several
+\section{Analyzing \java{MyHashMap}}
+\label{analyzing-myhashmap}
+
+If the number of entries per sub-map, $n/k$, is constant, several
 of the core \java{MyBetterMap} methods become constant time:
 
 \begin{verbatim}
@@ -4451,11 +4457,12 @@ method on a sub-map, which is constant time.
 So far, so good. But the other core method, \java{put}, is a little
 harder to analyze. When we don't have to rehash, it is constant time,
 but when we do, it's linear. In that way, it's similar to
-\java{ArrayList.add}, and for the same reason, it turns out to be
-constant time if we average over a series of \java{put} operations.
-Again, the argument is based on
-\url{https://en.wikipedia.org/wiki/Amortized_analysis}{amortized
-analysis}.
+\java{ArrayList.add}, which we analyzed in Section~\ref{???}.
+
+For the same reason, \java{MyHashMap.put} turns out to be
+constant time if we average over a series of invocations.
+Again, the argument is based on amortized analysis 
+(\url{https://en.wikipedia.org/wiki/Amortized_analysis}).
 
 Suppose the initial number of sub-maps, $k$, is 2, and the load
 factor is 1. Now let's see how much work it takes to \java{put} a
@@ -4490,7 +4497,8 @@ instead of multiplying, the towers would be too close together and
 (eventually) they would start piling up. And that would not be constant
 time.
 
-\section{The tradeoffs}\label{the-tradeoffs}
+\section{The tradeoffs}
+\label{the-tradeoffs}
 
 We've shown that \java{containsKey}, \java{get}, and \java{remove}
 are constant time, and \java{put} is constant time on average. We
@@ -4528,14 +4536,14 @@ sub-maps is proportional to $n$, so it's linear. Fortunately,
 this operation is not used very often, so for most applications this
 tradeoff is acceptable.
 
-\section{Profiling \java{MyHashMap}}\label{profiling-myhashmap}
+
+\section{Profiling \java{MyHashMap}}
+\label{profiling-myhashmap}
 
 Before we go on, we should check whether \java{MyHashMap} is really
 constant time.
 
-\begin{itemize}
-\item
-  In \java{javacs-lab08}, run \java{ant build} to compile the source
+Run \java{ant build} to compile the source
   files. Then run \java{ant ProfileMapPut}. It measures the runtime of
   \java{HashMap.put} (provided by Java) with a range of problem sizes,
   and plots runtime versus problem size on a log-log scale. If this
@@ -4543,44 +4551,25 @@ constant time.
   should be linear, so the result should be a straight line with slope
   1. When we ran this code, the estimated slope was close to 1, which is
   consistent with our analysis. You should get something similar.
-\item
-  Modify \java{ProfileMapPut.java} so it profiles your implementation,
+
+
+Modify \java{ProfileMapPut.java} so it profiles your implementation,
   \java{MyHashMap}, instead of Java's \java{HashMap}. Run the
   profiler again and see if the slope is near 1. You might have to
   adjust \java{startN} and \java{endMillis} to find a range of
   problem sizes where the runtimes are more than a few milliseconds, but
   not more than a few thousand.
-\item
-  When we ran this code, we got a surprise: the slope was about 1.7,
-  which suggests that our implementation is not constant time after all.
-  It contains a ``performance bug''. As the last exercise for this exercise,
+
+When I ran this code, I got a surprise: the slope was about 1.7,
+  which suggests that this implementation is not constant time after all.
+  It contains a ``performance bug''. As the last part of this exercise,
   you should track down the error, fix it, and confirm that \java{put}
   is constant time, as expected.
-\end{itemize}
 
-\section{Resources}\label{resources-9}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \url{https://en.wikipedia.org/wiki/Amortized_analysis}{Amortized
-  analysis}: Wikipedia. 
-\end{itemize}
+%TODO: chapter title?
 
-\chapter{Fixing the hash tbale}
-
-\section{Learning goals}\label{learning-goals-5}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Fix a performance bug.
-\item
-  Use UML class diagrams to represent relationships between classes.
-\end{enumerate}
-
-\section{Overview}\label{overview-13}
+\chapter{TreeMap}
 
 This chapter presents our solution to the previous exercise: a map
 implementation called \java{MyFixedHashMap} because it fixes the
@@ -4588,7 +4577,8 @@ performance bug in \java{MyHashMap}. We'll also introduce the UML
 class diagram, which is a graphical representation of the relationships
 between classes.
 
-\section{Fixing \java{MyHashMap}}\label{fixing-myhashmap}
+\section{Fixing \java{MyHashMap}}
+\label{fixing-myhashmap}
 
 The problem with \java{MyHashMap} is in \java{size}, which is
 inherited from \java{MyBetterMap}:
@@ -4740,7 +4730,9 @@ standards defined by UML.
 
 In a class diagram, each class is represented by a box, and
 relationships between classes are represented by arrows. Here is a UML
-class diagram for the classes from the previous exercise:
+class diagram for the classes from the previous exercise,
+generated using the online tool yUML at 
+\url{http://yuml.me/}:
 
 \begin{figure}
 \centering
@@ -4772,25 +4764,8 @@ phases to communicate about alternative designs, during implementation
 phases to maintain a shared mental map of the project, and during
 deployment to document the design.
 
-\section{Resources}\label{resources-10}
 
-\url{http://yuml.me/}{yUML} is the online tool we used to draw the
-diagram in this chapter. 
-
-\chapter{TreeMap}
-
-\section{Learning goals}\label{learning-goals-6}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Implement the \java{Map} interface using a binary search tree.
-\item
-  Analyze the performance of a tree-backed map.
-\end{enumerate}
-
-\section{Overview}\label{overview-14}
+\section{TreeMap}
 
 At this point you should be familiar with the \java{Map} interface and
 the \java{HashMap} implementation provided by Java. And by making your
@@ -4803,15 +4778,17 @@ not the only implementation of \java{Map}. There are two reasons you
 might want another implementation:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Hashing can be slow, so even though \java{HashMap} operations are
   constant time, the ``constant'' might be big.
+
 \item
   The keys in a hash table are not stored in any particular order; in
   fact, the order might change when the table grows and the keys are
   rehashed. For some applications, it is necessary, or at least useful,
   to keep the keys in order.
+
 \end{enumerate}
 
 It turns out to be hard to solve both of these problems at the same
@@ -4819,19 +4796,22 @@ time, but Java provides an implementation called \java{TreeMap} that
 comes close:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   The order of growth is not quite as good. Instead of constant time, a
-  \java{TreeMap} takes time proportional to \java{log n}.
+  \java{TreeMap} takes time proportional to $\log n$.
+
 \item
   Inside the \java{TreeMap}, the keys are not stored in order; they
   are stored in a \textbf{binary search tree}, which makes it possible
   to traverse the keys, in order, in linear time.
+
 \end{enumerate}
 
 In this exercise, we'll explain how binary search trees work and then you
 will use one to implement a \java{Map}. Along the way, we'll analyze
 the performance of the core map methods when imlemented using a tree.
+
 
 \section{Binary search tree}
 \label{binary-search-tree}
@@ -4871,16 +4851,19 @@ to search the entire tree. Starting at the root, we can use the
 following algorithm:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Compare the key you are looking for, \java{target}, to the key in
   the current node. If they are equal, you are done.
+
 \item
   If \java{target} is less than the current key, search the left tree.
   If there isn't one, \java{target} is not in the tree.
+
 \item
   If \java{target} is greater than the current key, search the right
   tree. If there isn't one, \java{target} is not in the tree.
+
 \end{enumerate}
 
 At each level of the tree, you only have to search one child. For
@@ -4901,45 +4884,51 @@ tree, \java{h}, and the number of nodes, $n$? Starting small
 and working up:
 
 \begin{itemize}
+
 \item
   If \java{h=1}, the tree only contains one node, so \java{n=1}.
+
 \item
   If \java{h=2}, we can add two more nodes, for a total of
   \java{n=3}.
+
 \item
   If \java{h=3}, we can add up to \java{4} more nodes, for a total
   of \java{n=7}.
+
 \item
   If \java{h=4}, we can add up to \java{8} more nodes, for a total
   of \java{n=15}.
+
 \end{itemize}
 
-By now you might see the pattern. If we number the levels tree from
+By now you might see the pattern. If we number the levels of the tree from
 \java{1} to \java{h}, the level with index \java{i} can have up to
-2i-1 nodes. And the total number of nodes in \java{h} levels is 2h-1.
+$2^(i-1)$ nodes. And the total number of nodes in \java{h} levels is $2^h-1$.
 If we have
 
-n = 2h - 1
+\[ n = 2^h - 1 \]
 
 We can take the log base 2 of both sides:
 
-log2 ≈ h
+\[ log_2 n \approx h \]
 
 Which means that the height of the tree is proportional to
-\java{log n}, if the tree is full; that is, if each level contains the
+$\log n$, if the tree is full; that is, if each level contains the
 maximum number of nodes.
 
 So we expect that we can look up a key in a binary search tree in time
-proportional to \java{log n}. This is true if the tree is full, and
+proportional to $\log n$. This is true if the tree is full, and
 even if the tree is only partially full. But it is not always true, as
 we will see.
 
-An algorithm that takes time proportional to \java{log n} is called
+An algorithm that takes time proportional to $\log n$ is called
 ``logarithmic'' or ``log time'', and it belongs to the order of growth
-O(\java{log n}).
+$O(\log n)$.
 
-\section{Implementing a tree-backed
-\java{Map}}\label{implementing-a-tree-backed-map}
+
+\section{Implementing a tree-backed \java{Map}}
+\label{implementing-a-tree-backed-map}
 
 In this section we'll describe the starter code for this exercise; in the
 next section we'll give you instructions for filling in the missing
@@ -5004,7 +4993,8 @@ garbage collector count? We think so.
 In the next section, you'll fill in some of the other methods, including
 the most important ones, \java{get} and \java{put}.
 
-\section{Instructions}\label{instructions-6}
+\section{Exercise 10}
+\label{exercise10}
 
 When you check out the repository for this exercise, you should find a file
 structure similar to what you saw in previous exercises. The top level
@@ -5498,10 +5488,10 @@ In \java{MyTreeMap}, the methods \java{get} and \java{put} take
 time proportional to the height of the tree, \java{h}. In the previous
 lab, we showed that if the tree is full --- if every level of the tree
 contains the maximum number of nodes --- the height of the tree is
-proportional to \java{log n}.
+proportional to $\log n$.
 
 And we claimed that \java{get} and \java{put} are logarithmic; that
-is, they take time proportional to \java{log n}. But for most
+is, they take time proportional to $\log n$. But for most
 applications, there's no guarantee that the tree is full. In general,
 the shape of the tree depends on the keys and what order they are added.
 
@@ -5547,8 +5537,8 @@ linear search, that's almost 500 times faster.
 This performance is typical with random strings or other keys that are
 added in no particular order. The final height of the tree might be 2-3
 times the theoretical minimum, but it is still proportional to
-\java{log n}, which is much less than $n$. In fact,
-\java{log n} grows so slowly as $n$ increases, it can be
+$\log n$, which is much less than $n$. In fact,
+$\log n$ grows so slowly as $n$ increases, it can be
 difficult to distinguish logarithmic time from constant time in
 practice.
 
@@ -5590,7 +5580,7 @@ new node as the right child of the rightmost node. The result is an
 ``unbalanced'' tree that only contains right children.
 
 The height of this tree is proportional to $n$, not
-\java{log n}, so the performance of \java{get} and \java{put} is
+$\log n$, so the performance of \java{get} and \java{put} is
 linear, not logarithmic.
 
 \section{Self-balancing trees}\label{self-balancing-trees}
@@ -7702,7 +7692,7 @@ structure similar to a binary search tree (BST). Here's the difference:
 The smallest element in a heap is always at the root, so we can find it
 in constant time. Adding and removing elements from a heap takes time
 proportional to the height of the tree \java{h}. And it is easy to
-keep a heap balanced, so \java{h} is proportional to \java{log n}.
+keep a heap balanced, so \java{h} is proportional to $\log n$.
 You can \url{https://en.wikipedia.org/wiki/Heap_(data_structure)}{read
 more about heaps here}.
 
@@ -7714,11 +7704,11 @@ The Java \java{PriorityQueue} is implemented using a heap.
 
 \item
   \java{offer}: Adds an element to the queue, updating the heap so
-  that every node has the ``heap property''. Takes \java{log n} time.
+  that every node has the ``heap property''. Takes $\log n$ time.
 
 \item
   \java{poll}: Removes the smallest element in the queue from the root
-  and updates the heap. Takes \java{log n} time.
+  and updates the heap. Takes $\log n$ time.
 
 \end{itemize}
 
