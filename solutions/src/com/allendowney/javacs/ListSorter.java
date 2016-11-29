@@ -63,15 +63,8 @@ public class ListSorter<T> {
 	 * @return
 	 */
 	public List<T> mergeSort(List<T> list, Comparator<T> comparator) {
-		int size = list.size();
-		if (size <= 1) {
-			return list;
-		}
-		// make two lists with half the elements each.
-		List<T> first = mergeSort(new LinkedList<T>(list.subList(0, size/2)), comparator);
-		List<T> second = mergeSort(new LinkedList<T>(list.subList(size/2, size)), comparator);
-		
-		return merge(first, second, comparator);
+		// TODO: your code here
+		return null;
 	}
 
 	/**
@@ -129,12 +122,7 @@ public class ListSorter<T> {
 	 * @return
 	 */
 	public void heapSort(List<T> list, Comparator<T> comparator) {
-		PriorityQueue<T> heap = new PriorityQueue<T>(list.size(), comparator);
-		heap.addAll(list);
-		list.clear();
-		while (!heap.isEmpty()) {
-			list.add(heap.poll());
-		}
+		//TODO: your code here
 	}
 
 	
@@ -148,23 +136,8 @@ public class ListSorter<T> {
 	 * @return
 	 */
 	public List<T> topK(int k, List<T> list, Comparator<T> comparator) {
-		PriorityQueue<T> heap = new PriorityQueue<T>(list.size(), comparator);
-		for (T element: list) {
-			if (heap.size() < k) {
-				heap.offer(element);
-				continue;
-			}
-			int cmp = comparator.compare(element, heap.peek());
-			if (cmp > 0) {
-				heap.poll();
-				heap.offer(element);
-			}
-		}
-		List<T> res = new ArrayList<T>();
-		while (!heap.isEmpty()) {
-			res.add(heap.poll());
-		}
-		return res;
+		// TODO: YOUR CODE HERE
+		return null;
 	}
 
 	
