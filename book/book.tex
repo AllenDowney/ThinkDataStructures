@@ -3009,7 +3009,7 @@ error-prone.
 \chapter{Getting to Philosophy}
 
 
-The goal of this exercise is to write a Web crawler that tests the
+The goal of this chapter is to develop a Web crawler that tests the
 ``Getting to Philosophy'' conjecture, which we presented in the
 previous exercise.  We'll provide some code to help you get started,
 but you will write more code for this exercise than for the previous
@@ -4996,38 +4996,29 @@ the most important ones, \java{get} and \java{put}.
 \section{Exercise 10}
 \label{exercise10}
 
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory with the code for this exercise,
-\java{javacs-lab09}.
-
-In the subdirectory \java{javacs-lab09/src/com/allendowney/javacs}
+In the repository for this book,
 you'll find these source files:
 
 \begin{itemize}
+
 \item
   \java{MyTreeMap.java} contains the code from the previous section
   with outlines for the missing methods.
+
 \item
   \java{MyTreeMapTest.java} contains the unit tests for
   \java{MyTreeMap}.
+
 \end{itemize}
 
-Also, in \java{javacs-lab09}, you'll find the Ant build file
-\java{build.xml}.
-
-\begin{itemize}
-\item
-  In \java{javacs-lab09}, run \java{ant build} to compile the source
-  files. Then run \java{ant test}, which runs \java{MyTreeMapTest}.
+Run \java{ant build} to compile the source
+  files. Then run \java{ant MyTreeMapTest}.
   Several tests should fail, because you have some work to do!
-\item
-  We've provided outlines for \java{get} and \java{containsKey}.
+
+I've provided outlines for \java{get} and \java{containsKey}.
   Both of them use \java{findNode}, which is a private method we
   defined; it is not part of the \java{Map} interface. Here's how it
   starts:
-\end{itemize}
 
 \begin{verbatim}
     private Node findNode(Object target) {
@@ -5055,11 +5046,10 @@ tree. From the signature of \java{get} and \java{containsKey}, the
 compiler considers \java{target} to be an \java{Object}. But we need
 to be able to compare keys, so we typecast \java{target} to
 \java{Comparable<? super K>}, which means that
-it is comparable to an instance of type $k$, or any superclass of
-$k$.\\If you are not familiar with this use of ``type
-wildcards'',
-\url{http://docs.oracle.com/javase/tutorial/extra/generics/morefun.html}{you
-can read more here}.
+it is comparable to an instance of type \java{K}, or any superclass of
+\java{K}.  If you are not familiar with this use of ``type
+wildcards'', you can read more at
+\url{http://docs.oracle.com/javase/tutorial/extra/generics/morefun.html}.
 
 Fortunately, dealing with Java's type system is not the point of this
 exercise. Your job is to fill in the rest of \java{findNode}. If it
@@ -5072,28 +5062,20 @@ Note that your solution should only search one path through the tree, so
 it should take time proportional to the height of the tree. You should
 not search the whole tree!
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Your next task is to fill in \java{containsValue}. To get you
+Your next task is to fill in \java{containsValue}. To get you
   started, we've provided a helper method, \java{equals}, that
   compares \java{target} and a given key. Note that the values in the
   tree (as opposed to the keys) are not necessarily comparable, so we
   can't use \java{compareTo}; we have to invoke \java{equals} on
   \java{target}.
-\end{itemize}
 
 Unlike your previous solution for \java{findNode}, your solution for
 \java{containsValue} \emph{does} have to search the whole tree, so its
 runtime will proportional to the number of keys, $n$, not the
 height of the tree, \java{h}.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  The next method you should fill in is \java{put}. We've provided
+The next method you should fill in is \java{put}. I've provided
   starter code that handles the simple cases:
-\end{itemize}
 
 \begin{verbatim}
     public V put(K key, V value) {
@@ -5125,35 +5107,33 @@ defined; it is not part of the \java{Map} interface.
 Fill in \java{putHelper} so it searches the tree and:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   If \java{key} is already in the tree, it replaces the old value with
   the new, and returns the old value.
+
 \item
   If \java{key} is not in the tree, it creates a new node, finds the
   right place to add it, and returns \java{null}.
+
 \end{enumerate}
 
 Your implementation of \java{put} should take time proportional to
-\java{h}, not $n$. Ideally you should search the tree only
+$h$, not $n$. Ideally you should search the tree only
 once, but if you find it easier to search twice, you can do that; it
 will be slower, but it doesn't change the order of growth.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Finally, you should fill in the body of \java{keySet}.
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html\#keySet()}{According
-  to the documentation}, this method should return some kind of
+Finally, you should fill in the body of \java{keySet}.
+According to the documentation at
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html\#keySet()}, this method should return some kind of
   \java{Set} that iterates the keys in order; that is, in increasing
   order according to the \java{compareTo} method. There are several
   ways to do that, but the simplest is to return an implementation of
   \java{Set} that maintains the order of the elements. The most
   commonly-used implementations, like \java{HashSet}, don't have this
   property, but Java provides one that does: \java{LinkedHashSet}.
-\end{itemize}
 
-We provide an outline of \java{keySet} that creates and returns a
+I've provided an outline of \java{keySet} that creates and returns a
 \java{LinkedHashSet}:
 
 \begin{verbatim}
@@ -5166,51 +5146,25 @@ We provide an outline of \java{keySet} that creates and returns a
 You should finish off this method so it adds the keys from the tree to
 \java{set} in ascending order. Hint: you might want to write a helper
 method, you might want to make it recursive, and you might want to
-\url{https://en.wikipedia.org/wiki/Tree_traversal\#In-order}{read about
-in-order tree traversal}.
+read about in-order tree traversal at
+\url{https://en.wikipedia.org/wiki/Tree_traversal\#In-order}.
 
 When you are done, all tests should pass. In the next chapter, we'll go
 over our solutions and test the performance of the core methods.
 
-\section{Resources}\label{resources-11}
-
-\url{https://en.wikipedia.org/wiki/Binary_search_tree}{Binary search
-tree}: Wikipedia.
-
-\url{http://docs.oracle.com/javase/tutorial/extra/generics/morefun.html}{Type
-wildcards}: Java tutorial.
-
-\url{https://en.wikipedia.org/wiki/Tree_traversal}{Tree traversal}:
-Wikipedia. 
 
 \chapter{Binary search tree}
 
-\section{Learning goals}\label{learning-goals-7}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Review a \java{Map} implementation using a binary search tree (BST).
-\item
-  Analyze the performance of BST methods.
-\item
-  Explain the problem of unbalanced trees and how self-balancing trees
-  solve this problem.
-\end{enumerate}
-
-\section{Overview}\label{overview-15}
-
 This chapter presents solutions to the previous exercise, then tests the
-performance of our tree-backed map. We present a problem with our
+performance of the tree-backed map. I present a problem with the
 implementation and explain how Java's \java{TreeMap} solves this
 problem.
 
-\section{Our version of
-\java{MyTreeMap}}\label{our-version-of-mytreemap}
+\section{A simple \java{MyTreeMap}}
+\label{our-version-of-mytreemap}
 
-In the previous exercise we gave you the outline of \java{MyTreeMap} and
-asked you to fill in the missing methods. Now we'll present our
+In the previous exercise I gave you the outline of \java{MyTreeMap} and
+asked you to fill in the missing methods. Now I'll present a
 solutions, starting with \java{findNode}:
 
 \begin{verbatim}
@@ -5245,14 +5199,17 @@ parameter \java{target} is the key we're looking for. We explained the
 first part of this function in the previous exercise:
 
 \begin{itemize}
+
 \item
   In this implementation, \java{null} is not a legal value for a key.
+
 \item
   Before we can invoke \java{compareTo} on \java{target}, we have to
   typecast it to some kind of \java{Comparable}. The ``type wildcard''
   used here is as permissive as possible; that is, it works with any
   type that implements \java{Comparable} and whose \java{compareTo}
   method accepts $k$ or any supertype of $k$.
+
 \end{itemize}
 
 After all that, the actual search is relatively simple. We initialize a
@@ -5265,7 +5222,8 @@ current node.
 If we get to the bottom of the tree without finding the target, we
 conclude that it is not in the tree and return \java{null}.
 
-\section{Searching for values}\label{searching-for-values}
+\section{Searching for values}
+\label{searching-for-values}
 
 As we explained in the previous exercise, the runtime of \java{findNode} is
 proportional to the height of the tree, not the number of nodes, because
@@ -5273,7 +5231,7 @@ we don't have to search the whole tree. But for \java{containsValue},
 we have to search the values, not the keys; the BST property doesn't
 apply to the values, so we have to search the whole tree.
 
-Our solution is recursive:
+My solution is recursive:
 
 \begin{verbatim}
 public boolean containsValue(Object target) {
@@ -5304,6 +5262,7 @@ the tree as an additional parameter.
 Here's how \java{containsValueHelper} works
 
 \begin{itemize}
+
 \item
   The first \java{if} statement checks the base case of the recursion.
   If \java{node} is \java{null}, that means we have recursed to the
@@ -5311,24 +5270,30 @@ Here's how \java{containsValueHelper} works
   return \java{false}. Note that this only means that the target did
   not appear on one path through the tree; it is still possible that it
   will be found on another.
+
 \item
   The second case checks whether we've found what we're looking for. If
   so, we return \java{true}. Otherwise, we have to keep going.
+
 \item
   The third case makes a recursive call to search for \java{target} in
   the left subtree. If we find it, we can return \java{true}
   immediately, without searching the right subtree. Otherwise, we keep
   going.
+
 \item
   The fourth case searches the right subtree. Again, if we find what we
   are looking for, we return \java{true}. Otherwise, having searched
   the whole tree, we return \java{false}.
+
 \end{itemize}
 
 This method ``visits'' every node in the tree, so it takes time
 proportional to the number of nodes.
 
-\section{Implementing \java{put}}\label{implementing-put}
+
+\section{Implementing \java{put}}
+\label{implementing-put}
 
 The \java{put} method is a little more complicated than \java{get}
 because it has to deal with two cases: (1) If the given key is already
@@ -5394,14 +5359,17 @@ If \java{cmp < 0}, the key we're adding is less than
 cases:
 
 \begin{itemize}
+
 \item
   If the left subtree is empty; that is, if \java{node.left} is
   \java{null}, we have reached the bottom of the tree without finding
   \java{key}. At this point, we know that \java{key} isn't in the
   tree, and we know where it should go. So we create a new node and add
   it as the left child of \java{node}.
+
 \item
   Otherwise we make a recursive call to search the left subtree.
+
 \end{itemize}
 
 If \java{cmp > 0}, the key we're adding is greater than
@@ -5411,20 +5379,22 @@ handle the same two cases as in the previous branch.
 Finally, if \java{cmp == 0}, we found the key in the tree, so we
 replace and return the old value.
 
-We wrote this method recursively to make it more readable, but it would
+I wrote this method recursively to make it more readable, but it would
 be straightforward to re-write it iteratively, which you might want to
 do as an exercise.
 
-\section{In-order traversal}\label{in-order-traversal}
 
-The last method we asked you to write is \java{keySet}, which returns
+\section{In-order traversal}
+\label{in-order-traversal}
+
+The last method I asked you to write is \java{keySet}, which returns
 a \java{Set} that contains the keys from the tree in ascending order.
 In other implementations of \java{Map}, the keys returned by
 \java{keySet} are in no particular order, but one of the capabilities
 of the tree implementation is that it is simple and efficient to sort
 the keys. So we should take advantage of that.
 
-Here's our solution:
+Here's my solution:
 
 \begin{verbatim}
 public Set<K> keySet() {
@@ -5455,14 +5425,16 @@ If \java{node} is \java{null}, that means the subtree is empty, so
 we return without adding anything to \java{set}. Otherwise we:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   Traverse the left subtree.
+
 \item
   Add \java{node.key}.
+
 \item
   Traverse the right subtree.
+
 \end{enumerate}
 
 Remember that the BST property guarantees that all nodes in the left
@@ -5482,10 +5454,12 @@ So we can conclude that this method adds all keys in the correct order.
 Because this method visits every node in the tree, like
 \java{containsValue}, it takes time proportional to $n$.
 
-\section{The logarithmic methods}\label{the-logarithmic-methods}
+
+\section{The logarithmic methods}
+\label{the-logarithmic-methods}
 
 In \java{MyTreeMap}, the methods \java{get} and \java{put} take
-time proportional to the height of the tree, \java{h}. In the previous
+time proportional to the height of the tree, $h$. In the previous
 lab, we showed that if the tree is full --- if every level of the tree
 contains the maximum number of nodes --- the height of the tree is
 proportional to $\log n$.
@@ -5583,17 +5557,22 @@ The height of this tree is proportional to $n$, not
 $\log n$, so the performance of \java{get} and \java{put} is
 linear, not logarithmic.
 
-\section{Self-balancing trees}\label{self-balancing-trees}
+
+\section{Self-balancing trees}
+\label{self-balancing-trees}
 
 There are two possible solutions to this problem:
 
 \begin{itemize}
+
 \item
   You could avoid adding keys to the \java{Map} in order. But this is
   not always possible.
+
 \item
   You could make a tree that does a better job of handling keys if they
   happen to be in order.
+
 \end{itemize}
 
 The second solution is better, and there are several ways to do it. The
@@ -5615,84 +5594,63 @@ order that keeps the tree sufficiently balanced. Self-balancing trees
 avoid this problem by doing some additional work each time a new key is
 added.
 
-\section{One more exercise}\label{one-more-exercise}
+
+\section{One more exercise}
+\label{one-more-exercise}
 
 In the previous exercise we decided not to implement \java{remove}, but you
 might want to try it. If you remove a node from the middle of the tree,
 you have to rearrange the remaining nodes to restore the BST property.
 You can probably figure out how to do that on your own, or you can
-\url{https://en.wikipedia.org/wiki/Binary_search_tree\#Deletion}{read
-the explanation here}.
+read the explanation at
+\url{https://en.wikipedia.org/wiki/Binary_search_tree\#Deletion}.
 
 Removing a node and rebalancing a tree are similar operations: if you do
 this exercise, you will have a better idea of how self-balancing trees
 work.
 
-\section{Resources}\label{resources-12}
+
+\chapter{Persistence}
+
+In the next few exercises we will get back to building a web search
+engine. To review, the components of a search engine are:
 
 \begin{itemize}
-\item
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html}{The
-  documentation of \java{TreeMap}} provides more information about the
-  implementation.
-\item
-  You can
-  \url{https://en.wikipedia.org/wiki/Red\%E2\%80\%93black_tree}{read
-  more about red-black trees here}.
-\end{itemize}
 
-\chapter{Redis}
-
-\section{Learning goals}\label{learning-goals-8}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Read and write data to a Redis database.
-\item
-  Translate Java data structures to Redis data structures.
-\item
-  Implement a Redis-backed Web search index.
-\end{enumerate}
-
-\section{Overview}\label{overview-16}
-
-In the next few exercises we will get back to the application we started in
-the first unit: building a web search engine. To review, the components
-of a search engine are:
-
-\begin{itemize}
 \item
   Crawling: We'll need a program that can download a web page, parse it,
   and extract the text and any links to other pages.
+
 \item
   Indexing: We'll need an index that makes it possible to look up a
   search term and find the pages that contain it.
+
 \item
   Retrieval: And we'll need a way to collect results from the Index and
   identify pages that are most relevant to the search terms.
+
 \end{itemize}
 
-If you did the exercise on indexing, you implemented an index using Java
-maps. In this exercise, we'll revisit the Indexer and make a new version that
-stores the results in a database.
+If you did Exercise 6 in Section~\ref{exercise6}, you implemented an index
+using Java maps. In this exercise, we'll revisit the Indexer and make
+a new version that stores the results in a database.
 
-If you did the exercise about the ``Getting to Philosophy'' conjecture, you
+If you did Exercise 5 in Section~\ref{exercise5}, you
 built a crawler that follows the first link it finds. In the next exercise,
 we'll make a more general version that stores every link it finds in a
 queue and explores them in order.
 
 And then, finally, you will work on the retrieval problem.
 
-In these exercises, we will provide less starter code, and you will make more
-design decisions. These exercises are also more open-ended. We will suggest
+In these exercises, I provide less starter code, and you will make more
+design decisions. These exercises are also more open-ended. I will suggest
 some minimal goals you should try to reach, but there are many ways you
 can go farther if you want to challenge yourself.
 
 Now, let's get started on a new version of the Indexer.
 
-\section{Persistence}\label{persistence}
+\section{Redis}
+\label{redis}
 
 The previous version of the Indexer stores the index in two data
 structures: a \java{TermCounter} that maps from a search term to the
@@ -5710,24 +5668,25 @@ persistent, as well as data stored in databases.
 
 A simple way to make data persistent is to store it in a file. Before
 the program ends, it could translate its data structures into a format
-like \url{https://en.wikipedia.org/wiki/JSON}{JSON} and then write them
+like JSON (\url{https://en.wikipedia.org/wiki/JSON}) and then write them
 into a file. When it starts again, it could read the file and rebuild
 the data structures.
 
 But there are several problems with this solution:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
 \item
   Reading and writing large data structures (like a Web index) would be
   slow.
+
 \item
   The entire data structure might not fit into the memory of a single
   running program.
+
 \item
   If a program ends unexpectedly (for example, due to a power outage),
   any changes made since the program last started would be lost.
+
 \end{enumerate}
 
 A better alternative is a database that provides persistent storage and
@@ -5735,22 +5694,24 @@ the ability to read and write parts of the database without reading and
 writing the whole thing.
 
 There are many kinds of database management systems (DBMS) that provide
-different capabilities. You can read an
-\url{https://en.wikipedia.org/wiki/Database}{overview on this Wikipedia
-page}.
+different capabilities. You can read an overview at
+\url{https://en.wikipedia.org/wiki/Database}.
 
 The database we recommend for this exercise is Redis, which provides
 persistent data structures that are similar to Java data structures.
 Specifically, it provides:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   Lists of strings, similar to Java Lists.
+
 \item
   Hashes, similar to Java Maps.
+
 \item
   Sets of strings, similar Java Sets.
+
 \end{itemize}
 
 Redis is a ``key-value database'', which means that the data structures
@@ -5758,7 +5719,9 @@ it contains (the values) are identified by unique strings (the keys). A
 key in Redis plays the same role as a reference in Java: it identifies
 an object. We'll see some examples soon.
 
-\section{Redis clients and servers}\label{redis-clients-and-servers}
+
+\section{Redis clients and servers}
+\label{redis-clients-and-servers}
 
 Redis is usually run as a remote service; in fact, the name stands for
 ``REmote DIctionary Server''. To use Redis, you have to run the Redis
@@ -5767,33 +5730,41 @@ many ways to set up a server and many clients you could use. For this
 lab, we recommend:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Rather than install and run the server yourself, consider using a
-  service like \url{https://redistogo.com/}{RedisToGo}, which runs
+  service like RedisToGo (\url{https://redistogo.com/}), which runs
   Redis in the cloud. They offer a free plan with enough resources for
   this exercise.
+
 \item
   For the client we recommend Jedis, which is a Java library that
   provides classes and methods for working with Redis.
+
 \end{enumerate}
 
 Here are more detailed instructions to help you get started:
 
 \begin{itemize}
-\item
-  \url{https://redistogo.com/signup}{Create an account on RedisToGo}
+
+\item Create an account on RedisToGo, at
+  \url{https://redistogo.com/signup},
   and select the plan you want (probably the free plan to get started).
+
 \item
   Create an ``instance'', which is a virtual machine running the Redis
   server. If you click on the ``Instances'' tab, you should see your new
-  instance, identified by a host name and a port number. For example, we
+  instance, identified by a host name and a port number. For example, I
   have an instance named ``dory-10534''.
+
 \item
   Click on the instance name to get the configuration page. Make a note
   of the URL near the top of the page, which looks like this:
 
-  redis://redistogo:1234567890feedfacebeefa1e1234567@dory.redistogo.com:10534
+  \begin{verbatim}
+  redis://redistogo:1234567feedfacebeefa1e1234567@dory.redistogo.com:10534
+  \end{verbatim}
+
 \end{itemize}
 
 This URL contains the server's host name, \java{dory.redistogo.com},
@@ -5801,47 +5772,54 @@ the port number, \java{10534}, and the password you will need to
 connect to the server, which is the long string of letters and numbers
 in the middle. You will need this information for the next step.
 
-\section{Hello, Jedis}\label{hello-jedis}
 
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory with the code for this exercise,
-\java{javacs-lab10}.
+\section{Exercise 11}
+\label{hello-jedis}
 
-In the subdirectory \java{javacs-lab10/src/com/allendowney/javacs}
+In the repository for this book,
 you'll find the source files for this exercise:
 
 \begin{itemize}
+
 \item
   \java{JedisMaker.java} contains example code for connecting to a
   Redis server and running a few Jedis methods.
+
 \item
   \java{JedisIndex.java} contains starter code for this exercise.
+
 \item
   \java{JedisIndexTest.java} contains test code for
   \java{JedisIndex}.
+
 \item
   \java{WikiFetcher.java} contains the code we saw in previous exercises to
   read web pages and parse them using JSoup.
+
 \end{itemize}
 
-You'll also find these files, which are part of our solution to previous
-labs.
+You will also need these file, which you worked on in previous
+exercises.
 
 \begin{itemize}
+
 \item
   \java{Index.java} implements an index using Java data structures.
+
 \item
   \java{TermCounter.java} represents a map from terms to their
   frequencies.
+
 \item
   \java{WikiNodeIterable.java} iterates through the nodes in a DOM
   tree produced by JSoup.
+
 \end{itemize}
 
-Also, in \java{javacs-lab10}, you'll find the Ant build file
-\java{build.xml}.
+If you have working versions of these file, you can use them for
+this exercise.  If you didn't do the previous exercises, or you
+are not confident in your solutions, you can copy my solutions
+from the {\tt solutions} folder.
 
 The first step is to use Jedis to connect to your Redis server.
 \java{RedisMaker.java} shows how to do this. It reads information
@@ -5851,6 +5829,8 @@ perform Redis operations.
 
 If you open \java{JedisMaker.java}, you should see something like this
 (but with more error checking):
+
+%TODO: update this code
 
 \begin{verbatim}
 public class JedisMaker {
@@ -5892,27 +5872,30 @@ is authenticated (by invoking \java{auth}), you can use it to
 communicate with your Redis database.
 
 \java{JedisMaker} reads information about your Redis server from a
-file named \java{redis\_url.txt}, which you should put in the
-directory \java{javacs-lab10/src/resources}:
+file named \java{redis_url.txt}, which you should put in the
+directory \java{src/resources}:
 
 \begin{itemize}
+
 \item
   Use a text editor to create end edit
-  \java{javacs-lab10/src/resources/redis\_url.txt}.
+  \java{ThinkDataStructures/code/src/resources/redis_url.txt}.
+
 \item
   Paste in the URL of your server. If you are using RedisToGo, the URL
   will look like this:
 
-  redis://redistogo:1234567890feedfacebeefa1e1234567@dory.redistogo.com:10534
+  redis://redistogo:1234567feedfacebeefa1e1234567@dory.redistogo.com:10534
+
 \end{itemize}
 
 Because this file contains the password for your Redis server, you
-should not put this file in a public repository. To help you avoid doing
-that by accident, we have provided a \java{.gitignore} file with this
-lab that should make it harder (but not impossible) to put this file in
-your repo.
+should not put this file in a public repository. To help you avoid
+doing that by accident, the repository contains a \java{.gitignore}
+file that should make it harder (but not impossible) to put this file
+in your repo.
 
-Now in \java{javacs-lab10}, run \java{ant build} to compile the
+Now run \java{ant build} to compile the
 source files and \java{ant JedisMaker} to run the example code in
 \java{main}:
 
@@ -5928,17 +5911,21 @@ source files and \java{ant JedisMaker} to run the example code in
         
         // Set
         jedis.sadd("myset", "element1", "element2", "element3");
-        System.out.println("element2 is member: " + jedis.sismember("myset", "element2"));
+        System.out.println("element2 is member: " + 
+                           jedis.sismember("myset", "element2"));
         
         // List
         jedis.rpush("mylist", "element1", "element2", "element3");
-        System.out.println("element at index 1: " + jedis.lindex("mylist", 1));
+        System.out.println("element at index 1: " + 
+                           jedis.lindex("mylist", 1));
         
         // Hash
         jedis.hset("myhash", "word1", Integer.toString(2));
         jedis.hincrBy("myhash", "word2", 1);
-        System.out.println("frequency of word1: " + jedis.hget("myhash", "word1"));
-        System.out.println("frequency of word1: " + jedis.hget("myhash", "word2"));
+        System.out.println("frequency of word1: " + 
+                           jedis.hget("myhash", "word1"));
+        System.out.println("frequency of word1: " + 
+                            jedis.hget("myhash", "word2"));
         
         jedis.close();
     }
@@ -5957,7 +5944,9 @@ frequency of word2: 1
 
 In the next section, we'll explain how the code works.
 
-\section{Redis data types}\label{redis-data-types}
+
+\section{Redis data types}
+\label{redis-data-types}
 
 Redis is basically a map from keys, which are Strings, to values, which
 can be one of several data types. The most basic Redis data type is a
@@ -6048,41 +6037,46 @@ with \java{word2} (or 0 if it doesn't already exist), increments it by
 Setting, getting, and incrementing entries in a hash are constant time
 operations.
 
-You can \url{http://redis.io/topics/data-types}{read more about Redis
-data types here}.
+You can read more about Redis data types here at
+\url{http://redis.io/topics/data-types}.
 
-\section{Making a Jedis-backed
-index}\label{making-a-jedis-backed-index}
+
+\section{Making a Jedis-backed index}
+\label{making-a-jedis-backed-index}
 
 At this point you have the information you need to make a Web search
 index that stores results in a Redis database.
 
-In \java{javacs-lab10}, run \java{ant build} to compile the source
-files and \java{ant test} to run \java{JedisIndexTest}. It should
+Now run \java{ant JedisIndexTest}. It should
 fail, because you have some work to do!
 
 \java{JedisIndexTest} tests these methods:
 
 \begin{itemize}
+
 \item
   \java{JedisIndex}, which is the constructor that takes a
   \java{Jedis} object as a parameter.
+
 \item
   \java{indexPage}, which adds a Web page to the index; it takes a
   String URL and a JSoup \java{Elements} object that contains the
   elements of the page that should be indexed.
+
 \item
   \java{getCounts}, which takes a search term and returns a
   \java{Map<String, Integer>} that maps from
   each URL that contains the search term to the number of time it
   appears on that page.
+
 \end{itemize}
 
 Here's an example of how these methods are used:
 
 \begin{verbatim}
         WikiFetcher wf = new WikiFetcher();
-        String url1 = "https://en.wikipedia.org/wiki/Java_(programming_language)";
+        String url1 = 
+            "https://en.wikipedia.org/wiki/Java_(programming_language)";
         Elements paragraphs = wf.readWikipedia(url1);
 
         Jedis jedis = JedisMaker.make();
@@ -6092,16 +6086,11 @@ Here's an example of how these methods are used:
 \end{verbatim}
 
 If we look up \java{url1} in the result, \java{map}, we should get
-339, which is the number of times the word ``the'' appears on
-\url{https://en.wikipedia.org/wiki/Java_(programming_language)}{the
-Java Wikipedia page} (that is, the version we saved).
+339, which is the number of times the word ``the'' appears
+on the Java Wikipedia page (that is, the version we saved).
 
 If we index the same page again, the new results should replace the old
 ones.
-
-You might want to start with a copy of \java{Index.java}, which
-contains our solution to the previous exercise where we built an index using
-Java data structures.
 
 One suggestion for translating data structures from Java to Redis:
 remember that each object in a Redis database is identified by a unique
@@ -6111,18 +6100,21 @@ between them. For example, in our solution, we have two kinds of
 objects:
 
 \begin{itemize}
+
 \item
   We define a \java{URLSet} to be a Redis \java{Set} that contains
   the URLs that contain a given search term. The key for each
   \java{URLSet} starts with \java{"URLSet:"}, so to get the URLs
   that contain the word ``the'', we access the \java{Set} with the key
   \java{"URLSet:the"}.
+
 \item
   We define a \java{TermCounter} to be a Redis \java{Hash} that maps
   from each term that appears on a page to the number of times it
   appears. The key for each TermCounter starts with
   \java{"TermCounter:"} and ends with the URL of the page we're
   looking up.
+
 \end{itemize}
 
 In our implementation, we have one \java{URLSet} for each term and one
@@ -6130,21 +6122,25 @@ In our implementation, we have one \java{URLSet} for each term and one
 methods, \java{urlSetKey} and \java{termCounterKey}, to assemble
 these keys.
 
-\section{More suggestions if you want
-them}\label{more-suggestions-if-you-want-them}
+
+\section{More suggestions if you want them}
+\label{more-suggestions-if-you-want-them}
 
 At this point you have all the information you need to do the exercise, so
 you can get started if you are ready. But we have a few suggestions you
 might want to read first:
 
 \begin{itemize}
+
 \item
-  For this exercise we provide less guidance than we did in previous exercises.
-  You will have to make some design decisions; in particular, you will
-  have to figure out how to divide the problem into pieces that you can
-  test one at a time, and then assemble the pieces into a complete
-  solution. If you try to write the whole thing at once, without testing
-  smaller pieces, it might take a very long time to debug.
+  For this exercise we provide less guidance than we did in previous
+  exercises.  You will have to make some design decisions; in
+  particular, you will have to figure out how to divide the problem
+  into pieces that you can test one at a time, and then assemble the
+  pieces into a complete solution. If you try to write the whole thing
+  at once, without testing smaller pieces, it might take a very long
+  time to debug.
+
 \item
   One of the challenges of working with persistent data is that it is
   persistent. The structures stored in the database might change every
@@ -6155,6 +6151,7 @@ might want to read first:
   \java{deleteAllKeys}, which you can use to clean out the database
   and start fresh. You can also use \java{printIndex} to print the
   contents of the index.
+
 \item
   Each time you invoke a \java{Jedis} method, your client sends a
   message to the server, then the server performs the action you
@@ -6162,6 +6159,7 @@ might want to read first:
   operations, it will probably take a long time. You can improve
   performance by grouping a series of operations into a
   \java{Transaction}.
+
 \end{itemize}
 
 For example, here's a simple version of \java{deleteAllKeys}:
@@ -6199,7 +6197,9 @@ batch of operations until you invoke \java{exec}. Then it sends all of
 the saved operations to the server at the same time, which is usually
 much faster.
 
-\section{A few design hints}\label{a-few-design-hints}
+
+\section{A few design hints}
+\label{a-few-design-hints}
 
 Now you \emph{really} have all the information you need; you should
 start working on the exercise. But if you get stuck, or if you really don't
@@ -6243,59 +6243,33 @@ how to test a method, you often get ideas about how to write it.
 
 Good luck!
 
-\section{Resources}\label{resources-13}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \url{https://en.wikipedia.org/wiki/JSON}{JSON}: Wikipedia.
-\item
-  \url{https://en.wikipedia.org/wiki/Database}{Database managment
-  systems}: Wikipedia.
-\item
-  \url{http://www.computerhope.com/issues/ch000549.htm}{Environment
-  variables in Windows}: tutorial.
-\item
-  \url{http://redis.io/topics/data-types}{Redis data types}:
-  documentation. 
-\end{itemize}
-
 
 \chapter{Crawling Wikipedia}
 
-\section{Learning goals}\label{learning-goals-9}
+In this chapter, we present a solution to the previous exercise and
+analyze the performance of Web indexing algorithms. Then we build a
+simple Web crawler.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Analyze the performance of Web indexing algorithms.
-\item
-  Implement a Web crawler.
-\end{enumerate}
+\section{Our Redis-backed indexer}
+\label{our-redis-backed-indexer}
 
-\section{Overview}\label{overview-17}
-
-In this exercise, we present our solution to the previous exercise and analyze the
-performance of Web indexing algorithms. Then we build a simple Web
-crawler.
-
-\section{Our Redis-backed indexer}\label{our-redis-backed-indexer}
-
-In our solution, we store two kinds of structures in Redis:
+In my solution, we store two kinds of structures in Redis:
 
 \begin{itemize}
+
 \item
   For each search term, we have a \java{URLSet}, which is a Redis Set
   of URLs that contain the search term.
+
 \item
   For each URL, we have a \java{TermCounter}, which is a Redis Hash
   that maps each search term to the number of times it appears.
+
 \end{itemize}
 
-We discussed these data types in the previous exercise. You can also
-\url{http://redis.io/topics/data-types}{read about Redis Sets and
-Hashes here}.
+We discussed these data types in the previous chapter. You can also
+read about Redis Sets and
+Hashes at \url{http://redis.io/topics/data-types}
 
 In \java{JedisIndex}, we provide a function that takes a search term
 and returns the Redis key of its URLSet:
@@ -6335,12 +6309,14 @@ public void indexPage(String url, Elements paragraphs) {
 To index a page, we
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Make a Java \java{TermCounter} for the contents of the page, using
   code from a previous exercise.
+
 \item
   Push the contents of the \java{TermCounter} to Redis.
+
 \end{enumerate}
 
 Here's the new code that pushes a \java{TermCounter} to Redis:
@@ -6469,7 +6445,9 @@ operations to Redis. You can make it much faster using a
 \java{Transaction}. You might want to do that as an exercise, or you
 can see our solution in \java{RedisIndex.java}.
 
-\chapter{Analysis of indexing}\label{analysis-of-indexing}
+
+\section{Analysis of indexing}
+\label{analysis-of-indexing}
 
 Using the data structures we designed, how long will it take to index a
 page? Again, think about your answer before you continue.
@@ -6518,7 +6496,8 @@ don't help identify relevant pages.
 Most search engines avoid indexing common words, which are known in this
 context as \url{https://en.wikipedia.org/wiki/Stop_words}{stop words}.
 
-\section{Graph traversal}\label{graph-traversal}
+\section{Graph traversal}
+\label{graph-traversal}
 
 If you did the ``Getting to Philosophy'' exercise, you already have a program
 that reads a Wikipedia page, finds the first link, uses the link to load
@@ -6527,90 +6506,97 @@ crawler, but when people say ``Web crawler'' they usually mean a program
 that:
 
 \begin{itemize}
+
 \item
   Loads a starting page and indexes the contents,
+
 \item
   Finds all the links on the page and adds the linked URLs to a queue,
   and
+
 \item
   Works its way through the queue, loading pages, indexing them, and
   adding new URLs to the queue.
+
 \item
   If it finds a URL in the queue that has already been indexed, it skips
   it.
+
 \end{itemize}
 
-You can think of the Web as a
-\url{https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)}{graph}
+You can think of the Web as a graph
 where each page is a node and each link is a directed edge from one node
-to another. Starting from a source node, a crawler traverses this graph,
+to another. If you are not familiar with graphs, you can read about
+them at \url{https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)}.
+
+%TODO: should we say more about graphs rather than just pointing to Wikipedia?
+
+Starting from a source node, a crawler traverses this graph,
 visiting each reachable node once.
 
 The behavior of the queue determines what kind of traversal the crawler
 performs:
 
 \begin{itemize}
+
 \item
   If the queue is first-in-first-out (FIFO), the crawler performs a
   breadth-first traversal.
+
 \item
   If the queue is last-in-first-out (LIFO), the crawler performs a
   depth-first traversal.
+
 \item
   More generally, the items in the queue might be prioritized. For
   example, we might want to give higher priority to pages that have not
   been indexed for a long time.
+
 \end{itemize}
 
-You can \url{https://en.wikipedia.org/wiki/Graph_traversal}{read more
-about graph traversal here}
+You can read more
+about graph traversal at
+\url{https://en.wikipedia.org/wiki/Graph_traversal}.
 
-\section{Making a crawler}\label{making-a-crawler}
 
-Now it's time to write the crawler.
+\section{Exercise 12}
+\label{exercise12}
 
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory with the code for this exercise,
-\java{javacs-lab11}.
-
-In the subdirectory \java{javacs-lab11/src/com/allendowney/javacs}
+Now it's time to write the crawler.  In the repository for this book,
 you'll find the source files for this exercise:
 
-\begin{verbatim}
-*  \java{WikiCrawler.java}, which contains starter code for your crawler.
+\begin{itemize}
 
-*  \java{WikiCrawlerTest.java}, which contains test code for \java{WikiCrawler}.
+\item  \java{WikiCrawler.java}, which contains starter code for your crawler.
 
-*  \java{JedisIndex.java}, which is our solution to the previous exercise.
-\end{verbatim}
+\item  \java{WikiCrawlerTest.java}, which contains test code for \java{WikiCrawler}.
 
-You'll also find some of the helper classes we've used in previous lavs
+\item  \java{JedisIndex.java}, which is our solution to the previous exercise.
 
-\begin{verbatim}
-*  \java{JedisMaker.java}
-*  \java{WikiFetcher.java}
-*  \java{TermCounter.java}
-*  \java{WikiNodeIterable.java}
-\end{verbatim}
+\end{itemize}
 
-And as usual, in \java{javacs-lab11}, you'll find the Ant build file
-\java{build.xml}.
+You'll also need some of the helper classes we've used in previous exercises:
+
+\begin{itemize}
+\item  \java{JedisMaker.java}
+\item  \java{WikiFetcher.java}
+\item  \java{TermCounter.java}
+\item  \java{WikiNodeIterable.java}
+\end{itemize}
 
 Before you run \java{JedisMaker}, you have to provide a file with
 information about your Redis server. If you did this in the previous
-lab, you can just copy it over. Otherwise you can find instructions in
-the previous exercise.
+lab, you should be all set. Otherwise you can find instructions in
+Section~\ref{}.
 
 Run \java{ant build} to compile the source files, then run
 \java{ant JedisMaker} to make sure it is configured to connect to your
 Redis server.
 
-Now run \java{ant test} to run \java{WikiCrawlerTest}. It should
+Now run \java{ant WikiCrawlerTest}. It should
 fail, because you have work to do!
 
-Here's the beginning of the \java{WikiCrawler} class we provided:
+Here's the beginning of the \java{WikiCrawler} class I provided:
 
 \begin{verbatim}
 public class WikiCrawler {
@@ -6634,16 +6620,21 @@ public class WikiCrawler {
 The instance variables are
 
 \begin{itemize}
+
 \item
   \java{source} is the URL where we start crawling.
+
 \item
   \java{index} is the \java{JedisIndex} where the results should go.
+
 \item
   \java{queue} is a \java{LinkedList} where we keep track of URLs
   that have been discovered but not yet indexed.
+
 \item
   \java{wf} is the \java{WikiFetcher} we'll use to read and parse
   Web pages.
+
 \end{itemize}
 
 Your job is to fill in \java{crawl}. Here's the prototype.
@@ -6656,41 +6647,52 @@ The parameter \java{testing} will be \java{true} when this method is
 called from \java{WikiCrawlerTest} and should be \java{false}
 otherwise.
 
-When testing is \java{true}, the \java{crawl} method should:
+When \java{testing} is \java{true}, the \java{crawl} method should:
 
 \begin{itemize}
+
 \item
   Choose and remove a URL from the queue in FIFO order.
+
 \item
   Read the contents of the page using
   \java{WikiFetcher.readWikipedia}, which reads cached copies of pages
   we have included in this repository for testing purposes (to avoid
   problems if the Wikipedia version changes).
+
 \item
   It should index pages regardless of whether they are already indexed.
+
 \item
   It should find all the internal links on the page and add them to the
   queue in the order they appear. ``Internal links'' are links to other
   Wikipedia pages.
+
 \item
   And it should return the URL of the page it indexed.
+
 \end{itemize}
 
-When testing is \java{false}, this method should:
+When \java{testing} is \java{false}, this method should:
 
 \begin{itemize}
+
 \item
   Choose and remove a URL from the queue in FIFO order.
+
 \item
   If the URL is already indexed, it should not index it again, and
   should return \java{null}.
+
 \item
   Otherwise it should read the contents of the page using
   \java{WikiFetcher.fetchWikipedia}, which reads current content from
   the Web.
+
 \item
   Then it should index the page, add links to the queue, and return the
   URL of the page it indexed.
+
 \end{itemize}
 
 \java{WikiCrawlerTest} loads the queue with about 200 links and then
@@ -6700,42 +6702,18 @@ return value and the new length of the queue.
 When your crawler is working as specified, this test should pass. Good
 luck!
 
-\section{Resources}\label{resources-14}
-
-\begin{itemize}
-\item
-  \url{https://en.wikipedia.org/wiki/Stop_words}{Stop words}
-\item
-  \url{https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)}{Graphs}
-\item
-  \url{https://en.wikipedia.org/wiki/Graph_traversal}{Graph traversal}
-  \# cs-application-retrieval-lab
-\end{itemize}
 
 
 \chapter{Boolean search}
 
-\section{Learning goals}\label{learning-goals-10}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Analyze the performance of Web indexing algorithms.
-\item
-  Use boolean operators to generate search results for multiple search
-  terms.
-\item
-  Score search results by relevance and sort them.
-\end{enumerate}
-
-\section{Overview}\label{overview-18}
-
-In this exercise, we present our solution to the previous exercise. Then you will
+In this chapter I present a solution to the previous exercise. Then you will
 write code to combine multiple search results and sort them by their
 relevance to the search terms.
 
-\section{Crawler solution}\label{crawler-solution}
+
+\section{Crawler solution}
+\label{crawler-solution}
 
 First, let's go over our solution to the previous exercise. We provided an
 outline of \java{WikiCrawler}; your job was to fill in \java{crawl}.
