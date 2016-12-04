@@ -1,6 +1,6 @@
 # `ArrayList`s
 
-In this homework assignment, you are going to given the class definition and some method definitions of `MyArrayList`
+In this homework assignment, you are going to write your own implementation of an ArrayList.
 ```java
 // MyArrayList.java
 public class MyArrayList {
@@ -12,7 +12,7 @@ With each problem, we will add functionality to our classes to more closely matc
 
 ### `MyArrayList`
 
-Joe would like to start a farm that only contains cows. He wants your help in creating an `ArrayList` to store these cows in.
+Sidd would like to start a farm that only contains cows. He wants your help in creating an `ArrayList` to store these cows in.
 
 You will be provided a `Cow` class that your `MyArrayList` will *exclusively* store. Each `Cow` has the following properties:
 ```java
@@ -25,7 +25,7 @@ public class Cow {
 ```
 The tests you will be running on your `MyArrayList` class will be using this `Cow` class.
 
-**Write code for the following sections:**
+# Assignment
 
 1. Unfortunately, Joe only has enough space for 10 cows. He will not ever be able to fit more than 10 cows. Create a constructor for `MyArrayList` that initializes a `MyArrayList` given this constraint.
 
@@ -52,6 +52,8 @@ The tests you will be running on your `MyArrayList` class will be using this `Co
     `public void add(int index, Cow c){...}`
     
 7. Thanks to your help, Joe's milk business has really gotten off the ground. He is able to expand his farm and is able to accept up to $$2^{31}-1$$ cows. Modify your code so that we can **optimally** perform resizes. We never want to allocate more space than we need to, but we should also have an *average* insertion time complexity of $$O(1)$$. Make sure that the load factor of your `MyArrayList` stays above 25%.
+
+## Optional
 
 8. Joe would like to continue to expand his business into different animals! Make your `MyArrayList` generic. In order to test your new generic `MyArrayList`, edit `MyArrayListTest.java` and find the four lines that need to be commented/uncommented. Look for the following sections:
 
