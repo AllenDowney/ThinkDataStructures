@@ -5,19 +5,19 @@ import static org.junit.Assert.assertEquals;
 
 public class MyLinkedListTest {
 
-	// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 8
+	// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
 	MyLinkedList chickens;
 
-	// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-7
+	// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
 	//MyLinkedList<Chicken> chickens;
 
 	@Before
 	public void setUp() throws Exception{
 
-		// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 8
+		// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
 		chickens = new MyLinkedList();
 
-		// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-7
+		// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
 		// chickens = new MyLinkedList<Chicken>();
 
 		chickens.add(new Chicken("Delilah", 10, "blue"));

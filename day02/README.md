@@ -25,7 +25,7 @@ public class Chicken {
 ```
 The tests you will be running on your `MyLinkedList` class will be using this `Chicken` class.
 
-**Write code for the following sections:**
+# Assignment
 
 1. Create a constructor that initializes a `MyLinkedList`. We want to implement our data structure as a doubly-linked list. Make sure to have pointer to the head of our list.
 
@@ -51,19 +51,21 @@ The tests you will be running on your `MyLinkedList` class will be using this `C
 
     `public void add(int index, Chicken c){...}`
 
+## Optional
+
 7. Joe would like to continue to expand his business into different animals! Make your `MyLinkedList` generic. In order to test your new generic `MyLinkedList`, edit `MyLinkedListTest.java` and find the four lines that need to be commented/uncommented. Look for the following sections:
 
     ```java
-    // QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 8
+    // QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
     MyLinkedList chickens;
     
-    // QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-7
+    // QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
     //MyLinkedList<Chicken> chickens;
     ...
-    // QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 8
+    // QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
     chickens = new MyLinkedList();
     
-    // QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-7
+    // QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
     //chickens = new MyLinkedList<Chicken>();
     ```
 
