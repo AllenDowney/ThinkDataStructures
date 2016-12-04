@@ -47,7 +47,7 @@ The tests you will be running on your `MyLinkedList` class will be using this `C
 
     `public Chicken remove(int index){...}`
 
-6. How can we add a `Chicken` in the middle of our `MyArrayList`? Add an overloaded `add` function that takes in an index as a first argument and inserts a chicken at that index. Note that we are not replacing any chickens, just inserting one in between two other chickens. (Also perform error handeling here).
+6. How can we add a `Chicken` in the middle of our `MyLinkedList`? Add an overloaded `add` function that takes in an index as a first argument and inserts a chicken at that index. Note that we are not replacing any chickens, just inserting one in between two other chickens. (Also perform error handeling here).
 
     `public void add(int index, Chicken c){...}`
 

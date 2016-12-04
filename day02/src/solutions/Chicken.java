@@ -1,3 +1,5 @@
+package solutions;
+
 public class Chicken {
 
 	String name;

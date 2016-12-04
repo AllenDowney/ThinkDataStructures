@@ -1,3 +1,5 @@
+package solutions;
+
 public class MyLinkedList<T> {
 
 	private MyLinkedListNode header;
