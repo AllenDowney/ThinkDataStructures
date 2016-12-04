@@ -3,7 +3,7 @@ package soln;
 import ADTs.QueueADT;
 
 /**
- * An implementation of the Stack interface.
+ * An implementation of the Queue interface.
  */
 public class MyQueue<T> implements QueueADT<T> {
 
@@ -45,4 +45,5 @@ public class MyQueue<T> implements QueueADT<T> {
     public boolean isEmpty() {
         return headNode == null;
     }
+
 }

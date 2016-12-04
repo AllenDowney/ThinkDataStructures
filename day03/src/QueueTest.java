@@ -21,7 +21,7 @@ public class QueueTest {
     }
 
     /**
-     * Tests functionality of the LinkedList-based stack
+     * Tests functionality of the LinkedList-based queue
      */
     @Test
     public void testQueue() {
@@ -46,4 +46,15 @@ public class QueueTest {
         assertThat(e, is(150));
         assertThat(queue.isEmpty(), is(true));
     }
+
+    // /**
+    //  * Tests functionality of the LinkedList-based queue
+    //  */
+    // @Test
+    // public void testSlidingWindow() {
+    //     int[] arr = new int[]{5, 3, 2, 6, 5, 2, 9, 10, 2};
+    //     int[] maxInWindows = SlidingWindow.maxInWindows(arr, 3);
+    //     int[] expectedAnswer = new int[]{5, 6, 6, 6, 9, 10, 10};
+    //     assertThat(maxInWindows, is(expectedAnswer));
+    // }
 }
