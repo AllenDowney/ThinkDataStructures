@@ -53,5 +53,4 @@
             <report format="frames" todir="${junit.output.dir}"/>
         </junitreport>
     </target>
-    
 </project>

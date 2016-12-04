@@ -1,3 +1,5 @@
+package utilities;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -5,8 +7,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Set;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
 
 
 public class JedisMaker {
@@ -22,7 +26,6 @@ public class JedisMaker {
 		String slash = File.separator;
 		String filename = System.getProperty("user.dir") + slash +
 				"resources" + slash + "redis_url.txt";
-		System.out.println(filename);
 
 	    StringBuilder sb = new StringBuilder();
 		BufferedReader br;
@@ -56,11 +59,6 @@ public class JedisMaker {
 		String[] array = uri.getAuthority().split("[:@]");
 		String auth = array[1];
 
-		//Here's an older version that read the auth code from an environment variable.
-		//String host = "dory.redistogo.com";
-		//int port = 10534;
-		//String auth = System.getenv("REDISTOGO_AUTH");
-
 		Jedis jedis = new Jedis(host, port);
 
 		try {
@@ -76,9 +74,8 @@ public class JedisMaker {
 		return jedis;
 	}
 
-
 	/**
-	 *
+	 * Prints usage instructions
 	 */
 	private static void printInstructions() {
 		System.out.println("");
@@ -91,33 +88,56 @@ public class JedisMaker {
 		System.out.println("directory, and paste in the URL.");
 	}
 
+    public void clearAll(Jedis jedis) {
+        Set<String> keys = jedis.keys("*");
+        Transaction t = jedis.multi();
+        for (String key: keys) {
+            t.del(key);
+        }
+        t.exec();
+    }
 
 	/**
 	 * @param args
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
+        // TODO: Implement this method
 
 		Jedis jedis = make();
 
+        // clearAll(jedis);
+
 		// String
-		jedis.set("mykey", "myvalue");
-		String value = jedis.get("mykey");
-	    System.out.println("Got value: " + value);
+        /*
+        - Create a new key-value pair
+        - Retrieve that value
+        - Print it
+         */
 
-	    // Set
-	    jedis.sadd("myset", "element1", "element2", "element3");
-	    System.out.println("element2 is member: " + jedis.sismember("myset", "element2"));
+		// Set
+        /*
+        - Create a new jedis set named "sorts" with the values
+        "quick", "merge", "heap"
+        - Print whether "merge" is a member of that set
+        - Print whether "insertion" is a member of that set
+         */
 
-	    // List
-	    jedis.rpush("mylist", "element1", "element2", "element3");
-	    System.out.println("element at index 1: " + jedis.lindex("mylist", 1));
+		// List
+        /*
+        - Create a new list named "lineards" with the elements
+        "stacks", "queues", "lists"
+        - Print the elements at the 0th and 2nd indices of that list
+         */
 
-	    // Hash
-	    jedis.hset("myhash", "word1", Integer.toString(2));
-	    jedis.hincrBy("myhash", "word2", 1);
-	    System.out.println("frequency of word1: " + jedis.hget("myhash", "word1"));
-	    System.out.println("frequency of word2: " + jedis.hget("myhash", "word2"));
+		// Hash
+		/*
+		- Create a new hash named "myhash", mapping the key "word1" to
+		the value "2", but do not use the string literal
+		- Increment that value by 1 without calling hget
+		- Increment the nonexistent key "word2" by 1
+		- Retrieve and print the values at both keys in the hash "myhash"
+		*/
 
 	    jedis.close();
 	}
