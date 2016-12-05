@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.9.0}
+\newcommand{\theversion}{0.16.0}
 
 %%%% Both LATEX and PLASTEX
 
@@ -3865,7 +3865,7 @@ You can run \java{ant MyLinearMapTest} again, but even if your
   \java{put} is not complete.
 
 Fill in \java{put}. You should read the documentation of
-{\java{Map.put} at
+\java{Map.put} at
   \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#put(K, V)}
  so you know what it is supposed to do. You might want to start with
   a version of \java{put} that always adds a new entry and does not
@@ -3876,11 +3876,11 @@ Fill in \java{put}. You should read the documentation of
 Once you've got \java{put} working, the test for \java{containsKey}
 should pass.
 
-Read the documentation of {\java{Map.get} at
+Read the documentation of \java{Map.get} at
   \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#get(java.lang.Object)}
   and then fill in the method. Run the tests again.
 
-Finally, read the documentation of {\java{Map.remove} at
+Finally, read the documentation of \java{Map.remove} at
   \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#remove(java.lang.Object)}
   and fill in the method.
 
@@ -6234,7 +6234,7 @@ work on:
     public List<Object> pushTermCounterToRedis(TermCounter tc) {}
 \end{verbatim}
 
-These are the methods we used in our solutions, but they are certainly
+These are the methods I used in my solution, but they are certainly
 not the only way to divide things up. So please take these suggestions
 if they help, but ignore them if they don't.
 
@@ -6250,8 +6250,8 @@ In this chapter, we present a solution to the previous exercise and
 analyze the performance of Web indexing algorithms. Then we build a
 simple Web crawler.
 
-\section{Our Redis-backed indexer}
-\label{our-redis-backed-indexer}
+\section{The Redis-backed indexer}
+\label{redis-indexer}
 
 In my solution, we store two kinds of structures in Redis:
 
@@ -6271,7 +6271,7 @@ We discussed these data types in the previous chapter. You can also
 read about Redis Sets and
 Hashes at \url{http://redis.io/topics/data-types}
 
-In \java{JedisIndex}, we provide a function that takes a search term
+In \java{JedisIndex}, I provide a function that takes a search term
 and returns the Redis key of its URLSet:
 
 \begin{verbatim}
@@ -6289,7 +6289,7 @@ private String termCounterKey(String url) {
 }
 \end{verbatim}
 
-Here's our implementation of \java{indexPage}, which takes a URL and a
+Here's the implementation of \java{indexPage}, which takes a URL and a
 JSoup \java{Elements} object that contains the DOM tree of the
 paragraphs we want to index:
 
@@ -6350,13 +6350,15 @@ series of small operations.
 It loops through the terms in the \java{TermCounter}. For each one it
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Finds or creates a \java{TermCounter} on Redis, then adds a field
   for the new term.
+
 \item
   Finds or creates a \java{URLSet} on Redis, then adds the current
   URL.
+
 \end{enumerate}
 
 If the page has already been indexed, we delete its old
@@ -6366,7 +6368,7 @@ That's it for indexing new pages.
 
 The second part of the exercise asked you to write \java{getCounts}, which
 takes a search term and returns a map from each URL where the term
-appears to the number of times it appears there. Here is our solution:
+appears to the number of times it appears there. Here is my solution:
 
 \begin{verbatim}
     public Map<String, Integer> getCounts(String term) {
@@ -6383,12 +6385,15 @@ appears to the number of times it appears there. Here is our solution:
 This method uses two helpers:
 
 \begin{itemize}
+
 \item
   \java{getURLs} takes a search term and returns the Set of URLs where
   the term appears.
+
 \item
   \java{getCount} takes a URL and a term and returns the number of
   times the term appears at the given URL.
+
 \end{itemize}
 
 Here are the implementations:
@@ -6409,23 +6414,28 @@ Here are the implementations:
 Because of the way we designed the index, these methods are simple and
 efficient.
 
-\section{Analysis of lookup}\label{analysis-of-lookup}
 
-Suppose we have indexed $N$ pages and discovered \java{M}
+\section{Analysis of lookup}
+\label{analysis-of-lookup}
+
+Suppose we have indexed $N$ pages and discovered $M$
 unique seach terms. How long will it take to look up a search term?
 Think about your answer before you continue.
 
 To look up a search term, we run \java{getCounts}, which
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Creates a map.
+
 \item
   Runs \java{getURLs} to get a Set of URLs.
+
 \item
   For each URL in the Set, it runs \java{getCount} and adds an entry
   to a HashMap.
+
 \end{enumerate}
 
 \java{getURLs} takes time proportional to the number of URLs that
@@ -6441,9 +6451,9 @@ the term, which is normally much less than $N$.
 
 This algorithm is about as efficient as it can be, in terms of
 algorithmic complexity, but it is very slow because it sends many small
-operations to Redis. You can make it much faster using a
+operations to Redis. You can make it faster using a
 \java{Transaction}. You might want to do that as an exercise, or you
-can see our solution in \java{RedisIndex.java}.
+can see my solution in \java{RedisIndex.java}.
 
 
 \section{Analysis of indexing}
@@ -6484,7 +6494,7 @@ is proportional to the number of unique terms.
 Since the number of words on the page usually exceeds the number of
 unique search terms, the overall complexity is proportional to the
 number of words on the page. In theory a page might contain all search
-terms in the index, so the worst case performance is O(M), but we don't
+terms in the index, so the worst case performance is $O(M)$, but we don't
 expect to see the worse case in practice.
 
 This analysis suggests a way to improve performance: we should probably
@@ -6494,16 +6504,17 @@ time and space, because they appear in almost every \java{URLSet} and
 don't help identify relevant pages.
 
 Most search engines avoid indexing common words, which are known in this
-context as \url{https://en.wikipedia.org/wiki/Stop_words}{stop words}.
+context as stop words (\url{https://en.wikipedia.org/wiki/Stop_words}).
+
 
 \section{Graph traversal}
 \label{graph-traversal}
 
-If you did the ``Getting to Philosophy'' exercise, you already have a program
-that reads a Wikipedia page, finds the first link, uses the link to load
-the next page, and repeats. This program is a specialized kind of
-crawler, but when people say ``Web crawler'' they usually mean a program
-that:
+If you did the ``Getting to Philosophy'' exercise in
+Chapter~\ref{???}, you already have a program that reads a Wikipedia
+page, finds the first link, uses the link to load the next page, and
+repeats. This program is a specialized kind of crawler, but when
+people say ``Web crawler'' they usually mean a program that:
 
 \begin{itemize}
 
@@ -6587,7 +6598,7 @@ You'll also need some of the helper classes we've used in previous exercises:
 Before you run \java{JedisMaker}, you have to provide a file with
 information about your Redis server. If you did this in the previous
 lab, you should be all set. Otherwise you can find instructions in
-Section~\ref{}.
+Section~\ref{???}.
 
 Run \java{ant build} to compile the source files, then run
 \java{ant JedisMaker} to make sure it is configured to connect to your
@@ -6707,15 +6718,15 @@ luck!
 \chapter{Boolean search}
 
 
-In this chapter I present a solution to the previous exercise. Then you will
-write code to combine multiple search results and sort them by their
-relevance to the search terms.
+In this chapter I present a solution to the previous exercise. Then
+you will write code to combine multiple search results and sort them
+by their relevance to the search terms.
 
 
 \section{Crawler solution}
 \label{crawler-solution}
 
-First, let's go over our solution to the previous exercise. We provided an
+First, let's go over our solution to the previous exercise. I provided an
 outline of \java{WikiCrawler}; your job was to fill in \java{crawl}.
 As a reminder, here are the fields in the \java{WikiCrawler} class:
 
@@ -6778,29 +6789,41 @@ Most of the complexity in this method is there to make it easier to
 test. Here's the logic:
 
 \begin{itemize}
+
 \item
   If the queue is empty, it returns \java{null} to indicate that it
   did not index a page.
+
 \item
   Otherwise it removes and stores the next URL from the queue.
+
 \item
   If the URL has already been indexed, \java{crawl} doesn't index it
   again, unless it's in testing mode.
+
 \item
   Next it reads the contents of the page: if it's in testing mode, it
   reads from a file; otherwise it reads from the Web.
+
 \item
   It indexes the page.
+
 \item
   It parses the page and adds internal links to the queue.
+
 \item
   Finally, it returns the URL of the page it indexed.
+
 \end{itemize}
 
-We presented our implementation of \java{index.indexPage} in the
-previous exercise. So the only new function is \java{queueInternalLinks}.
+I presented an implementation of \java{Index.indexPage} in
+Section~\ref{redis-indexer}. So the only new function is
+\java{queueInternalLinks}.
 
-We wrote two versions of this function with different parameters: one
+ %TODO: check what class indexPage is in; and in general, should we
+% add comments to methods and identify their classes?
+
+I wrote two versions of this function with different parameters: one
 takes an \java{Elements} object containing one DOM trees per
 paragraph; the other takes an \java{Element} object that contains a
 single paragraph.
@@ -6828,57 +6851,71 @@ does the real work.
     }
 \end{verbatim}
 
+% TODO: make the indentation of methods consistent?
+
 To determine whether a link is ``internal,'' we check whether the URL
 starts with ``/wiki/''. This might include some pages we don't want to
 index, like meta-pages about Wikipedia. And it might exclude some pages
-we want, like links to pages in non-English languages. But we kept it
+we want, like links to pages in non-English languages. But let's keep it
 simple.
 
 That's all there is to it. This exercise didn't have a lot of new material;
 it was mostly a chance to bring the pieces together.
 
-\section{Information retrieval}\label{information-retrieval}
+
+\section{Information retrieval}
+\label{information-retrieval}
 
 The next phase of this project is to implement a search tool. The pieces
 we'll need include:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   An interface where users can provide search terms and view results.
+
 \item
   A lookup mechanism that takes each search term and returns the pages
   that contain it.
+
 \item
   Mechanisms for combining search results from multiple search terms.
+
 \item
   Algorithms for ranking and sorting search results.
+
 \end{enumerate}
 
 The general term for processes like this is ``information retrieval'',
-\url{https://en.wikipedia.org/wiki/Information_retrieval}{which you can
-read more about here}.
+which you can read more about at 
+\url{https://en.wikipedia.org/wiki/Information_retrieval}.
 
-In this exercise, we'll focus on steps 3 and 4. We've already build a simple
-version of 2. If you are interested in building Web applications, you'll
-have to option to work on step 1.
+In this exercise, we'll focus on steps 3 and 4. We've already built a simple
+version of 2. If you are interested in building Web applications, you
+might consider working on step 1.
 
-\section{Boolean search}\label{boolean-search}
+
+\section{Boolean search}
+\label{boolean-search}
 
 Most search engines can perform ``boolean searches'', which means you
 can combine the results from multiple search terms using boolean logic.
 For example:
 
 \begin{itemize}
+
 \item
   The search ``java AND programming'' might return only pages that
   contain both search terms: ``java'' and ``programming''.
+
 \item
   ``java OR programming'' might return pages that contain either term
   but not necessarily both.
+
 \item
   ``java -indonesia'' might return pages that contain ``java'' and do
   not contain ``indonesia''.
+
 \end{itemize}
 
 Expressions like these that contain search terms and operators are
@@ -6890,23 +6927,30 @@ When applied to search results, the boolean operators \java{AND},
 example, suppose
 
 \begin{itemize}
+
 \item
   \java{s1} is the set of pages containing ``java'',
+
 \item
   \java{s2} is the set of pages containing ``programming'', and
+
 \item
   \java{s3} is the set of pages containing ``indonesia''.
+
 \end{itemize}
 
 In that case:
 
 \begin{itemize}
+
 \item
   The intersection of \java{s1} and \java{s2} is the set of pages
   containing ``java'' AND ``programming''.
+
 \item
   The union of \java{s1} and \java{s2} is the set of pages
   containing ``java'' OR ``programming''.
+
 \item
   The difference of \java{s1} and \java{s2} is the set of pages
   containing ``java'' and not ``indonesia''.
@@ -6914,27 +6958,27 @@ In that case:
 
 In the next section you will write method to implement these operations.
 
-\section{Relevance scores}\label{relevance-scores}
 
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory with the code for this exercise,
-\java{javacs-lab12}.
+\section{Exercise 13}
+\label{exercise13}
 
-In the subdirectory \java{javacs-lab12/src/com/allendowney/javacs}
+In the repository for this book
 you'll find the source files for this exercise:
 
 \begin{itemize}
+
 \item
   \java{WikiSearch.java}, which defines an object that contains search
   results and performs operations on them.
+
 \item
   \java{WikiSearchTest.java}, which contains test code for
   \java{WikiSearch}.
+
 \item
   \java{Card.java}, which demonstrates how to use the \java{sort}
   method in \java{java.util.Collections}.
+
 \end{itemize}
 
 You will also find some of the helper classes we've used in previous
@@ -6965,35 +7009,29 @@ user as inferred from the query. There are many ways to construct a
 relevance score, but most of them are based on ``term frequency'', which
 is the number of times the search terms appear on the page. A common
 relevance score is called TF-IDF, which stands for ``term frequency --
-inverse document frequency''.
-\url{https://en.wikipedia.org/wiki/Tf\%E2\%80\%93idf}{You can read more
-about it here}.
+inverse document frequency''.  You can read more about it at
+\url{https://en.wikipedia.org/wiki/Tf-idf}.
 
 You'll have the option to implement TF-IDF later, but we'll start with
 something even simpler, TF:
 
 \begin{itemize}
+
 \item
   If a query contains a single search term, the relevance of a page is
   its term frequency; that is, the number of time the term appears on
   the page.
+
 \item
   For queries with multiple terms, the revelance of a page is the sum of
   the term frequencies; that is, the total number of times any of the
   search terms appear.
+
 \end{itemize}
 
 Now you're ready to start the exercise.
-
-\section{Implementing boolean
-operators}\label{implementing-boolean-operators}
-
-Assuming you have already checked out the repository for this exercise, you
-should have a directory named \java{javacs-lab12} that contains the
-Ant build file \java{build.xml}.
-
 Run \java{ant build} to compile the source files, then run
-\java{ant test} to run \java{WikiSearchTest}. As usual, it should
+\java{ant WikiSearchTest}. As usual, it should
 fail, because you have work to do.
 
 In \java{WikiSearch.java}, fill in the bodies of \java{and},
@@ -7003,53 +7041,60 @@ don't have to worry about \java{testSort} yet.
 You can run \java{WikiSearchTest} without using Jedis because it
 doesn't depend on the index in your Redis database. But if you want to
 run a query against your index, you have to provide a file with
-information about your Redis server. If you did this in the previous
-lab, you can just copy it over. Otherwise you can find instructions in
-\url{ADD\%20THIS\%20LINK\%20AFTER\%20DEPLOYMENT}{cs-application-backing-with-redis-lab}.
+information about your Redis server.  See Section~\ref{???} for details.
 
 Run \java{ant JedisMaker} to make sure it is configured to connect to
 your Redis server. Then run \java{WikiSearch}, which prints results
 from three queries:
 
 \begin{itemize}
+
 \item
   ``java''
+
 \item
   ``programming''
+
 \item
-  ``java AND programming
+  ``java AND programming''
+
 \end{itemize}
 
 Initially the results will be in no particular order, because
 \java{WikiSearch.sort} is incomplete.
 
 Fill in the body of \java{sort} so the results are returned in
-increasing order of relevance. We suggest you use the \java{sort}
-method provided by
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html}{\java{java.util.Collections}},
-which sorts any kind of \java{List}. There are two version of
-\java{sort}:
+increasing order of relevance. I suggest you use the \java{sort}
+method provided by {java.util.Collections} which sorts any kind of
+\java{List}. You can read the documentation at
+\url{https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html}.
+
+There are two version of \java{sort}:
 
 \begin{itemize}
+
 \item
   The one-parameter version takes a list and sorts the elements using
   the \java{compareTo} method, so the elements have to be
   \java{Comparable}.
+
 \item
   The two-parameter version takes a list of any object type and a
   \java{Comparator}, which is an object that provides a
   \java{compare} method that compares elements.
+
 \end{itemize}
 
 If you are not familiar with the \java{Comparable} and
-\java{Comparator} interfaces, we explain them in the next section.
+\java{Comparator} interfaces, I explain them in the next section.
 
-\section{\java{Comparable} and
-\java{Comparator}}\label{comparable-and-comparator}
 
-This exercises includes \java{Card.java}, which demonstrates two ways to
-sort a list of \java{Card} objects. Here's the beginning of the class
-definition:
+\section{\java{Comparable} and \java{Comparator}}
+\label{comparable-and-comparator}
+
+The repository for this book includes \java{Card.java}, which
+demonstrates two ways to sort a list of \java{Card} objects. Here's
+the beginning of the class definition:
 
 \begin{verbatim}
 public class Card implements Comparable<Card> {
@@ -7158,9 +7203,8 @@ that considers ``Aces high'', like this:
 
 This code defines an anonymous class that implements \java{compare},
 as required. Then it creates an instance of the class. If you are not
-familiar with anonymous classes in Java,
-\url{https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html}{you
-can read about them here}.
+familiar with anonymous classes in Java, you can read about them at
+\url{https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html}.
 
 Using this \java{Comparator}, we can invoke \java{sort} like this:
 
@@ -7176,66 +7220,39 @@ experiment with it. As an exercise, you might want to write a comparator
 that sorts by \java{rank} first and then by \java{suit}, so all the
 Aces should be together, and all the twos, etc.
 
-\section{Extensions}\label{extensions}
+
+\section{Extensions}
+\label{extensions}
 
 If you get a basic version of this exercise working, you might want to work
 on these optional exercises:
 
 \begin{itemize}
-\item
-  \url{https://en.wikipedia.org/wiki/Tf\%E2\%80\%93idf}{Read about
-  TF-IDF} and implement it. You might have to modify \java{JavaIndex}
-  to compute document frequencies; that is, the total number of times
+
+\item Read about TF-IDF at \url{https://en.wikipedia.org/wiki/Tf-idf}
+  and implement it. You might have to modify \java{JavaIndex} to
+  compute document frequencies; that is, the total number of times
   each term appears on all pages in the index.
-\item
-  For queries with more than one search term, the total relevance for
+
+\item For queries with more than one search term, the total relevance for
   each page is currently the sum of the relevance for each term. Think
   about when this simple version might not work well, and try out some
   alternatives.
-\item
-  Build a user interface that allows users to enter queries with boolean
-  operators. Parse the queries, generate the results, then sort them by
-  relevance and display the highest-scoring URLs. Consider generating
-  ``snippets'' that show where the search terms appeared on the page. If
-  you want to make a Web application for your user interface, we
-  recommend
-  \url{https://devcenter.heroku.com/articles/getting-started-with-java}{Heroku}
-  as simple options for developing and deploying Web applications using
-  Java.
+
+\item Build a user interface that allows users to enter queries with
+  boolean operators. Parse the queries, generate the results, then
+  sort them by relevance and display the highest-scoring
+  URLs. Consider generating ``snippets'' that show where the search
+  terms appeared on the page. If you want to make a Web application
+  for your user interface, consider using Heroku as a simple option
+  for developing and deploying Web applications using Java.  See
+  \url{https://devcenter.heroku.com/articles/getting-started-with-java}.
+
 \end{itemize}
 
-\section{Resources}\label{resources-15}
-
-\begin{itemize}
-\item
-  \url{https://en.wikipedia.org/wiki/Information_retrieval}{Information
-  retrieval}.
-\item
-  \url{https://en.wikipedia.org/wiki/Tf\%E2\%80\%93idf}{TF-IDF}
-\item
-  \url{https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html}{Anonymous
-  classes} \# cs-application-sorting-lab
-\end{itemize}
 
 
 \chapter{Sorting}
-
-\section{Learning goals}\label{learning-goals-11}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Implement and analyze sort algorithms.
-\item
-  Use a heap to implement a PriorityQueue.
-\item
-  Use a PriorityQueue to find the top elements in a large dataset.
-\item
-  Analyze the space needs of algorithms.
-\end{enumerate}
-
-\section{Overview}\label{overview-19}
 
 Computer science departments have an unhealthy obsession with sort
 algorithms. Based on the amount of time CS students spend on the topic,
@@ -7246,46 +7263,53 @@ sorting works. For almost all applications, they use whatever
 general-purpose algorithm is provided by the language or libraries they
 use. And usually that's just fine.
 
-So if you skip this exercise and learn nothing about sort algorithms, you can
+So if you skip this chapter and learn nothing about sort algorithms, you can
 still be an excellent developer. But there are a few reasons you might
 want to do it anyway:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Although there are general-purpose algorithms that work well for the
   vast majority of applications, there are two special-purpose
   algorithms you might need to know about: radix sort and bounded heap
   sort.
+
 \item
   One sort algorithm, merge sort, makes an excellent teaching example
-  because it demonstrates an important and useful strategy for algorithm
-  design, called ``divide-conquer-glue''. Also, when we analyze its
-  performance, you will learn about an order of growth we have not seen
-  before. Finally, some of the most widely-used algorithms are hybrids
-  that include elements of merge sort.
+  because it demonstrates an important and useful strategy for
+  algorithm design, called ``divide-conquer-glue''. Also, when we
+  analyze its performance, you will learn about an order of growth we
+  have not seen before, {\bf linearithmic}. Finally, some of the most
+  widely-used algorithms are hybrids that include elements of merge
+  sort.
+
 \item
   One other reason to learn about sort algorithms is that technical
   interviewers love to ask about them. If you want to get hired, it
   helps if you can demonstrate CS cultural literacy.
+
 \end{enumerate}
 
-So, in this exercise we'll analyze insertion sort, you will implement merge
+So, in this chapter we'll analyze insertion sort, you will implement merge
 sort, we'll tell you about radix sort, and you will write a simple
 version of a bounded heap sort.
 
-\section{Insertion sort}\label{insertion-sort}
+
+\section{Insertion sort}
+\label{insertion-sort}
 
 We'll start with insertion sort, mostly because it is simple to describe
 and implement. It is not very efficient, but it has some redeeming
 qualities, as we'll see.
 
 Rather than explain the algorithm here, we suggest you read the
-\url{https://en.wikipedia.org/wiki/Insertion_sort}{insertion sort
-Wikipedia page}, which includes pseudocode and animated examples. Come
-back when you get the general idea.
+insertion sort Wikipedia page at
+\url{https://en.wikipedia.org/wiki/Insertion_sort}, which includes
+pseudocode and animated examples. Come back when you get the general
+idea.
 
-Here's our implementation of insertion sort in Java:
+Here's an implementation of insertion sort in Java:
 
 \begin{verbatim}
 public class ListSorter<T> {
@@ -7309,7 +7333,7 @@ public class ListSorter<T> {
 }
 \end{verbatim}
 
-We define a class, \java{ListSorter}, as a container for sort
+I define a class, \java{ListSorter}, as a container for sort
 algorithms. By using the type parameter, \java{T}, we can write
 methods that work on lists containing any object type.
 
@@ -7318,11 +7342,12 @@ and a \java{Comparator} that knows how to compare type \java{T}
 objects. It sorts the list ``in place'', which means it modifies the
 existing list and does not have to allocate any new space.
 
-This example shows how to call this function with a \java{List} of
-\java{Integer}:
+The following example shows how to call this function with a \java{List} of
+\java{Integer} objects:
 
 \begin{verbatim}
-        List<Integer> list = new ArrayList<Integer>(Arrays.asList(3, 5, 1, 4, 2));
+        List<Integer> list = new ArrayList<Integer>(
+            Arrays.asList(3, 5, 1, 4, 2));
 
         Comparator<Integer> comparator = new Comparator<Integer>() {
             @Override
@@ -7389,22 +7414,19 @@ So if we know that the array is nearly sorted, or is not very big,
 insertion sort might not be a bad choice. But for large arrays, we can
 do better. In fact, much better.
 
-\section{Merge sort}\label{merge-sort}
+
+\section{Exercise 14}
+\label{exercise14}
 
 Merge sort is one of several algorithms whose runtime is better than
-quadratic (we're still not saying how much better). Again, rather than
-explaining the algorithm here, we suggest you
-\url{https://en.wikipedia.org/wiki/Merge_sort}{read about it on
-Wikipedia}. Once you get the idea, come back and you can test your
-understanding by writing your own implementation.
+quadratic. Again, rather than
+explaining the algorithm here, I suggest you
+read about it on
+Wikipedia at \url{https://en.wikipedia.org/wiki/Merge_sort}.
+Once you get the idea, come back and you can test your
+understanding by writing an implementation.
 
-When you check out the repository for this exercise, you should find a file
-structure similar to what you saw in previous exercises. The top level
-directory contains \java{CONTRIBUTING.md}, \java{LICENSE.md},
-\java{README.md}, and the directory with the code for this exercise,
-\java{javacs-lab13}.
-
-In the subdirectory \java{javacs-lab12/src/com/allendowney/javacs}
+In the repository for this book,
 you'll find the source files for this exercise:
 
 \begin{itemize}
@@ -7418,10 +7440,10 @@ you'll find the source files for this exercise:
 \end{itemize}
 
 Run \java{ant build} to compile the source files, then run
-\java{ant test} to run \java{ListSorterTest}. As usual, it should
+\java{ant ListSorterTest}. As usual, it should
 fail, because you have work to do.
 
-In \java{ListSorter.java}, we've provided an outline of two methods,
+In \java{ListSorter.java}, I've provided an outline of two methods,
 \java{mergeSortInPlace} and \java{mergeSort}:
 
 \begin{verbatim}
@@ -7446,46 +7468,53 @@ Your job is to fill in \java{mergeSort}. Before you write a fully
 recursive version of merge sort, start with something like this:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Split the list in half.
+
 \item
   Sort the halves using \java{Collections.sort} or
   \java{insertionSort}.
+
 \item
   Merge the sorted halves into a complete sorted list.
+
 \end{enumerate}
 
 This will give you a chance to debug the merge code without dealing with
 the complexity of a recursive method.
 
-Next, add a
-\url{https://en.wikipedia.org/wiki/Recursion\#base_case}{base case}. If
-you are given a list with only one element, you could return it
-immediately, since it is already sorted, sort of. Or if the length of
-the list is below some threshold, you could sort it using
-\java{Collections.sort} or \java{insertionSort}. Test the base case
-before you proceed.
+Next, add a base case (see
+\url{https://en.wikipedia.org/wiki/Recursion\#base_case}. If you are
+given a list with only one element, you could return it immediately,
+since it is already sorted, sort of. Or if the length of the list is
+below some threshold, you could sort it using \java{Collections.sort}
+or \java{insertionSort}. Test the base case before you proceed.
 
 Finally, modify your solution so it makes two recursive calls to sort
 the halves of the array. When you get it working, \java{testMergeSort}
 and \java{testMergeSortInPlace} should pass.
 
-\section{Analysis of merge sort}\label{analysis-of-merge-sort}
 
-To classify the runtime of merge sort, it helps to think about the
-algorithm in terms of levels of recursion and how much work is done on
-each level. Suppose we start with a list that contains $n$
-elements. Here are the steps of the algorithm:
+\section{Analysis of merge sort}
+\label{analysis-of-merge-sort}
+
+To classify the runtime of merge sort, it helps to think in terms of
+levels of recursion and how much work is done on each level. Suppose
+we start with a list that contains $n$ elements. Here are the steps of
+the algorithm:
 
 \begin{enumerate}
 
 \item
   Make two new arrays and copy half of the elements into each.
+
 \item
   Sort the two halves.
+
 \item
   Merge the halves.
+
 \end{enumerate}
 
 The following figure shows these steps.
@@ -7508,86 +7537,98 @@ of recursion:
 \caption{Example of merge sort showing all levels of recursion.}
 \end{figure}
 
-At the top level, we have \java{1} list with $n$ elements. At
-the next level there are \java{2} lists with \java{n/2} elements.
-Then \java{4} lists with \java{n/4} elements, and so on until we get
-to $n$ lists with \java{1} element.
+At the top level, we have $1$ list with $n$ elements. At
+the next level there are $2$ lists with $n/2$ elements.
+Then $4$ lists with $n/4$ elements, and so on until we get
+to $n$ lists with $1$ element.
 
 On every level we have a total of $n$ elements. On the way down,
 we have to split the arrays in half, which takes time proportional to
 $n$ on every level. On the way back up, we have to merge a total
 of $n$ elements, which is also linear.
 
-If the number of levels is \java{h}, the total amount of work for the
-algorithm is \java{O(nh)}. So how many levels are there? There are two
+If the number of levels is $h$, the total amount of work for the
+algorithm is $O(nh)$. So how many levels are there? There are two
 ways to think about that:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   How many times do we have to cut $n$ in half to get to 1. Or,
+
 \item
-  How many times do we have to double \java{1} before we get to
+  How many times do we have to double $1$ before we get to
   $n$.
+
 \end{enumerate}
 
 Another way to ask the second question is ``what power of 2 is
 $n$''?
 
-\java{2}\java{h} = $n$
+$2^h = n$
 
-Taking the \java{log}$n$ of both sides yields
+Taking the $\log_2$ of both sides yields
 
-\java{h = log}\java{2} $n$
+$h = log_2 n$
 
-So the total time is \java{O(n log n)}. I didn't bother to write the
+So the total time is $O(n log n)$. I didn't bother to write the
 base of the logarithm because logarithms with different bases differ by
 a constant factor, so all logarithms are in the same order of growth.
 
-Algorithms in \java{O(n log n)} are technically called
+Algorithms in $O(n log n)$ are sometimes called
 ``linearithmic'', but most people just say ``n log n''.
 
-It turns out that \java{O(n log n)} is the theoretical lower bound for
+It turns out that $O(n log n)$ is the theoretical lower bound for
 sort algorithms that work by comparing elements to each other. That
-means there is no
-\url{https://en.wikipedia.org/wiki/Comparison_sort}{comparison sort}
-whose order of growth is better than \java{n log n}. Nevertheless,
-there are non-comparison sorts that take linear time!
+means there is no ``comparison sort''
+whose order of growth is better than $n log n$.
+See \url{https://en.wikipedia.org/wiki/Comparison_sort}.
 
-\section{Radix sort}\label{radix-sort}
+But as we'll see in the next section, there are non-comparison sorts
+that take linear time!
+
+
+\section{Radix sort}
+\label{radix-sort}
 
 During the 2008 United States Presidential Campaign, candidate Barack
 Obama was asked to perform an impromptu algorithm analysis when he
 visited Google. Chief executive Eric Schmidt jokingly asked him for
 ``the most efficient way to sort a million 32-bit integers.'' Obama had
 apparently been tipped off, because he quickly replied, ``I think the
-bubble sort would be the wrong way to go.'' You can
-\url{http://www.youtube.com/watch?v=k4RRi_ntQc8}{watch the video here}.
+bubble sort would be the wrong way to go.'' You can watch the
+video at
+\url{http://www.youtube.com/watch?v=k4RRi_ntQc8}.
 
-Obama was right: \url{https://en.wikipedia.org/wiki/Bubble_sort}{bubble
-sort} is conceptually simple but its runtime is quadratic; and even
+Obama was right: bubble
+sort is conceptually simple but its runtime is quadratic; and even
 among quadratic sort algorithms, its performance is not very good.
+See \url{https://en.wikipedia.org/wiki/Bubble_sort}.
 
 The answer Schmidt was probably looking for is ``radix sort'', which is
-a \emph{non-comparison} sort algorithm that works if the size of the
+a {\bf non-comparison} sort algorithm that works if the size of the
 elements is bounded, like a 32-bit integer or a 20-character string.
 
-To see how this works, imagine you have a deck of cards where each card
-contains a 3-letter word. Here's how you could sort the cards:
+To see how this works, imagine you have a stack of index cards where
+each card contains a 3-letter word. Here's how you could sort the
+cards:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
   Make one pass through the cards and divide them into buckets based on
   the first letter. So words starting with \java{a} should be
   together, followed by words starting with \java{b}, and so on.
+
 \item
   Divide each bucket again based on the second letter. So words starting
   with \java{aa} should be together, followed by words starting with
   \java{ab}, and so on. Of course, not all buckets will be full, but
   that's ok.
+
 \item
   Divide each bucket again based on the third letter.
+
 \end{enumerate}
 
 At this point each bucket contains one element, and the buckets are
@@ -7597,10 +7638,10 @@ sorted in ascending order. The following diagram shows an example with
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/figure3.png}
-\caption{TODO}
+\caption{Example of radix sort with three-letter words.}
 \end{figure}
 
-The top show shows the unsorted words. The second rows shows what the
+The top row shows the unsorted words. The second row shows what the
 buckets look like after the first pass. The words in each bucket begin
 with the same letter.
 
@@ -7612,16 +7653,18 @@ During each pass, we iterate through the elements and add them to
 buckets. As long as the buckets allow addition in constant time, each
 pass is linear.
 
-The number of passes, which we'll call \java{w}, depends on the length
+The number of passes, which I'll call $w$, depends on the ``width''
 of the words, but it doesn't depend on the number of words, $n$.
-So the order of growth is \java{O(wn)}, which is linear in $n$.
+So the order of growth is $O(wn)$, which is linear in $n$.
 
-There are many variations on radix sort, and many ways to implement each
-one. You can \url{http://en.wikipedia.org/wiki/Radix_sort}{read more
-about them here}. As an optional exercise, consider writing a version of
-radix sort.
+There are many variations on radix sort, and many ways to implement
+each one. You can read more about them at
+\url{http://en.wikipedia.org/wiki/Radix_sort}. As an optional
+exercise, consider writing a version of radix sort.
 
-\section{Heap sort}\label{heap-sort}
+
+\section{Heap sort}
+\label{heap-sort}
 
 In addition to radix sort, which applies when the things you want to
 sort are bounded in size, there is one other special-purpose sorting
@@ -7635,44 +7678,50 @@ billion transactions per day. At the end of each day, you want to report
 the $k$ biggest transactions (or slowest, or any other
 superlative). One option is to store all transactions, sort them at the
 end of the day, and select the top $k$. That would take time
-proportional to \java{n log n}, and it would be very slow because we
+proportional to $n log n$, and it would be very slow because we
 probably can't fit a billion transactions in the memory of a single
 program. We would have to use an ``out of core'' sort algorithm. You can
-\url{https://en.wikipedia.org/wiki/External_sorting}{read about
-``external sorting'' here}.
+read about external sorting at
+\url{https://en.wikipedia.org/wiki/External_sorting}.
 
-Using a bounded heap, we can do much better! We'll explain how in three
-steps:
+Using a bounded heap, we can do much better! Here's how we will
+proceed
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+
 \item
-  We'll explain (unbounded) heap sort.
+  I'll explain (unbounded) heap sort.
+
 \item
   You'll implement it.
+
 \item
-  We'll explain bounded heap sort and analyze it.
+  I'll explain bounded heap sort and analyze it.
+
 \end{enumerate}
 
 To understand heap sort, you have to understand a heap, which is a data
 structure similar to a binary search tree (BST). Here's the difference:
 
 \begin{itemize}
+
 \item
   In a BST, every node, \java{x}, has the ``BST property'': all nodes
   in the left subtree of \java{x} are less than \java{x} and all
   nodes in the right subtree are greater than \java{x}.
+
 \item
   In a heap, every node, \java{x}, has the ``heap property'': all
   nodes in both subtrees of \java{x} are greater than \java{x}.
+
 \end{itemize}
 
 The smallest element in a heap is always at the root, so we can find it
 in constant time. Adding and removing elements from a heap takes time
-proportional to the height of the tree \java{h}. And it is easy to
-keep a heap balanced, so \java{h} is proportional to $\log n$.
-You can \url{https://en.wikipedia.org/wiki/Heap_(data_structure)}{read
-more about heaps here}.
+proportional to the height of the tree $h$. And it is easy to
+keep a heap balanced, so $h$ is proportional to $\log n$.
+You can read more about heaps at
+\url{https://en.wikipedia.org/wiki/Heap_(data_structure)}.
 
 The Java \java{PriorityQueue} is implemented using a heap.
 \java{PriorityQueue} provides the methods specified in the
@@ -7707,22 +7756,20 @@ $n$ elements like this:
 
 Because \java{poll} returns the smallest element remaining in the
 queue, the elements are added to the \java{List} in ascending order.
-This way of sorting is called
-\url{https://en.wikipedia.org/wiki/Heapsort}{heap sort}.
+This way of sorting is called {\bf heap sort}
+(see \url{https://en.wikipedia.org/wiki/Heapsort}).
 
-Adding $n$ elements to the queue takes \java{n log n} time. So
+Adding $n$ elements to the queue takes $n log n$ time. So
 does removing $n$ elements. So the run time for heap sort is
-\java{O(n log n)}.
+$O(n log n)$.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  In \java{ListSorter.java} you'll find the outline of a method called
-  \java{heapSort}. Fill it in and then run \java{ant test} to
-  confirm that it works.
-\end{itemize}
+In the repository for this book, in \java{ListSorter.java} you'll find
+the outline of a method called \java{heapSort}. Fill it in and then
+run \java{ant ListSorterTest} to confirm that it works.
 
-\section{Bounded heap}\label{bounded-heap}
+
+\section{Bounded heap}
+\label{bounded-heap}
 
 A bounded heap is a heap that is limited to contain at most $k$
 elements. If you have $n$ elements, you can keep track of the
@@ -7731,17 +7778,21 @@ $k$ largest elements like this:
 For each element, \java{x}:
 
 \begin{itemize}
+
 \item
   Branch 1: If the heap is not full, add \java{x} to the heap.
+
 \item
   Branch 2: If the heap is full, compare \java{x} to the
   \emph{smallest} element in the heap. If \java{x} is smaller, it
   cannot be one of the largest $k$ elements, so you can discard
   it.
+
 \item
   Branch 3: If the heap is full and \java{x} is greater than the
   smallest element in the heap, remove the smallest element from the
   heap and add \java{x}.
+
 \end{itemize}
 
 Using a heap with the smallest element at the top, we can keep track of
@@ -7749,37 +7800,41 @@ the largest $k$ elements. Let's analyze the performance of this
 algorithm. For each element, we perform one of:
 
 \begin{itemize}
+
 \item
-  Branch 1: Adding an element to the heap is \java{O(log k)}.
+  Branch 1: Adding an element to the heap is $O(log k)$.
+
 \item
-  Branch 2: Finding the smallest element in the heap is \java{O(1)}.
+  Branch 2: Finding the smallest element in the heap is $O(1)$.
+
 \item
-  Branch 3: Removing the smallest element is \java{O(log k)}. Adding
-  \java{x} is also \java{O(log k)}.
+  Branch 3: Removing the smallest element is $O(log k)$. Adding
+  \java{x} is also $O(log k)$.
+
 \end{itemize}
 
 In the worst case, if the elements appear in ascending order, we always
 run Branch 3. In that case, the total time to process $n$
-elements is \java{O(n log k)}, which is linear in $n$.
+elements is $O(n log k)$, which is linear in $n$.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  In \java{ListSorter.java} you'll find the outline of a method called
+In \java{ListSorter.java} you'll find the outline of a method called
   \java{topK} that takes a \java{List}, a \java{Comparator}, and
   an integer $k$. It should return the $k$ largest
   elements in the \java{List} in ascending order. Fill it in and then
-  run \java{ant test} to confirm that it works.
-\end{itemize}
+  run \java{ant ListSorterTest} to confirm that it works.
 
-\section{Space complexity}\label{space-complexity}
+%TODO: check that's the right test.
+
+
+\section{Space complexity}
+\label{space-complexity}
 
 Until now we have talked a lot about runtime analysis, but for many
 algorithms we are also concerned about space. For example, one of the
 drawbacks of merge sort is that it makes copies of the data. In our
 implementation, the total amount of space it allocates is
-\java{O(n log n)}. With a more clever implementation, you can get the
-space requirement down to \java{O(n)}.
+$O(n log n)$. With a more clever implementation, you can get the
+space requirement down to $O(n)$.
 
 In contrast, insertion sort doesn't copy the data because it sorts the
 elements in place. It uses temporary variables to compare two elements
@@ -7787,9 +7842,9 @@ at a time, and it uses a few other local variables. But its space use
 doesn't depend on $n$.
 
 Our implementation of heap sort creates a new \java{PriorityQueue} to
-store the elements, so the space is \java{O(n)}; but if you are
+store the elements, so the space is $O(n)$; but if you are
 allowed to sort the list in place, you can run heap sort with
-\java{O(1)} space.
+$O(1)$ space.
 
 One of the benefits of the bounded heap algorithm you just implemented
 is that it only needs space proportional to $k$ (the number of
@@ -7801,20 +7856,21 @@ for many applications, that's appropriate. But for large datasets, space
 can be just as important or more so. For example,
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  If a dataset doesn't fit into the memory of one program, the runtime
+
+\item If a dataset doesn't fit into the memory of one program, the runtime
   often increases dramatically, or it might not run at all. If you
   choose an algorithm that needs less space, and that makes it possible
   to fit the computation into memory, it might run much faster. In the
   same vein, a program that uses less space might make better use of
-  \url{https://en.wikipedia.org/wiki/CPU_cache}{CPU caches} and run
-  faster.
+  CPU caches and run
+  faster (see \url{https://en.wikipedia.org/wiki/CPU_cache}.
+
 \item
   On a server that runs many programs at the same time, if you can
   reduce the space needed for each program, you might be able to run
   more programs on the same server, which reduces hardware and energy
   costs.
+
 \end{enumerate}
 
 So those are some reasons you should know at least a little bit about

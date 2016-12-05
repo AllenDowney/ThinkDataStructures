@@ -11,7 +11,7 @@ hevea:	book.tex header.html footer.html
 	rm -rf html
 	mkdir html
 	hevea -O -exec xxdate.exe -e latexonly htmlonly $(F).tex
-	imagen -png -pdf $(F).tex
+	imagen -png -pdf $(F)
 	hacha $(F).html
 	cp up.png next.png back.png html
 	# TODO: might have to bring back $(F).png
@@ -32,10 +32,10 @@ lint:
 	xmllint -noout $(F)/$(F).xml
 
 oreilly:
-	#rsync -a $(F)/$(F).xml atlas	
-	rsync -a figs/*.pdf atlas/figs/
+	rsync -a $(F)/$(F).xml atlas	
+	#rsync -a figs/*.pdf atlas/figs/
 	rsync -a figs/*.png atlas/figs/
-	#cd atlas; git add $(F).xml figs/*	
+	cd atlas; git add $(F).xml figs/*	
 	cd atlas; git commit -m "Automated check in."
 	cd atlas; git push
 
