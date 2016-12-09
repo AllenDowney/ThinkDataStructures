@@ -43,11 +43,44 @@ public class Search {
         return path.size() - 1;
     }
 
-    public static List<Integer> topologicalOrder(Graph g) {
-        return null;
+    public static List<Integer> topologicalOrder(Digraph g) {
+        List<Integer> topoOrder = new LinkedList<>();
+        int startingEdge = g.vertices().iterator().next();
+        boolean[] marked = new boolean[g.numVertices()];
+        dfsTopo(g, startingEdge, topoOrder, marked);
+        return topoOrder;
+    }
+
+    private static void dfsTopo(Digraph g, int v, List<Integer> topoOrder, boolean[] marked) {
+        marked[v] = true;
+        topoOrder.add(v);
+        for (int neigh : g.getNeighbors(v)) {
+            if (!marked[neigh]) {
+                dfsTopo(g, neigh, topoOrder, marked);
+            }
+        }
     }
 
     public static boolean hasCycle(Graph g) {
+
+
+        int startingEdge = g.vertices().iterator().next();
+        boolean[] marked = new boolean[g.numVertices()];
+
+        return dfsCycle(g, startingEdge, -1, marked);
+    }
+
+    private static boolean dfsCycle(Graph g, int v, int cameFrom, boolean[] marked) {
+        marked[v] = true;
+        for (int neigh : g.getNeighbors(v)) {
+            if (!marked[neigh]) {
+                if (dfsCycle(g, neigh, v, marked)) {
+                    return true;
+                }
+            } else if (neigh != cameFrom) {
+                return true;
+            }
+        }
         return false;
     }
 
