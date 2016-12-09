@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.List;
 
 public class Graph {
@@ -22,7 +23,7 @@ public class Graph {
         return 0;
     }
 
-    public Iterable<Integer> getNeighbors(int v) {
+    public Collection<Integer> getNeighbors(int v) {
         return null;
     }
 
