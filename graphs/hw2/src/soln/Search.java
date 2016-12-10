@@ -44,30 +44,39 @@ public class Search {
     }
 
     public static List<Integer> topologicalOrder(Digraph g) {
-        List<Integer> topoOrder = new LinkedList<>();
+        LinkedList<Integer> topoOrder = new LinkedList<>();
         int startingEdge = g.vertices().iterator().next();
         boolean[] marked = new boolean[g.numVertices()];
-        dfsTopo(g, startingEdge, topoOrder, marked);
+        for (int v : g.vertices()) {
+            if (!marked[v]) {
+                dfsTopo(g, v, topoOrder, marked);
+            }
+        }
         return topoOrder;
     }
 
-    private static void dfsTopo(Digraph g, int v, List<Integer> topoOrder, boolean[] marked) {
+    private static void dfsTopo(Digraph g, int v, LinkedList<Integer> topoOrder, boolean[] marked) {
         marked[v] = true;
-        topoOrder.add(v);
         for (int neigh : g.getNeighbors(v)) {
             if (!marked[neigh]) {
                 dfsTopo(g, neigh, topoOrder, marked);
             }
         }
+        topoOrder.addFirst(v);
     }
 
     public static boolean hasCycle(Graph g) {
 
-
         int startingEdge = g.vertices().iterator().next();
         boolean[] marked = new boolean[g.numVertices()];
-
-        return dfsCycle(g, startingEdge, -1, marked);
+        for (int i : g.vertices()) {
+            if (!marked[i]) {
+                if (dfsCycle(g, i, -1, marked)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private static boolean dfsCycle(Graph g, int v, int cameFrom, boolean[] marked) {

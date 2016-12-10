@@ -12,14 +12,14 @@ import org.junit.Test;
 
 public class GraphTest {
 
-    private soln.Graph g;
+    private Graph g;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-        g = new soln.Graph(5);
+        g = new Graph(5);
         g.addEdge(0, 1);
         g.addEdge(0, 2);
         g.addEdge(1, 2);

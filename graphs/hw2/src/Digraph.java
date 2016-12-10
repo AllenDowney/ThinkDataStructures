@@ -1,4 +1,4 @@
-package soln;
+import soln.Graph;
 
 import java.util.ArrayList;
 import java.util.Collection;
