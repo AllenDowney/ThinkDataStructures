@@ -1,20 +1,18 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by david on 11/22/16.
  */
 public class WeightedGraph extends Graph {
 
-    private Map<Integer, Map<Integer, Double>> adjacency;
+    private List<Map<Integer, Double>> adj;
 
-    public WeightedGraph() {
-        super();
-    }
-
-    public void addVertex(int v) {
-        super.addVertex(v);
-        adjacency.put(v, new HashMap<>());
+    public WeightedGraph(int n) {
+        super(n);
+        adj = new ArrayList<>();
+        for (int v = 0; v < n; v++) {
+            adj.add(new HashMap<>());
+        }
     }
 
     public void addEdge(int v, int w) {
@@ -23,8 +21,8 @@ public class WeightedGraph extends Graph {
 
     public void addEdge(int v, int w, double weight) {
         super.addEdge(v, w);
-        Map<Integer, Double> map1 = adjacency.get(v);
-        Map<Integer, Double> map2 = adjacency.get(w);
+        Map<Integer, Double> map1 = adj.get(v);
+        Map<Integer, Double> map2 = adj.get(w);
         map1.put(w, weight);
         map2.put(v, weight);
     }
@@ -34,12 +32,12 @@ public class WeightedGraph extends Graph {
         if (!hasEdgeBetween(v, w))
             throw new IllegalArgumentException("There is no edge connecting " + v + " and " + w);
 
-        return adjacency.get(v).get(w);
+        return adj.get(v).get(w);
 
     }
 
     public Map<Integer, Double> getWeightedNeighbors(int v) {
-        return adjacency.get(v);
+        return adj.get(v);
     }
 
 }
