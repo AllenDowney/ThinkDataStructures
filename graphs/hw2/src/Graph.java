@@ -37,7 +37,7 @@ public class Graph {
         return numEdges;
     }
 
-    public Iterable<Integer> getNeighbors(int v) {
+    public Collection<Integer> getNeighbors(int v) {
         return adj.get(v);
     }
 

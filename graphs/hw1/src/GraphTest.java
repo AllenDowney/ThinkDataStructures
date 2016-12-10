@@ -6,17 +6,10 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author downey
- *
- */
 public class GraphTest {
 
     private soln.Graph g;
