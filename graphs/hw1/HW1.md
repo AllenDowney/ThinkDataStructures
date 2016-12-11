@@ -1,9 +1,9 @@
 # Graphs Homework 1
 
-Make a class `Graph.java` that represents a graph. It should have the following methods:
+Make a class `UndirectedGraph.java` that represents a graph. It should have the following methods:
 
 Constructor:
-- `Graph(int n)`, creates a graph with `n` vertices, labeled `[0, 1, 2, ... , n-1]`
+- `UndirectedGraph(int n)`, creates a graph with `n` vertices, labeled `[0, 1, 2, ... , n-1]`
 
 Methods:
 - `void addEdge(int v, int w)` Adds an edge between `v` and `w`

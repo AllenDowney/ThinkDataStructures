@@ -1,9 +1,9 @@
 import java.util.Collection;
 import java.util.List;
 
-public class Graph {
+public class UndirectedGraph {
 
-    public Graph(int n) {
+    public UndirectedGraph(int n) {
 
     }
 

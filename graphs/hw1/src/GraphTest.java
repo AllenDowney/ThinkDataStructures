@@ -12,14 +12,14 @@ import org.junit.Test;
 
 public class GraphTest {
 
-    private Graph g;
+    private UndirectedGraph g;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-        g = new Graph(5);
+        g = new UndirectedGraph(5);
         g.addEdge(0, 1);
         g.addEdge(0, 2);
         g.addEdge(1, 2);
@@ -29,7 +29,7 @@ public class GraphTest {
     }
 
 	/**
-	 * Test method for {@link Graph#hasEdgeBetween(int, int)}.
+	 * Test method for {@link UndirectedGraph#hasEdgeBetween(int, int)}.
 	 */
 	@Test
 	public void testEdges() {
@@ -49,7 +49,7 @@ public class GraphTest {
 
 
     /**
-     * Test method for {@link Graph#vertices()}.
+     * Test method for {@link UndirectedGraph#vertices()}.
      */
     @Test
     public void testVertices() {
@@ -61,7 +61,7 @@ public class GraphTest {
 
 
     /**
-     * Test method for {@link Graph#numVertices()}.
+     * Test method for {@link UndirectedGraph#numVertices()}.
      */
     @Test
     public void testNumVertices() {
@@ -69,7 +69,7 @@ public class GraphTest {
     }
 
     /**
-     * Test method for {@link Graph#numEdges()}.
+     * Test method for {@link UndirectedGraph#numEdges()}.
      */
     @Test
     public void testNumEdges() {
@@ -77,7 +77,7 @@ public class GraphTest {
     }
 
     /**
-     * Test method for {@link Graph#getNeighbors(int)}.
+     * Test method for {@link UndirectedGraph#getNeighbors(int)}.
      */
     @Test
     public void testGetNeighbors() {

@@ -5,13 +5,13 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Graph {
+public class UndirectedGraph {
 
     private List<Collection<Integer>> adj;
     private Collection<Integer> vertices;
     private int numEdges;
 
-    public Graph(int n) {
+    public UndirectedGraph(int n) {
         this.numEdges = 0;
         adj = new ArrayList<>();
         vertices = new LinkedList<>();
