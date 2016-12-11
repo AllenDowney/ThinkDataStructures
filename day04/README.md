@@ -6,6 +6,7 @@ Students will be able to:
 
 - Have a general understanding of how maps work in programming
 - Be able to create a simple implementation of Java's `map` implementation using an `ArrayList` of key-value pairs.
+- Understand when it is effective to utilize a map
 
 ## Assignment
 
