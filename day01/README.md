@@ -4,8 +4,7 @@
 
 - Understand memory allocation of arrays
 - Understand the need and implementation of dynamically sized arrays
-- Be able to analyze time complexities of data structures 
-- Understand the design intentions of the ArrayList data structure
+- Be able to analyze time complexities of data structures
 
 ## `MyArrayList`
 
