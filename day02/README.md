@@ -1,5 +1,14 @@
 # `LinkedList`s
 
+## Learning Goals
+
+- Understand memory allocation of linked lists
+- Understand the need and implementation of pointer based data structures
+- Be able to analyze time complexities of linked lists
+- Understand when to use LinkedList versus ArrayList
+
+## `MyLinkedList`
+
 In this homework assignment, you are going to given the class definition and some method definitions of `MyLinkedList`
 ```java
 // MyLinkedList.java
@@ -9,8 +18,6 @@ public class MyLinkedList {
 ```
 
 With each problem, we will add functionality to our classes to more closely match the real functionality of a real Java `LinkedList`.
-
-### `MyLinkedList`
 
 Joe would like to start a farm that only contains chickens. He wants your help in creating an `LinkedList` to store these chickens in.
 
