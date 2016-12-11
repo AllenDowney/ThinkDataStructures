@@ -1,5 +1,14 @@
 # `ArrayList`s
 
+## Learning Goals
+
+- Understand memory allocation of arrays
+- Understand the need and implementation of dynamically sized arrays
+- Be able to analyze time complexities of data structures 
+- Understand the design intentions of the ArrayList data structure
+
+## Assignment
+
 In this homework assignment, you are going to write your own implementation of an ArrayList.
 ```java
 // MyArrayList.java
