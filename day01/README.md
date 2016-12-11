@@ -7,7 +7,7 @@
 - Be able to analyze time complexities of data structures 
 - Understand the design intentions of the ArrayList data structure
 
-## `ArrayList`
+## `MyArrayList`
 
 In this homework assignment, you are going to write your own implementation of an ArrayList.
 ```java
@@ -18,8 +18,6 @@ public class MyArrayList {
 ```
 
 With each problem, we will add functionality to our classes to more closely match the real functionality of a real Java `ArrayList`.
-
-### `MyArrayList`
 
 Sidd would like to start a farm that only contains cows. He wants your help in creating an `ArrayList` to store these cows in.
 
