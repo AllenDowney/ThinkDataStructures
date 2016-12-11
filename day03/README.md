@@ -4,6 +4,7 @@
 
 After completing this homework, students will be able to:
 
+* Understand the difference between a stack and a queue
 * Identify problems where stacks or queues can contribute to an effective solution.
 * Implement a stack and a queue that uses `O(n)` space and has `O(1)` per-operation time complexity.
 
