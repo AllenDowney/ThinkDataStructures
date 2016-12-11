@@ -7,7 +7,7 @@
 - Be able to analyze time complexities of data structures 
 - Understand the design intentions of the ArrayList data structure
 
-## Assignment
+## `ArrayList`
 
 In this homework assignment, you are going to write your own implementation of an ArrayList.
 ```java
