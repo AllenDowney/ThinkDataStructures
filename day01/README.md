@@ -33,7 +33,7 @@ The tests you will be running on your `MyArrayList` class will be using this `Co
 
 # Assignment
 
-1. Unfortunately, Joe only has enough space for 10 cows. He will not ever be able to fit more than 10 cows. Create a constructor for `MyArrayList` that initializes a `MyArrayList` given this constraint.
+1. Assume Joe will only ever store 10 cows. Create a constructor for `MyArrayList` that initializes a `MyArrayList` and stores a a cow array of size 10: `Cow[10]`.
 
     `public MyArrayList(){...}`
 
@@ -41,23 +41,23 @@ The tests you will be running on your `MyArrayList` class will be using this `Co
 
     `public void add(Cow c){...}`
 
-3. How many cows does Joe have? Implement a method called `size` that returns the number of cows currently in your farm. Make sure to make this an $$O(1)$$ operation.
+3. How many cows does Joe have? Implement a method called `size` that returns the number of cows currently in your farm. Make sure to make this an `O(1)` operation.
 
     `public int size(){...}`
 
-4. Can we inspect a cow in our `MyArrayList`? Implement a method called `get` that will return a `Cow` given the index of the `Cow`. (Use proper error handling in case a `Cow` doesn't exist at a given index).
+4. Implement a method called `get` that will return a `Cow` given the index of the `Cow`. (Throw an `IndexOutOfBoundsException()` if a `Cow` doesn't exist at the given index.)
 
     `public Cow get(int index){...}`
 
-5. Some cows might leave the farm for various reasons, and they might leave in any order. If a cow in the middle leaves, we want to shift all the cows down so there are no empty spaces of cows. Implement a method called `remove` that will remove a cow. Also, make sure to return that `Cow` so we can "deal" with it later on.
+5. Some cows might leave the farm for various reasons, and they might leave in any order. If a cow in the middle leaves, we want to shift all the cows down so there are no empty spaces of cows. Implement a method called `remove` that will remove a cow. Also, make sure to return the removed `Cow`.
 
     `public Cow remove(int index){...}`
 
-6. How can we add a `Cow` in the middle of our `MyArrayList`? Add an overloaded `add` function that takes in an index as a first argument and inserts a cow at that index. Note that we are not replacing any cows, just inserting one in between two other cows. (Also perform error handeling here).
+6. How can we add a `Cow` in the middle of our `MyArrayList`? Add an overloaded `add` function that takes in an index as a first argument and inserts a cow at that index. Note that we are not replacing any cows, just inserting one in between two other cows. (Also perform error handeling here using `IndexOutOfBoundsException()`).
 
     `public void add(int index, Cow c){...}`
     
-7. Thanks to your help, Joe's milk business has really gotten off the ground. He is able to expand his farm and is able to accept up to $$2^{31}-1$$ cows. Modify your code so that we can **optimally** perform resizes. We never want to allocate more space than we need to, but we should also have an *average* insertion time complexity of $$O(1)$$. Make sure that the load factor of your `MyArrayList` stays above 25%.
+7. Thanks to your help, Joe's milk business has really gotten off the ground. He is able to expand his farm and is able to accept lots of cows. Modify your code so that we can **optimally** perform resizes. We never want to allocate more space than we need to, but we should also have an *average* insertion time complexity of `O(1)`. Make sure that the load factor of your `MyArrayList` stays above 25%. This will require halving the size of your array if it is less than 25% full, and doubling the size of it when it fills up.
 
 ## Optional
 
