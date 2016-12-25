@@ -18,14 +18,16 @@ After completing this assignment you should be able to:
 
 ### Code
 
-Write a couple of sentences describing the main purpose of a hash function.  Are there any requirements or limitations when hashing?
+Write a couple of sentences describing the main purpose of a hash function. Are there any requirements or limitations when hashing? Find at least one problem with SillyString's hash function.
 
-Finish the implementation of MyHashMap (ch. 15.3-15.4):
-* Fill in the body of `containsKey`
-* Fill in the body of `containsValue()`
-* Fill in the body of `rehash()`
+Finish the implementation of these methods in MyHashMap:
+* `containsKey(Integer key)` return true if key is in map
+* `containsValue(Integer value)` return true if value is in map
+* `put(Integer key, Integer value)` add a new key-value pair to the map
+* `remove(Integer key)` remove and return the key-value pair associated with the given key
+* `rehash()` when the map has too many values, resize and copy all old elements into new map
 
-Briefly describe the key differences and improvements between MyLinearMap and MyHashMap?
+Briefly describe the key differences and improvements between MyLinearMap and MyHashMap.
 
 ## Problems
 
