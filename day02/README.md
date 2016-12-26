@@ -1,4 +1,4 @@
-# `LinkedList`s
+# Day01 - `LinkedList`s
 
 ## Learning Goals
 
@@ -33,6 +33,12 @@ public class Chicken {
 The tests you will be running on your `MyLinkedList` class will be using this `Chicken` class.
 
 # Assignment
+
+## Reading
+
+- In *Think Algorithms*, read sections **5.5, 5.6, 7.3 and 7.4**
+
+## Code
 
 1. Create a constructor that initializes a `MyLinkedList`. We want to implement our data structure as a doubly-linked list. Make sure to have pointer to the head of our list.
 

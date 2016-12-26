@@ -1,8 +1,4 @@
-
-# Homework Day 5: Ch. 14-16
-
----
----
+# Day05 - `MyHashMap`
 
 ## Learning Goals
 
@@ -15,6 +11,12 @@ After completing this assignment you should be able to:
 * Identify when using a hash map is effective
 
 ## Assignment
+
+### Reading
+
+- In *Think Algorithms*, read sections **14.5, 14.6, 15.4 and 15.5.**.
+
+### Code
 
 Write a couple of sentences describing the main purpose of a hash function.  Are there any requirements or limitations when hashing?
 
