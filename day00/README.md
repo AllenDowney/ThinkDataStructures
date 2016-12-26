@@ -42,15 +42,17 @@ IDE, that's fine. Here's how to install IntelliJ:
 
 ### If you have errors
 
-- You will most likely have to repeat these steps with each project:
-  - If the `.java` files' icons are a red J instead of a blue C, right click on the `src/` folder and click on `Mark Directory As > Sources Root`
-  - If you have unrecognized imports, right click on the `lib/` folder and click on `Add as Library`
-  - If you see a yellow bar at the top, click on `Setup SDK/JDK` and choose `Java 1.7` or `1.8`
+- If the `.java` files' icons are a red J instead of a blue C, right click on the `src/` folder and click on `Mark Directory As > Sources Root`
+- If you have unrecognized imports, right click on the `lib/` folder and click on `Add as Library`
+- If you see a yellow bar at the top, click on `Setup SDK/JDK` and choose `Java 1.7` or `1.8`
 - If you get the error
+
+```
 > Cannot start compilation: the output path is not specified for module "day00".
 > Specify the output path in Configure Project.
+```
 
-Then click on OK. A new window should open. IntelliJ needs you to specify a place for it to dump compiled Java code. On the left sidebar, choose `Project`. The last option, `Project compiler output`, should be empty (which is why it was complaining). Browse to and choose `day00/out/` as the compiler output folder. If that folder does not exist, simply `cd` into the `day00` directory, and execute `mkdir out/`. Run `main` again.
+Click OK. A new window should open. IntelliJ needs you to specify a place for it to dump compiled Java code. On the left sidebar, choose `Project`. The last option, `Project compiler output`, should be empty (which is why it was complaining). Browse to and choose `day00/out/` as the compiler output folder. If that folder does not exist, simply `cd` into the `day00` directory, and execute `mkdir out/`. Run `main` again.
 
 ### Git
 
@@ -66,4 +68,4 @@ If you don't have `git` installed:
 - [ ] **Optional** I've familiarized myself with the debugger.
 - [ ] **Optional** I've completed 10 levels of the [Git tutorial](http://learngitbranching.js.org/)
 - [ ] I've joined our channel `#dsa-17` on Slack.
-- [ ] I've filled out [this]() Google form.
+- [ ] I've filled out [this](https://goo.gl/forms/JZcEDseDYbJK1SEC2) Google form.
