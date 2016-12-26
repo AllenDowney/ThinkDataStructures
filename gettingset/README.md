@@ -32,7 +32,7 @@ IDE, that's fine. Here's how to install IntelliJ:
 
 ### Getting started with the code
 
-- Open IntelliJ. If IntelliJ opens a project, click *File > Close Project*. Then click *Import Project*, and navigate to `day00`.
+- Open IntelliJ. If IntelliJ opens a project, click *File > Close Project*. Then click *Import Project*, and navigate to `gettingset`.
 - If you don't see the Project sidebar on the left, click on `View > Tool Windows > Project`.
 - Open up `src/HelloWorld.java`. Right click on the `main` method and choose `Run`.
 
