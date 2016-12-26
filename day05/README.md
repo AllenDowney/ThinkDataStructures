@@ -14,7 +14,7 @@ After completing this assignment you should be able to:
 
 ### Reading
 
-- In *Think Algorithms*, read sections **14.5, 14.6, 15.4 and 15.5.**.
+- In *Think Algorithms*, read sections **14.4, 14.5, 14.6, 15.4 and 15.5.**.
 
 ### Code
 
