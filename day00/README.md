@@ -40,7 +40,7 @@ IDE, that's fine. Here's how to install IntelliJ:
 
 - **Optional but recommended:** Read instructions inside `HelloWorld.java` to play around with IntelliJ's debugging tool. Become at least acquainted with breakpoints, the `Debug` button, the `Variables` window, and the `Step Over`, `Step Into` and `Step Out` buttons.
 
-##### If you have errors
+### If you have errors
 
 - You will most likely have to repeat these steps with each project:
   - If the `.java` files' icons are a red J instead of a blue C, right click on the `src/` folder and click on `Mark Directory As > Sources Root`
