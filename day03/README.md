@@ -32,12 +32,9 @@ Design an implementation of a `Queue`. It should also:
 Implement your queue in the `MyQueue` class.
 
 ### Solve one of the Following
-
 * Modify your `MyStack` and add the following function: `public T maxElement()`. All operations (including `maxElement`) should still be constant time. Uncomment the tests in `StackTest` to test your implementation.
-* Implement the function `maxInWindows(int[] arr, int k)`, which takes in an array of ints length `n`, and returns the local maximums in each sliding window of size `k`. Your solution should be at worst `O(kn)`. It's possible to solve this problem in `O(n)` time.
+* Implement the function `maxInWindows(int[] arr, int k)`, which takes in an array of ints length `n`, and returns the local maximums in each sliding window of size `k`. Your solution should be at worst `O(kn)`. It's possible to solve this problem in `O(n)` time. If you want to know the queue-based `O(n)` solution, read [this](http://codercareer.blogspot.com/2012/02/no-33-maximums-in-sliding-windows.html)! For example, for the input: `[5, 3, 2, 6, 5, 2, 9, 10, 2]`, your function should return `[5, 6, 6, 6, 9, 10, 10]` (The max of `[5, 3, 2]` is `5`, of `[3, 2, 6]` is `6`, etc.) Uncomment `testSlidingWindow` in `QueueTest` to test your implementation.
 
 ### Analysis
 
 - Use the code in the `TimeTest` to make sure your `MyStack` and `MyQueue` operations happen in constant time. Your time per operation for both the stack and queue should not be more than a few milliseconds.
-
-Note: Took David ~30 minutes to implement the Stack and the Queue, and make the Stack have a min. This is why I decided to make them only solve one challenge problem.
