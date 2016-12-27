@@ -1,12 +1,5 @@
 # Graphs Homework 3
 
-Extend your `Graph` class and create `WeightedGraph.java` (`class WeightedGraph extends Graph`)
-
-Methods: 
-- `void addEdge(int v, int w)` Adds an edge between `v` and `w`, with a weight of `1.0`
-- `void addEdge(int v, int w, double weight)` Adds an edge between `v` and `w` with a given weight
-- `Map<Integer, Double> getWeightedNeighbors(int v)` Returns a `Map` from neighboring vertices to their weights from the input vertex, `v`.
-- `double edgeWeight(int v, int w)` Returns the value of the edge weight between two vertices (what this function does if they are not connected is up to you.)
 Make a class `WeightedSearch.java`
 
 Methods:
