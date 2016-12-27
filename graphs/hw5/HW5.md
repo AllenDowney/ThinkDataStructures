@@ -10,15 +10,25 @@ Constructor:
 - `Board(int[][] b)`, creates an 8 Puzzle board state with the tiles 1-8 and a zero for the empty space from the 3x3 2D array input.
 
 Methods:
-`printBoard(int[][] grid)`, prints out the board state 2D array nicely for debugging
+- `int size()`, return the board size (our challenge is the 8 puzzle, but in theory you should be able to expand this to any size)
+- (?) `int hamming()`, return the Hamming number of the board state
+- (?) `int manhattan()`, return the sum of the Manhattan distances between the tiles and the goal
+- `boolean isGoal()`, return true if the board is the solved puzzle
+- `boolean isSolvable()`, return true if the state is a solvable board
+- `Iterable<Board> neighbors()`, reteurn the neighbor boards in the tree
+- `void printBoard(int[][] grid)`, prints out the board state 2D array nicely for debugging
+- Plus: whatever helper methods you need to make your code readable ...
 
 ## Step 2:
 
 Make a class Solver.java that represents the state tree and game solver for the puzzle board.  It should have the following methods:
 
 Constructor:
+- `Solver(Board initState)`, finds a solution to an intial 8 puzzle board state using Dijkstra or A*
 
 Methods:
+- `int moves()`, give the min number of moves to solve the initial board
+- `Iterable<Board> solution()`, return the sequence of boards in a shortest solution
 
 ## Step 3:
 
