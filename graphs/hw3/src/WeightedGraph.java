@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Created by david on 11/22/16.
  */
-public class WeightedGraph extends Graph {
+public class WeightedGraph extends UndirectedGraph {
 
     private List<Map<Integer, Double>> adj;
 

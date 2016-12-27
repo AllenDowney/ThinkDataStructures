@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class WeightedSearchTest {
 
-    private WeightedGraph g1;
+    private WeightedGraph g1, g2;
 
 
     /**
@@ -27,18 +27,17 @@ public class WeightedSearchTest {
         g1.addEdge(3, 4, 1.5);
         g1.addEdge(2, 5, 3.0);
         g1.addEdge(4, 5);
-    }
 
 
-    /**
-     * Test method for {@link WeightedGraph#distanceBetween(int, int)}.
-     */
-    @Test
-    public void testDistanceBetween() {
-
-        assertThat(g1.distanceBetween(0, 1), is(1.0));
-        assertThat(g1.distanceBetween(1, 3), is(2.0));
-        assertThat(g1.distanceBetween(2, 5), is(3.0));
+        g2 = new WeightedGraph(7);
+        g2.addEdge(0, 1, 3);
+        g2.addEdge(0, 4, 3);
+        g2.addEdge(1, 4, 1);
+        g2.addEdge(3, 4, 1);
+        g2.addEdge(2, 3, 1);
+        g2.addEdge(4, 2, 3);
+        g2.addEdge(2, 5, 5);
+        g2.addEdge(0, 5, 2);
     }
 
     /**
@@ -47,6 +46,9 @@ public class WeightedSearchTest {
     @Test
     public void testShortestPath() {
         assertThat(WeightedSearch.shortestPath(g1, 0, 5).toArray(), is(new int[]{0, 2, 5}));
+        assertThat(WeightedSearch.shortestPath(g2, 0, 2).toArray(), is(new int[]{0, 4, 3, 2}));
+        assertThat(WeightedSearch.shortestPath(g2, 4, 5).toArray(), is(new int[]{4, 0, 5}));
+        assertThat(WeightedSearch.shortestPath(g2, 0, 6), nullValue());
     }
 
 
@@ -55,8 +57,11 @@ public class WeightedSearchTest {
      * Test method for {@link WeightedSearch#distanceBetween(WeightedGraph, int, int)}.
      */
     @Test
-    public void testDistanceBetweenSearch() {
+    public void testDistanceBetween() {
         assertThat(WeightedSearch.distanceBetween(g1, 0, 5), is(4.0));
+        assertThat(WeightedSearch.distanceBetween(g2, 1, 5), is(5.0));
+        assertThat(WeightedSearch.distanceBetween(g2, 0, 6), is(-1.0));
+
     }
 
 }

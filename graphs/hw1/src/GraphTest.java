@@ -81,17 +81,25 @@ public class GraphTest {
      */
     @Test
     public void testGetNeighbors() {
-        Collection neighbors0 = g.getNeighbors(0);
-        assertThat(neighbors0.contains(1), is(true));
-        assertThat(neighbors0.contains(2), is(true));
-        assertThat(neighbors0.contains(3), is(false));
+        Iterable<Integer> neighbors0 = g.getNeighbors(0);
+        assertThat(iterableContains(neighbors0, 1), is(true));
+        assertThat(iterableContains(neighbors0, 2), is(true));
+        assertThat(iterableContains(neighbors0, 3), is(false));
 
 
-        Collection neighbors1 = g.getNeighbors(1);
-        assertThat(neighbors1.contains(0), is(true));
-        assertThat(neighbors1.contains(3), is(true));
-        assertThat(neighbors1.contains(2), is(true));
-        assertThat(neighbors1.contains(1), is(false));
-        assertThat(neighbors1.contains(4), is(false));
+        Iterable<Integer> neighbors1 = g.getNeighbors(1);
+        assertThat(iterableContains(neighbors1, 0), is(true));
+        assertThat(iterableContains(neighbors1, 3), is(true));
+        assertThat(iterableContains(neighbors1, 2), is(true));
+        assertThat(iterableContains(neighbors1, 1), is(false));
+        assertThat(iterableContains(neighbors1, 4), is(false));
+    }
+
+    private boolean iterableContains(Iterable iterable, Object item) {
+        for (Object o : iterable) {
+            if (o.equals(item))
+                return true;
+        }
+        return false;
     }
 }
