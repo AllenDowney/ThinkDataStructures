@@ -20,27 +20,33 @@ public class Digraph implements Graph {
         }
     }
 
+    @Override
     public void addEdge(int v, int w) {
         adj.get(v).add(w);
         numEdges++;
     }
 
+    @Override
     public Iterable<Integer> vertices() {
         return vertices;
     }
 
+    @Override
     public int numVertices() {
         return vertices.size();
     }
 
+    @Override
     public int numEdges() {
         return numEdges;
     }
 
-    public Collection<Integer> getNeighbors(int v) {
+    @Override
+    public Iterable<Integer> getNeighbors(int v) {
         return adj.get(v);
     }
 
+    @Override
     public boolean hasEdgeBetween(int v, int w) {
         throw new UnsupportedOperationException();
     }
