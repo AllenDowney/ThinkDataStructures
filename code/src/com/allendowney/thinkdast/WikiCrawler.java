@@ -59,11 +59,39 @@ public class WikiCrawler {
         return null;
 	}
 
+	/**
+	 * Parses paragraphs and adds internal links to the queue.
+	 * 
+	 * @param paragraphs
+	 */
+	// NOTE: absence of access level modifier means package-level
+	void queueInternalLinks(Elements paragraphs) {
+        // TODO: FILL THIS IN!
+	}
+
 	public static void main(String[] args) throws IOException {
 		// make a WikiCrawler
 		Jedis jedis = JedisMaker.make();
 		JedisIndex index = new JedisIndex(jedis);
 		String source = "https://en.wikipedia.org/wiki/Java_(programming_language)";
 		WikiCrawler wc = new WikiCrawler(source, index);
+		
+		// for testing purposes, load up the queue
+		Elements paragraphs = wf.fetchWikipedia(source);
+		wc.queueInternalLinks(paragraphs);
+
+		// loop until we index a new page
+		String res;
+		do {
+			res = wc.crawl(false);
+
+            // REMOVE THIS BREAK STATEMENT WHEN crawl() IS WORKING
+            break;
+		} while (res == null);
+		
+		Map<String, Integer> map = index.getCounts("the");
+		for (Entry<String, Integer> entry: map.entrySet()) {
+			System.out.println(entry);
+		}
 	}
 }

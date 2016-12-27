@@ -30,6 +30,7 @@ public class MyLinkedList<E> implements List<E> {
 			this.cargo = cargo;
 			this.next = null;
 		}
+		@SuppressWarnings("unused")
 		public Node(E cargo, Node next) {
 			this.cargo = cargo;
 			this.next = next;

@@ -61,6 +61,16 @@ public class JedisIndex {
 	}
 	
 	/**
+	 * Adds a URL to the set associated with `term`.
+	 * 
+	 * @param term
+	 * @param tc
+	 */
+	public void add(String term, TermCounter tc) {
+		jedis.sadd(urlSetKey(term), tc.getLabel());
+	}
+
+	/**
 	 * Looks up a search term and returns a set of URLs.
 	 * 
 	 * @param term
@@ -101,7 +111,7 @@ public class JedisIndex {
 	 * @param paragraphs  Collection of elements that should be indexed.
 	 */
 	public void indexPage(String url, Elements paragraphs) {
-		TODO: FILL THIS IN!
+		// TODO: FILL THIS IN!
 	}
 
 	/**
