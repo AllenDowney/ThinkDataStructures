@@ -33,6 +33,12 @@ The tests you will be running on your `MyArrayList` class will be using this `Co
 
 # Assignment
 
+## Reading
+
+- In *Think Algorithms*, read sections **3.4 and 4.3.** If you're having trouble with resizing in your `MyArrayList` implementation, read **4.4**
+
+## Code
+
 1. Assume Joe will only ever store 10 cows. Create a constructor for `MyArrayList` that initializes a `MyArrayList` and stores a a cow array of size 10: `Cow[10]`.
 
     `public MyArrayList(){...}`
