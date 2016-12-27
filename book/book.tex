@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.16.0}
+\newcommand{\theversion}{0.17.0}
 
 %%%% Both LATEX and PLASTEX
 
@@ -230,7 +230,7 @@ of this material and eliminate the rest.
 \item[Too big]: Most books on these topics are at least 500 pages,
 and some are more than 1000.  By focusing on the topics I think are
 most useful for software engineers, I kept this book under
-250 pages.
+200 pages.
 
 %TODO: check this page count at the end
 
@@ -290,8 +290,8 @@ Git is a ``version control system'' that allows you to keep track of
 the files that make up a project.  A collection of files under Git's
 control is called a ``repository''.
 
-\index{repository}
-\index{GitHub}
+%\index{repository}
+%\index{GitHub}
 
 GitHub is a hosting service that provides storage for Git repositories
 and a convenient web interface.  It provides several ways to work with
@@ -410,7 +410,8 @@ that takes queries from a user and returns relevant results.
 But first, a few prerequisites.
 
 
-\section{Prerequisites}\label{prerequisites}
+\section{Prerequisites}
+\label{prerequisites}
 
 Before you start this book, you should know Java pretty well; in
 particular, you should know how to define a new class that extends an
@@ -429,7 +430,7 @@ language.
 \end{itemize}
 
 If you are not familiar with interfaces in Java, you might want to
-work through the tuturial called ``What Is an Interface?'' at
+work through the tutorial called ``What Is an Interface?'' at
 \url{https://docs.oracle.com/javase/tutorial/java/concepts/interface.html}.
 
 One vocabulary note: the word ``interface'' can be confusing. In the
@@ -454,15 +455,14 @@ You should be familiar with the Java Collections Framework
 In particular, you should know about the \java{List} \java{interface}
 and the classes \java{ArrayList} and \java{LinkedList}.
 
-Ideally you should be familiar with {\tt ant}, which is...
-
+Ideally you should be familiar with Apache Ant, which is an automated
+build tool for Java.
 You can read more about Ant at
 \url{https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html}
 
-
-And {\tt JUnit}, which is...
-
-TODO: write these
+And you should be familiar with {\tt JUnit}, which is a unit testing
+framework for Java.  You can read more about it at
+\url{https://github.com/junit-team/junit4/wiki/Getting-started}.
 
 
 
@@ -472,11 +472,11 @@ TODO: write these
 When people start working with the Java Collections Framework, they
 are sometimes confused about \java{ArrayList} and
 \java{LinkedList}.  Why does Java provide two implementations of the
-\java{List} \java{interface}?  And how should we choose which one to
+\java{List} \java{interface}?  And how should you choose which one to
 use? We will answer these questions in the next few chapters.
 
-We'll start by reviewing \java{interface}s, and the classes that implement
-them, and we'll present the idea of ``programming to an
+I'll start by reviewing \java{interface}s, and the classes that implement
+them, and I'll present the idea of ``programming to an
 interface''.
 
 In the first two exercises, you'll implement classes
@@ -637,9 +637,9 @@ using a more recent version, everything should still work.  If you are
 using an older version, you might find some incompatibilities.
 
 I recommend using an interactive development environment (IDE) that
-provides syntax-checking, auto-completion, and source code
+provides syntax checking, auto-completion, and source code
 refactoring.  These features help you avoid errors or find them
-quicky.  However, if you are preparing for a technical interview,
+quickly.  However, if you are preparing for a technical interview,
 remember that you will not have these tools during the interview, so
 you might also want to practice writing code without them.
 
@@ -722,7 +722,7 @@ replace \java{ArrayList} with \java{List}? Why can't you instantiate a
 
 
 
-\chapter{Analysis of algorithms}
+\chapter{The List Interface}
 \label{cs-analysis-of-algorithms-readme}
 
 As we saw in the previous chapter, Java provides two
@@ -768,7 +768,7 @@ make some assumptions:
 \item Finally, we have to deal with the possibility that one algorithm
   works best for small problems and another for big ones. In that
   case, we usually focus on the big ones, because for small problems
-  the difference probabily doesn't matter, but for big problems the
+  the difference probably doesn't matter, but for big problems the
   difference can be huge.
 
 \end{enumerate}
@@ -1051,12 +1051,9 @@ It might not be obvious why this method returns a boolean, since it
 seems like it always returns \java{true}. As always, you can find the
 answer in the documentation:
 \url{https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html#add(E)}.
-
 It's also not obvious how to analyze the performance of this method. In
 the normal case, it's constant time, but if we have to resize the array,
-it's linear. In the next ??? I'll explain how to handle this.
-
-%TODO: where?
+it's linear. I'll explain how to handle this in Section~\ref{classifying-add}.
 
 Finally, let's look at \java{get}; then you can get started on the
 exercises.
@@ -1130,7 +1127,7 @@ can read on GitHub:
 \url{???}
 
 
-\chapter{Analyzing ArrayList}
+\chapter{ArrayList}
 \label{cs-analyzing-our-arraylist-readme}
 
 
@@ -1395,7 +1392,7 @@ which is linear. So it is tempting to think that \java{removeAll} is
 quadratic. But that's not necessarily the case.
 
 In this method, the loop runs once for each element in
-\java{collection}. If \java{colection} contains m elements and the list we are
+\java{collection}. If \java{collection} contains m elements and the list we are
 removing from contains $n$ elements, this method is in $O(nm)$. If
 the size of \java{collection} can be considered constant,
 \java{removeAll} is linear. But if the size of the collection is
@@ -1416,20 +1413,17 @@ counting the loops. But if, as in this example, the number of
 iterations is not always proportional to $n$, you have to give it
 more thought.
 
-\section{Exercise 3}
-\label{exercise3}
 
-For this exercise I provide a partial implementation of the List interface
-that uses a linked list to store the elements. Three of the
-methods are incomplete; your job is to fill them in. I provide JUnit tests
-you can use to check your work.
 
-If you are not familiar with linked lists, you can read about them at
-\url{https://en.wikipedia.org/wiki/Linked_list},
-but we'll also start with a brief introduction.
 
 \section{Linked data structures}
 \label{linked-data-structures}
+
+For the next exercise I provide a partial implementation of the List
+interface that uses a linked list to store the elements.
+If you are not familiar with linked lists, you can read about them at
+\url{https://en.wikipedia.org/wiki/Linked_list},
+but this section provides a brief introduction.
 
 A data structure is ``linked'' if it is made up of objects, often called
 ``nodes'', that contain references to other nodes. In a linked
@@ -1514,20 +1508,23 @@ Integers 0, 1, 2, and 3 as cargo, linked up in increasing order. In the
 node that has 3 as \java{cargo}, the \java{next} field is
 \java{null}.
 
-The following diagram shows these variables and the objects they refer
-to:
+Figure~\ref{linkedlistfig} shows these variables and the objects they
+refer to.
 
-% TODO: make the figure.
+\begin{figure}[h]
+\centering
+\includegraphics[width=4in]{figs/linked_list_diagram1.png}
+\caption{Object diagram of a linked list.}
+\label{linkedlistfig}
+\end{figure}
 
 
-\section{MyLinkedList}
-\label{getting-set-up}
+
+\section{Exercise 3}
+\label{exercise3}
 
 In the repository for this book,
 you'll find the source files you need for this exercise:
-???
-
-%TODO: exercise boilerplate
 
 \begin{itemize}
 
@@ -1539,16 +1536,14 @@ you'll find the source files you need for this exercise:
 
 \end{itemize}
 
-In the \java{code} directory, you'll find the Ant build file
-\java{build.xml}. If you are in this directory, you should be able to
-run \java{ant MyArrayList} to run \java{MyArrayList.java}, which
+Run \java{ant MyArrayList} to run \java{MyArrayList.java}, which
 contains a few simple tests. 
 
 Then you can run \java{ant MyArrayListTest}
 to run the JUnit tests.
 Several of them should fail. If you examine the
 source code, you'll find three \java{TODO} comments indicating the
-methods you will fill in.
+methods you should fill in.
 
 Before you start, let's walk through some
 of the code. Here are the instance variables and the constructor for
@@ -1658,7 +1653,7 @@ you should read the documentation, at
 so you know what it is supposed to do. In particular, notice how it's
 supposed to handle \java{null}.
 
-To make things a little easier, I've provided a helper method called
+To make things a little easier, I provide a helper method called
 \java{equals} that compares an element from the array to a target
 value and checks whether they are equal --- and it handles \java{null}
 correctly. This method is private because it is used inside this class
@@ -1723,7 +1718,7 @@ like Java that do a lot of work, like garbage collection, behind the
 scenes, this kind of error can be hard to find.
 
 
-\chapter{Analysis of LinkedList}
+\chapter{LinkedList}
 
 This chapter solutions to the
 previous exercise and continues the discussion of analysis of algorithms.
@@ -1887,28 +1882,28 @@ $O(1)$ or constant time and $n$ means $O(n)$ or
 linear.
 
 \begin{longtable}[c]{@{}lll@{}}
-\toprule\addlinespace
+\toprule
 & MyArrayList & MyLinkedList
-\\\addlinespace
+\\
 \midrule\endhead
 add (at the end) & \textbf{1} & n
-\\\addlinespace
+\\
 add (at the beginning) & n & \textbf{1}
-\\\addlinespace
+\\
 add (in general) & n & n
-\\\addlinespace
+\\
 get / set & \textbf{1} & n
-\\\addlinespace
+\\
 indexOf / lastIndexOf & n & n
-\\\addlinespace
+\\
 isEmpty / size & 1 & 1
-\\\addlinespace
+\\
 remove (from the end) & \textbf{1} & n
-\\\addlinespace
+\\
 remove (from the beginning) & n & \textbf{1}
-\\\addlinespace
+\\
 remove (in general) & n & n
-\\\addlinespace
+\\
 \bottomrule
 \end{longtable}
 
@@ -2018,8 +2013,8 @@ short to measure accurately. If \java{endMillis} is too low, you might
 not get enough data to see a clear relationship between problem size and
 run time.
 
-This code is in \java{ProfileAdd.java}, which you'll run in the next
-lab. When we ran it, we got this output:
+This code is in \java{ProfileListAdd.java}, which you'll run in the next
+exercise. When we ran it, we got this output:
 
 \begin{verbatim}
 4000, 3
@@ -2139,7 +2134,7 @@ you'll find the source files you need for this exercise:
   you don't have to know how it works. But feel free to read the source.
 
 \item
-  \java{ProfileAdd.java} contains starter code for this exercise, including
+  \java{ProfileListAdd.java} contains starter code for this exercise, including
   the example, above, which profiles \java{ArrayList.add}. You will
   modify this file to profile a few other methods.
 
@@ -2148,21 +2143,21 @@ you'll find the source files you need for this exercise:
 Also, in the \java{code}directory , you'll find the Ant build file
 \java{build.xml}.
 
-Run \java{ant ProfileAdd} to run \java{ProfileAdd.java}. You should
+Run \java{ant ProfileListAdd} to run \java{ProfileListAdd.java}. You should
 get results similar to Figure~\ref{???}, but you might have to adjust
 \java{startN} or \java{endMillis}. The estimated slope should be close
 to 1, indicating that performing $n$ add operations takes time
 proportional to $n$ raised to the exponent 1; that is, it is
 in $O(n)$.
 
-In \java{ProfileAdd.java}, you'll find an empty method named
+In \java{ProfileListAdd.java}, you'll find an empty method named
 \java{profileArrayListAddBeginning}. Fill in the body of this method
 with code that tests \java{ArrayList.add}, always putting the new
 element at the beginning. If you start with a copy of
 \java{profileArrayListAddEnd}, you should only have to make a few
 changes. Add a line in \java{main} to invoke this method.
 
-Run \java{ant ProfileAdd} again and interpret the results. Based on
+Run \java{ant ProfileListAdd} again and interpret the results. Based on
 our understanding of how \java{ArrayList} works, we expect each add
 operation to be linear, so the total time for $n$ adds should be
 quadratic. If so, the estimated slope of the line, on a log-log scale,
@@ -2275,7 +2270,7 @@ is so close I would be afraid to fake data this good.
 \section{Profiling \java{LinkedList} methods}
 \label{profiling-linkedlist-methods}
 
-The next exercise asks you to profile the peformance of adding new
+The next exercise asks you to profile the performance of adding new
 elements at the beginning of a \java{LinkedList}. Based on our
 analysis, we expect each \java{add} to take constant time, because in
 a linked list, we don't have to shift the existing elements; we can just
@@ -2446,32 +2441,30 @@ The following table summarizes the performance we expect from
 \java{LinkedList} (doubly-linked):
 
 \begin{longtable}[c]{@{}llll@{}}
-\toprule\addlinespace
+\toprule
 & MyArrayList & MyLinkedList & LinkedList
-\\\addlinespace
+\\
 \midrule\endhead
 add (at the end) & \textbf{1} & n & \textbf{1}
-\\\addlinespace
+\\
 add (at the beginning) & n & \textbf{1} & \textbf{1}
-\\\addlinespace
+\\
 add (in general) & n & n & n
-\\\addlinespace
+\\
 get / set & \textbf{1} & n & n
-\\\addlinespace
+\\
 indexOf / lastIndexOf & n & n & n
-\\\addlinespace
+\\
 isEmpty / size & 1 & 1 & 1
-\\\addlinespace
+\\
 remove (from the end) & \textbf{1} & n & \textbf{1}
-\\\addlinespace
+\\
 remove (from the beginning) & n & \textbf{1} & \textbf{1}
-\\\addlinespace
+\\
 remove (in general) & n & n & n
-\\\addlinespace
+\\
 \bottomrule
 \end{longtable}
-
-%TODO: check appearance of this table
 
 The doubly-linked implementation is better than \java{ArrayList} for
 adding and removing at the beginning, and just as good as
@@ -3198,7 +3191,8 @@ public class WikiFetcher {
     private long minInterval = 1000;
 
     /**
-     * Fetches and parses a URL string, returning a list of paragraph elements.
+     * Fetches and parses a URL string, 
+     * returning a list of paragraph elements.
      *
      * @param url
      * @return
@@ -3231,8 +3225,6 @@ public class WikiFetcher {
     }
 }
 \end{verbatim}
-
-%TODO: avoid wraparound
 
 The only public method is \java{fetchWikipedia}, which takes a URL as
 a String and returns an \java{Elements} collection that contains one
@@ -3548,7 +3540,9 @@ with indexing Web pages:
     }
 
     public void processText(String text) {
-        String[] array = text.replaceAll("\\pP", " ").toLowerCase().split("\\s+");
+        String[] array = text.replaceAll("\\pP", " ").
+                              toLowerCase().
+                              split("\\s+");
 
         for (int i=0; i<array.length; i++) {
             String term = array[i];
@@ -3556,8 +3550,6 @@ with indexing Web pages:
         }
     }
 \end{verbatim}
-
-% TODO: break up the long line
 
 \begin{itemize}
 
@@ -3612,6 +3604,8 @@ you'll find the source files for this exercise:
 
 \item  \java{TermCounter.java} contains the code from the previous section.
 
+\item  \java{TermCounterTest.java} contains test code for \java{TermCounter.java}.
+
 \item  \java{Index.java} contains the class definition for the next part of this exercise.
 
 \item  \java{WikiFetcher.java} contains the class we used in the previous exercise to download and parse Web pages.
@@ -3644,10 +3638,8 @@ The last line is supposed to print the total of the term counts, but
   Fill in this method and run \java{ant TermCounter} again. The result
   should be \java{4798}.
 
-Run \java{ant TestTermCounter} to confirm that this part of the
+Run \java{ant TermCounterTest} to confirm that this part of the
 exercise is complete and correct.
-
-%TODO: section break?
 
 For the second part of the exercise, I'll present an implementation of an
 \java{Index} object and you will fill in a missing method. Here's the
@@ -3718,9 +3710,9 @@ The outer loop iterates the search terms. The inner loop iterates the
 term appears.
 
 Run \java{ant build} to make sure your source code is compiled, and
-  then run \java{ant Index}. It downloads two Wikipedia pages, indexes
-  them, and prints the results; but when you run it you won't see any
-  output because we've left one of the methods empty.
+then run \java{ant Index}. It downloads two Wikipedia pages, indexes
+them, and prints the results; but when you run it you won't see any
+output because we've left one of the methods empty.
 
 Your job is to fill in \java{indexPage}, which takes a URL (as a
 String) and an \java{Elements} object, and updates the index. The
@@ -3762,9 +3754,7 @@ to the end!
 
 \chapter{The Map interface}
 
-% TODO: check if it's two exercises
-
-In the next two exercises, we present several implementations of the
+In the next few exercises, we present several implementations of the
 \java{Map} interface. One of them, like the \java{HashMap} provided
 by Java, is based on a \textbf{hash table}, which is arguably the most
 magical data structure ever invented. Another, which is similar to
@@ -4567,8 +4557,6 @@ When I ran this code, I got a surprise: the slope was about 1.7,
   is constant time, as expected.
 
 
-%TODO: chapter title?
-
 \chapter{TreeMap}
 
 This chapter presents our solution to the previous exercise: a map
@@ -4576,6 +4564,11 @@ implementation called \java{MyFixedHashMap} because it fixes the
 performance bug in \java{MyHashMap}. We'll also introduce the UML
 class diagram, which is a graphical representation of the relationships
 between classes.
+
+It also presents the binary search tree, which is an efficient
+implementation of the \java{Map} interface that is particularly useful
+if we want to keep the elements sorted.
+
 
 \section{Fixing \java{MyHashMap}}
 \label{fixing-myhashmap}
@@ -4618,8 +4611,7 @@ Fortunately, there is a simple solution, and we have seen it before: we
 have to keep the number of entries in an instance variable and update it
 whenever we call a method that changes it.
 
-If you check out the \java{solution} branch of the previous exercise,
-\java{javacs-lab08}, you'll find our solution in
+You'll find my solution in the repository for this book, in
 \java{MyFixedHashMap.java}.
 
 Here's the beginning of the class definition:
@@ -4810,7 +4802,7 @@ comes close:
 
 In this exercise, we'll explain how binary search trees work and then you
 will use one to implement a \java{Map}. Along the way, we'll analyze
-the performance of the core map methods when imlemented using a tree.
+the performance of the core map methods when implemented using a tree.
 
 
 \section{Binary search tree}
@@ -6173,7 +6165,7 @@ For example, here's a simple version of \java{deleteAllKeys}:
     }
 \end{verbatim}
 
-Each time you invoke \java{del} requirex a round-trip from the client
+Each time you invoke \java{del} requires a round-trip from the client
 to the server and back. If the index contains more than a few pages,
 this method would take a long time to run. We can speed it up with a
 \java{Transaction} object:
@@ -6419,7 +6411,7 @@ efficient.
 \label{analysis-of-lookup}
 
 Suppose we have indexed $N$ pages and discovered $M$
-unique seach terms. How long will it take to look up a search term?
+unique search terms. How long will it take to look up a search term?
 Think about your answer before you continue.
 
 To look up a search term, we run \java{getCounts}, which
@@ -6754,7 +6746,7 @@ Notice that the implementation of \java{queue} is a
 \java{LinkedList}, so we can add elements at the end -- and remove
 them from the beginning -- in constant time. By assigning a
 \java{LinkedList} object to a \java{Queue} variable, we limit
-ourselve to using methods in the \java{Queue} interface; specifically,
+ourselves to using methods in the \java{Queue} interface; specifically,
 we'll use \java{offer} to add elements and \java{poll} to remove
 them.
 
@@ -6820,8 +6812,7 @@ I presented an implementation of \java{Index.indexPage} in
 Section~\ref{redis-indexer}. So the only new function is
 \java{queueInternalLinks}.
 
- %TODO: check what class indexPage is in; and in general, should we
-% add comments to methods and identify their classes?
+% TODO: should we add comments to methods and identify their classes?
 
 I wrote two versions of this function with different parameters: one
 takes an \java{Elements} object containing one DOM trees per
@@ -7023,7 +7014,7 @@ something even simpler, TF:
   the page.
 
 \item
-  For queries with multiple terms, the revelance of a page is the sum of
+  For queries with multiple terms, the relevance of a page is the sum of
   the term frequencies; that is, the total number of times any of the
   search terms appear.
 
@@ -7823,8 +7814,6 @@ In \java{ListSorter.java} you'll find the outline of a method called
   elements in the \java{List} in ascending order. Fill it in and then
   run \java{ant ListSorterTest} to confirm that it works.
 
-%TODO: check that's the right test.
-
 
 \section{Space complexity}
 \label{space-complexity}
@@ -7851,7 +7840,7 @@ is that it only needs space proportional to $k$ (the number of
 elements we want to keep), and $k$ is often much smaller than
 $n$.
 
-Software develpers tend to pay more attention to runtime than space, and
+Software developers tend to pay more attention to runtime than space, and
 for many applications, that's appropriate. But for large datasets, space
 can be just as important or more so. For example,
 
