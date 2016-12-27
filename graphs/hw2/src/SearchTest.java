@@ -54,7 +54,7 @@ public class SearchTest {
 
 
     /**
-     * Test method for {@link Search#shortestPath(UndirectedGraph, int, int)}.
+     * Test method for {@link Search#shortestPath(Graph, int, int)}.
      */
     @Test
     public void testShortestPath() {
@@ -69,6 +69,15 @@ public class SearchTest {
         assertThat(Search.shortestPath(g1, 0, 8), nullValue());
     }
 
+    /**
+     * Test method for {@link Search#distanceBetween(Graph, int, int)}.
+     */
+    @Test
+    public void testDistanceBetween() {
+        assertThat(Search.distanceBetween(g1, 0, 6), is(4));
+        assertThat(Search.distanceBetween(g1, 0, 8), is(-1));
+    }
+
 
     /**
      * Test method for {@link Search#topologicalOrder(Digraph)}.
@@ -80,7 +89,7 @@ public class SearchTest {
 
 
     /**
-     * Test method for {@link Search#hasCycle(UndirectedGraph)}.
+     * Test method for {@link Search#hasCycle(Graph)}.
      */
     @Test
     public void testHasCycle() {

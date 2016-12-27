@@ -1,34 +1,48 @@
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public class UndirectedGraph extends Digraph {
+public class UndirectedGraph implements Graph {
 
+    private List<Collection<Integer>> adj;
+    private Collection<Integer> vertices;
     private int numEdges;
 
     public UndirectedGraph(int n) {
-        super(n);
         this.numEdges = 0;
+        adj = new ArrayList<>();
+        vertices = new LinkedList<>();
+        for (int v = 0; v < n; v++) {
+            adj.add(new LinkedList<>());
+            vertices.add(v);
+        }
     }
 
     public void addEdge(int v, int w) {
-        super.addEdge(v, w);
-        super.addEdge(w, v);
+        adj.get(v).add(w);
+        adj.get(w).add(v);
         numEdges++;
+    }
+
+    public Iterable<Integer> vertices() {
+        return vertices;
+    }
+
+    public int numVertices() {
+        return vertices.size();
     }
 
     public int numEdges() {
         return numEdges;
     }
 
-    public boolean hasEdgeBetween(int v, int w) {
-        return getNeighbors(v).contains(w);
+    public Collection<Integer> getNeighbors(int v) {
+        return adj.get(v);
     }
 
-    public static void main(String[] args) {
-        // write your code here
+    public boolean hasEdgeBetween(int v, int w) {
+        return adj.get(v).contains(w);
     }
 
 }

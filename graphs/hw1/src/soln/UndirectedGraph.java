@@ -1,11 +1,9 @@
-package soln;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public class UndirectedGraph {
+public class UndirectedGraph implements Graph {
 
     private List<Collection<Integer>> adj;
     private Collection<Integer> vertices;
@@ -45,10 +43,6 @@ public class UndirectedGraph {
 
     public boolean hasEdgeBetween(int v, int w) {
         return adj.get(v).contains(w);
-    }
-
-    public static void main(String[] args) {
-        // write your code here
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Digraph {
+public class Digraph implements Graph {
 
     private List<Collection<Integer>> adj;
     private Collection<Integer> vertices;
