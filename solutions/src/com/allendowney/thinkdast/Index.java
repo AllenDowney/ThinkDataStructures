@@ -6,63 +6,45 @@ import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
 
-import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
 /**
  * Encapsulates a map from search term to set of TermCounter.
- * 
+ *
  * @author downey
  *
  */
 public class Index {
 
-	private Map<String, Set<TermCounter>> index = new HashMap<String, Set<TermCounter>>();
-	
-	/**
-	 * Adds a TermCounter to the set associated with `term`.
-	 * 
-	 * @param term
-	 * @param tc
-	 */
-	public void add(String term, TermCounter tc) {
-		Set<TermCounter> set = get(term);
+    private Map<String, Set<TermCounter>> index = new HashMap<String, Set<TermCounter>>();
 
-		// if we're seeing a term for the first time, make a new Set
-		if (set == null) {
-			set = new HashSet<TermCounter>();
-			index.put(term, set);
-		}
-		// otherwise we can modify an existing Set
-		set.add(tc);
-	}
+    /**
+     * Adds a TermCounter to the set associated with `term`.
+     *
+     * @param term
+     * @param tc
+     */
+    public void add(String term, TermCounter tc) {
+        Set<TermCounter> set = get(term);
 
-	/**
-	 * Looks up a search term and returns a set of TermCounters.
-	 * 
-	 * @param term
-	 * @return
-	 */
-	public Set<TermCounter> get(String term) {
-		return index.get(term);
-	}
+        // if we're seeing a term for the first time, make a new Set
+        if (set == null) {
+            set = new HashSet<TermCounter>();
+            index.put(term, set);
+        }
+        // otherwise we can modify an existing Set
+        set.add(tc);
+    }
 
-	/**
-	 * Add a page to the index.
-	 * 
-	 * @param url         URL of the page.
-	 * @param paragraphs  Collection of elements that should be indexed.
-	 */
-	public void indexPage(String url, Elements paragraphs) {
-		// make a TermCounter and count the terms in the paragraphs
-		TermCounter tc = new TermCounter(url);
-		tc.processElements(paragraphs);
-		
-		// for each term in the TermCounter, add the TermCounter to the index
-		for (String term: tc.keySet()) {
-			add(term, tc);
-		}
-	}
+    /**
+     * Looks up a search term and returns a set of TermCounters.
+     *
+     * @param term
+     * @return
+     */
+    public Set<TermCounter> get(String term) {
+        return index.get(term);
+    }
 
 	/**
 	 * Prints the contents of the index.
@@ -91,6 +73,23 @@ public class Index {
 	}
 
 	/**
+	 * Add a page to the index.
+	 *
+	 * @param url         URL of the page.
+	 * @param paragraphs  Collection of elements that should be indexed.
+	 */
+	public void indexPage(String url, Elements paragraphs) {
+		// make a TermCounter and count the terms in the paragraphs
+		TermCounter tc = new TermCounter(url);
+		tc.processElements(paragraphs);
+		
+		// for each term in the TermCounter, add the TermCounter to the index
+		for (String term: tc.keySet()) {
+			add(term, tc);
+		}
+	}
+
+	/**
 	 * @param args
 	 * @throws IOException 
 	 */
@@ -109,6 +108,4 @@ public class Index {
 		
 		indexer.printIndex();
 	}
-
-
 }

@@ -14,20 +14,21 @@ import redis.clients.jedis.Jedis;
 
 public class WikiCrawler {
 	// keeps track of where we started
+	@SuppressWarnings("unused")
 	private final String source;
-	
+
 	// the index where the results go
 	private JedisIndex index;
-	
+
 	// queue of URLs to be indexed
 	private Queue<String> queue = new LinkedList<String>();
-	
+
 	// fetcher used to get pages from Wikipedia
 	final static WikiFetcher wf = new WikiFetcher();
 
 	/**
 	 * Constructor.
-	 * 
+	 *
 	 * @param source
 	 * @param index
 	 */
@@ -39,18 +40,18 @@ public class WikiCrawler {
 
 	/**
 	 * Returns the number of URLs in the queue.
-	 * 
+	 *
 	 * @return
 	 */
 	public int queueSize() {
-		return queue.size();	
+		return queue.size();
 	}
 
 	/**
 	 * Gets a URL from the queue and indexes it.
-	 * @param b 
-	 * 
-	 * @return Number of pages indexed.
+	 * @param testing
+	 *
+	 * @return URL of page indexed.
 	 * @throws IOException
 	 */
 	public String crawl(boolean testing) throws IOException {
@@ -107,10 +108,9 @@ public class WikiCrawler {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		
 		// make a WikiCrawler
 		Jedis jedis = JedisMaker.make();
-		JedisIndex index = new JedisIndex(jedis); 
+		JedisIndex index = new JedisIndex(jedis);
 		String source = "https://en.wikipedia.org/wiki/Java_(programming_language)";
 		WikiCrawler wc = new WikiCrawler(source, index);
 		

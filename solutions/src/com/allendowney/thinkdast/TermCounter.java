@@ -12,27 +12,27 @@ import org.jsoup.select.Elements;
 
 /**
  * Encapsulates a map from search term to frequency (count).
- * 
+ *
  * @author downey
  *
  */
 public class TermCounter {
-	
+
 	private Map<String, Integer> map;
 	private String label;
-	
+
 	public TermCounter(String label) {
 		this.label = label;
 		this.map = new HashMap<String, Integer>();
 	}
-	
+
 	public String getLabel() {
 		return label;
 	}
-	
+
 	/**
 	 * Returns the total of all counts.
-	 * 
+	 *
 	 * @return
 	 */
 	public int size() {
@@ -45,7 +45,7 @@ public class TermCounter {
 
 	/**
 	 * Takes a collection of Elements and counts their words.
-	 * 
+	 *
 	 * @param paragraphs
 	 */
 	public void processElements(Elements paragraphs) {
@@ -53,10 +53,10 @@ public class TermCounter {
 			processTree(node);
 		}
 	}
-	
+
 	/**
 	 * Finds TextNodes in a DOM tree and counts their words.
-	 * 
+	 *
 	 * @param root
 	 */
 	public void processTree(Node root) {
@@ -71,12 +71,14 @@ public class TermCounter {
 
 	/**
 	 * Splits `text` into words and counts them.
-	 * 
+	 *
 	 * @param text  The text to process.
 	 */
 	public void processText(String text) {
 		// replace punctuation with spaces, convert to lower case, and split on whitespace
-		String[] array = text.replaceAll("\\pP", " ").toLowerCase().split("\\s+");
+		String[] array = text.replaceAll("\\pP", " ").
+				              toLowerCase().
+				              split("\\s+");
 		
 		for (int i=0; i<array.length; i++) {
 			String term = array[i];
@@ -86,7 +88,7 @@ public class TermCounter {
 
 	/**
 	 * Increments the counter associated with `term`.
-	 * 
+	 *
 	 * @param term
 	 */
 	public void incrementTermCount(String term) {
@@ -96,7 +98,7 @@ public class TermCounter {
 
 	/**
 	 * Adds a term to the map with a given count.
-	 * 
+	 *
 	 * @param term
 	 * @param count
 	 */
@@ -106,7 +108,7 @@ public class TermCounter {
 
 	/**
 	 * Returns the count associated with this term, or 0 if it is unseen.
-	 * 
+	 *
 	 * @param term
 	 * @return
 	 */
@@ -117,13 +119,13 @@ public class TermCounter {
 
 	/**
 	 * Returns the set of terms that have been counted.
-	 * 
+	 *
 	 * @return
 	 */
 	public Set<String> keySet() {
 		return map.keySet();
 	}
-	
+
 	/**
 	 * Print the terms and their counts in arbitrary order.
 	 */
@@ -137,14 +139,14 @@ public class TermCounter {
 
 	/**
 	 * @param args
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
 		String url = "https://en.wikipedia.org/wiki/Java_(programming_language)";
-		
+
 		WikiFetcher wf = new WikiFetcher();
 		Elements paragraphs = wf.fetchWikipedia(url);
-		
+
 		TermCounter counter = new TermCounter(url.toString());
 		counter.processElements(paragraphs);
 		counter.printCounts();

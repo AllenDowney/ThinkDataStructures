@@ -1,13 +1,4 @@
-/**
- * 
- */
 package com.allendowney.thinkdast;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 /**
  * @author downey
@@ -28,8 +19,6 @@ public class LinkedListExample {
 		node3.next = null;
 		
 		ListNode node0 = new ListNode(0, node1);
-		System.out.println(node1);
+		System.out.println(node0);
 	}
-
-
 }

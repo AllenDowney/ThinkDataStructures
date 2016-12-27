@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.allendowney.thinkdast;
 
 import java.util.ArrayList;

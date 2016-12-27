@@ -33,7 +33,7 @@ public class WikiSearchTest {
 		map1.put("Page2", 2);
 		map1.put("Page3", 3);
 		search1 = new WikiSearch(map1);
-		
+
 		Map<String, Integer> map2 = new HashMap<String, Integer>();
 		map2.put("Page2", 4);
 		map2.put("Page3", 5);
@@ -42,7 +42,7 @@ public class WikiSearchTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.WikiSearch#or(com.allendowney.thinkdast.WikiSearch)}.
+	 * Test method for {@link WikiSearch#or(WikiSearch)}.
 	 */
 	@Test
 	public void testOr() {
@@ -55,7 +55,7 @@ public class WikiSearchTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.WikiSearch#and(com.allendowney.thinkdast.WikiSearch)}.
+	 * Test method for {@link WikiSearch#and(WikiSearch)}.
 	 */
 	@Test
 	public void testAnd() {
@@ -68,7 +68,7 @@ public class WikiSearchTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.WikiSearch#minus(com.allendowney.thinkdast.WikiSearch)}.
+	 * Test method for {@link WikiSearch#minus(WikiSearch)}.
 	 */
 	@Test
 	public void testMinus() {
@@ -81,7 +81,7 @@ public class WikiSearchTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.WikiSearch#sort()}.
+	 * Test method for {@link WikiSearch#sort()}.
 	 */
 	@Test
 	public void testSort() {

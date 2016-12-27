@@ -2,7 +2,6 @@ package com.allendowney.thinkdast;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.jfree.data.xy.XYSeries;
 

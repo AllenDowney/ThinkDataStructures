@@ -46,14 +46,14 @@ public class Card implements Comparable<Card> {
     public int getSuit() {
         return this.suit;
     }
-    
+
     /**
      * Returns a string representation of the card.
      */
     public String toString() {
         return RANKS[this.rank] + " of " + SUITS[this.suit];
     }
-    
+
     /**
      * Returns a negative integer if this card comes before
      * the given card, zero if the two cards are equal, or
@@ -102,13 +102,13 @@ public class Card implements Comparable<Card> {
      * Demonstrates how to call the search methods.
      */
     public static void main(String[] args) {
-    	
+
     	// sort the cards using the natural ordering
         List<Card> cards = makeDeck();
         Collections.sort(cards);
         System.out.println(cards.get(0));
         System.out.println(cards.get(51));
-        
+
         Comparator<Card> comparator = new Comparator<Card>() {
             @Override
             public int compare(Card card1, Card card2) {
@@ -120,7 +120,7 @@ public class Card implements Comparable<Card> {
                 }
                 int rank1 = getRankAceHigh(card1);
                 int rank2 = getRankAceHigh(card2);
-                
+
                 if (rank1 < rank2) {
                     return -1;
                 }
@@ -139,7 +139,7 @@ public class Card implements Comparable<Card> {
 				}
 			}
         };
-        
+
         // sort the cards using an external comparator
 		Collections.sort(cards, comparator);
         System.out.println(cards.get(0));

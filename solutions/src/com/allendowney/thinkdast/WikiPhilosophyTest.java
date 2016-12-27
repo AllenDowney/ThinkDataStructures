@@ -17,7 +17,7 @@ public class WikiPhilosophyTest {
 
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.WikiPhilosophy#main(java.lang.String[])}.
+	 * Test method for {@link WikiPhilosophy#main(java.lang.String[])}.
 	 */
 	@Test
 	public void testMain() {

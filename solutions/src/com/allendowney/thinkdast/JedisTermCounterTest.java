@@ -40,7 +40,7 @@ public class JedisTermCounterTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.JedisTermCounter#pushToRedis(redis.clients.jedis.Jedis)}.
+	 * Test method for {@link JedisTermCounter#pushToRedis(redis.clients.jedis.Jedis)}.
 	 * @throws  
 	 */
 	@Test

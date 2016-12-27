@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.allendowney.thinkdast;
 
 //import static org.junit.Assert.*;
@@ -9,7 +6,6 @@ import static org.junit.Assert.fail;
 import static org.hamcrest.CoreMatchers.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -35,13 +31,13 @@ public class MyArrayListTest {
 		list.add(1);
 		list.add(2);
 		list.add(3);
-		
+
 		mylist = new MyArrayList<Integer>();
 		mylist.addAll(list);
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#MyArrayList()}.
+	 * Test method for {@link MyArrayList#MyArrayList()}.
 	 */
 	@Test
 	public void testMyList() {
@@ -49,7 +45,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#add(java.lang.Object)}.
+	 * Test method for {@link MyArrayList#add(Object)}.
 	 */
 	@Test
 	public void testAddT() {
@@ -61,7 +57,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#add(int, java.lang.Object)}.
+	 * Test method for {@link MyArrayList#add(int, Object)}.
 	 */
 	@Test
 	public void testAddIntT() {
@@ -69,7 +65,7 @@ public class MyArrayListTest {
 		//System.out.println(Arrays.toString(mal.toArray()));
 		assertThat(mylist.get(1), is(new Integer(5)));
 		assertThat(mylist.size(), is(4));
-		
+
 		try {
 		    mylist.set(-1, 0);
 		    fail();
@@ -79,7 +75,7 @@ public class MyArrayListTest {
 		    mylist.set(4, 0);
 		    fail();
 		} catch (IndexOutOfBoundsException e) {} // good
-		
+
 		mylist.add(0, 6);
 		//System.out.println(Arrays.toString(mal.toArray()));
 		assertThat(mylist.get(0), is(6));
@@ -90,7 +86,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#addAll(java.util.Collection)}.
+	 * Test method for {@link MyArrayList#addAll(java.util.Collection)}.
 	 */
 	@Test
 	public void testAddAllCollectionOfQextendsT() {
@@ -102,7 +98,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#clear()}.
+	 * Test method for {@link MyArrayList#clear()}.
 	 */
 	@Test
 	public void testClear() {
@@ -111,7 +107,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#contains(java.lang.Object)}.
+	 * Test method for {@link MyArrayList#contains(Object)}.
 	 */
 	@Test
 	public void testContains() {
@@ -123,7 +119,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#containsAll(java.util.Collection)}.
+	 * Test method for {@link MyArrayList#containsAll(java.util.Collection)}.
 	 */
 	@Test
 	public void testContainsAll() {
@@ -131,7 +127,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#get(int)}.
+	 * Test method for {@link MyArrayList#get(int)}.
 	 */
 	@Test
 	public void testGet() {
@@ -139,7 +135,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#indexOf(java.lang.Object)}.
+	 * Test method for {@link MyArrayList#indexOf(Object)}.
 	 */
 	@Test
 	public void testIndexOf() {
@@ -148,19 +144,19 @@ public class MyArrayListTest {
 		assertThat(mylist.indexOf(3), is(2));
 		assertThat(mylist.indexOf(4), is(-1));
 	}
-	
+
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#indexOf(java.lang.Object)}.
+	 * Test method for {@link MyArrayList#indexOf(Object)}.
 	 */
 	@Test
 	public void testIndexOfNull() {
 		assertThat(mylist.indexOf(null), is(-1));
 		mylist.add(null);
-		assertThat(mylist.indexOf(null), is(3));		
+		assertThat(mylist.indexOf(null), is(3));
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#isEmpty()}.
+	 * Test method for {@link MyArrayList#isEmpty()}.
 	 */
 	@Test
 	public void testIsEmpty() {
@@ -170,7 +166,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#iterator()}.
+	 * Test method for {@link MyArrayList#iterator()}.
 	 */
 	@Test
 	public void testIterator() {
@@ -182,7 +178,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#lastIndexOf(java.lang.Object)}.
+	 * Test method for {@link MyArrayList#lastIndexOf(Object)}.
 	 */
 	@Test
 	public void testLastIndexOf() {
@@ -191,7 +187,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#remove(java.lang.Object)}.
+	 * Test method for {@link MyArrayList#remove(Object)}.
 	 */
 	@Test
 	public void testRemoveObject() {
@@ -206,13 +202,13 @@ public class MyArrayListTest {
 		assertThat(mylist.size(), is(1));
 		assertThat(mylist.get(0), is(new Integer(3)));
 		//System.out.println(Arrays.toString(mal.toArray()));
-		
+
 		flag = mylist.remove(new Integer(5));
 		assertThat(flag, equalTo(false));
 		assertThat(mylist.size(), is(1));
 		assertThat(mylist.get(0), is(new Integer(3)));
 		//System.out.println(Arrays.toString(mal.toArray()));
-		
+
 		flag = mylist.remove(new Integer(3));
 		assertThat(flag, equalTo(true));
 		assertThat(mylist.size(), is(0));
@@ -220,7 +216,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#remove(int)}.
+	 * Test method for {@link MyArrayList#remove(int)}.
 	 */
 	@Test
 	public void testRemoveInt() {
@@ -231,7 +227,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#removeAll(java.util.Collection)}.
+	 * Test method for {@link MyArrayList#removeAll(java.util.Collection)}.
 	 */
 	@Test
 	public void testRemoveAll() {
@@ -240,7 +236,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#set(int, java.lang.Object)}.
+	 * Test method for {@link MyArrayList#set(int, Object)}.
 	 */
 	@Test
 	public void testSet() {
@@ -272,7 +268,7 @@ public class MyArrayListTest {
 }
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#size()}.
+	 * Test method for {@link MyArrayList#size()}.
 	 */
 	@Test
 	public void testSize() {
@@ -280,7 +276,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#subList(int, int)}.
+	 * Test method for {@link MyArrayList#subList(int, int)}.
 	 */
 	@Test
 	public void testSubList() {
@@ -290,7 +286,7 @@ public class MyArrayListTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyArrayList#toArray()}.
+	 * Test method for {@link MyArrayList#toArray()}.
 	 */
 	@Test
 	public void testToArray() {

@@ -16,6 +16,7 @@ import org.junit.Test;
 
 import redis.clients.jedis.Jedis;
 
+
 /**
  * @author downey
  *
@@ -33,7 +34,7 @@ public class WikiCrawlerTest {
 	public void setUp() throws Exception {
 		// make a WikiCrawler
 		jedis = JedisMaker.make();
-		index = new JedisIndex(jedis); 
+		index = new JedisIndex(jedis);
 		String source = "https://en.wikipedia.org/wiki/Java_(programming_language)";
 		wc = new WikiCrawler(source, index);
 
@@ -52,15 +53,15 @@ public class WikiCrawlerTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.WikiCrawler#crawl()}.
-	 * @throws IOException 
+	 * Test method for {@link WikiCrawler#crawl()}.
+	 * @throws IOException
 	 */
 	@Test
 	public void testCrawl() throws IOException {
 		String url1 = "https://en.wikipedia.org/wiki/Java_(programming_language)";
 		String url2 = "https://en.wikipedia.org/wiki/Programming_language";
 		String url3 = "https://en.wikipedia.org/wiki/Concurrent_computing";
-		
+
 		String res = wc.crawl(true);
 		assertThat(res.equals(url1), is(true));
 		assertThat(wc.queueSize(), is(396));

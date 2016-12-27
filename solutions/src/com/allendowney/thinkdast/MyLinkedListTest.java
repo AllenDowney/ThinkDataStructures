@@ -23,7 +23,7 @@ public class MyLinkedListTest extends MyArrayListTest {
 		list.add(1);
 		list.add(2);
 		list.add(3);
-		
+
 		mylist = new MyLinkedList<Integer>();
 		mylist.addAll(list);
 	}

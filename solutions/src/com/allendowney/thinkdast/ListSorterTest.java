@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.allendowney.thinkdast;
 
 import static org.junit.Assert.*;
@@ -40,7 +37,7 @@ public class ListSorterTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.ListSorter#insertionSort(java.util.List, java.util.Comparator)}.
+	 * Test method for {@link ListSorter#insertionSort(java.util.List, java.util.Comparator)}.
 	 */
 	@Test
 	public void testInsertionSort() {
@@ -63,7 +60,7 @@ public class ListSorterTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.ListSorter#mergeSortInPlace(java.util.List, java.util.Comparator)}.
+	 * Test method for {@link mergeSortInPlace(java.util.List, java.util.Comparator)}.
 	 */
 	@Test
 	public void testMergeSortInPlace() {
@@ -73,7 +70,7 @@ public class ListSorterTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.ListSorter#mergeSort(java.util.List, java.util.Comparator)}.
+	 * Test method for {@link mergeSort(java.util.List, java.util.Comparator)}.
 	 */
 	@Test
 	public void testMergeSort() {
@@ -83,7 +80,7 @@ public class ListSorterTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.ListSorter#heapSort(java.util.List, java.util.Comparator)}.
+	 * Test method for {@link heapSort(java.util.List, java.util.Comparator)}.
 	 */
 	@Test
 	public void testHeapSort() {
@@ -93,7 +90,7 @@ public class ListSorterTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.ListSorter#topK(int, java.util.List, java.util.Comparator)}.
+	 * Test method for {@link topK(int, java.util.List, java.util.Comparator)}.
 	 */
 	@Test
 	public void testTopK() {

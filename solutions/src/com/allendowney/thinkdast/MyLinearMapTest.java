@@ -35,7 +35,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#clear()}.
+	 * Test method for {@link MyLinearMap#clear()}.
 	 */
 	@Test
 	public void testClear() {
@@ -44,7 +44,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#containsKey(java.lang.Object)}.
+	 * Test method for {@link MyLinearMap#containsKey(java.lang.Object)}.
 	 */
 	@Test
 	public void testContainsKey() {
@@ -54,7 +54,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#containsValue(java.lang.Object)}.
+	 * Test method for {@link MyLinearMap#containsValue(java.lang.Object)}.
 	 */
 	@Test
 	public void testContainsValue() {
@@ -64,7 +64,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#get(java.lang.Object)}.
+	 * Test method for {@link MyLinearMap#get(java.lang.Object)}.
 	 */
 	@Test
 	public void testGet() {
@@ -74,7 +74,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#isEmpty()}.
+	 * Test method for {@link MyLinearMap#isEmpty()}.
 	 */
 	@Test
 	public void testIsEmpty() {
@@ -84,7 +84,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#keySet()}.
+	 * Test method for {@link MyLinearMap#keySet()}.
 	 */
 	@Test
 	public void testKeySet() {
@@ -96,7 +96,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#put(java.lang.Object, java.lang.Object)}.
+	 * Test method for {@link MyLinearMap#put(java.lang.Object, java.lang.Object)}.
 	 */
 	@Test
 	public void testPut() {
@@ -110,7 +110,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#putAll(java.util.Map)}.
+	 * Test method for {@link MyLinearMap#putAll(java.util.Map)}.
 	 */
 	@Test
 	public void testPutAll() {
@@ -123,7 +123,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#remove(java.lang.Object)}.
+	 * Test method for {@link MyLinearMap#remove(java.lang.Object)}.
 	 */
 	@Test
 	public void testRemove() {
@@ -133,7 +133,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#size()}.
+	 * Test method for {@link MyLinearMap#size()}.
 	 */
 	@Test
 	public void testSize() {
@@ -141,7 +141,7 @@ public class MyLinearMapTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.MyLinearMap#values()}.
+	 * Test method for {@link MyLinearMap#values()}.
 	 */
 	@Test
 	public void testValues() {

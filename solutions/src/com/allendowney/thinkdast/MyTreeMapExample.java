@@ -20,8 +20,7 @@ public class MyTreeMapExample {
 		putTimestamps(n);
 
 	}
-	
-	
+
 	/**
 	 * @param map
 	 * @param n 
@@ -72,6 +71,7 @@ public class MyTreeMapExample {
 	 * @param map
 	 * @param n 
 	 */
+	@SuppressWarnings("unused")
 	private static void putWordList(int n) {
 		// assemble the file name
 		String slash = File.separator;

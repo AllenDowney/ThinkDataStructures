@@ -21,7 +21,7 @@ public class WikiParserTest {
 	final static WikiFetcher wf = new WikiFetcher();
 	
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.WikiParser#findFirstLink()}.
+	 * Test method for {@link WikiParser#findFirstLink()}.
 	 * @throws IOException 
 	 */
 	@Test
@@ -32,7 +32,7 @@ public class WikiParserTest {
 	}
 
 	/**
-	 * Test method for {@link com.allendowney.thinkdast.WikiParser#findFirstLink()}.
+	 * Test method for {@link WikiParser#findFirstLink()}.
 	 * @throws IOException 
 	 */
 	@Test
