@@ -58,7 +58,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 	 * @param target
 	 */
 	private Entry findEntry(Object target) {
-		// TODO: Your solution here
+		// TODO: Implement this method
 		return null;
 	}
 
@@ -93,7 +93,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 
 	@Override
 	public V get(Object key) {
-		// TODO: Your code here
+		// TODO: Implement this method
 		return null;
 	}
 
@@ -113,7 +113,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 
 	@Override
 	public V put(K key, V value) {
-		// TODO: Your solution here
+		// TODO: Implement this method
 		return null;
 	}
 
@@ -126,7 +126,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 
 	@Override
 	public V remove(Object key) {
-		// TODO: Your solution here
+		// TODO: Implement this method
 		return null;
 	}
 
