@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.17.0}
+\newcommand{\theversion}{0.21}
 
 %%%% Both LATEX and PLASTEX
 
@@ -14,7 +14,7 @@
 \usepackage{hevea}
 \usepackage{makeidx}
 \usepackage{setspace}
-\usepackage{longtable}
+%\usepackage{longtable}
 \usepackage{booktabs}
 
 \usepackage{draftwatermark}
@@ -167,7 +167,7 @@ The original form of this book is \LaTeX\ source code.
 Compiling this code has the effect of generating a device-independent representation of the book, which can be converted to other formats and printed.
 
 The \LaTeX\ source for this book is available from
-\url{???}.
+\url{http://github.com/AllenDowney/ThinkDataStructures}.
 
 %--table of contents------------------------------------------
 
@@ -221,20 +221,20 @@ on these topics are too theoretical, too big, and too ``bottom up'':
 
 \begin{description}
 
-\item[Too theoretical]:  Mathematical analysis of algorithms is based
+\item[Too theoretical]  Mathematical analysis of algorithms is based
 on simplifying assumptions that limit its usefulness in practice.
 Many presentations of this topic gloss over the simplifications and
 focus on the math.  In this book I present the most practical subset
 of this material and eliminate the rest.
 
-\item[Too big]: Most books on these topics are at least 500 pages,
+\item[Too big] Most books on these topics are at least 500 pages,
 and some are more than 1000.  By focusing on the topics I think are
 most useful for software engineers, I kept this book under
 200 pages.
 
 %TODO: check this page count at the end
 
-\item[Too ``bottom up'']: Many data structures books focus on how data
+\item[Too ``bottom up''] Many data structures books focus on how data
   structures work (the implementations), with less about how to use
   them (the interfaces).  In this book, I go ``top down'', starting
   with the interfaces.  Readers learn to use the structures in the
@@ -284,7 +284,7 @@ Java} are prepared for this book.
 \label{code}
 
 The code for this book is in a Git repository at
-\url{https://github.com/AllenDowney/ThinkCS}.
+\url{https://github.com/AllenDowney/ThinkDataStructures}.
 
 Git is a ``version control system'' that allows you to keep track of
 the files that make up a project.  A collection of files under Git's
@@ -313,14 +313,17 @@ the code:
 \item If you don't want to use Git at all, you can download the code
   in a ZIP archive using the {\sf Download ZIP} button on the GitHub
   page, or this link:
-  \url{https://github.com/AllenDowney/ThinkCS/archive/master.zip}.
+  \url{https://github.com/AllenDowney/ThinkDataStructures/archive/master.zip}.
 
-% or http://tinyurl.com/ThinkCSCode
+% or http://tinyurl.com/thinkdastcode
+
+% TODO: make this short link
 
 \end{itemize}
 
 After you clone the repository or unzip the ZIP file, you should have
-a directory called {\tt ThinkCS} with a subdirectory called {\tt code}.
+a directory called {\tt ThinkDataStructures} with a subdirectory
+called {\tt code}.
 
 The examples in this book were developed and tested using Java SE
 Development Kit 7.  If you an older version, some examples will not
@@ -334,11 +337,10 @@ Flatiron School, which offers a variety of online classes related
 to programming and web development.  They offer a class based
 on this material, which provides an online development environment,
 help from instructors and other students, and a certificate of
-completion.  You can find more information at \url{???}.
+completion.  You can find more information at \url{URL_coming_soon}.
 
 
 \begin{itemize}
-
 
 \item At the Flatiron School, Joe Burgess, Ann John, and Charles
 Pletcher provided guidance, suggestions, and corrections from the
@@ -651,16 +653,19 @@ directories:
 
 \begin{itemize}
   \item
-    \texttt{build.xml} is an Ant file that makes it easier to compile and run the
-    code.
+    \texttt{build.xml} is an Ant file that makes it easier to compile
+    and run the code.
+
   \item
-    \texttt{lib} contains the libraries you'll need (for this exercise, just JUnit).
+    \texttt{lib} contains the libraries you'll need (for this
+    exercise, just JUnit).
+
   \item
     \texttt{src} contains the source code.
 
 \end{itemize}
 
-And if you navigate into \texttt{src/com/allendowney/javacs},
+And if you navigate into \texttt{src/com/allendowney/thinkdast},
 you'll find the source code for this exercise:
 
 \begin{itemize}
@@ -825,7 +830,7 @@ public class SelectionSort {
 
     /**
      * Finds the index of the lowest value
-     * starting from the index at \java{start} (inclusive)
+     * starting from the index at start (inclusive)
      * and going to the end of the array.
      */
     public static int indexLowest(int[] array, int start) {
@@ -1051,9 +1056,10 @@ It might not be obvious why this method returns a boolean, since it
 seems like it always returns \java{true}. As always, you can find the
 answer in the documentation:
 \url{https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html#add(E)}.
-It's also not obvious how to analyze the performance of this method. In
-the normal case, it's constant time, but if we have to resize the array,
-it's linear. I'll explain how to handle this in Section~\ref{classifying-add}.
+It's also not obvious how to analyze the performance of this
+method. In the normal case, it's constant time, but if we have to
+resize the array, it's linear. I'll explain how to handle this in
+Section~\ref{classifying-add}.
 
 Finally, let's look at \java{get}; then you can get started on the
 exercises.
@@ -1123,8 +1129,8 @@ Last one: fill in the body of \java{remove}.
 pass.
 
 Once you have your implementation working, compare it to mine, which you
-can read on GitHub:
-\url{???}
+can read at
+\url{https://github.com/AllenDowney/ThinkDataStructures/blob/master/solutions/src/com/allendowney/thinkdast/MyArrayList.java}.
 
 
 \chapter{ArrayList}
@@ -1674,7 +1680,7 @@ here:
 When you finish this one, all tests should pass.
 
 Once you have your implementation working, compare it to the version
-in the \java{solution} directory of the repo.
+in the \java{solution} directory of the repository.
 
 
 \section{A note on garbage collection}
@@ -1881,11 +1887,10 @@ The following table summarizes the differences between
 $O(1)$ or constant time and $n$ means $O(n)$ or
 linear.
 
-\begin{longtable}[c]{@{}lll@{}}
-\toprule
-& MyArrayList & MyLinkedList
-\\
-\midrule\endhead
+\begin{tabular}[c]{@{}lll@{}}
+\hline
+& MyArrayList & MyLinkedList \\
+\hline
 add (at the end) & \textbf{1} & n
 \\
 add (at the beginning) & n & \textbf{1}
@@ -1904,8 +1909,8 @@ remove (from the beginning) & n & \textbf{1}
 \\
 remove (in general) & n & n
 \\
-\bottomrule
-\end{longtable}
+\hline
+\end{tabular}
 
 % TODO: how does this table look?
 
@@ -2038,13 +2043,14 @@ might have been better to set \java{startN} around 64000.
 
 The result from \java{timingLoop} is an \java{XYSeries} that
 contains this data. If you pass this series to \java{plotResults}, it
-generates a plot like this:
+generates a plot like the one in Figure~\ref{fig-profile1}.
 
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/figure01small.png}
 \caption{Profiling results: runtime versus problem size for
 adding $n$ elements to the end of an \java{ArrayList}.}
+\label{fig-profile1}
 \end{figure}
 
 The next section explains how to interpret it.
@@ -2144,7 +2150,7 @@ Also, in the \java{code}directory , you'll find the Ant build file
 \java{build.xml}.
 
 Run \java{ant ProfileListAdd} to run \java{ProfileListAdd.java}. You should
-get results similar to Figure~\ref{???}, but you might have to adjust
+get results similar to Figure~\ref{fig-profile1}, but you might have to adjust
 \java{startN} or \java{endMillis}. The estimated slope should be close
 to 1, indicating that performing $n$ add operations takes time
 proportional to $n$ raised to the exponent 1; that is, it is
@@ -2249,13 +2255,15 @@ milliseconds on the right):
 128000, 11555
 \end{verbatim}
 
-Here's the graph of runtime versus problem size:
+Figure~\ref{fig-profile2}
+shows the graph of runtime versus problem size.
 
 \begin{figure}
 \centering
 \includegraphics{figs/figure02small.png}
 \caption{Profiling results: runtime versus problem size for adding
 $n$ elements at the beginning of an \java{ArrayList}.}
+\label{fig-profile2}
 \end{figure}
 
 Remember that a straight line on this graph does \textbf{not} mean that
@@ -2317,13 +2325,15 @@ are the results:
 16384000, 4755
 \end{verbatim}
 
-And here's the graph:
+Figure~\ref{fig-profile3}
+shows the graph of these results.
 
 \begin{figure}
 \centering
 \includegraphics{figs/figure03small.png}
 \caption{Profiling results: runtime versus problem size for adding
 $n$ elements at the beginning of a \java{LinkedList}.}
+\label{fig-profile3}
 \end{figure}
 
 It's not a very straight line, and the slope is not exactly 1; the slope
@@ -2381,13 +2391,15 @@ Here are the results:
 16384000, 4539
 \end{verbatim}
 
-And here's the graph:
+Figure~\ref{fig-profile4}
+shows the graph of these results.
 
 \begin{figure}
 \centering
 \includegraphics{figs/figure04small.png}
 \caption{Profiling results: runtime versus problem size for adding
 $n$ elements at the end of a \java{LinkedList}.}
+\label{fig-profile4}
 \end{figure}
 
 Again, the measurements are noisy and the line is not perfectly
@@ -2440,11 +2452,11 @@ The following table summarizes the performance we expect from
 \java{ArrayList}, \java{MyLinkedList} (singly-linked), and
 \java{LinkedList} (doubly-linked):
 
-\begin{longtable}[c]{@{}llll@{}}
-\toprule
+\begin{tabular}[c]{@{}llll@{}}
+\hline
 & MyArrayList & MyLinkedList & LinkedList
 \\
-\midrule\endhead
+\hline
 add (at the end) & \textbf{1} & n & \textbf{1}
 \\
 add (at the beginning) & n & \textbf{1} & \textbf{1}
@@ -2463,8 +2475,8 @@ remove (from the beginning) & n & \textbf{1} & \textbf{1}
 \\
 remove (in general) & n & n & n
 \\
-\bottomrule
-\end{longtable}
+\hline
+\end{tabular}
 
 The doubly-linked implementation is better than \java{ArrayList} for
 adding and removing at the beginning, and just as good as
@@ -2642,13 +2654,15 @@ contains links to the two nodes it contains,
 The \java{<head>} node has one child,
 \java{<title>}, and the
 \java{<body>} node has one child,
-\java{<p>} (which stands for ``paragraph). The
-following figure represents this tree graphically:
+\java{<p>} (which stands for ``paragraph). 
+Figure~\ref{fig-dom1}
+ represents this tree graphically.
 
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/DOMtree01.png}
 \caption{DOM tree for a simple HTML page.}
+\label{fig-dom1}
 \end{figure}
 
 
@@ -2666,13 +2680,15 @@ provides a tool called Web Inspector, which you can read about at
 For Internet Explorer, you can read the instructions at
 \url{http://support.janova.us/entries/20181293-How-to-inspect-an-Element-in-Internet-Explorer}.
 
-Here is a screenshot of the DOM for the Wikipedia page on Java,
+Figure~\ref{fig-dom2}
+shows a screenshot of the DOM for the Wikipedia page on Java,
 \url{https://en.wikipedia.org/wiki/Java_(programming_language)}.
 
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/DOMinspector.png}
 \caption{Screenshot of the Chrome DOM Inspector.}
+\label{fig-dom2}
 \end{figure}
 
 
@@ -3000,7 +3016,7 @@ error-prone.
 
 
 \chapter{Getting to Philosophy}
-
+\label{getphilo}
 
 The goal of this chapter is to develop a Web crawler that tests the
 ``Getting to Philosophy'' conjecture, which we presented in the
@@ -3257,7 +3273,7 @@ have multiple instances of \java{WikiFetcher}, they won't enforce the
 minimum interval between requests.
 
 NOTE: My implementation of \java{WikiFetcher} is simple, but it would
-be easy for someone to mis-use it by creating multiple instances. You
+be easy for someone to misuse it by creating multiple instances. You
 could avoid this problem by making \java{WikiFetcher} a ``singleton'',
 which you can read about at
 \url{https://en.wikipedia.org/wiki/Singleton_pattern}.
@@ -4333,18 +4349,18 @@ you'll find the source files for this exercise:
 \end{itemize}
 
 As usual, you should run \java{ant build} to compile the source
-  files. Then run \java{ant MyBetterMapTest}. Several tests should fail, because you have
-  some work to do!
+files. Then run \java{ant MyBetterMapTest}. Several tests should fail,
+because you have some work to do!
 
 Review the implementation of \java{put} and \java{get} from the
-  previous chapter. Then fill in the body of \java{containsKey}. Hint:
-  use \java{chooseMap}. Run \java{ant MyBetterMapTest} again and confirm that
-  \java{testContainsKey} passes.
+previous chapter. Then fill in the body of \java{containsKey}. Hint:
+use \java{chooseMap}. Run \java{ant MyBetterMapTest} again and confirm
+that \java{testContainsKey} passes.
 
 Fill in the body of \java{containsValue}. Hint: \emph{don't} use
-  \java{chooseMap}.  Run \java{ant MyBetterMapTest} again and confirm that
-  \java{testContainsValue} passes. Notice that we have to do more work
-  to find a value than to find a key.
+\java{chooseMap}.  Run \java{ant MyBetterMapTest} again and confirm
+that \java{testContainsValue} passes. Notice that we have to do more
+work to find a value than to find a key.
 
 Like \java{put} and \java{get}, this implementation of
 \java{containsKey} is linear, because it has to search one of the
@@ -4447,7 +4463,7 @@ method on a sub-map, which is constant time.
 So far, so good. But the other core method, \java{put}, is a little
 harder to analyze. When we don't have to rehash, it is constant time,
 but when we do, it's linear. In that way, it's similar to
-\java{ArrayList.add}, which we analyzed in Section~\ref{???}.
+\java{ArrayList.add}, which we analyzed in Section~\ref{classifying-add}.
 
 For the same reason, \java{MyHashMap.put} turns out to be
 constant time if we average over a series of invocations.
@@ -4699,7 +4715,7 @@ several classes that depend on each other. Here are some of the
 relationships between the classes:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   \java{MyLinearMap} contains a \java{LinkedList} and implements
   \java{Map}.
@@ -4721,15 +4737,16 @@ Modeling Language}; a class diagram is one of several graphical
 standards defined by UML.
 
 In a class diagram, each class is represented by a box, and
-relationships between classes are represented by arrows. Here is a UML
-class diagram for the classes from the previous exercise,
-generated using the online tool yUML at 
-\url{http://yuml.me/}:
+relationships between classes are represented by
+arrows. Figure~\ref{fig-uml} shows a UML class diagram for the classes
+from the previous exercise, generated using the online tool yUML at
+\url{http://yuml.me/}.
 
 \begin{figure}
 \centering
 \includegraphics[width=5in]{figs/yuml1.png}
 \caption{UML diagram for the classes in this exercise.}
+\label{fig-uml}
 \end{figure}
 
 Different relationships are represented by different arrows:
@@ -4813,7 +4830,7 @@ every \java{node} has the ``BST property'':
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
   If \java{node} has a left child, all keys in the left subtree must
   be less than the key in \java{node}.
@@ -4822,12 +4839,14 @@ every \java{node} has the ``BST property'':
   be greater than the key in \java{node}.
 \end{enumerate}
 
-The following diagram shows a tree of integers that has this property.
+Figure~\ref{fig-bst}
+shows a tree of integers that has this property.
 
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/200px-Binary_search_tree-svg.png}
 \caption{Example of a binary search tree.}
+\label{fig-bst}
 \end{figure}
 
 This figure is from the Wikipedia page on binary search trees at
@@ -5020,8 +5039,8 @@ I've provided outlines for \java{get} and \java{containsKey}.
 
         @SuppressWarnings("unchecked")
         Comparable<? super K> k = (Comparable<? super K>) target;
-        int cmp = k.compareTo(p.key);
-        // TODO: Fill this in.
+
+        // TODO: FILL THIS IN!
         return null;
     }
 \end{verbatim}
@@ -5284,7 +5303,7 @@ This method ``visits'' every node in the tree, so it takes time
 proportional to the number of nodes.
 
 
-\section{Implementing \java{put}}
+\section{Implementing {\tt put}}
 \label{implementing-put}
 
 The \java{put} method is a little more complicated than \java{get}
@@ -5765,7 +5784,7 @@ connect to the server, which is the long string of letters and numbers
 in the middle. You will need this information for the next step.
 
 
-\section{Exercise 11}
+\section{Making a Redis-backed index}
 \label{hello-jedis}
 
 In the repository for this book,
@@ -5819,48 +5838,10 @@ about your Redis server from a file, connects to it and logs in using
 your password, then returns a \java{Jedis} object you can use to
 perform Redis operations.
 
-If you open \java{JedisMaker.java}, you should see something like this
-(but with more error checking):
-
-%TODO: update this code
-
-\begin{verbatim}
-public class JedisMaker {
-
-    public static Jedis make() {
-        // assemble the directory name
-        String slash = File.separator;
-        String filename = System.getProperty("user.dir") + slash + 
-                "src" + slash + "resources" + slash + "redis_url.txt";
-
-        // read the contents of the file into a string
-        StringBuilder sb = new StringBuilder();
-        BufferedReader br = new BufferedReader(new FileReader(filename));
-        while (true) {
-            String line = br.readLine();
-            if (line == null) break;
-            sb.append(line);
-        }
-        br.close();
-        
-        // extract the components from the URI
-        URI uri = new URI(sb.toString());
-        String host = uri.getHost();
-        int port = uri.getPort();
-        String[] array = uri.getAuthority().split("[:@]");
-        String auth = array[1];
-        
-        // connect to the server and authenticate
-        Jedis jedis = new Jedis(host, port);
-        jedis.auth(auth);
-    
-        return jedis;
-    }
-\end{verbatim}
-
-\java{JedisMaker} is a helper class that provides one static method,
+If you open \java{JedisMaker.java}, you should see the java{JedisMaker}
+class, which is a helper class that provides one static method,
 \java{make}, which creates a \java{Jedis} object. Once this object
-is authenticated (by invoking \java{auth}), you can use it to
+is authenticated, you can use it to
 communicate with your Redis database.
 
 \java{JedisMaker} reads information about your Redis server from a
@@ -5883,8 +5864,8 @@ directory \java{src/resources}:
 
 Because this file contains the password for your Redis server, you
 should not put this file in a public repository. To help you avoid
-doing that by accident, the repository contains a \java{.gitignore}
-file that should make it harder (but not impossible) to put this file
+doing that by accident, the repository contains a {\tt .gitignore}
+file that makes it harder (but not impossible) to put this file
 in your repo.
 
 Now run \java{ant build} to compile the
@@ -5934,7 +5915,7 @@ frequency of word1: 2
 frequency of word2: 1
 \end{verbatim}
 
-In the next section, we'll explain how the code works.
+In the next section, I'll explain how the code works.
 
 
 \section{Redis data types}
@@ -6033,8 +6014,8 @@ You can read more about Redis data types here at
 \url{http://redis.io/topics/data-types}.
 
 
-\section{Making a Jedis-backed index}
-\label{making-a-jedis-backed-index}
+\section{Exercise 11}
+\label{exercise11}
 
 At this point you have the information you need to make a Web search
 index that stores results in a Redis database.
@@ -6206,7 +6187,7 @@ work on:
 
 \begin{verbatim}
     /**
-     * Adds a URL to the set associated with \java{term}.
+     * Adds a URL to the set associated with term.
      */
     public void add(String term, TermCounter tc) {}
 
@@ -6503,7 +6484,7 @@ context as stop words (\url{https://en.wikipedia.org/wiki/Stop_words}).
 \label{graph-traversal}
 
 If you did the ``Getting to Philosophy'' exercise in
-Chapter~\ref{???}, you already have a program that reads a Wikipedia
+Chapter~\ref{getphilo}, you already have a program that reads a Wikipedia
 page, finds the first link, uses the link to load the next page, and
 repeats. This program is a specialized kind of crawler, but when
 people say ``Web crawler'' they usually mean a program that:
@@ -6590,7 +6571,7 @@ You'll also need some of the helper classes we've used in previous exercises:
 Before you run \java{JedisMaker}, you have to provide a file with
 information about your Redis server. If you did this in the previous
 lab, you should be all set. Otherwise you can find instructions in
-Section~\ref{???}.
+Section~\ref{hello-jedis}.
 
 Run \java{ant build} to compile the source files, then run
 \java{ant JedisMaker} to make sure it is configured to connect to your
@@ -7032,7 +7013,8 @@ don't have to worry about \java{testSort} yet.
 You can run \java{WikiSearchTest} without using Jedis because it
 doesn't depend on the index in your Redis database. But if you want to
 run a query against your index, you have to provide a file with
-information about your Redis server.  See Section~\ref{???} for details.
+information about your Redis server.  See Section~\ref{hello-jedis}
+for details.
 
 Run \java{ant JedisMaker} to make sure it is configured to connect to
 your Redis server. Then run \java{WikiSearch}, which prints results
@@ -7080,7 +7062,7 @@ If you are not familiar with the \java{Comparable} and
 \java{Comparator} interfaces, I explain them in the next section.
 
 
-\section{\java{Comparable} and \java{Comparator}}
+\section{{\tt Comparable} and {\tt Comparator}}
 \label{comparable-and-comparator}
 
 The repository for this book includes \java{Card.java}, which
@@ -7508,24 +7490,27 @@ the algorithm:
 
 \end{enumerate}
 
-The following figure shows these steps.
+Figure~\ref{fig-sort1}
+shows these steps.
 
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/figure1.png}
 \caption{Example of merge sort.}
+\label{fig-sort1}
 \end{figure}
 
 The first step copies each of the elements once, so it is linear. The
 third step also copies each element once, so it is also linear. Now we
 need to figure out the complexity of step 2. To do that, it helps to
 looks at a different picture of the computation, which shows the levels
-of recursion:
+of recursion, as in Figure~\ref{fig-sort2}.
 
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/figure2.png}
 \caption{Example of merge sort showing all levels of recursion.}
+\label{fig-sort2}
 \end{figure}
 
 At the top level, we have $1$ list with $n$ elements. At
@@ -7623,13 +7608,15 @@ cards:
 \end{enumerate}
 
 At this point each bucket contains one element, and the buckets are
-sorted in ascending order. The following diagram shows an example with
+sorted in ascending order. Figure~\ref{fig-sort3}
+shows an example with
 3-letter words:
 
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/figure3.png}
 \caption{Example of radix sort with three-letter words.}
+\label{fig-sort3}
 \end{figure}
 
 The top row shows the unsorted words. The second row shows what the
