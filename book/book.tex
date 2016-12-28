@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.21}
+\newcommand{\theversion}{0.22}
 
 %%%% Both LATEX and PLASTEX
 
@@ -1519,10 +1519,12 @@ refer to.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=4in]{figs/linked_list_diagram1.png}
+\includegraphics[width=4in]{figs/linked_list1.pdf}
 \caption{Object diagram of a linked list.}
 \label{linkedlistfig}
 \end{figure}
+
+%TODO: document object diagram
 
 
 
@@ -2047,7 +2049,7 @@ generates a plot like the one in Figure~\ref{fig-profile1}.
 
 \begin{figure}
 \centering
-\includegraphics[height=2.5in]{figs/figure01small.png}
+\includegraphics[height=2.5in]{figs/profile1.png}
 \caption{Profiling results: runtime versus problem size for
 adding $n$ elements to the end of an \java{ArrayList}.}
 \label{fig-profile1}
@@ -2260,7 +2262,7 @@ shows the graph of runtime versus problem size.
 
 \begin{figure}
 \centering
-\includegraphics{figs/figure02small.png}
+\includegraphics[height=2.5in]{figs/profile2.png}
 \caption{Profiling results: runtime versus problem size for adding
 $n$ elements at the beginning of an \java{ArrayList}.}
 \label{fig-profile2}
@@ -2330,7 +2332,7 @@ shows the graph of these results.
 
 \begin{figure}
 \centering
-\includegraphics{figs/figure03small.png}
+\includegraphics[height=2.5in]{figs/profile3.png}
 \caption{Profiling results: runtime versus problem size for adding
 $n$ elements at the beginning of a \java{LinkedList}.}
 \label{fig-profile3}
@@ -2380,15 +2382,15 @@ Here's the code:
 Here are the results:
 
 \begin{verbatim}
-64000, 7
-128000, 5
+64000, 9
+128000, 9
 256000, 21
-512000, 23
-1024000, 73
-2048000, 228
-4096000, 956
-8192000, 911
-16384000, 4539
+512000, 24
+1024000, 78
+2048000, 235
+4096000, 851
+8192000, 950
+16384000, 6160
 \end{verbatim}
 
 Figure~\ref{fig-profile4}
@@ -2396,14 +2398,14 @@ shows the graph of these results.
 
 \begin{figure}
 \centering
-\includegraphics{figs/figure04small.png}
+\includegraphics[height=2.5in]{figs/profile4.png}
 \caption{Profiling results: runtime versus problem size for adding
 $n$ elements at the end of a \java{LinkedList}.}
 \label{fig-profile4}
 \end{figure}
 
 Again, the measurements are noisy and the line is not perfectly
-straight, but the estimated slope is 1.24, which is almost exactly what
+straight, but the estimated slope is 1.19, which is close to what
 we got adding elements at the beginning, and not very close to 2, which
 is what we expected based on our analysis. In fact, it is closer to 1,
 which suggests that adding elements at the end is constant time.
@@ -2660,7 +2662,7 @@ Figure~\ref{fig-dom1}
 
 \begin{figure}
 \centering
-\includegraphics[height=2.5in]{figs/DOMtree01.png}
+\includegraphics[height=2.5in]{figs/dom_tree1.pdf}
 \caption{DOM tree for a simple HTML page.}
 \label{fig-dom1}
 \end{figure}
@@ -4484,13 +4486,15 @@ Now the size of the hash table is 4, so the next time we call
 rehash, which takes 4 units to rehash the existing keys and 1 unit to
 hash the new key.
 
-The following figure shows the pattern, with the normal work of hashing
+Figure~\ref{fig-hashtable} shows the pattern, with the normal work of hashing
 a new key shown across the bottom and extra work of rehashing shown as a
 tower.
 
-\centerline{
-\includegraphics{figs/hashtable.png}
-}
+\begin{figure}
+\centerline{\includegraphics[width=5in]{figs/towers.pdf}}
+\caption{Representation of the work done to add elements to a hash table.}
+\label{fig-hashtable}
+\end{figure}
 
 As the arrows suggest, if we knock down the towers, each one fills the
 space before the next tower. The result is a uniform height of 2 units,
@@ -4726,7 +4730,7 @@ relationships between the classes:
   \java{MyHashMap} extends \java{MyBetterMap}, so it also contains
   \java{MyLinearMap} objects, and it implements \java{Map}.
 \item
-  \java{MyFixedHashMap} also extends \java{MyHashMap}, and it
+  \java{MyFixedHashMap} extends \java{MyHashMap} and
   implements \java{Map}.
 \end{itemize}
 
@@ -4736,6 +4740,8 @@ use ``UML class diagrams''. UML stands for
 Modeling Language}; a class diagram is one of several graphical
 standards defined by UML.
 
+% Edit: http://yuml.me/edit/2aa18a2d
+
 In a class diagram, each class is represented by a box, and
 relationships between classes are represented by
 arrows. Figure~\ref{fig-uml} shows a UML class diagram for the classes
@@ -4744,7 +4750,7 @@ from the previous exercise, generated using the online tool yUML at
 
 \begin{figure}
 \centering
-\includegraphics[width=5in]{figs/yuml1.png}
+\includegraphics[width=5in]{figs/yuml1.pdf}
 \caption{UML diagram for the classes in this exercise.}
 \label{fig-uml}
 \end{figure}
@@ -4757,14 +4763,17 @@ Different relationships are represented by different arrows:
   Arrows with a solid head indicate HAS-A relationships. For example,
   each instance of \java{MyBetterMap} contains multiple instances of
   \java{MyLinearMap}, so they are connected by a solid arrow.
+
 \item
   Arrows with a hollow head and a solid line indicate IS-A
   relationships. For example, \java{MyHashMap} extends
   \java{MyBetterMap}, so they are connected by an IS-A arrow.
+
 \item
-  Arrows with a hollow head and a dashed line indicate that one class
-  implements another; in this diagram, every class implements
-  \java{Map} (except \java{Map} itself).
+  Arrows with a hollow head and a dashed line indicate that a class
+  implements an interface; in this diagram, every class implements
+  \java{Map}.
+
 \end{itemize}
 
 UML class diagrams provide a concise way to represent a lot of
@@ -4839,16 +4848,16 @@ every \java{node} has the ``BST property'':
   be greater than the key in \java{node}.
 \end{enumerate}
 
-Figure~\ref{fig-bst}
-shows a tree of integers that has this property.
-
 \begin{figure}
 \centering
-\includegraphics[height=2.5in]{figs/200px-Binary_search_tree-svg.png}
+\includegraphics[height=2.5in]{figs/Binary_search_tree_1229.png}
+%\includegraphics[height=2.5in]{figs/Binary_search_tree.svg}
 \caption{Example of a binary search tree.}
 \label{fig-bst}
 \end{figure}
 
+Figure~\ref{fig-bst}
+shows a tree of integers that has this property.
 This figure is from the Wikipedia page on binary search trees at
 \url{https://en.wikipedia.org/wiki/Binary_search_tree}, which you
 might find useful while you work on this exercise.
@@ -7495,8 +7504,8 @@ shows these steps.
 
 \begin{figure}
 \centering
-\includegraphics[height=2.5in]{figs/figure1.png}
-\caption{Example of merge sort.}
+\includegraphics[height=2.5in]{figs/merge_sort1.pdf}
+\caption{Representation of merge sort showing one level of recursion.}
 \label{fig-sort1}
 \end{figure}
 
@@ -7508,8 +7517,8 @@ of recursion, as in Figure~\ref{fig-sort2}.
 
 \begin{figure}
 \centering
-\includegraphics[height=2.5in]{figs/figure2.png}
-\caption{Example of merge sort showing all levels of recursion.}
+\includegraphics[height=2in]{figs/merge_sort2.pdf}
+\caption{Representation of merge sort showing all levels of recursion.}
 \label{fig-sort2}
 \end{figure}
 
@@ -7614,7 +7623,7 @@ shows an example with
 
 \begin{figure}
 \centering
-\includegraphics[height=2.5in]{figs/figure3.png}
+\includegraphics[height=2.0in]{figs/radix_sort1.pdf}
 \caption{Example of radix sort with three-letter words.}
 \label{fig-sort3}
 \end{figure}
