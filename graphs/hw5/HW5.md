@@ -11,11 +11,12 @@ Constructor:
 
 Methods:
 - `int size()`, return the board size (our challenge is the 8 puzzle, but in theory you should be able to expand this to any size)
-- (?) `int hamming()`, return the Hamming number of the board state
-- (?) `int manhattan()`, return the sum of the Manhattan distances between the tiles and the goal
+- `int manhattan()`, return the sum of the Manhattan distances between the tiles and the goal
 - `boolean isGoal()`, return true if the board is the solved puzzle
-- `boolean isSolvable()`, return true if the state is a solvable board
+- `boolean isSolvable()`, return true if the tile state is a solvable board
+- `boolean equals(Object y)`, return true if the tile state is equal to y
 - `Iterable<Board> neighbors()`, reteurn the neighbor boards in the tree
+- `Board twin()`, return the twin of the board (two tiles swapped)
 - `void printBoard(int[][] grid)`, prints out the board state 2D array nicely for debugging
 - Plus: whatever helper methods you need to make your code readable ...
 
@@ -28,7 +29,7 @@ Constructor:
 
 Methods:
 - `int moves()`, give the min number of moves to solve the initial board
-- `Iterable<Board> solution()`, return the sequence of boards in a shortest solution
+- `Iterable<Board> solution()`, return the sequence of boards in a shortest solution, return null if unsolvable
 
 ## Step 3:
 
