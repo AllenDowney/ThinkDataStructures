@@ -1,4 +1,4 @@
-# Graphs Homework 3
+# Graphs Homework 2
 
 Make a class `Dijkstra.java`
 
