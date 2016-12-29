@@ -53,6 +53,17 @@ public class DFSTest {
     }
 
     /**
+     * Test method for {@link DFS#connected(Graph, int, int)}.
+     */
+    @Test
+    public void testConnected() {
+        assertThat(DFS.connected(g1, 0, 5), is(true));
+        assertThat(DFS.connected(g1, 0, 8), is(false));
+        assertThat(DFS.connected(g2, 4, 3), is(true));
+        assertThat(DFS.connected(g2, 3, 4), is(false));
+    }
+
+    /**
      * Test method for {@link DFS#topologicalOrder(Digraph)}.
      */
     @Test
