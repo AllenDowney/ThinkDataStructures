@@ -19,7 +19,7 @@ Write a short comment at the beginning of each method detailing the runtime comp
 
 ## Breadth First Search
 
-Make a class `Search.java`:
+Make a class `BFS.java`:
 
 Methods:
 - `List<Integer> shortestPath(Graph g, int v, int w)` Returns a list of vertices that is the shortest path from `v` to `w` (the first element in the `List` should be `v`, the last element should be `w`). Return `null` if there is no path.
