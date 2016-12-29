@@ -9,31 +9,35 @@ import java.util.Stack;
 
 public class Solver {
 
-    private MinPQ<Node> pq = new MinPQ<Node>();
+    private MinPQ<State> pq = new MinPQ<State>();
     private int minMoves = -1;
-    private Node bestNode;
+    private State bestState;
     private boolean solved;
 
-    private class Node implements Comparable<Node> {
+    private class State implements Comparable<State> {
+        // Each state needs to keep track of it's cost and the previous state
         private Board board;
-        private int moves, dist;
-        private Node prev;
+        private int moves;
+        private int cost;
+        private State prev;
 
-        public Node(Board board, int moves, Node prev) {
+        public State(Board board, int moves, State prev) {
             this.board = board;
             this.moves = moves;
             this.prev = prev;
-            dist = board.manhattan();
+            // Compute cost of board state according to A*
+            cost = this.moves + board.manhattan();
         }
 
         @Override
-        public int compareTo(Node that) {
-            return this.moves + this.dist - that.moves - that.dist;
+        public int compareTo(State s) {
+            int stateComparison = this.cost - s.cost;
+            return stateComparison;
         }
     }
 
-    private Node root(Node node) {
-        Node current = node;
+    private State root(State state) {
+        State current = state;
         while (current.prev != null) {
             current = current.prev;
         }
@@ -46,26 +50,26 @@ public class Solver {
         if (initial == null) {
             throw new NullPointerException();
         }
-        pq.insert(new Node(initial, 0, null));
-        pq.insert(new Node(initial.twin(), 0, null));
+        pq.insert(new State(initial, 0, null));
+        pq.insert(new State(initial.twin(), 0, null));
         while (!pq.isEmpty()) {
-            Node current = pq.delMin();
+            State current = pq.delMin();
             if (current.board.isGoal()) {
-                Node root = root(current);
+                State root = root(current);
                 if (!root.board.equals(initial)) {
                     break;
                 }
                 solved = true;
                 if (minMoves == -1 || current.moves < minMoves) {
                     minMoves = current.moves;
-                    bestNode = current;
+                    bestState = current;
                 }
             }
-            if (minMoves == -1 || current.moves + current.dist < minMoves) {
+            if (minMoves == -1 || current.cost < minMoves) {
                 Iterable<Board> it = current.board.neighbors();
                 for (Board b : it) {
                     if (current.prev == null || !b.equals(current.prev.board)) {
-                        pq.insert(new Node(b, current.moves + 1, current));
+                        pq.insert(new State(b, current.moves + 1, current));
                     }
                 }
             } else {
@@ -83,7 +87,7 @@ public class Solver {
         // Sequence of boards in a shortest solution; null if unsolvable
         if (isSolvable()) {
             Stack<Board> sol = new Stack<Board>();
-            Node current = bestNode;
+            State current = bestState;
             while (current != null) {
                 sol.push(current.board);
                 current = current.prev;
