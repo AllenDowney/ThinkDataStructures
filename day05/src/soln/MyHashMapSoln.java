@@ -9,7 +9,7 @@ import java.util.*;
  * @param <V>
  *
  */
-public class MyHashMap<K, V> implements Map<K, V> {
+public class MyHashMapSoln<K, V> implements Map<K, V> {
 
 	// average number of entries per map before we rehash
 	protected static final double ALPHA = 2.0;
@@ -21,7 +21,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
 	protected List<MyLinearMap<K,V>> maps;
 	private int size = 0;
 
-	public MyHashMap() {
+	public MyHashMapSoln() {
 		makeMaps(2);
 	}
 
@@ -38,12 +38,17 @@ public class MyHashMap<K, V> implements Map<K, V> {
 	@Override
 	public boolean containsKey(Object key) {
 		// TODO: Complete this method
-        return false;
+        MyLinearMap<K,V> map = chooseMap(key);
+		return map.containsKey(key);
 	}
 
 	@Override
 	public boolean containsValue(Object value) {
 		// TODO: Complete this method
+        for (MyLinearMap<K,V> map : maps) {
+			if (map.containsValue(value)) return true;
+		}
+
 		return false;
 	}
 
@@ -56,18 +61,32 @@ public class MyHashMap<K, V> implements Map<K, V> {
 	@Override
 	public V put(K key, V value) {
         // TODO: Complete this method
-        return null;
+        MyLinearMap<K,V> map = chooseMap(key);
+		size -= map.size();
+		V oldValue = map.put(key, value);
+		size += map.size();
+
+		// check if the number of elements per map exceeds the threshold
+		if (size() > maps.size() * ALPHA) {
+			size = 0;
+			rehash();
+		}
+		return oldValue;
 	}
 
 	@Override
 	public V remove(Object key) {
 		// TODO: Complete this method
-        return null;
+        MyLinearMap<K,V> map = chooseMap(key);
+		size -= map.size();
+		V oldValue = map.remove(key);
+		size += map.size();
+		return oldValue;
 	}
 
 	@Override
 	public void putAll(Map<? extends K, ? extends V> m) {
-		for (Entry<? extends K, ? extends V> entry : m.entrySet()) {
+		for (Map.Entry<? extends K, ? extends V> entry : m.entrySet()) {
 			put(entry.getKey(), entry.getValue());
 		}
 	}
@@ -77,9 +96,20 @@ public class MyHashMap<K, V> implements Map<K, V> {
 	 */
 	protected void rehash() {
 		// TODO: Implement this method
+		List<MyLinearMap<K,V>> oldMaps = maps;
+        int newSize = (int) (maps.size() * RESIZE_FACTOR);
+
+        makeMaps(newSize);
+
+		for (MyLinearMap<K,V> map : oldMaps) {
+			for (Map.Entry<K,V> entry : map.getEntries()) {
+				put(entry.getKey(), entry.getValue());
+			}
+		}
 	}
 
 	protected void makeMaps(int size) {
+		// TODO: Implement this method
 		maps = new ArrayList<>();
 		for (int i=0; i<size; i++) {
 			maps.add(new MyLinearMap<K, V>());
@@ -93,6 +123,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
 	}
 
 	protected MyLinearMap<K, V> chooseMap(Object key) {
+		// TODO: Implement this method
 		int index = key==null ? 0 : Math.abs(key.hashCode()) % maps.size();
 		return maps.get(index);
 	}
@@ -122,17 +153,5 @@ public class MyHashMap<K, V> implements Map<K, V> {
 			set.addAll(map.getEntries());
 		}
 		return set;
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Map<String, Integer> map = new MyHashMap<String, Integer>();
-		for (int i=0; i<10; i++) {
-			map.put(new Integer(i).toString(), i);
-		}
-		Integer value = map.get("3");
-		System.out.println(value);
 	}
 }

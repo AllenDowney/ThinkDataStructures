@@ -1,5 +1,9 @@
 package solutions;
 
+/**
+ * Doubly Linked List implementation
+ * @param <T>
+ */
 public class MyLinkedList<T> {
 
 	private MyLinkedListNode header;

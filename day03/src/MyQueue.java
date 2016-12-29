@@ -3,7 +3,7 @@ import ADTs.QueueADT;
 /**
  * An implementation of the Queue interface.
  */
-public class MyQueue implements QueueADT<Integer> {
+public class MyQueue<T> implements QueueADT<T> {
 
     @Override
     public int size() {
@@ -12,12 +12,12 @@ public class MyQueue implements QueueADT<Integer> {
     }
 
     @Override
-    public void enqueue(Integer item) {
+    public void enqueue(T item) {
         // TODO: YOUR CODE HERE
     }
 
     @Override
-    public Integer dequeue() {
+    public T dequeue() {
         // TODO: YOUR CODE HERE
         return null;
     }

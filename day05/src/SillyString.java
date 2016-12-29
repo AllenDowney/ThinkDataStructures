@@ -1,13 +1,5 @@
-/**
- *
- */
-
 import java.util.Map;
 
-/**
- * @author downey
- *
- */
 public class SillyString {
 	private final String innerString;
 
@@ -30,7 +22,6 @@ public class SillyString {
 		for (int i=0; i<innerString.length(); i++) {
 			total += innerString.charAt(i);
 		}
-		System.out.println(total);
 		return total;
 	}
 
@@ -38,15 +29,10 @@ public class SillyString {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Map<SillyString, Integer> map = new MyBetterMap<SillyString, Integer>();
+        SillyString first = new SillyString("Hello");
+		SillyString second = new SillyString("World");
 
-		map.put(new SillyString("Word1"), 1);
-		map.put(new SillyString("Word2"), 2);
-		Integer value = map.get(new SillyString("Word1"));
-		System.out.println(value);
-
-		for (SillyString key: map.keySet()) {
-			System.out.println(key + ", " + map.get(key));
-		}
+		System.out.println(first.hashCode());
+		System.out.println(second.hashCode());
 	}
 }

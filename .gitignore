@@ -1,4 +1,5 @@
 *.class
+.DS_Store
 redis_url.txt
 
 # Mobile Tools for Java (J2ME)
