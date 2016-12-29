@@ -1,8 +1,6 @@
-package soln;
-
 import java.util.*;
 
-public class Search {
+public class BFS {
 
     public static List<Integer> shortestPath(Graph g, int v, int w) {
         Queue<Integer> q = new LinkedList<>();

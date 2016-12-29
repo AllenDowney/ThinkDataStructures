@@ -120,7 +120,7 @@ public class MazeGenerator {
         int to = new Random().nextInt(3 * maze.n * maze.n / 4);
 
         // use BFS to solve shortest path
-        List<Integer> path = Search.shortestPath(g, from, to);
+        List<Integer> path = BFS.shortestPath(g, from, to);
         StdDraw.pause(1000);
 
         // Convert back into x-y coordinates and plot points on maze
