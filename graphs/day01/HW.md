@@ -1,4 +1,4 @@
-# Graphs Homework 2
+# Graphs Homework 1
 
 Make a class `DFS.java`
 
