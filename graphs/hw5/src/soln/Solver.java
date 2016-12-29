@@ -79,11 +79,6 @@ public class Solver {
         return solved;
     }
 
-    public int moves() {
-        // Min number of moves to solve the initial board
-        return minMoves;
-    }
-
     public Iterable<Board> solution() {
         // Sequence of boards in a shortest solution; null if unsolvable
         if (isSolvable()) {
@@ -110,7 +105,7 @@ public class Solver {
             System.out.println("No solution");
         else {
             for (Board board : solver.solution())
-                board.printArray(board.tiles);
+                board.printBoard(board.tiles);
         }
     }
 

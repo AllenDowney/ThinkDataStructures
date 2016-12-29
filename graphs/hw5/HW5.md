@@ -11,12 +11,10 @@ Constructor:
 
 Methods:
 - `int size()`, return the board size (our challenge is the 8 puzzle, but in theory you should be able to expand this to any size)
-- `int manhattan()`, return the sum of the Manhattan distances between the tiles and the goal
+- `int manhattan()`, return the sum of the Manhattan distances between the tiles and the goal, this is the estimated cost from the current state to the goal for A*
 - `boolean isGoal()`, return true if the board is the solved puzzle
-- `boolean isSolvable()`, return true if the tile state is a solvable board
-- `boolean equals(Object y)`, return true if the tile state is equal to y
+- `boolean equals(Object y)`, return true if the board equals an input Board object
 - `Iterable<Board> neighbors()`, reteurn the neighbor boards in the tree
-- `Board twin()`, return the twin of the board (two tiles swapped)
 - `void printBoard(int[][] grid)`, prints out the board state 2D array nicely for debugging
 - Plus: whatever helper methods you need to make your code readable ...
 
@@ -28,7 +26,7 @@ Constructor:
 - `Solver(Board initState)`, finds a solution to an intial 8 puzzle board state using Dijkstra or A*
 
 Methods:
-- `int moves()`, give the min number of moves to solve the initial board
+- `boolean isSolvable()`, returns false if the board is determined to be unsolvable
 - `Iterable<Board> solution()`, return the sequence of boards in a shortest solution, return null if unsolvable
 
 ## Step 3:
