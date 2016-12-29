@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-public class WeightedSearch {
+public class Dijkstra {
 
     public static List<Integer> shortestPath(WeightedGraph g, int v, int w) {
 

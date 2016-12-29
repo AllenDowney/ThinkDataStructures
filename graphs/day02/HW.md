@@ -1,6 +1,6 @@
 # Graphs Homework 3
 
-Make a class `WeightedSearch.java`
+Make a class `Dijkstra.java`
 
 Methods:
 - `List<Integers> shortestPath(WeightedGraph g, int v, int w)` Returns a list of vertices that is the shortest path from `v` to `w` (the first element in the `List` should be `v`, the last element should be `w`). Return `null` if there is no path.
