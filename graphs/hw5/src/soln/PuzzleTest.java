@@ -38,23 +38,6 @@ public class PuzzleTest {
         assertThat(board.isGoal(), is(false));
     }
 
-    /**
-     * Test method for Iterable<Board> neighbors().
-     */
-    @Test
-    public void testNeighbors() {
-        // Create list of correct neighbors
-        int neighbors[][][] = {{{1, 2, 3}, {4, 0, 6}, {7, 5, 8}},
-                                {{1, 2, 3}, {4, 5, 6}, {0, 7, 8}},
-                                {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}}};
-        //Compare to output
-        int i = 0;
-        for (Board neighbor : board.neighbors()) {
-            assertThat(neighbor.tiles, is(neighbors[i]));
-            i++;
-        }
-    }
-
     // Test solver with several initial board states
 
     /**
