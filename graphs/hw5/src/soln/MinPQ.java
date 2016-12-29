@@ -18,7 +18,7 @@
  *  the repeated doubling operation.
  *
  *************************************************************************/
-
+package soln;
 public class MinPQ<Item extends Comparable<Item>> {
     private Item[] pq;     // store element at indices 1 to N
     private int N;         // number of elements on priority queue

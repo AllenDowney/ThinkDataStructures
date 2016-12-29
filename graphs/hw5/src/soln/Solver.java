@@ -3,6 +3,8 @@
  * Construct a tree of board states using A* to 
  */
 
+package soln;
+
 import java.util.Stack;
 
 public class Solver {
@@ -97,20 +99,18 @@ public class Solver {
     }
 
     public static void main(String[] args) {
-        // Move to test
+        // DEBUG - Your solution can be whatever output you found useful
         // Create initial board
-        int[][] initState = {{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};
+        int[][] initState = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}};
         Board initial = new Board(initState);
 
-        // solve the puzzle
+        // Solve the puzzle
         Solver solver = new Solver(initial);
-        // Print solution to standard output
         if (!solver.isSolvable())
-            System.out.println("No solution possible");
+            System.out.println("No solution");
         else {
-            System.out.println("Minimum number of moves = " + solver.moves());
             for (Board board : solver.solution())
-                board.printBoard();
+                board.printArray(board.tiles);
         }
     }
 

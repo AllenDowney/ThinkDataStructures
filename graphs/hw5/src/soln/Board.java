@@ -2,12 +2,14 @@
  * Board definition for the 8 Puzzle challenge
  */
 
+package soln;
+
 import java.util.Stack;
 
 public class Board {
 
     private int n;
-    private int[][] tiles;
+    public int[][] tiles;
     private int[][] goal = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
 
     public Board(int[][] b) {
@@ -24,13 +26,13 @@ public class Board {
     }
 
     public int size() {
-        // Size of the board
+        // Size of the board (equal to 3 for 8 puzzle)
         return n;
     }
 
     public int manhattan() {
         // Sum of the manhattan distances between the tiles and the goal
-        // Estimated cost from the current node to the goal
+        // Estimated cost from the current node to the goal for A*
         int sum = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -73,14 +75,16 @@ public class Board {
     }
 
     public boolean equals(Object y) {
-        // does this board equal y?
+        // Check if the board equals an input Board object
         if (y == this) return true;
         if (y == null) return false;
         if (y.getClass() != this.getClass()) return false;
         Board that = (Board) y;
+        // Check if the same size
         if (that.tiles.length != n || that.tiles[0].length != n) {
             return false;
         }
+        // Check if the same tile configuration
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (this.tiles[i][j] != that.tiles[i][j]) {
@@ -93,6 +97,7 @@ public class Board {
 
     public Iterable<Board> neighbors() {
         // Return the neighboring boards in the state tree
+        // This can be done in a variety of ways
         int i0 = 0, j0 = 0;
         boolean found = false;
         for (int i = 0; i < n; i++) {
@@ -135,7 +140,7 @@ public class Board {
     }
 
     // Neighbors helper
-    private boolean swap(int i, int j, int it, int jt) {
+    public boolean swap(int i, int j, int it, int jt) {
         if (it < 0 || it >= n || jt < 0 || jt >= n) {
             return false;
         }
@@ -145,32 +150,8 @@ public class Board {
         return true;
     }
 
-    public Board twin() {
-        // Flip two blocks in same row
-        Board newBoard = new Board(tiles);
-        for (int i = n - 1; i >= 0; i--) {
-            for (int j = n - 2; j >= 0; j--) {
-                if (newBoard.tiles[i][j] != 0 && newBoard.tiles[i][j + 1] != 0) {
-                    newBoard.swap(i, j, i, j + 1);
-                    return newBoard;
-                }
-            }
-        }
-        return null;
-    }
-
-    // Print out the board state nicely
-    void printBoard() {
-        for(int r=0; r<this.tiles.length; r++) {
-            for(int c=0; c<this.tiles[r].length; c++)
-                System.out.print(this.tiles[r][c] + " ");
-            System.out.println();
-        }
-        System.out.println();
-    }
-
-    // Print out tiles nicely
-    static void printArray(int[][] grid) {
+    static void printBoard(int[][] grid) {
+        // Print out the board state nicely
         for(int r=0; r<grid.length; r++) {
             for(int c=0; c<grid[r].length; c++)
                 System.out.print(grid[r][c] + " ");
@@ -180,11 +161,11 @@ public class Board {
     }
 
     public static void main(String[] args) {
-        // DEBUG (will remove)
+        // DEBUG - Your solution can be whatever output you found useful
         int[][] initState = {{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};
         Board board = new Board(initState);
 
-        printArray(board.tiles);
+        printBoard(board.tiles);
         System.out.print("Size: ");
         System.out.println(board.size());
         System.out.print("Manhattan: ");
@@ -194,7 +175,7 @@ public class Board {
         System.out.println("Neighbors:");
         Iterable<Board> it = board.neighbors();
         for (Board b : it) {
-            printArray(b.tiles);
+            printBoard(b.tiles);
         }
     }
 
