@@ -1,4 +1,4 @@
-# Day01 - `LinkedList`s
+# Day02 - `LinkedList`s
 
 ## Learning Goals
 
@@ -12,9 +12,7 @@
 In this homework assignment, you are going to given the class definition and some method definitions of `MyLinkedList`
 ```java
 // MyLinkedList.java
-public class MyLinkedList {
-...
-}
+public class MyLinkedList<T> {...}
 ```
 
 With each problem, we will add functionality to our classes to more closely match the real functionality of a real Java `LinkedList`.
@@ -27,7 +25,6 @@ public class Chicken {
     String name;
     int age;
     String color;
-    ...
 }
 ```
 The tests you will be running on your `MyLinkedList` class will be using this `Chicken` class.
@@ -40,13 +37,13 @@ The tests you will be running on your `MyLinkedList` class will be using this `C
 
 ## Code
 
-1. Create a constructor that initializes a `MyLinkedList`. We want to implement our data structure as a doubly-linked list. Make sure to have pointer to the head of our list.
+1. Create a constructor that initializes a `MyLinkedList`. We want to implement our data structure as a doubly-linked list (DLL). Make sure to have a pointer to the head of our list.
 
-    `public MyLinkedList(){...}`
+    `public MyLinkedList() {...}`
 
 2. Implement a method called `add` that will add a `Chicken` to the end of your `MyLinkedList`.
 
-    `public void add(Chicken c){...}`
+    `public void add(Chicken c) {...}`
 
 3. How many chickens does Joe have? Implement a method called `size` that returns the number of chickens currently in your farm. Make sure to make this an $$O(1)$$ operation.
 
@@ -64,21 +61,50 @@ The tests you will be running on your `MyLinkedList` class will be using this `C
 
     `public void add(int index, Chicken c){...}`
 
-## Optional
+7. Test your DLL by running `MyLinkedListTest.java`. Make all test cases pass.
 
-7. Joe would like to continue to expand his business into different animals! Make your `MyLinkedList` generic. In order to test your new generic `MyLinkedList`, edit `MyLinkedListTest.java` and find the four lines that need to be commented/uncommented. Look for the following sections:
+### Generics in Java
 
-    ```java
-    // QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
-    MyLinkedList chickens;
-    
-    // QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
-    //MyLinkedList<Chicken> chickens;
-    ...
-    // QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
-    chickens = new MyLinkedList();
-    
-    // QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
-    //chickens = new MyLinkedList<Chicken>();
-    ```
+Generics in Java will allow devs to generalize method and classes declarations. Generic classes act as stand-ins for `any class`. In this example, you can make the DLL generic by changing the class declaration to
 
+```java
+public class MyLinkedList<T> {...}
+```
+
+And the constructor changes to
+
+```java
+MyLinkedList<Chickens> anyAnimal = new MyLinkedList<>();
+```
+
+Here, `T` will be replaced by whatever is specified between the `<>` in the new constructor.
+
+### Making `MyLinkedList` generic
+
+1. Joe would like to continue to expand his business into different animals! Make your `MyLinkedList` generic. Start with the class declaration as shown in the paragraph above.
+
+2. Generalize the `add` method to take in a generic object instead of a `Chicken` object, and change the implementation accordingly.
+
+	`public void add(T elem) {}`
+
+3. We will stop scaffolding here and let you tinker with the remaining methods. Good luck!
+
+In order to test your new generic `MyLinkedList`, edit `MyLinkedListTest.java` and find the four lines that need to be commented/uncommented. Look for the following sections:
+
+```java
+// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
+MyLinkedList chickens;
+
+// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
+//MyLinkedList<Chicken> chickens;
+...
+// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
+chickens = new MyLinkedList();
+
+// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
+//chickens = new MyLinkedList<Chicken>();
+```
+
+## Strongly suggested, but Optional
+
+Now that you've made the DLL generic, we strongly suggest going back and make your AL generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
