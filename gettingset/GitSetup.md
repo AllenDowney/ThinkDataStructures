@@ -13,7 +13,7 @@ In order to pull any updates that we make to the original DSA-17 repository down
 
 ## DSA Repository Usage
 
-![Git Usage Image](https://drive.google.com/uc?id=0B9O1OugmZywzRGkxaVRkV1I5X0U "Usage")
+![Git Usage Image](https://drive.google.com/uc?id=0B9O1OugmZywzWGRZUFprOE1UZXM "Usage")
 
 ### Updating DSA-17
 Now that the remote has been added, you can pull updates from **upstream** at any time using `git pull upstream master` on top of pushing to and pulling from your forked repository (**origin**) as usual.
