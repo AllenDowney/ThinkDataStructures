@@ -2,7 +2,7 @@
 
 ## DSA Repository Setup
 
-![Git Setup Image](https://drive.google.com/uc?id=0B9O1OugmZywzdmlFdE42TWtTbFk "Setup")
+![Git Setup Image](https://drive.google.com/uc?id=0B9O1OugmZywzWU9FcUJuVnlYTnM "Setup")
 
 ### Forking the DSA-17 Repository
 To set up your DSA repository, first fork `Olin-DSA/DSA-17`, which you can find [here](https://github.com/Olin-DSA/DSA-17).  Then clone your forked repository to your machine.
