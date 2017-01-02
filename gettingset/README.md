@@ -57,6 +57,7 @@ Click OK. A new window should open. IntelliJ needs you to specify a place for it
 If you don't have `git` installed:
 
 - Install Git: either with `Homebrew` (Mac) or with this [tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-14-04) (Ubuntu). You can also find instructions [here](https://gist.github.com/benkahle/892fdb2531c5f388296a) which are specific to Olin laptops.
+- Follow the instructions in the GitSetup.md file to fork and interface with our repository.
 
 **Optional** Complete **at least 10 levels** of [this](http://learngitbranching.js.org/) Git tutorial.
 
@@ -64,6 +65,7 @@ If you don't have `git` installed:
 
 - [ ] IntelliJ is installed and I've run `HelloWorld.java`
 - [ ] **Optional** I've familiarized myself with the debugger.
+- [ ] Git is installed and I've forked and set up the DSA-17 repository
 - [ ] **Optional** I've completed 10 levels of the [Git tutorial](http://learngitbranching.js.org/)
 - [ ] I've joined our channel `#dsa-17` on Slack.
 - [ ] I've filled out [this](https://goo.gl/forms/JZcEDseDYbJK1SEC2) Google form.
