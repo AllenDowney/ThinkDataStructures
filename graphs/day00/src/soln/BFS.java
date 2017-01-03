@@ -1,8 +1,6 @@
-package soln;
-
 import java.util.*;
 
-public class Search {
+public class BFS {
 
     public static List<Integer> shortestPath(Graph g, int v, int w) {
         Queue<Integer> q = new LinkedList<>();
@@ -34,6 +32,13 @@ public class Search {
             path.add(curr);
         }
         return path;
+    }
+
+    public static int distanceBetween(Graph g, int v, int w) {
+        List<Integer> path = shortestPath(g, v, w);
+        if (path == null)
+            return -1;
+        return path.size() - 1;
     }
 
 }

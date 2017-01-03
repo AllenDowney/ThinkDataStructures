@@ -1,4 +1,4 @@
-# Graphs Homework 5
+# Graphs Homework 4
 
 Create the necessary classes to implement the 8-puzzle solver.  If you need a reminder of the puzzle details or any of the solve methods that we talked about in class, refer back to the 8-Puzzle power point.
 

@@ -1,21 +1,20 @@
 import java.util.*;
 
-public class Search {
+public class DFS {
 
-    public static List<Integer> shortestPath(Graph g, int v, int w) {
+    public static boolean connected(Graph g, int v, int u) {
         // TODO: YOUR CODE HERE
-    }
-
-    public static int distanceBetween(Graph g, int v, int w) {
-        // TODO: YOUR CODE HERE
+        return false;
     }
 
     public static List<Integer> topologicalOrder(Digraph g) {
         // TODO: YOUR CODE HERE
+        return null;
     }
 
     public static boolean hasCycle(Graph g) {
         // TODO: YOUR CODE HERE
+        return false;
     }
 
 }

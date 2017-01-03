@@ -5,12 +5,10 @@
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
 
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
-public class WeightedSearchTest {
+public class DijkstraTest {
 
     private WeightedGraph g1, g2;
 
@@ -41,26 +39,26 @@ public class WeightedSearchTest {
     }
 
     /**
-     * Test method for {@link WeightedSearch#shortestPath(WeightedGraph, int, int)}.
+     * Test method for {@link Dijkstra#shortestPath(WeightedGraph, int, int)}.
      */
     @Test
     public void testShortestPath() {
-        assertThat(WeightedSearch.shortestPath(g1, 0, 5).toArray(), is(new int[]{0, 2, 5}));
-        assertThat(WeightedSearch.shortestPath(g2, 0, 2).toArray(), is(new int[]{0, 4, 3, 2}));
-        assertThat(WeightedSearch.shortestPath(g2, 4, 5).toArray(), is(new int[]{4, 0, 5}));
-        assertThat(WeightedSearch.shortestPath(g2, 0, 6), nullValue());
+        assertThat(Dijkstra.shortestPath(g1, 0, 5).toArray(), is(new int[]{0, 2, 5}));
+        assertThat(Dijkstra.shortestPath(g2, 0, 2).toArray(), is(new int[]{0, 4, 3, 2}));
+        assertThat(Dijkstra.shortestPath(g2, 4, 5).toArray(), is(new int[]{4, 0, 5}));
+        assertThat(Dijkstra.shortestPath(g2, 0, 6), nullValue());
     }
 
 
 
     /**
-     * Test method for {@link WeightedSearch#distanceBetween(WeightedGraph, int, int)}.
+     * Test method for {@link Dijkstra#distanceBetween(WeightedGraph, int, int)}.
      */
     @Test
     public void testDistanceBetween() {
-        assertThat(WeightedSearch.distanceBetween(g1, 0, 5), is(4.0));
-        assertThat(WeightedSearch.distanceBetween(g2, 1, 5), is(5.0));
-        assertThat(WeightedSearch.distanceBetween(g2, 0, 6), is(-1.0));
+        assertThat(Dijkstra.distanceBetween(g1, 0, 5), is(4.0));
+        assertThat(Dijkstra.distanceBetween(g2, 1, 5), is(5.0));
+        assertThat(Dijkstra.distanceBetween(g2, 0, 6), is(-1.0));
 
     }
 

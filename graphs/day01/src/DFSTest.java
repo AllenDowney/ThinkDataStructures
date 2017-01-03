@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SearchTest {
+public class DFSTest {
 
     private UndirectedGraph g1, g3, g4;
     private Digraph g2;
@@ -52,51 +52,35 @@ public class SearchTest {
         g4.addEdge(0, 3);
     }
 
-
     /**
-     * Test method for {@link Search#shortestPath(Graph, int, int)}.
+     * Test method for {@link DFS#connected(Graph, int, int)}.
      */
     @Test
-    public void testShortestPath() {
-
-        List<Integer> path1 = Search.shortestPath(g1, 0, 6);
-        assertThat(path1.toArray(), is(new int[]{0, 2, 4, 5, 6}));
-
-
-        List<Integer> path2 = Search.shortestPath(g1, 0, 7);
-        assertThat(path2.toArray(), is(new int[]{0, 1, 3, 7}));
-
-        assertThat(Search.shortestPath(g1, 0, 8), nullValue());
+    public void testConnected() {
+        assertThat(DFS.connected(g1, 0, 5), is(true));
+        assertThat(DFS.connected(g1, 0, 8), is(false));
+        assertThat(DFS.connected(g2, 4, 3), is(true));
+        assertThat(DFS.connected(g2, 3, 4), is(false));
     }
 
     /**
-     * Test method for {@link Search#distanceBetween(Graph, int, int)}.
-     */
-    @Test
-    public void testDistanceBetween() {
-        assertThat(Search.distanceBetween(g1, 0, 6), is(4));
-        assertThat(Search.distanceBetween(g1, 0, 8), is(-1));
-    }
-
-
-    /**
-     * Test method for {@link Search#topologicalOrder(Digraph)}.
+     * Test method for {@link DFS#topologicalOrder(Digraph)}.
      */
     @Test
     public void testTopologicalOrder() {
-        assertThat(Search.topologicalOrder(g2).toArray(), is(new int[]{4, 0, 3, 1, 2}));
+        assertThat(DFS.topologicalOrder(g2).toArray(), is(new int[]{4, 0, 3, 1, 2}));
     }
 
 
     /**
-     * Test method for {@link Search#hasCycle(Graph)}.
+     * Test method for {@link DFS#hasCycle(Graph)}.
      */
     @Test
     public void testHasCycle() {
-        assertThat(Search.hasCycle(g1), is(true));
-        assertThat(Search.hasCycle(g2), is(true));
-        assertThat(Search.hasCycle(g3), is(true));
-        assertThat(Search.hasCycle(g4), is(false));
+        assertThat(DFS.hasCycle(g1), is(true));
+        assertThat(DFS.hasCycle(g2), is(true));
+        assertThat(DFS.hasCycle(g3), is(true));
+        assertThat(DFS.hasCycle(g4), is(false));
     }
 
 }
