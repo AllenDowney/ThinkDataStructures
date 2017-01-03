@@ -8,14 +8,20 @@ package soln;
 import java.util.Stack;
 
 public class Solver {
+    private int maxMoves = 32; // This is the number of moves needed to solve the hardest 8 puzzle state. Why?
 
-    private MinPQ<State> pq = new MinPQ<State>();
+    // Create a priority queue with integer keys
+    private MinPQ<State> pq = new MinPQ<>(maxMoves); // Input the maximum depth
     private int minMoves = -1;
     private State bestState;
     private boolean solved;
 
-    private class State implements Comparable<State> {
-        // Each state needs to keep track of it's cost and the previous state
+    /**
+     * In order to make the cost calculations simple, we implement a State class.
+     * This class holds a board state and all of its attributes.
+     */
+    private class State implements Comparable<State>{
+        // Each state needs to keep track of its cost and the previous state
         private Board board;
         private int moves;
         private int cost;
@@ -26,6 +32,7 @@ public class Solver {
             this.moves = moves;
             this.prev = prev;
             // Compute cost of board state according to A*
+            // Current moves + predicted moves to the goal
             cost = this.moves + board.manhattan();
         }
 
@@ -50,10 +57,11 @@ public class Solver {
         if (initial == null) {
             throw new NullPointerException();
         }
-        pq.insert(new State(initial, 0, null));
-        pq.insert(new State(initial.twin(), 0, null));
+        State initBoard = new State(initial, 0, null);
+        pq.insert(initBoard.cost, initBoard);
         while (!pq.isEmpty()) {
-            State current = pq.delMin();
+            State current = pq.minKey();
+            pq.delMin();
             if (current.board.isGoal()) {
                 State root = root(current);
                 if (!root.board.equals(initial)) {
@@ -69,7 +77,8 @@ public class Solver {
                 Iterable<Board> it = current.board.neighbors();
                 for (Board b : it) {
                     if (current.prev == null || !b.equals(current.prev.board)) {
-                        pq.insert(new State(b, current.moves + 1, current));
+                        State newState = new State(b, current.moves + 1, current);
+                        pq.insert(newState.cost, newState);
                     }
                 }
             } else {
