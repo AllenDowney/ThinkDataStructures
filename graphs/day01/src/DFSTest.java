@@ -1,19 +1,14 @@
-/**
- * 
- */
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
-
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class DFSTest {
 
-    private UndirectedGraph g1, g3, g4;
-    private Digraph g2;
+    private UndirectedGraph g1, g2, g3;
+    private Digraph g4;
 
 
     /**
@@ -33,23 +28,23 @@ public class DFSTest {
         g1.addEdge(3, 7);
         g1.addEdge(6, 7);
 
-        g2 = new Digraph(5);
-        g2.addEdge(4, 0);
-        g2.addEdge(0, 2);
-        g2.addEdge(0, 3);
-        g2.addEdge(1, 2);
-        g2.addEdge(3, 1);
-
-        g3 = new UndirectedGraph(5);
-        g3.addEdge(0, 2);
-        g3.addEdge(1, 3);
-        g3.addEdge(1, 4);
-        g3.addEdge(3, 4);
-
-        g4 = new UndirectedGraph(4);
-        g4.addEdge(0, 1);
-        g4.addEdge(1, 2);
+        g4 = new Digraph(5);
+        g4.addEdge(4, 0);
+        g4.addEdge(0, 2);
         g4.addEdge(0, 3);
+        g4.addEdge(1, 2);
+        g4.addEdge(3, 1);
+
+        g2 = new UndirectedGraph(5);
+        g2.addEdge(0, 2);
+        g2.addEdge(1, 3);
+        g2.addEdge(1, 4);
+        g2.addEdge(3, 4);
+
+        g3 = new UndirectedGraph(4);
+        g3.addEdge(0, 1);
+        g3.addEdge(1, 2);
+        g3.addEdge(0, 3);
     }
 
     /**
@@ -59,8 +54,8 @@ public class DFSTest {
     public void testConnected() {
         assertThat(DFS.connected(g1, 0, 5), is(true));
         assertThat(DFS.connected(g1, 0, 8), is(false));
-        assertThat(DFS.connected(g2, 4, 3), is(true));
-        assertThat(DFS.connected(g2, 3, 4), is(false));
+        assertThat(DFS.connected(g4, 4, 3), is(true));
+        assertThat(DFS.connected(g4, 3, 4), is(false));
     }
 
     /**
@@ -68,7 +63,7 @@ public class DFSTest {
      */
     @Test
     public void testTopologicalOrder() {
-        assertThat(DFS.topologicalOrder(g2).toArray(), is(new int[]{4, 0, 3, 1, 2}));
+        assertThat(DFS.topologicalOrder(g4).toArray(), is(new int[]{4, 0, 3, 1, 2}));
     }
 
 
@@ -78,9 +73,9 @@ public class DFSTest {
     @Test
     public void testHasCycle() {
         assertThat(DFS.hasCycle(g1), is(true));
+        assertThat(DFS.hasCycle(g4), is(true));
         assertThat(DFS.hasCycle(g2), is(true));
-        assertThat(DFS.hasCycle(g3), is(true));
-        assertThat(DFS.hasCycle(g4), is(false));
+        assertThat(DFS.hasCycle(g3), is(false));
     }
 
 }

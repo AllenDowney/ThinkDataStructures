@@ -14,7 +14,7 @@ public class Dijkstra {
         for (int u : vertices) {
             distTo[u] = Double.POSITIVE_INFINITY;
             vertexFrom[u] = -1;
-            pq.insert(u, Double.POSITIVE_INFINITY);
+            pq.insert(u, distTo[u]);
         }
 
 

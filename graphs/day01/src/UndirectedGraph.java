@@ -5,14 +5,15 @@ import java.util.List;
 
 public class UndirectedGraph implements Graph {
 
-    private List<Collection<Integer>> adj;
-    private Collection<Integer> vertices;
+    private List<Collection<Integer>> adj;  // Represent the graph using an adjacency list
+    private Collection<Integer> vertices;  // all vertices in the graph
     private int numEdges;
 
     public UndirectedGraph(int n) {
         this.numEdges = 0;
         adj = new ArrayList<>();
         vertices = new LinkedList<>();
+        // initialize each adjacency list
         for (int v = 0; v < n; v++) {
             adj.add(new LinkedList<>());
             vertices.add(v);
