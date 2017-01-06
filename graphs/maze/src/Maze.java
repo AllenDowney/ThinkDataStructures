@@ -5,7 +5,7 @@ import java.awt.*;
  */
 public class Maze {
 
-    public int n;
+    public int n;  // the maze is size nxn
     public boolean[][] north;  // is there a wall to north of cell i, j
     public boolean[][] east;
     public boolean[][] south;
@@ -20,6 +20,7 @@ public class Maze {
         west = new boolean[n][n];
         visited = new boolean[n][n];
 
+        // Initialize all walls to true.
         for (int x = 0; x < n; x++) {
             for (int y = 0; y < n; y++) {
                 north[x][y] = true;

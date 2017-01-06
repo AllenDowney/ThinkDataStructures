@@ -111,7 +111,7 @@ public class MazeGenerator {
         StdDraw.enableDoubleBuffering();
         maze.draw();
 
-        // Convert to a graph
+        // Convert to maze a graph
         UndirectedGraph g = mazeToGraph(maze);
 
         // Choose a from and to point in the bottom left and top right
@@ -123,7 +123,7 @@ public class MazeGenerator {
         List<Integer> path = BFS.shortestPath(g, from, to);
         StdDraw.pause(1000);
 
-        // Convert back into x-y coordinates and plot points on maze
+        // Convert back into x-y coordinates and plot points from solution on maze
         maze.drawPoint(vertexToX(from, maze.n), vertexToY(from, maze.n), StdDraw.BLUE);
         maze.drawPoint(vertexToX(to, maze.n), vertexToY(to, maze.n), StdDraw.BLUE);
         for (int i : path) {
