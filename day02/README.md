@@ -1,4 +1,4 @@
-# Day01 - `LinkedList`s
+# Day02 - `LinkedList`s
 
 ## Learning Goals
 
