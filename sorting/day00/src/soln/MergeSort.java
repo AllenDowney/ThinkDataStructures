@@ -1,5 +1,5 @@
-@SuppressWarnings("WrongPackageStatement")
-class MergeSortSoln extends Sorter {
+
+public class MergeSort extends Sorter {
     @Override
     public int[] sort(int[] array) {
         if (array.length == 1) return array;
