@@ -4,7 +4,7 @@ Create the necessary classes to implement the 8-puzzle solver.  If you need a re
 
 ## Step 1:
 
-Make a class Board.java that represent the puzzle board.  It should have the following methods:
+Make a class `Board.java` that represent the puzzle board.  It should have the following API:
 
 Constructor:
 - `Board(int[][] b)`, creates an 8 Puzzle board state with the tiles 1-8 and a zero for the empty space from the 3x3 2D array input.
@@ -14,8 +14,8 @@ Methods:
 - `int manhattan()`, return the sum of the Manhattan distances between the tiles and the goal, this is the estimated cost from the current state to the goal for A*
 - `boolean isGoal()`, return true if the board is the solved puzzle
 - `boolean equals(Object y)`, return true if the board equals an input Board object
-- `Iterable<Board> neighbors()`, reteurn the neighbor boards in the tree
-- `void printBoard(int[][] grid)`, prints out the board state 2D array nicely for debugging
+- `Iterable<Board> neighbors()`, return the neighbor boards in the tree
+- `void printBoard()`, prints out the board state 2D array nicely for debugging
 - Plus: whatever helper methods you need to make your code readable ...
 
 ## Step 2:

@@ -49,7 +49,7 @@ public class Board {
         return null;
     }
 
-    static void printBoard(int[][] grid) {
+    public void printBoard() {
         // Print out the board state nicely
 
         // TODO: YOUR CODE HERE

@@ -4,6 +4,8 @@
 
 package soln;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 public class Board {
@@ -19,15 +21,18 @@ public class Board {
         // Copy to avoid reference issues
         tiles = new int[n][n];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                tiles[i][j] = b[i][j];
-            }
+            System.arraycopy(b[i], 0, tiles[i], 0, n);
         }
     }
 
     public int size() {
         // Size of the board (equal to 3 for 8 puzzle)
         return n;
+    }
+
+    private int getDistance(int x1, int x2, int y1, int y2) {
+        return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+
     }
 
     public int manhattan() {
@@ -40,9 +45,7 @@ public class Board {
                 if (value != 0 && value != goalValueAt(i, j)) {
                     int initialX = (value - 1) / n;
                     int initialY = value - 1 - initialX * n;
-                    int distance = Math.abs(i - initialX)
-                            + Math.abs(j - initialY);
-                    sum += distance;
+                    sum += getDistance(i, initialX, j, initialY);
                 }
             }
         }
@@ -51,15 +54,13 @@ public class Board {
 
     // Helper for manhattan
     private int goalValueAt(int i, int j) {
-        if (isEnd(i, j)) {
-            return 0;
-        }
+        if (isEnd(i, j)) return 0;
         return 1 + i * n + j;
     }
 
     // Helper for manhattan
     private boolean isEnd(int i, int j) {
-        return i == n - 1 && j == n - 1;
+        return (i == n - 1) && (j == n - 1);
     }
 
     public boolean isGoal() {
@@ -73,6 +74,7 @@ public class Board {
         }
         return true;
     }
+
 
     public boolean equals(Object y) {
         // Check if the board equals an input Board object
@@ -114,32 +116,28 @@ public class Board {
             }
         }
 
-        Stack<Board> boards = new Stack<Board>();
+        List<Board> boards = new LinkedList<>(); // accumulate the neighbors
+
+        // Try moving the blank space up, down, left, and right, and if the
+        // resulting board state is valid, add it to the accumulator.
         Board board = new Board(tiles);
-        boolean isNeighbor = board.swap(i0, j0, i0 - 1, j0);
-        if (isNeighbor) {
-            boards.push(board);
-        }
+        if (board.swap(i0, j0, i0 - 1, j0))
+            boards.add(board);
         board = new Board(tiles);
-        isNeighbor = board.swap(i0, j0, i0, j0 - 1);
-        if (isNeighbor) {
-            boards.push(board);
-        }
+        if (board.swap(i0, j0, i0, j0 - 1))
+            boards.add(board);
         board = new Board(tiles);
-        isNeighbor = board.swap(i0, j0, i0 + 1, j0);
-        if (isNeighbor) {
-            boards.push(board);
-        }
-        board = new Board(tiles);
-        isNeighbor = board.swap(i0, j0, i0, j0 + 1);
-        if (isNeighbor) {
-            boards.push(board);
-        }
+        if (board.swap(i0, j0, i0 + 1, j0))
+            boards.add(board);
+        if (board.swap(i0, j0, i0, j0 + 1))
+            boards.add(board);
 
         return boards;
     }
 
-    // Neighbors helper
+    // Neighbors helper. Tries to swap the tile at i-j with the tile at it, jt
+    // if it or jt are out of bounds, return false.
+    // otherwise, return true, and swap the tile.
     public boolean swap(int i, int j, int it, int jt) {
         if (it < 0 || it >= n || jt < 0 || jt >= n) {
             return false;
@@ -150,11 +148,10 @@ public class Board {
         return true;
     }
 
-    static void printBoard(int[][] grid) {
+    public void printBoard() {
         // Print out the board state nicely
-        for(int r=0; r<grid.length; r++) {
-            for(int c=0; c<grid[r].length; c++)
-                System.out.print(grid[r][c] + " ");
+        for (int[] tile : tiles) {
+            for (int aTile : tile) System.out.print(aTile + " ");
             System.out.println();
         }
         System.out.println();
@@ -165,7 +162,8 @@ public class Board {
         int[][] initState = {{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};
         Board board = new Board(initState);
 
-        printBoard(board.tiles);
+
+        board.printBoard();
         System.out.print("Size: ");
         System.out.println(board.size());
         System.out.print("Manhattan: ");
@@ -174,9 +172,8 @@ public class Board {
         System.out.println(board.isGoal());
         System.out.println("Neighbors:");
         Iterable<Board> it = board.neighbors();
-        for (Board b : it) {
-            printBoard(b.tiles);
-        }
+        for (Board b : it)
+            b.printBoard();
     }
 
 }
