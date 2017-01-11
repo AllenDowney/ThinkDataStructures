@@ -4,12 +4,12 @@ import java.util.*;
 public class Dijkstra {
 
     public static List<Integer> shortestPath(WeightedGraph g, int v, int w) {
-
-        double[] distTo = new double[g.numVertices()];
-        int[] vertexFrom = new int[g.numVertices()];
+        int V = g.numVertices();
+        double[] distTo = new double[V];
+        int[] vertexFrom = new int[V];
         Iterable<Integer> vertices = g.vertices();
         Set<Integer> visited = new HashSet<>();
-        MinPQ<Double> pq = new MinPQ<>(g.numVertices());
+        MinPQ<Double> pq = new MinPQ<>(V);
 
         for (int u : vertices) {
             distTo[u] = Double.POSITIVE_INFINITY;
