@@ -164,12 +164,9 @@ public class Board {
 
 
         board.printBoard();
-        System.out.print("Size: ");
-        System.out.println(board.size());
-        System.out.print("Manhattan: ");
-        System.out.println(board.manhattan());
-        System.out.print("Is goal: ");
-        System.out.println(board.isGoal());
+        System.out.println("Size: " + board.size());
+        System.out.println("Manhattan: " + board.manhattan());
+        System.out.println("Is goal: " + board.isGoal());
         System.out.println("Neighbors:");
         Iterable<Board> it = board.neighbors();
         for (Board b : it)
