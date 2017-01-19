@@ -1,4 +1,3 @@
-package solutions;
 
 public class MyArrayList<T> {
 
