@@ -10,7 +10,7 @@ def find_min(arr):
 def swap(arr, i, j):
     temp = arr[i]
     arr[i] = arr[j]
-    arr[j] = arr[i]
+    arr[j] = temp
 
 def reverse(arr):
     i = 0
