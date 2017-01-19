@@ -25,7 +25,7 @@ def remove_duplicates(arrList):
     while i < arrList.size:
         j = i + 1
         while j < arrList.size:
-            if arrList[j] == arrList[j]:
+            if arrList[i] == arrList[j]:
                 swap(arrList, j, arrList.size - 1)
                 arrList.size = arrList.size - 1
             else:
@@ -73,6 +73,14 @@ def circularly_sorted_better(arr):
         return -1
     return index
 
+def numPairs(arr, n):
+    s = 0
+    for i in range(0, len(arr)):
+        for j in range(i, len(arr)):
+            if arr[i] + arr[j] == n:
+                s += 1
+    return s
+
 def longest_sorted_substring(arr):
 
     start = 0
@@ -87,18 +95,10 @@ def longest_sorted_substring(arr):
                 end = i
         else:
             curr_start = i
-
+            
     return start, end
 
-def numPairs(arr, n):
-    s = 0
-    for i in range(len(arr)):
-        for j in range(i, len(arr)):
-            if arr[i] + arr[j] == n:
-                s += 1
-    return s
-
-# THIS IS UNTESTED, B/C ITS PSEUDOCODE (it's pretty much matlab and python)
+# THIS IS UNTESTED
 def rotate_matrix(matrix):
     for i in range(matrix.n / 2):
         toprow = matrix[i, :] # the top row
