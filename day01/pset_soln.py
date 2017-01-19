@@ -74,22 +74,20 @@ def circularly_sorted_better(arr):
     return index
 
 def longest_sorted_substring(arr):
-    if len(arr) == 0:
-        raise ValueError()
+
     start = 0
     end = 0
 
-    curr_length = 0
     curr_start = 0
 
     for i in range(1, len(arr)):
         if arr[i] >= arr[i-1]:
-            curr_length+=1
-        else:
-            if i - curr_start - 1 > end - start:
+            if i - curr_start > end - start:
                 start = curr_start
-                end = i - 1
-                curr_start = i
+                end = i
+        else:
+            curr_start = i
+
     return start, end
 
 def numPairs(arr, n):
@@ -108,6 +106,3 @@ def rotate_matrix(matrix):
         matrix[:, i] = matrix[matrix.n - i - 1, :] # left column = bottom row
         matrix[matrix.n - i - 1, :] = matrix[:, matrix.n - i - 1] # bottom row = right column
         matrix[:, matrix.n - i - 1] = toprow # right column = top row
-
-
-print find_min([1,6,3,4,2])
