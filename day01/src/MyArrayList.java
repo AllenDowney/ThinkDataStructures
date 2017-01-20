@@ -1,89 +1,82 @@
-
 public class MyArrayList<T> {
-
     private Object[] elems;
-    private int numElems;
+    private int size;
 
-    public MyArrayList(){
-
-        elems = new Object[10];
-        numElems = 0;
-
+    public MyArrayList() {
+    	this(10);
     }
 
-    public void add(T c){
-
-        if(numElems==elems.length){
-            doubleSize();
-        }
-        elems[numElems] = c;
-        numElems++;
-
+    public MyArrayList(int capacity) {
+        elems = new Object[capacity];
+        size = 0;
     }
 
-    public int size(){
+    public void add(T c) {
+        if (size==elems.length)
+                doubleSize();
 
-        return numElems;
-
+        elems[size] = c;
+        size++;
     }
 
-    public T get(int index){
+    public int size() {
+      return size;
+    }
 
-        if(index >= numElems) throw new IndexOutOfBoundsException("Index out of bounds.");
-        return (T)elems[index];
-
+    public T get(int index) {
+        if (index >= size)
+            throw new IndexOutOfBoundsException("Index out of bounds.");
+        return (T) elems[index];
     }
 
     public T remove(int index){
+        if (index >= size)
+            throw new IndexOutOfBoundsException("Index out of bounds.");
 
-        if(index >= numElems) throw new IndexOutOfBoundsException("Index out of bounds.");
-        if(numElems<elems.length/4 && elems.length > 10){
+        if (size<elems.length/4 && elems.length > 10)
             halfSize();
-        }
-        T toRemove = get(index);
+
+        T removed = get(index);
         index++;
-        while(index < numElems){
+
+        // Shift elements to fill empty space from removing element
+        while (index < size) {
             elems[index-1] = elems[index];
             index++;
         }
-        numElems--;
-        return toRemove;
 
+        size--;
+        return removed;
     }
 
     public void add(int index, T c){
+        if (index > size)
+            throw new IndexOutOfBoundsException("Index out of bounds.");
 
-        if(index > numElems) throw new IndexOutOfBoundsException("Index out of bounds.");
-        if(numElems==elems.length){
+        if (size==elems.length)
             doubleSize();
-        }
+
+        // Shift elements to make space for new element
         int mover = index;
-        while(mover<numElems){
+        while (mover<size) {
             elems[mover+1]=elems[mover];
             mover++;
         }
-        elems[index]=c;
-        numElems++;
 
+        elems[index]=c;
+        size++;
     }
 
     private void doubleSize(){
-
         Object[] newElems = new Object[elems.length*2];
-        for(int i = 0; i < numElems; i++){
-            newElems[i] = elems[i];
-        }
+        System.arraycopy(elems, 0, newElems, 0, size);
         elems = newElems;
     }
 
     private void halfSize(){
-
-        Object[] newElems = new Object[Math.max(10,elems.length/2)];
-        for(int i = 0; i < numElems; i++){
-            newElems[i] = elems[i];
-        }
+    	int newCapacity = elems.length / 2;
+        Object[] newElems = new Object[newCapacity];
+        System.arraycopy(elems, 0, newElems, 0, newCapacity);
         elems = newElems;
-
     }
-
 }
