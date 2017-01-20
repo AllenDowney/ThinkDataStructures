@@ -27,7 +27,7 @@ def remove_duplicates(arrList):
         while j < arrList.size:
             if arrList[i] == arrList[j]:
                 swap(arrList, j, arrList.size - 1)
-                arrList.size = arrList.size - 1
+                arrList.pop()
             else:
                 j+=1
         i+=1
