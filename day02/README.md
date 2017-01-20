@@ -37,41 +37,41 @@ The tests you will be running on your `MyLinkedList` class will be using this `C
 
 ## Code
 
-1. Create a constructor that initializes a `MyLinkedList`. We want to implement our data structure as a doubly-linked list (DLL). Make sure to have a pointer to the head of our list.
+1. Create a constructor that initializes a `MyLinkedList`. We want to implement our data structure as a singly-linked list (SLL). Make sure to have a pointer to the head of our list.
 
-    `public MyLinkedList() {...}`
+    `public MyLinkedList()`
 
 2. Implement a method called `add` that will add a `Chicken` to the end of your `MyLinkedList`.
 
-    `public void add(Chicken c) {...}`
+    `public void add(Chicken c)`
 
 3. How many chickens does Joe have? Implement a method called `size` that returns the number of chickens currently in your farm. Make sure to make this an $$O(1)$$ operation.
 
-    `public int size(){...}`
+    `public int size()`
 
 4. Can we inspect a chicken in our `MyLinkedList`? Implement a method called `get` that will return a `Chicken` given the index of the `Chicken`. (Use proper error handling in case a `Chicken` doesn't exist at a given index).
 
-    `public Chicken get(int index){...}`
+    `public Chicken get(int index)`
 
 5. Some chickens might leave the farm for various reasons, and they might leave in any order. If a chicken in the middle leaves, we want to shift all the chickens down so there are no empty spaces of chickens. Implement a method called `remove` that will remove a chicken. Also, make sure to return that `Chicken` so we can "deal" with it later on.
 
-    `public Chicken remove(int index){...}`
+    `public Chicken remove(int index)`
 
-6. How can we add a `Chicken` in the middle of our `MyLinkedList`? Add an overloaded `add` function that takes in an index as a first argument and inserts a chicken at that index. Note that we are not replacing any chickens, just inserting one in between two other chickens. (Also perform error handeling here).
+6. How can we add a `Chicken` in the middle of our `MyLinkedList`? Add an overloaded `add` function that takes in an index as a first argument and inserts a chicken at that index. Note that we are not replacing any chickens, just inserting one in between two other chickens. (Also perform error handling here).
 
-    `public void add(int index, Chicken c){...}`
+    `public void add(int index, Chicken c)`
 
-7. Test your DLL by running `MyLinkedListTest.java`. Make all test cases pass.
+7. Test your SLL by running `MyLinkedListTest.java`. Make all test cases pass.
 
 ### Generics in Java
 
-Generics in Java will allow devs to generalize method and classes declarations. Generic classes act as stand-ins for `any class`. In this example, you can make the DLL generic by changing the class declaration to
+Generics in Java allow devs to generalize method and classes declarations. Generic classes act as stand-ins for `any class`. In this example, you can make the SLL generic by changing the class declaration to
 
 ```java
-public class MyLinkedList<T> {...}
+public class MyLinkedList<T>
 ```
 
-And the constructor changes to
+And the constructor invocation becomes
 
 ```java
 MyLinkedList<Chickens> anyAnimal = new MyLinkedList<>();
@@ -85,7 +85,7 @@ Here, `T` will be replaced by whatever is specified between the `<>` in the new 
 
 2. Generalize the `add` method to take in a generic object instead of a `Chicken` object, and change the implementation accordingly.
 
-	`public void add(T elem) {}`
+	`public void add(T elem)`
 
 3. We will stop scaffolding here and let you tinker with the remaining methods. Good luck!
 
@@ -107,4 +107,4 @@ chickens = new MyLinkedList();
 
 ## Strongly suggested, but Optional
 
-Now that you've made the DLL generic, we strongly suggest going back and make your AL generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
+Now that you've made the SLL generic, we strongly suggest going back and make your AL generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
