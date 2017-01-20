@@ -12,7 +12,7 @@
 In this homework assignment, you are going to given the class definition and some method definitions of `MyLinkedList`
 ```java
 // MyLinkedList.java
-public class MyLinkedList<T>
+public class MyLinkedList
 ```
 
 With each problem, we will add functionality to our classes to more closely match the real functionality of a Java `LinkedList`.
@@ -37,7 +37,7 @@ The tests you will be running on your `MyLinkedList` class will be using this `C
 
 ## Code
 
-1. Create a constructor that initializes a `MyLinkedList`. We want to implement our data structure as a singly-linked list (SLL). Make sure to have a pointer to the head of our list.
+1. Create a constructor that initializes a `MyLinkedList`. We want to implement our data structure as a singly-linked list (SLL). Make sure to have a pointer to the head and tail of our list.
 
     `public MyLinkedList()`
 
@@ -105,10 +105,12 @@ chickens = new MyLinkedList();
 //chickens = new MyLinkedList<Chicken>();
 ```
 
-## Strongly suggested, but Optional
+# Optional Assignments
+
+## Make your ArrayList generic (strongly recommended)
 
 Now that you've made the SLL generic, we strongly suggest going back and make your ArrayList generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
 
-## Optional
+## DLL
 
 Update your `LinkedList` so that it is a doubly-linked-list.
