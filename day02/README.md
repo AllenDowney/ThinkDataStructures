@@ -12,12 +12,12 @@
 In this homework assignment, you are going to given the class definition and some method definitions of `MyLinkedList`
 ```java
 // MyLinkedList.java
-public class MyLinkedList<T> {...}
+public class MyLinkedList<T>
 ```
 
-With each problem, we will add functionality to our classes to more closely match the real functionality of a real Java `LinkedList`.
+With each problem, we will add functionality to our classes to more closely match the real functionality of a Java `LinkedList`.
 
-Joe would like to start a farm that only contains chickens. He wants your help in creating an `LinkedList` to store these chickens in.
+Hieu would like to start a farm that only contains chickens. He wants your help in creating an `LinkedList` to store these chickens in.
 
 You will be provided a `Chicken` class that your `MyLinkedList` will *exclusively* store. Each `Chicken` has the following properties:
 ```java
@@ -45,7 +45,7 @@ The tests you will be running on your `MyLinkedList` class will be using this `C
 
     `public void add(Chicken c)`
 
-3. How many chickens does Joe have? Implement a method called `size` that returns the number of chickens currently in your farm. Make sure to make this an $$O(1)$$ operation.
+3. How many chickens does Hieu have? Implement a method called `size` that returns the number of chickens currently in your farm. Make sure to make this an **O(1)** operation.
 
     `public int size()`
 
@@ -77,11 +77,11 @@ And the constructor invocation becomes
 MyLinkedList<Chickens> anyAnimal = new MyLinkedList<>();
 ```
 
-Here, `T` will be replaced by whatever is specified between the `<>` in the new constructor.
+Here, `T` acts as a stand-in whatever is specified between the `<>` in the new constructor.
 
 ### Making `MyLinkedList` generic
 
-1. Joe would like to continue to expand his business into different animals! Make your `MyLinkedList` generic. Start with the class declaration as shown in the paragraph above.
+1. Hieu would like to continue to expand his business into different animals! Make your `MyLinkedList` generic. Start with the class declaration as shown in the paragraph above.
 
 2. Generalize the `add` method to take in a generic object instead of a `Chicken` object, and change the implementation accordingly.
 
@@ -97,7 +97,7 @@ MyLinkedList chickens;
 
 // QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
 //MyLinkedList<Chicken> chickens;
-...
+
 // QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
 chickens = new MyLinkedList();
 
@@ -107,4 +107,8 @@ chickens = new MyLinkedList();
 
 ## Strongly suggested, but Optional
 
-Now that you've made the SLL generic, we strongly suggest going back and make your AL generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
+Now that you've made the SLL generic, we strongly suggest going back and make your ArrayList generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
+
+## Optional
+
+Update your `LinkedList` so that it is a doubly-linked-list.
