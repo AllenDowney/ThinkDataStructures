@@ -10,7 +10,7 @@ def find_min(arr):
 def swap(arr, i, j):
     temp = arr[i]
     arr[i] = arr[j]
-    arr[j] = arr[i]
+    arr[j] = temp
 
 def reverse(arr):
     i = 0
@@ -25,7 +25,7 @@ def remove_duplicates(arrList):
     while i < arrList.size:
         j = i + 1
         while j < arrList.size:
-            if arrList[j] == arrList[j]:
+            if arrList[i] == arrList[j]:
                 swap(arrList, j, arrList.size - 1)
                 arrList.size = arrList.size - 1
             else:
@@ -73,34 +73,32 @@ def circularly_sorted_better(arr):
         return -1
     return index
 
-def longest_sorted_substring(arr):
-    if len(arr) == 0:
-        raise ValueError()
-    start = 0
-    end = 0
-
-    curr_length = 0
-    curr_start = 0
-
-    for i in range(1, len(arr)):
-        if arr[i] >= arr[i-1]:
-            curr_length+=1
-        else:
-            if i - curr_start - 1 > end - start:
-                start = curr_start
-                end = i - 1
-                curr_start = i
-    return start, end
-
 def numPairs(arr, n):
     s = 0
-    for i in range(len(arr)):
+    for i in range(0, len(arr)):
         for j in range(i, len(arr)):
             if arr[i] + arr[j] == n:
                 s += 1
     return s
 
-# THIS IS UNTESTED, B/C ITS PSEUDOCODE (it's pretty much matlab and python)
+def longest_sorted_substring(arr):
+
+    start = 0
+    end = 0
+
+    curr_start = 0
+
+    for i in range(1, len(arr)):
+        if arr[i] >= arr[i-1]:
+            if i - curr_start > end - start:
+                start = curr_start
+                end = i
+        else:
+            curr_start = i
+            
+    return start, end
+
+# THIS IS UNTESTED
 def rotate_matrix(matrix):
     for i in range(matrix.n / 2):
         toprow = matrix[i, :] # the top row
@@ -108,6 +106,3 @@ def rotate_matrix(matrix):
         matrix[:, i] = matrix[matrix.n - i - 1, :] # left column = bottom row
         matrix[matrix.n - i - 1, :] = matrix[:, matrix.n - i - 1] # bottom row = right column
         matrix[:, matrix.n - i - 1] = toprow # right column = top row
-
-
-print find_min([1,6,3,4,2])
