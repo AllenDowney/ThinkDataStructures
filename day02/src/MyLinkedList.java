@@ -1,10 +1,10 @@
-public class MyLinkedList<T> {
+public class MyLinkedList {
 
 	public MyLinkedList(){
 		// TODO
 	}
 
-	public void add(T c){
+	public void add(Chicken c){
 		// TODO
 	}
 
@@ -13,17 +13,17 @@ public class MyLinkedList<T> {
 		return -1;
 	}
 
-	public T get(int index){
+	public Chicken get(int index){
 		// TODO
 		return null;
 	}
 
-	public T remove(int index){
+	public Chicken remove(int index){
 		// TODO
 		return null;
 	}
 
-	public void add(int index, T c){
+	public void add(int index, Chicken c){
 		// TODO
 	}
 
