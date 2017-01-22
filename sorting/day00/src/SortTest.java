@@ -1,4 +1,3 @@
-import com.sun.org.apache.regexp.internal.RE;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -19,6 +18,11 @@ public class SortTest {
     @Test
     public void testBubbleSort() {
         testSort(new BubbleSort());
+    }
+
+    @Test
+    public void testInsertionSort() {
+        testSort(new InsertionSort());
     }
 
     private void testSort(Sorter sorter) {
