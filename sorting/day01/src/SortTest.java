@@ -12,8 +12,8 @@ public class SortTest {
     private static final int[] RESULT = new int[] {1,2,3,4,5,6,7};
 
     @Test
-    public void testMergeSort() {
-        testSort(new MergeSort());
+    public void testQuickSort() {
+        testSort(new QuickSort());
     }
 
     @Test

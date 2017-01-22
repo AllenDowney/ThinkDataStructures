@@ -13,7 +13,7 @@ public abstract class Sorter {
     }
 
     public static void main(String[] args) {
-        Sorter sorter = new MergeSort();
+        Sorter sorter = new QuickSort();
 
         sorter.printArray(sorter.sort(new int[]{5,4,3,2,1}));
     }
