@@ -87,7 +87,7 @@ Here, `T` acts as a stand-in whatever is specified between the `<>` in the new c
 
 	`public void add(T elem)`
 
-3. We will stop scaffolding here and let you tinker with the remaining methods. Good luck!
+3. Generalize the rest of `MyLinkedList`'s methods.
 
 In order to test your new generic `MyLinkedList`, edit `MyLinkedListTest.java` and find the four lines that need to be commented/uncommented. Look for the following sections:
 
@@ -107,9 +107,9 @@ chickens = new MyLinkedList();
 
 # Optional Assignments
 
-## Make your ArrayList generic (strongly recommended)
+## Make your ArrayList generic
 
-Now that you've made the SLL generic, we strongly suggest going back and make your ArrayList generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
+Now that you've made the SLL generic, you can go back and make your ArrayList generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
 
 ## DLL
 
