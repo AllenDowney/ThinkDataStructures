@@ -5,16 +5,20 @@ import static org.junit.Assert.assertEquals;
 
 public class MyLinkedListTest {
 
-	// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
+	// QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
 	MyLinkedList chickens;
 
-	// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
+	// GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
 	//MyLinkedList<Chicken> chickens;
 
 	@Before
 	public void setUp() throws Exception{
 
-		chickens = new MyLinkedList<Chicken>();
+        // QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
+        chickens = new MyLinkedList();
+
+        // GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
+		//chickens = new MyLinkedList<>();
 
 		chickens.add(new Chicken("Delilah", 10, "blue"));
 		chickens.add(new Chicken("Georgy", 8, "green"));
@@ -25,9 +29,7 @@ public class MyLinkedListTest {
 
 	@Test
 	public void testSize(){
-
 		assertEquals(4,chickens.size());
-
 	}
 
 	@Test
