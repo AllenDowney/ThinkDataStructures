@@ -1,5 +1,12 @@
 public class QuickSort extends Sorter {
 
+    /**
+     * Best-case runtime:
+     * Worst-case runtime:
+     * Average-case runtime:
+     *
+     * Space-complexity:
+     */
     @Override
     public int[] sort(int[] array) {
         // TODO: Fill this in

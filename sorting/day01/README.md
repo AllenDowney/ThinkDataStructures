@@ -27,3 +27,5 @@ Draw the different phases of the initial max heap `[1,2,3,4,5]` through the heap
 
 For both `QuickSort.java` and `HeapSort.java`, complete the methods annotated with `TODO`s so that `sort` runs; use (or not) the helper methods and method declarations we've provided for you.
 
+For each sort function, detail the best, worst, and average case runtime complexity in the comments. Also, detail the space complexity. Provide an explanation for each of the four complexities.
+
