@@ -92,17 +92,21 @@ Here, `T` acts as a stand-in whatever is specified between the `<>` in the new c
 In order to test your new generic `MyLinkedList`, edit `MyLinkedListTest.java` and find the four lines that need to be commented/uncommented. Look for the following sections:
 
 ```java
-// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
+// QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
 MyLinkedList chickens;
 
-// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
+// GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
 //MyLinkedList<Chicken> chickens;
 
-// QUESTIONS 1-7. COMMENT THIS LINE FOR QUESTION 7
-chickens = new MyLinkedList();
+@Before
+public void setUp() throws Exception{
 
-// QUESTION 8. COMMENT THIS LINE FOR QUESTIONS 1-6
-//chickens = new MyLinkedList<Chicken>();
+    // QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
+    chickens = new MyLinkedList();
+
+    // GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
+    //chickens = new MyLinkedList<>();
+
 ```
 
 # Optional Assignments
