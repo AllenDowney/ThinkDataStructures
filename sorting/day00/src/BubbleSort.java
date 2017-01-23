@@ -1,4 +1,3 @@
-
 public class BubbleSort extends Sorter {
     /**
      * Use the bubble sort algorithm to sort the array

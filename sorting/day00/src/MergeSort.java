@@ -2,7 +2,7 @@ public class MergeSort extends Sorter {
 
     /**
      * This is the recursive step in which you split the array up into
-     * a left and a right portion, sort them, and then merge them at the end.
+     * a left and a right portion, sort them, and then merge them together.
      *
      * Best-case runtime:
      * Worst-case runtime:

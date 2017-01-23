@@ -1,27 +1,28 @@
-# Sorting Day 1 - `BubbleSort`, `InsertionSort`, and `MergeSort`
+# Sorting Day 0 - `BubbleSort`, `InsertionSort`, and `MergeSort`
 
 ## Learning Goals
 
 By doing this assignment, you should be able to:
+* Justify the listed runtime and space complexities of each sort
 * Implement bubblesort
-  * Justify its runtime
-  * Justify its space complexity
+  * O(1) space
+  * Best, worst, and average case O(N^2) time
 * Understand the insertion sort algorithm:
   * Understand the benefit of a simplistic and slow sorting algorithm, and it's practical uses.
-  * Justify its runtime
-  * Justify its space complexity
+  * O(1) space
+  * Worst and average case O(N^2) time
+  * Best case O(N) time
 * Understand the merge sort algorithm:
   * Understand the roles of the recursive split then merge steps
-  * Justify its O(nlgn) runtime
-  * Justify its O(n) space complexity, and be aware that it can run in O(1) space by using linked lists instead of arrays
-
+  * O(N) space
+  * Worst, average, and best case O(NlogN) time
+  
 ## Assignment
 
 ### Code
 
-- In `BubbleSort.java`, `InsertionSort.java`, implement `int[] sort(int[] array)`, which returns a sorted array, using the specified algorithm.
-- In `MergeSort.java`, complete the methods annotated with `TODO`s so that `sort` runs; use (or not) the helper methods and method declarations we've provided for you.
-- For each `sort` function, detail the best, worst, and average case runtime complexity in the comments. Also, detail the space complexity. Provide an explanation for each of the four complexities.
+- In `BubbleSort.java`, `InsertionSort.java`, and `MergeSort.java`, complete the methods annotated with `TODO`s so that `sort` runs.
+- For each `sort` function, detail the best, worst, and average case runtime complexity in the comments. Also, detail the space complexity. Provide a short, one to two sentence total explanation for the complexities.
 
 ### Reading
 

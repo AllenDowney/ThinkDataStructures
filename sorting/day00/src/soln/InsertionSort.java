@@ -1,6 +1,7 @@
 package soln;
 
 public class InsertionSort extends Sorter {
+
     /**
      * Use the insertion sort algorithm to sort the array
      *
@@ -12,7 +13,6 @@ public class InsertionSort extends Sorter {
      */
     @Override
     public int[] sort(int[] array) {
-
         for (int i = 0; i < array.length; i++) {
             int j = i;
             while (j > 0 && array[j-1] > array[j]) {
