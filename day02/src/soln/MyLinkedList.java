@@ -1,81 +1,85 @@
-package solutions;
+package soln;
 
 /**
  * Doubly Linked List implementation
- * @param <T>
  */
 public class MyLinkedList<T> {
+	private Node head;
+	private Node tail;
+	private int size;
 
-	private MyLinkedListNode header;
-	private MyLinkedListNode end;
-	private int numElems;
-
-	private class MyLinkedListNode {
-
+	private class Node {
 		T data;
-		MyLinkedListNode next;
-		MyLinkedListNode prev;
-
-		private MyLinkedListNode(T d, MyLinkedListNode n, MyLinkedListNode p){
-			data = d;
-			next = n;
-			prev = p;
+		Node prev;
+		Node next;
+        
+		private Node(T d, Node prev, Node next) {
+			this.data = d;
+			this.prev = prev;
+			this.next = next;
 		}
-
 	}
 
-	public MyLinkedList(){
-		header = new MyLinkedListNode(null,null,null);
-		end = new MyLinkedListNode(null,null,header);
-		header.next = end;
-		numElems = 0;
+	public MyLinkedList() {
+		size = 0;
 	}
 
-	public void add(T c){
-		MyLinkedListNode newNode = new MyLinkedListNode(c,end,end.prev);
-		end.prev.next = newNode;
-		end.prev = newNode;
-		numElems++;
+	public void addFirst(T e) {
+		Node newNode = new Node(e, null, head);
+
+		if (head != null) head.prev = newNode;
+		head = newNode;
+		if (tail == null) tail = newNode;
+		size++;
+	}
+
+	public void addLast(T e) {
+		Node newNode = new Node(e, tail, null);
+
+		if (tail != null) tail.next = newNode;
+		tail = newNode;
+		if (head == null) head = newNode;
+		size++;
 	}
 
 	public int size(){
-		return numElems;
+		return size;
 	}
 
-	public T get(int index){
-		if(index >= numElems) throw new IndexOutOfBoundsException("Index is out of bounds");
-		MyLinkedListNode curNode = header;
-		while(index>=0){
-			index--;
-			curNode = curNode.next;
+	private boolean withinBounds(int index) {
+		return (index < size && index >= 0);
+	}
+
+	private Node getNodeAtIndex(int index) {
+		Node current = head;
+		int i = 0;
+		while (i != index) {
+			i++;
+			current = current.next;
 		}
-		return curNode.data;
+		return current;
 	}
 
-	public T remove(int index){
-		if(index >= numElems) throw new IndexOutOfBoundsException("Index is out of bounds");
-		MyLinkedListNode curNode = header;
-		while(index>=0){
-			index--;
-			curNode = curNode.next;
-		}
-		curNode.prev.next = curNode.next;
-		curNode.next.prev = curNode.prev;
-		numElems--;
-		return curNode.data;
+	public T get(int index) {
+		if (!withinBounds(index)) throw new IndexOutOfBoundsException();
+		return getNodeAtIndex(index).data;
 	}
 
-	public void add(int index, T c){
-		if(index > numElems) throw new IndexOutOfBoundsException("Index is out of bounds");
-		MyLinkedListNode curNode = header;
-		while(index>0){
-			index--;
-			curNode = curNode.next;
-		}
-		MyLinkedListNode newNode = new MyLinkedListNode(c,curNode.next,curNode);
-		curNode.next.prev = curNode.prev;
-		curNode.next = newNode;
-		numElems++;
+	public T removeFirst() {
+		Node toRemove = head;
+		head = toRemove.next;
+        head.prev = null;
+        size--;
+
+		return toRemove.data;
 	}
 
+	public T removeLast() {
+		Node toRemove = tail;
+		tail = toRemove.prev;
+		tail.next = null;
+		size--;
+
+		return toRemove.data;
+	}
 }
