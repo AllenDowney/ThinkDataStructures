@@ -27,7 +27,7 @@ def remove_duplicates(arrList):
         while j < arrList.size:
             if arrList[i] == arrList[j]:
                 swap(arrList, j, arrList.size - 1)
-                arrList.size = arrList.size - 1
+                arrList.pop()
             else:
                 j+=1
         i+=1
@@ -76,7 +76,7 @@ def circularly_sorted_better(arr):
 def numPairs(arr, n):
     s = 0
     for i in range(0, len(arr)):
-        for j in range(i, len(arr)):
+        for j in range(i+1, len(arr)):
             if arr[i] + arr[j] == n:
                 s += 1
     return s
