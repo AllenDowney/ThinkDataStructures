@@ -1,4 +1,5 @@
-package soln;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 /**
  * Doubly Linked List implementation
@@ -10,12 +11,12 @@ public class MyLinkedList<T> {
 	private int size;
 
 	private class Node {
-		T data;
+		T val;
 		Node prev;
 		Node next;
-        
+
 		private Node(T d, Node prev, Node next) {
-			this.data = d;
+			this.val = d;
 			this.prev = prev;
 			this.next = next;
 		}
@@ -23,15 +24,24 @@ public class MyLinkedList<T> {
 
 	public MyLinkedList() {
 		size = 0;
+		head = null;
+		tail = null;
 	}
 
-	public void addFirst(T e) {
-		Node newNode = new Node(e, null, head);
+	public int size() {
+		return size;
+	}
 
-		if (head != null) head.prev = newNode;
-		head = newNode;
-		if (tail == null) tail = newNode;
-		size++;
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public void add(T c) {
+		addLast(c);
+	}
+
+	public T pop() {
+		return removeLast();
 	}
 
 	public void addLast(T e) {
@@ -43,8 +53,13 @@ public class MyLinkedList<T> {
 		size++;
 	}
 
-	public int size(){
-		return size;
+	public void addFirst(T e) {
+		Node newNode = new Node(e, null, head);
+
+		if (head != null) head.prev = newNode;
+		head = newNode;
+		if (tail == null) tail = newNode;
+		size++;
 	}
 
 	private boolean withinBounds(int index) {
@@ -54,7 +69,7 @@ public class MyLinkedList<T> {
 	private Node getNodeAtIndex(int index) {
 		Node current = head;
 		int i = 0;
-		while (i != index) {
+		while (i < index) {
 			i++;
 			current = current.next;
 		}
@@ -63,24 +78,48 @@ public class MyLinkedList<T> {
 
 	public T get(int index) {
 		if (!withinBounds(index)) throw new IndexOutOfBoundsException();
-		return getNodeAtIndex(index).data;
+		return getNodeAtIndex(index).val;
 	}
 
 	public T removeFirst() {
+		if (isEmpty())
+			throw new NoSuchElementException();
 		Node toRemove = head;
-		head = toRemove.next;
-        head.prev = null;
-        size--;
-
-		return toRemove.data;
+		if (size == 1) {
+			head = null;
+			tail = null;
+		} else {
+			head = toRemove.next;
+			head.prev = null;
+		}
+		size--;
+		return toRemove.val;
 	}
 
 	public T removeLast() {
+		if (isEmpty())
+			throw new NoSuchElementException();
 		Node toRemove = tail;
-		tail = toRemove.prev;
-		tail.next = null;
+		if (size == 1) {
+			head = null;
+			tail = null;
+		} else {
+			tail = toRemove.prev;
+			tail.next = null;
+		}
 		size--;
-
-		return toRemove.data;
+		return toRemove.val;
 	}
+
+	public T remove(int index) {
+		if (!withinBounds(index)) throw new IndexOutOfBoundsException();
+		if (index == 0) return removeFirst();
+		if (index == size-1) return removeLast();
+		Node n = getNodeAtIndex(index);
+		n.prev.next = n.next;
+		n.next.prev = n.prev;
+		size--;
+		return n.val;
+	}
+
 }

@@ -12,28 +12,35 @@ public class MyLinkedListTest {
 	private static final Chicken LEGOS = new Chicken("Legos", 400, "rainbow");
 
 	// QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
-	MyLinkedList chickens;
+	// private MyLinkedList chickens;
+	// private MyLinkedList emptyChickens;
 
 	// GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
-	//MyLinkedList<Chicken> chickens;
+	private MyLinkedList<Chicken> chickens;
+	private MyLinkedList<Chicken> emptyChickens;
 
 	@Before
 	public void setUp() throws Exception {
         // QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
-        // chickens = new MyLinkedList();
+        chickens = new MyLinkedList();
+		emptyChickens = new MyLinkedList();
 
         // GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
-		chickens = new MyLinkedList<>();
+		// chickens = new MyLinkedList<>();
+		// emptyChickens = new MyLinkedList<>();
 
-		chickens.addLast(DELILAH);
-		chickens.addLast(GEORGY);
-		chickens.addLast(LILY);
-		chickens.addLast(JIMI);
+		chickens.add(DELILAH);
+		chickens.add(GEORGY);
+		chickens.add(LILY);
+		chickens.add(JIMI);
+
+
 	}
 
 	@Test
 	public void testSize(){
 		assertEquals(4, chickens.size());
+		assertEquals(0, emptyChickens.size());
 	}
 
 	@Test
@@ -47,6 +54,12 @@ public class MyLinkedListTest {
 		chickens.removeFirst();
 		assertEquals(3, chickens.size());
 		assertEquals(GEORGY, chickens.get(0));
+
+		emptyChickens.add(GEORGY);
+		emptyChickens.add(LILY);
+		emptyChickens.removeFirst();
+		assertEquals(LILY, emptyChickens.removeFirst());
+		assertEquals(0, emptyChickens.size());
 	}
 
 	@Test
@@ -54,6 +67,12 @@ public class MyLinkedListTest {
 		chickens.removeLast();
 		assertEquals(3, chickens.size());
 		assertEquals(LILY, chickens.get(2));
+
+		emptyChickens.add(GEORGY);
+		emptyChickens.add(LILY);
+		emptyChickens.removeLast();
+		assertEquals(GEORGY, emptyChickens.removeLast());
+		assertEquals(0, emptyChickens.size());
 	}
 
 	@Test
@@ -66,5 +85,20 @@ public class MyLinkedListTest {
 
 		assertEquals(LEGOS, chickens.get(0));
 		assertEquals(JAQUAN, chickens.get(1));
+
+		emptyChickens.addFirst(GEORGY);
+		emptyChickens.addFirst(LILY);
+		assertEquals(GEORGY, emptyChickens.get(1));
+		assertEquals(LILY, emptyChickens.get(0));
+		assertEquals(2, emptyChickens.size());
+	}
+
+	@Test
+	public void testRemove() {
+		assertEquals(chickens.remove(1), GEORGY);
+		assertEquals(chickens.remove(1), LILY);
+		assertEquals(chickens.remove(1), JIMI);
+		assertEquals(1, chickens.size());
+		assertEquals(chickens.remove(0), DELILAH);
 	}
 }

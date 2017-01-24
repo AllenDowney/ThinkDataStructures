@@ -62,15 +62,16 @@ In this homework assignment, you will be implementing your own doubly-linked lis
 
     `public Chicken get(int index)`
     
-1. Some chickens might leave the farm for various reasons, and they might leave in any order. If a cow in the middle leaves, we want to update our `LinkedList` pointers so that the `Node` before the removed chicken points to the `Node` after the removed `Chicken`. Return the removed `Chicken` so we can "deal" with it. Remember to consider the special cases where `index=0` or `index=size-1`.
-
-    `public Chicken remove(int index)`
-
-1. LinkedLists also have special case O(1) deletes off the front and back. Implement `removeFirst` and `removeLast`, and make sure to return them so Hieu can "deal" with them. Remember to consider the special cases where `size` is 0 or 1.
+1. Some chickens might leave the farm for various reasons. LinkedLists have special case O(1) deletes off the front and back. Implement `removeFirst` and `removeLast`, and make sure to return them so Hieu can "deal" with them. Remember to consider the special cases where `size` is 0 or 1.
 
     `public Chicken removeFirst()`
 
     `public Chicken removeLast()`
+    
+1. Chickens might leave in any order. If a chicken in the middle leaves, we want to update our `LinkedList` pointers so that the `Node` before the removed chicken points to the `Node` after the removed `Chicken`. Return the removed `Chicken` so we can "deal" with it. Remember to consider the special cases where `index=0` or `index=size-1`.
+
+    `public Chicken remove(int index)`
+
 
 Test your DLL by running `MyLinkedListTest.java`. Make all test cases pass.
 
@@ -112,20 +113,22 @@ In order to test your new generic `MyLinkedList`, edit `MyLinkedListTest.java` a
 
 ```java
 // QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
-MyLinkedList chickens;
+// private MyLinkedList chickens;
+// private MyLinkedList emptyChickens;
 
 // GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
-//MyLinkedList<Chicken> chickens;
+private MyLinkedList<Chicken> chickens;
+private MyLinkedList<Chicken> emptyChickens;
 
 @Before
-public void setUp() throws Exception{
-
+public void setUp() throws Exception {
     // QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
     chickens = new MyLinkedList();
+    emptyChickens = new MyLinkedList();
 
     // GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
-    //chickens = new MyLinkedList<>();
-
+    // chickens = new MyLinkedList<>();
+    // emptyChickens = new MyLinkedList<>();
 ```
 
 # Optional Assignments

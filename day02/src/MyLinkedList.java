@@ -1,5 +1,3 @@
-//package solutions;
-
 public class MyLinkedList {
 
 	private Node head;
@@ -20,6 +18,14 @@ public class MyLinkedList {
 
 	public MyLinkedList() {
 		// TODO
+	}
+
+	public int size() {
+		return size;
+	}
+
+	public boolean isEmpty() {
+		return size == 0;
 	}
 
 	public void add(Chicken c) {
@@ -48,17 +54,13 @@ public class MyLinkedList {
 		return null;
 	}
 
-	public int size() {
-		return size;
-	}
-
 	public Chicken removeFirst() {
-        // TODO
+		// TODO
 		return null;
 	}
 
 	public Chicken removeLast() {
-        // TODO
+		// TODO
 		return null;
 	}
 }
