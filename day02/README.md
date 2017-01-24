@@ -50,11 +50,11 @@ In this homework assignment, you will be implementing your own doubly-linked lis
 
     `public MyLinkedList()`
     
-1. Implement a method called `addLast` that will add a `Chicken` to the end of your `MyLinkedList`. Remember to consider the special cases where `size` is 0 or 1.
+1. Implement a method called `addLast` that will add a `Chicken` to the end of your `MyLinkedList`. Remember to consider the special case where `size` is 0.
 
     `public void addLast(Chicken c)`
 
-1. Sometimes a chicken will confuse the beginning of the line with the end of the line, and Hieu needs to be able to deal with this. Implement `addFirst` that will allow a chicken to be added to the front of the `LinkedList`. Remember to consider the special cases where `size` is 0 or 1.
+1. Sometimes a chicken will confuse the beginning of the line with the end of the line, and Hieu needs to be able to deal with this. Implement `addFirst` that will allow a chicken to be added to the front of the `LinkedList`. Remember to consider the special case where `size` is 0.
 
     `public void addFirst(Chicken c)`
 
@@ -62,7 +62,7 @@ In this homework assignment, you will be implementing your own doubly-linked lis
 
     `public Chicken get(int index)`
     
-1. Some chickens might leave the farm for various reasons, and they might leave in any order. If a cow in the middle leaves, we want to update our `LinkedList` pointers so that the `Node` before the removed chicken points to the `Node` after the removed `Chicken`. Return the removed `Chicken` so we can "deal" with it. Remember to consider the special cases where `size` is 0 or 1, and where `index=0` or `index=size-1`.
+1. Some chickens might leave the farm for various reasons, and they might leave in any order. If a cow in the middle leaves, we want to update our `LinkedList` pointers so that the `Node` before the removed chicken points to the `Node` after the removed `Chicken`. Return the removed `Chicken` so we can "deal" with it. Remember to consider the special cases where `index=0` or `index=size-1`.
 
     `public Chicken remove(int index)`
 
