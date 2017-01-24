@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class QuickSort extends Sorter {
 
     @Override
@@ -46,13 +48,6 @@ public class QuickSort extends Sorter {
         int temp = a[i];
         a[i] = a[j];
         a[j] = temp;
-    }
-
-    public static void main(String[] args) {
-        QuickSort q = new QuickSort();
-        int[] a = new int[]{4, 3, 7, 5, 4, 3, 4654,6, 23, 2, 4,6 ,56, 45, 96};
-        q.sort(a);
-        System.out.println(Arrays.toString(a));
     }
 
 }

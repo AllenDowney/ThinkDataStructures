@@ -1,8 +1,6 @@
-import com.sun.org.apache.regexp.internal.RE;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertArrayEquals;
 
 public class SortTest {
     private static final int[] FIRST = new int[] {1,2,3,4,5,7,6};
@@ -22,8 +20,8 @@ public class SortTest {
     }
 
     private void testSort(Sorter sorter) {
-        assertThat(sorter.sort(FIRST), is(RESULT));
-        assertThat(sorter.sort(SECOND), is(RESULT));
-        assertThat(sorter.sort(THIRD), is(RESULT));
+        assertArrayEquals(sorter.sort(FIRST), RESULT);
+        assertArrayEquals(sorter.sort(SECOND), RESULT);
+        assertArrayEquals(sorter.sort(THIRD), RESULT);
     }
 }

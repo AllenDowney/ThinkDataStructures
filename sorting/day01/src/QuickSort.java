@@ -9,7 +9,7 @@ public class QuickSort extends Sorter {
      */
     @Override
     public int[] sort(int[] array) {
-        // TODO: Fill this in
+        // TODO
     }
 
     /**
@@ -17,7 +17,7 @@ public class QuickSort extends Sorter {
      * portions of the array.
      */
     private void quickSort(int[] a, int lo, int hi) {
-        // TODO: Fill this in
+        // TODO
     }
 
     /**
@@ -26,7 +26,7 @@ public class QuickSort extends Sorter {
      * Return the index of the pivot in the array after partitioning.
      */
     private int partition(int[] a, int lo, int hi) {
-        // TODO: Fill this in
+        // TODO
     }
 
     private static void swap(int[] a, int i, int j) {

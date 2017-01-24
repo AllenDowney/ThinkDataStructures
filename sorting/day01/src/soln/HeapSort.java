@@ -1,21 +1,20 @@
-@SuppressWarnings("WrongPackageStatement")
-class HeapSortSoln extends Sorter {
+public class HeapSort extends Sorter {
     private int size;
     private int[] heap;
 
     private int parent(int i) {
-                            return (i-1) / 2;
-                                             }
+        return (i-1) / 2;
+    }
 
     private int leftChild(int i) {
-                               return 2*i + 1;
-                                              }
+        return 2*i + 1;
+    }
 
     private int rightChild(int i) {
-                                return 2*(i + 1);
-                                                 }
+        return 2 * (i + 1);
+    }
 
-    private void heapify(int i) {
+    private void sink(int i) {
         int left = leftChild(i), right = rightChild(i);
         int largest;
 
@@ -30,12 +29,12 @@ class HeapSortSoln extends Sorter {
         }
 
         if (largest != i) {
-            exchange(largest, i);
-            heapify(largest);
+            swap(largest, i);
+            sink(largest);
         }
     }
 
-    private void exchange(int i, int j) {
+    private void swap(int i, int j) {
         int temp = heap[i];
         heap[i] = heap[j];
         heap[j] = temp;
@@ -47,7 +46,7 @@ class HeapSortSoln extends Sorter {
         int m = this.size / 2;
 
         for (int i=m; i>=0; i--) {
-            heapify(i);
+            sink(i);
         }
     }
 
@@ -56,9 +55,9 @@ class HeapSortSoln extends Sorter {
         buildHeapFrom(array);
 
         for (int i=size-1; i>0; i--) {
-            exchange(i, 0);
+            swap(i, 0);
             size--;
-            heapify(0);
+            sink(0);
         }
 
         return heap;

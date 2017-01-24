@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertThat;
 
 public class SortTest {
@@ -26,8 +27,8 @@ public class SortTest {
     }
 
     private void testSort(Sorter sorter) {
-        assertThat(sorter.sort(FIRST), is(RESULT));
-        assertThat(sorter.sort(SECOND), is(RESULT));
-        assertThat(sorter.sort(THIRD), is(RESULT));
+        assertArrayEquals(sorter.sort(FIRST), RESULT);
+        assertArrayEquals(sorter.sort(SECOND), RESULT);
+        assertArrayEquals(sorter.sort(THIRD), RESULT);
     }
 }

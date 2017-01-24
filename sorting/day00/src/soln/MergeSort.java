@@ -1,4 +1,3 @@
-
 public class MergeSort extends Sorter {
     @Override
     public int[] sort(int[] array) {

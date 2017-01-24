@@ -21,6 +21,7 @@ By doing this assignment, you should be able to:
 
 ### Code
 
+- Draw the recursive trees (see [here](https://docs.google.com/presentation/d/1mNRb1tx3ibY2FjKkcXqJvjfDnT0vkxfYKEf38HrU26Y/edit?usp=sharing)) of the merge sort algorithm for the input array `[4,8,62,9,14,19]`.
 - In `BubbleSort.java`, `InsertionSort.java`, and `MergeSort.java`, complete the methods annotated with `TODO`s so that `sort` runs.
 - For each `sort` function, detail the best, worst, and average case runtime complexity in the comments. Also, detail the space complexity. Provide a short, one to two sentence total explanation for the complexities.
 

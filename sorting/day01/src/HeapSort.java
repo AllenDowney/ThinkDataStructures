@@ -3,26 +3,25 @@ public class HeapSort extends Sorter {
     private int[] heap;
 
     private int parent(int i) {
-                            return (i-1) / 2;
-                                             }
+        return (i-1) / 2;
+    }
 
     private int leftChild(int i) {
-                               return 2*i + 1;
-                                              }
+        return 2*i + 1;
+    }
 
     private int rightChild(int i) {
-                                return 2*(i + 1);
-                                                 }
+        return 2 * (i + 1);
+    }
 
     /**
-     * Recursively corrects the position of element indexed i: check children, and swap with larger children if necessary.
-     * @param i
+     * Recursively corrects the position of element indexed i: check children, and swap with larger child if necessary.
      */
-    private void heapify(int i) {
+    private void sink(int i) {
         // TODO: Complete this method
     }
 
-    private void exchange(int i, int j) {
+    private void swap(int i, int j) {
         int temp = heap[i];
         heap[i] = heap[j];
         heap[j] = temp;
@@ -30,9 +29,10 @@ public class HeapSort extends Sorter {
 
     /**
      * Given the array, build a heap by correcting every non-leaf's position.
-     * @param array
      */
     private void buildHeapFrom(int[] array) {
+        this.heap = array;
+        this.size = array.length;
         // TODO: Complete this method
     }
 
@@ -48,9 +48,9 @@ public class HeapSort extends Sorter {
         buildHeapFrom(array);
 
         for (int i=size-1; i>0; i--) {
-            exchange(i, 0);
+            swap(i, 0);
             size--;
-            heapify(0);
+            sink(0);
         }
 
         return heap;
