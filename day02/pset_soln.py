@@ -1,15 +1,43 @@
+def swap(arr, i, j):
+    temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+
+# Find either the min or max element's index, starting from start
+def index_find(arr, func, start=0):
+    m = start
+    for i in range(start+1, len(arr)):
+        if func=='min' and arr[i] < arr[m]:
+            m = i
+        if func=='max' and arr[i] > arr[m]:
+            m = i
+    return m
+
+# O(N^2) time
+def min_pairs(arr):
+    f_map = {0: 'min', 1: 'max'}
+    # alternate placing minimum and maximum elements
+    for i in range(len(arr)):
+        swap(arr, i, index_find(arr, f_map[i%2], i))
+    return arr
+
+
+# If you're curious, here's the NlogN time solution
+def min_pairs_faster(arr):
+    arr = sorted(arr) # O(NlogN)
+    for i in range(1, len(arr)/2, 2): # O(N)
+        swap(arr, i, len(arr)-i)
+    return arr
+
 def equal(head1, head2):
 
     while (head1 is not None) and (head2 is not None):
-        if head1.val != head2.val:
+        if head1.item != head2.item:
             return False
         head1 = head1.next
         head2 = head2.next
 
-    if head1 is None and head2 is None:
-        return True
-
-    return False
+    return (head1 is None and head2 is None)
 
 def reverseList(head):
     prev = None
@@ -21,12 +49,9 @@ def reverseList(head):
     return prev
 
 def hasCycle(head):
-    if head is None or head.next is None:
-        return False
-
     slow = head
-    fast = head.next
-    while fast.next!=None and fast.next.next!=None:
+    fast = head
+    while fast!=None and fast.next!=None:
         slow = slow.next
         fast = fast.next.next
         if slow is fast:
