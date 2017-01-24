@@ -1,41 +1,55 @@
 //package solutions;
 
 public class MyLinkedList {
+
 	private Node head;
 	private Node tail;
 	private int size;
 
 	private class Node {
-		Chicken chicken;
+		Chicken val;
 		Node prev;
 		Node next;
-        
-		private Node(Chicken c, Node prev, Node next) {
-			this.chicken = c;
+
+		private Node(Chicken d, Node prev, Node next) {
+			this.val = d;
 			this.prev = prev;
 			this.next = next;
 		}
 	}
 
 	public MyLinkedList() {
-		size = 0;
+		// TODO
+	}
+
+	public void add(Chicken c) {
+		addLast(c);
+	}
+
+	public Chicken pop() {
+		return removeLast();
+	}
+
+	public void addLast(Chicken c) {
+		// TODO
 	}
 
 	public void addFirst(Chicken c) {
 		// TODO
 	}
 
-	public void addLast(Chicken c) {
-        // TODO
-	}
-
-	public int size(){
-		return size;
-	}
-
 	public Chicken get(int index) {
-        // TODO
+		// TODO
 		return null;
+	}
+
+	public Chicken remove(int index) {
+		// TODO
+		return null;
+	}
+
+	public int size() {
+		return size;
 	}
 
 	public Chicken removeFirst() {

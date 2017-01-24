@@ -37,33 +37,42 @@ The tests you will be running on your `MyLinkedList` class will be using this `C
 
 ## Code
 
+In this homework assignment, you will be implementing your own doubly-linked list.
+
 ### Provided for you
 
-1. The empty constructor `MyLinkedList()` is provided for you, and initializes `size` to 0.
-
 1. The internal `Node` class: its constructor takes in the Chicken, as well as references to the `prev` and `next` nodes.
+1. Some internal variable you probably want to keep track of in the `LinkedList`: the `head` and `tail` `Node`s, and the `size` of the `LinkedList`.
 
 ### Your code
 
-1. Implement a method called `addLast` that will add a `Chicken` to the end of your `MyLinkedList`.
+1. Implement an empty constructor. Initialize `head`, `tail`, and `size`.
+
+    `public MyLinkedList()`
+    
+1. Implement a method called `addLast` that will add a `Chicken` to the end of your `MyLinkedList`. Remember to consider the special cases where `size` is 0 or 1.
 
     `public void addLast(Chicken c)`
 
-1. Sometimes a chicken will confuse the beginning of the line with the end of the line, and Hieu needs to be able to deal with this. Implement `addFirst` that will allow a chicken to be added to the front of the SLL.
+1. Sometimes a chicken will confuse the beginning of the line with the end of the line, and Hieu needs to be able to deal with this. Implement `addFirst` that will allow a chicken to be added to the front of the `LinkedList`. Remember to consider the special cases where `size` is 0 or 1.
 
     `public void addFirst(Chicken c)`
 
 1. Can we inspect a chicken in our `MyLinkedList`? Implement a method called `get` that will return a `Chicken` given the index of the `Chicken`. Make sure to check that `index` is valid.
 
     `public Chicken get(int index)`
+    
+1. Some chickens might leave the farm for various reasons, and they might leave in any order. If a cow in the middle leaves, we want to update our `LinkedList` pointers so that the `Node` before the removed chicken points to the `Node` after the removed `Chicken`. Return the removed `Chicken` so we can "deal" with it. Remember to consider the special cases where `size` is 0 or 1, and where `index=0` or `index=size-1`.
 
-1. Some chickens might leave the farm for various reasons, and they can leave from either the front or the back of the chicken line. Implement `removeFirst` and `removeLast`, and make sure to return them so Hieu can "deal" with them.
+    `public Chicken remove(int index)`
+
+1. LinkedLists also have special case O(1) deletes off the front and back. Implement `removeFirst` and `removeLast`, and make sure to return them so Hieu can "deal" with them. Remember to consider the special cases where `size` is 0 or 1.
 
     `public Chicken removeFirst()`
 
     `public Chicken removeLast()`
 
-Test your SLL by running `MyLinkedListTest.java`. Make all test cases pass.
+Test your DLL by running `MyLinkedListTest.java`. Make all test cases pass.
 
 ### Generics in Java
 
@@ -91,8 +100,10 @@ Here, `T` acts as a stand-in whatever is specified between the `<>` in the new c
 
   `public void addLast(T e)`
 
-3. Generalize the `remove` methods to return a generic object.
+3. Generalize the `remove` and `get` methods to return a generic object.
 
+  `public T get(int index)`
+  
   `public T removeFirst()`
 
   `public T removeLast()`
@@ -121,8 +132,4 @@ public void setUp() throws Exception{
 
 ## Make your ArrayList generic
 
-Now that you've made the SLL generic, you can go back and make your ArrayList generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
-
-## DLL
-
-Update your `LinkedList` so that it is a doubly-linked-list.
+Now that you've made the DLL generic, you can go back and make your ArrayList generic. This will give you further practice and you will come out with a much stronger grasp on working with generics in Java. Data structures you implement from now on will be generic.
