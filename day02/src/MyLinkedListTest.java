@@ -4,60 +4,101 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class MyLinkedListTest {
+	private static final Chicken DELILAH = new Chicken("Delilah", 10, "blue");
+	private static final Chicken GEORGY = new Chicken("Georgy", 8, "green");
+    private static final Chicken LILY = new Chicken("Lily", 4, "yellow");
+    private static final Chicken JIMI = new Chicken("Jimi", 13, "black");
+    private static final Chicken JAQUAN = new Chicken("Jaquan", 10, "transparent");
+	private static final Chicken LEGOS = new Chicken("Legos", 400, "rainbow");
 
 	// QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
-	MyLinkedList chickens;
+	// private MyLinkedList chickens;
+	// private MyLinkedList emptyChickens;
 
 	// GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
-	//MyLinkedList<Chicken> chickens;
+	private MyLinkedList<Chicken> chickens;
+	private MyLinkedList<Chicken> emptyChickens;
 
 	@Before
-	public void setUp() throws Exception{
-
+	public void setUp() throws Exception {
         // QUESTIONS 1-7. COMMENT THIS LINE FOR GENERICS TESTING
         chickens = new MyLinkedList();
+		emptyChickens = new MyLinkedList();
 
         // GENERICS TESTING. COMMENT THIS LINE FOR QUESTIONS 1-7
-		//chickens = new MyLinkedList<>();
+		// chickens = new MyLinkedList<>();
+		// emptyChickens = new MyLinkedList<>();
 
-		chickens.add(new Chicken("Delilah", 10, "blue"));
-		chickens.add(new Chicken("Georgy", 8, "green"));
-		chickens.add(new Chicken("Lily", 4, "yellow"));
-		chickens.add(new Chicken("Jimi", 13, "black"));
+		chickens.add(DELILAH);
+		chickens.add(GEORGY);
+		chickens.add(LILY);
+		chickens.add(JIMI);
+
 
 	}
 
 	@Test
 	public void testSize(){
-		assertEquals(4,chickens.size());
+		assertEquals(4, chickens.size());
+		assertEquals(0, emptyChickens.size());
 	}
 
 	@Test
-	public void testGet(){
-
-		assertEquals(new Chicken("Georgy",8,"green"),chickens.get(1));
-		assertEquals(new Chicken("Lily",4,"yellow"),chickens.get(2));
-
+	public void testGet() {
+		assertEquals(GEORGY, chickens.get(1));
+		assertEquals(LILY, chickens.get(2));
 	}
 
 	@Test
-	public void testRemove(){
+	public void testRemoveFirst() {
+		chickens.removeFirst();
+		assertEquals(3, chickens.size());
+		assertEquals(GEORGY, chickens.get(0));
 
-		chickens.remove(1);
-		chickens.remove(1);
-		assertEquals(2,chickens.size());
-		assertEquals(new Chicken("Jimi", 13, "black"),chickens.get(1));
-
+		emptyChickens.add(GEORGY);
+		emptyChickens.add(LILY);
+		emptyChickens.removeFirst();
+		assertEquals(LILY, emptyChickens.removeFirst());
+		assertEquals(0, emptyChickens.size());
 	}
 
 	@Test
-	public void testAddIndex(){
+	public void testRemoveLast() {
+		chickens.removeLast();
+		assertEquals(3, chickens.size());
+		assertEquals(LILY, chickens.get(2));
 
-		chickens.add(1,new Chicken("Jaquan", 10, "transparent"));
-		chickens.add(1,new Chicken("Legos", 400, "rainbow"));
-		assertEquals(6,chickens.size());
-		assertEquals(new Chicken("Jaquan", 10, "transparent"),chickens.get(2));
-
+		emptyChickens.add(GEORGY);
+		emptyChickens.add(LILY);
+		emptyChickens.removeLast();
+		assertEquals(GEORGY, emptyChickens.removeLast());
+		assertEquals(0, emptyChickens.size());
 	}
 
+	@Test
+	public void testAddFirst() {
+		chickens.addFirst(JAQUAN);
+		assertEquals(5, chickens.size());
+
+		chickens.addFirst(LEGOS);
+		assertEquals(6, chickens.size());
+
+		assertEquals(LEGOS, chickens.get(0));
+		assertEquals(JAQUAN, chickens.get(1));
+
+		emptyChickens.addFirst(GEORGY);
+		emptyChickens.addFirst(LILY);
+		assertEquals(GEORGY, emptyChickens.get(1));
+		assertEquals(LILY, emptyChickens.get(0));
+		assertEquals(2, emptyChickens.size());
+	}
+
+	@Test
+	public void testRemove() {
+		assertEquals(chickens.remove(1), GEORGY);
+		assertEquals(chickens.remove(1), LILY);
+		assertEquals(chickens.remove(1), JIMI);
+		assertEquals(1, chickens.size());
+		assertEquals(chickens.remove(0), DELILAH);
+	}
 }
