@@ -64,6 +64,16 @@ def find_nth(head, n):
         n -= 1
     return head
 
+def find_nth_from_end(head, n):
+    fast = head
+    slow = head
+    for i in range(n):
+        fast = fast.next
+    while fast is not None:
+        fast = fast.next
+        slow = slow.next
+    return slow
+
 def length(head):
     l = 0
     while head is not None:
@@ -108,7 +118,7 @@ def intersection(head1, head2):
     return None
 
 def print_rev(head):
-    last_elem = find_nth(length(head) - 1)
+    last_elem = find_nth_from_end(1)
     while last_elem is not None:
         print last_elem
         last_elem = last_elem.prev
@@ -117,7 +127,7 @@ def palindrome_dll(head):
     l = length(head)
     if l <= 1:
         return True
-    last_elem = find_nth(l - 1)
+    last_elem = find_nth_from_end(1)
     while head is not None:
         if head != last_elem:
             return False
