@@ -96,7 +96,7 @@ def palindrome(head):
     # reverse the back half of the linked list
     left_of_middle.next = reverseList(left_of_middle.next)
 
-    # seperate the front and back half of the LL into seperate Lists
+    # separate the front and back half of the LL into separate Lists
     middle = left_of_middle.next
     left_of_middle.next = None
 
