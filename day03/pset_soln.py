@@ -48,17 +48,7 @@ def is_pop_sequence(s1, s2):
         while not s3.isEmpty() and s3.peek() == s2.peek():
             s3.pop()
             s2.pop()
-    return len(s3) == 0
-
-def sorted_stack_lst(stack):
-    arrList = []
-    while not stack.isEmpty():
-        elem = stack.pop()
-        i = 0
-        while i < len(arrList) and elem >= arrList[i]:
-            i+=1
-        arrList.insert(i, elem)
-    return arrList
+    return s3.isEmpty()
 
 def sorted_stack(stack):
     sorted_stack = Stack()
