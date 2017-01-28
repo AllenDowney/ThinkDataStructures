@@ -70,7 +70,6 @@ def sorted_stack(stack):
 	return sorted_stack
 
 def longest_valid_substring(s):
-	valid = [False] * len(s)
 	stack = Stack()
 	for i, c in enumerate(s):
 		if not stack.isEmpty() and c == ')' and s[stack.peek()] == '(':
