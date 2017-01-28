@@ -1,5 +1,7 @@
-class Stack():
-    def __init__(self, l=[]):
+class Stack(object):
+    def __init__(self, l=None):
+    	if l is None:
+    		l = []
     	l.reverse()
     	self.l = l
     def push(self, elem):
@@ -8,12 +10,15 @@ class Stack():
     	return self.l.pop()
     def peek(self):
     	return self.l[-1]
+    def isEmpty(self):
+    	return len(self.l) == 0
     def __len__(self):
-    	return len(self.l)
+    	raise AttributeError()
     def __str__(self):
-    	tmp = list(self.l)
-    	tmp.reverse()
-    	return str(tmp)
+    	self.l.reverse()
+    	s = str(self.l)
+    	self.l.reverse()
+    	return s
 
 def num_palindrome(i):
 	j = i
@@ -21,7 +26,7 @@ def num_palindrome(i):
 	while j != 0:
 		stack.push(j%10)
 		j/=10
-	while len(stack)>0:
+	while not stack.isEmpty():
 		if stack.pop() != i%10:
 			return False
 		i/=10
@@ -30,25 +35,24 @@ def num_palindrome(i):
 def valid_expr(s):
 	stack = Stack()
 	for c in s:
-		if len(stack) == 0 or c == '(':
-			stack.push(c)
-		elif c == ')' and stack.peek() == '(':
+		if not stack.isEmpty() and c == ')' and stack.peek() == '(':
 			stack.pop()
 		else:
 			stack.push(c)
+	return stack.isEmpty()
 
 def is_pop_sequence(s1, s2):
 	s3 = Stack()
-	while len(s1) > 0:
+	while not s1.isEmpty():
 		s3.push(s1.pop())
-		while len(s3) > 0 and s3.peek() == s2.peek():
+		while not s3.isEmpty() and s3.peek() == s2.peek():
 			s3.pop()
 			s2.pop()
 	return len(s3) == 0
 
 def sorted_stack_lst(stack):
 	arrList = []
-	while len(stack) > 0:
+	while not stack.isEmpty():
 		elem = stack.pop()
 		i = 0
 		while i < len(arrList) and elem >= arrList[i]:
@@ -58,10 +62,57 @@ def sorted_stack_lst(stack):
 
 def sorted_stack(stack):
 	sorted_stack = Stack()
-	while len(stack) > 0:
-		print sorted_stack
+	while not stack.isEmpty():
 		var = stack.pop()
-		while len(sorted_stack) > 0 and sorted_stack.peek() < var:
+		while not sorted_stack.isEmpty() and sorted_stack.peek() < var:
 			stack.push(sorted_stack.pop())
 		sorted_stack.push(var)
 	return sorted_stack
+
+def longest_valid_substring(s):
+	valid = [False] * len(s)
+	stack = Stack()
+	for i, c in enumerate(s):
+		if not stack.isEmpty() and c == ')' and s[stack.peek()] == '(':
+			stack.pop()
+		else:
+			stack.push(i)
+	end_valid = len(s)
+	start_valid = len(s)
+	longest = 0
+
+	for i in range(len(s) - 1, -1, -1):
+		if not stack.isEmpty() and stack.peek() == i:
+			end_valid = i
+			stack.pop()
+		else:
+			start_valid = i
+			if end_valid - start_valid > longest:
+				longest = end_valid - start_valid
+
+	return longest
+
+def solveHanoiHelper(fr, to, other, n):
+	if n == 1:
+		to.push(fr.pop())
+		print fr, to, other
+	else:
+		solveHanoiHelper(fr, other, to, n-1)
+		solveHanoiHelper(fr, to, other, 1)
+		solveHanoiHelper(other, to, fr, n-1)
+
+def solveHanoi(left, middle, right, n):
+	solveHanoiHelper(left, right, middle, n)
+
+if __name__ == '__main__':
+	print num_palindrome(123211) == False
+	print valid_expr('()()()(())') == True
+	print valid_expr('()()()(()))') == False
+	print sorted_stack(Stack([1, 2, 3, 3, 4, 1, 9, 5, 7, 2]))
+	print longest_valid_substring('()()()(()))') == 10
+	print longest_valid_substring('())))') == 2
+	print longest_valid_substring('(()))(') == 4
+	print longest_valid_substring('))((') == 0
+	print longest_valid_substring('') == 0
+	l, m, r = Stack([1, 2, 3, 4, 5, 6]), Stack(), Stack()
+	solveHanoi(l, m, r, 6)
