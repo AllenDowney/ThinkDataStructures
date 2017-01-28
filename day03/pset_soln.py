@@ -84,7 +84,6 @@ def longest_valid_substring(s):
 def solveHanoiHelper(fr, to, other, n):
     if n == 1:
         to.push(fr.pop())
-        print fr, to, other
     else:
         solveHanoiHelper(fr, other, to, n-1)
         solveHanoiHelper(fr, to, other, 1)
