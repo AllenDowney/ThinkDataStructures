@@ -10,11 +10,8 @@ package ADTs;
  * @param <T>
  */
 public interface QueueADT<T> {
-    int size();
-
     void enqueue(T item);
-
     T dequeue();
-
     boolean isEmpty();
+    T front();
 }

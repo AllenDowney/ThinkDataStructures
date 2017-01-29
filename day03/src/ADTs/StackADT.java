@@ -11,10 +11,7 @@ package ADTs;
  */
 public interface StackADT<T> {
     void push(T e);
-
     T pop();
-
     boolean isEmpty();
-
-    int size();
+    T peek();
 }

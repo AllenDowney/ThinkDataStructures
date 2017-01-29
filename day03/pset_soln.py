@@ -20,6 +20,26 @@ class Stack(object):
         self.l.reverse()
         return s
 
+def sorted_ll(head):
+
+    second_head = head
+    while second_head.next.data > second_head.data:
+        second_head = second_head.next
+    temp = second_head.next
+    second_head.next = None
+    second_head = temp
+
+    # handle case where second head < head
+
+    while head is not None:
+        if (head.next is None) or (second_head is not None and second_head.val < head.next.val):
+            temp1 = head.next
+            temp2 = second_head.next
+            head.next = second_head
+            second_head.next = temp1
+            second_head = temp2
+        head = head.next
+
 def num_palindrome(i):
     j = i
     stack = Stack()
@@ -51,6 +71,16 @@ def is_pop_sequence(s1, s2):
     return s3.isEmpty()
 
 def sorted_stack(stack):
+    l = []
+    while not stack.isEmpty():
+        l.append(stack.pop())
+    l = sorted(l, reverse=True)
+    sorted_stack = Stack()
+    for e in l:
+        sorted_stack.push(e)
+    return sorted_stack
+
+def sorted_stack_one_stack(stack):
     sorted_stack = Stack()
     while not stack.isEmpty():
         var = stack.pop()

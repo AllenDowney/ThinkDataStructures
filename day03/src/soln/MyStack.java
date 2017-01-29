@@ -9,11 +9,9 @@ public class MyStack<T extends Comparable<? super T>> implements StackADT<T> {
 
     private Node<T> headNode;
     private Node<T> maxNode;
-    private int size = 0;
 
     @Override
     public void push(T e) {
-        size++;
         if (headNode == null) {
             headNode = new Node<>(e);
             maxNode = headNode;
@@ -31,7 +29,6 @@ public class MyStack<T extends Comparable<? super T>> implements StackADT<T> {
 
     @Override
     public T pop() {
-        size--;
         Node<T> temp = headNode;
         if (temp == maxNode)
             maxNode = temp.getPrevMax();
@@ -45,8 +42,8 @@ public class MyStack<T extends Comparable<? super T>> implements StackADT<T> {
     }
 
     @Override
-    public int size() {
-        return size;
+    public T peek() {
+        return headNode.getData();
     }
 
     public T maxElement() {

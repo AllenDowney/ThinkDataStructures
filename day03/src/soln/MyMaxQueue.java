@@ -16,28 +16,33 @@ public class MyMaxQueue<T extends Comparable<? super T>> implements QueueADT<T> 
     }
 
     @Override
-    public int size() {
-        return inStack.size() + outStack.size();
-    }
-
-    @Override
     public void enqueue(T e) {
         inStack.push(e);
     }
 
-    @Override
-    public T dequeue() {
+    private void shift() {
         if (outStack.isEmpty()) {
             while (!inStack.isEmpty()) {
                 outStack.push(inStack.pop());
             }
         }
+    }
+
+    @Override
+    public T dequeue() {
+        shift();
         return outStack.pop();
     }
 
     @Override
     public boolean isEmpty() {
         return inStack.isEmpty() && outStack.isEmpty();
+    }
+
+    @Override
+    public T front() {
+        shift();
+        return outStack.peek();
     }
 
     public T maxElement() {

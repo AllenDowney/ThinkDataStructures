@@ -19,7 +19,7 @@ After completing this homework, students will be able to:
 Design an implementation of a `Stack`. It should:
 
 - use `O(n)` space-complexity
-- have each of the its four functions (`push`, `pop`, `isEmpty`, and `size`) take constant `O(1)` time.
+- have each of the its four functions (`push`, `pop`, `peek`, and `isEmpty`) take constant `O(1)` time.
 
 Implement your stack in the `MyStack` class.
 
@@ -28,7 +28,7 @@ Implement your stack in the `MyStack` class.
 Design an implementation of a `Queue`. It should also:
 
 - use `O(n)` space-complexity
-- have each of the its four functions (`enqueue`, `dequeue`, `isEmpty`, and `size`) take constant `O(1)` time.
+- have each of the its four functions (`enqueue`, `dequeue`, `isEmpty`, `front`) take constant `O(1)` time.
 
 Implement your queue in the `MyQueue` class.
 

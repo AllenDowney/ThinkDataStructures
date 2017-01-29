@@ -9,16 +9,9 @@ public class MyQueue<T> implements QueueADT<T> {
 
     private Node<T> headNode;
     private Node<T> tailNode;
-    private int size;
-
-    @Override
-    public int size() {
-        return size;
-    }
 
     @Override
     public void enqueue(T e) {
-        size++;
         if (headNode == null) {
             headNode = new Node<>(e);
             tailNode = headNode;
@@ -32,7 +25,6 @@ public class MyQueue<T> implements QueueADT<T> {
 
     @Override
     public T dequeue() {
-        size--;
         Node<T> temp = headNode;
         headNode = temp.getNext();
         if (headNode == null) {
@@ -44,6 +36,11 @@ public class MyQueue<T> implements QueueADT<T> {
     @Override
     public boolean isEmpty() {
         return headNode == null;
+    }
+
+    @Override
+    public T front() {
+        return headNode.getData();
     }
 
 }

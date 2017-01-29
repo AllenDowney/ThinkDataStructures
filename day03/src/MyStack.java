@@ -22,8 +22,7 @@ public class MyStack<T> implements StackADT<T> {
     }
 
     @Override
-    public int size() {
-        // TODO: YOUR CODE HERE
-        return 0;
+    public T peek() {
+        return null;
     }
 }

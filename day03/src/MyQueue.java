@@ -6,12 +6,6 @@ import ADTs.QueueADT;
 public class MyQueue<T> implements QueueADT<T> {
 
     @Override
-    public int size() {
-        // TODO: YOUR CODE HERE
-        return 0;
-    }
-
-    @Override
     public void enqueue(T item) {
         // TODO: YOUR CODE HERE
     }
@@ -26,6 +20,11 @@ public class MyQueue<T> implements QueueADT<T> {
     public boolean isEmpty() {
         // TODO: YOUR CODE HERE
         return false;
+    }
+
+    @Override
+    public T front() {
+        return null;
     }
 
 }
