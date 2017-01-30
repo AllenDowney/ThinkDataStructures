@@ -1,5 +1,9 @@
+package test;
+
 import ADTs.QueueADT;
 import ADTs.StackADT;
+import your_code.MyQueue;
+import your_code.MyStack;
 
 
 public class TimeTest {

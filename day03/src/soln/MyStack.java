@@ -1,53 +1,47 @@
 package soln;
-
 import ADTs.StackADT;
+
+import java.util.LinkedList;
 
 /**
  * An implementation of the Stack interface.
  */
 public class MyStack<T extends Comparable<? super T>> implements StackADT<T> {
 
-    private Node<T> headNode;
-    private Node<T> maxNode;
+    private LinkedList<T> ll;
+    private LinkedList<T> max;
+
+    public MyStack() {
+        ll = new LinkedList<>();
+        max = new LinkedList<>();
+    }
 
     @Override
     public void push(T e) {
-        if (headNode == null) {
-            headNode = new Node<>(e);
-            maxNode = headNode;
-        }
-        else {
-            Node<T> temp = new Node<>(e);
-            temp.setNext(headNode);
-            if (maxNode.getData().compareTo(e) < 0) {
-                temp.setPrevMax(maxNode);
-                maxNode = temp;
-            }
-            headNode = temp;
-        }
+        ll.addFirst(e);
+        if (max.isEmpty() || (max.getFirst().compareTo(e) <= 0))
+            max.addFirst(e);
     }
 
     @Override
     public T pop() {
-        Node<T> temp = headNode;
-        if (temp == maxNode)
-            maxNode = temp.getPrevMax();
-        headNode = temp.getNext();
-        return temp.getData();
+        T pop = ll.removeFirst();
+        if (!max.isEmpty() && (pop.equals(max.getFirst())))
+            max.removeFirst();
+        return pop;
     }
 
     @Override
     public boolean isEmpty() {
-        return headNode == null;
+        return ll.isEmpty();
     }
 
     @Override
     public T peek() {
-        return headNode.getData();
+        return ll.getFirst();
     }
 
     public T maxElement() {
-        return maxNode.getData();
+        return max.getFirst();
     }
-
 }

@@ -1,30 +1,32 @@
+package your_code;
+
 import ADTs.QueueADT;
 
 /**
  * An implementation of the Queue interface.
  */
-public class MyQueue<T> implements QueueADT<T> {
+public class MyQueue implements QueueADT<Integer> {
 
     @Override
-    public void enqueue(T item) {
-        // TODO: YOUR CODE HERE
+    public void enqueue(Integer item) {
+        // TODO
     }
 
     @Override
-    public T dequeue() {
-        // TODO: YOUR CODE HERE
+    public Integer dequeue() {
+        // TODO
         return null;
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO: YOUR CODE HERE
+        // TODO
         return false;
     }
 
     @Override
-    public T front() {
+    public Integer front() {
+        // TODO
         return null;
     }
-
 }

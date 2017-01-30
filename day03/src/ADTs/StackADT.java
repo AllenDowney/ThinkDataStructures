@@ -2,10 +2,10 @@ package ADTs;
 
 /**
  * The Stack Abstract Data Type, with the following methods:
- * push(T e) puts an element on to the stack
- * pop() removes the last added element from the stack
+ * push(T e) puts an element on top of the stack
+ * pop() removes the element on top of the stack
  * isEmpty() checks if the stack size is zero.
- * size() returns size of the stack
+ * peek() returns element on top of the stack
  *
  * @param <T>
  */

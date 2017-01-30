@@ -20,6 +20,35 @@ class Stack(object):
         self.l.reverse()
         return s
 
+def merge_ll(head1, head2):
+    if head1 is None:
+        return head2
+    if head2 is None:
+        return head1
+    new_ll = head1
+    if head2.data < head1.data:
+        new_ll = head2
+        head2 = head2.next
+    else:
+        head1 = head1.next
+    new_head = new_ll
+    while not (head1 is None and head2 is None):
+        if head1 is None:
+            new_head.next = head2
+            head2 = head2.next
+        elif head2 is None:
+            new_head.next = head1
+            head1 = head1.next
+        elif head1.data < head2.data:
+            new_head.next = head1
+            head1 = head1.next
+        else :
+            new_head.next = head2
+            head2 = head2.next
+        new_head = new_head.next
+    return new_ll
+
+
 def sorted_ll(head):
 
     second_head = head
@@ -29,16 +58,7 @@ def sorted_ll(head):
     second_head.next = None
     second_head = temp
 
-    # handle case where second head < head
-
-    while head is not None:
-        if (head.next is None) or (second_head is not None and second_head.val < head.next.val):
-            temp1 = head.next
-            temp2 = second_head.next
-            head.next = second_head
-            second_head.next = temp1
-            second_head = temp2
-        head = head.next
+    return merge_ll(head, second_head)
 
 def num_palindrome(i):
     j = i
