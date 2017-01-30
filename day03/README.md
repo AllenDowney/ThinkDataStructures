@@ -34,7 +34,7 @@ Implement your queue in the `MyQueue` class.
 
 ### Augmentation
 
-* Modify your `MyStack` so that it implements `maxADT`. This will require implementing: `public T maxElement()`. All operations (including `maxElement`) should still be constant time.
+* Modify your `MyStack` so that it supports: `public T maxElement()`. All operations (including `maxElement`) should still be constant time.
 * Write a new class `MyPriorityQueue`, which supports `enqueue` and `dequeueMax`. This queue dequeues the largest element on the queue, rather than the element at the front of the queue. In this case, you will only be able to do one of the operations in O(1) time. The other operation will be O(N).
 
 ### Analysis
