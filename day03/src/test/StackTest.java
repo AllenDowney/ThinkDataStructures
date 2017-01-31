@@ -1,7 +1,10 @@
+package test;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
+import your_code.MyStack;
 
 public class StackTest {
 
@@ -23,30 +26,40 @@ public class StackTest {
      */
     @Test
     public void testStack() {
-        assertThat(stack.size(), is(3));
         stack.push(3);
-        assertThat(stack.size(), is(4));
-
-
-        // TODO: Uncomment these tests if you implemented maxElement
-//        assertThat(stack.maxElement(), is(4));
         int e = stack.pop();
         assertThat(e, is(3));
-        assertThat(stack.size(), is(3));
 
         int bigNumber = 6;
         stack.push(bigNumber);
-//        assertThat(stack.maxElement(), is(bigNumber));
 
         assertThat(stack.isEmpty(), is(false));
         stack.pop();
         stack.pop();
         stack.pop();
-//        assertThat(stack.maxElement(), is(1));
         e = stack.pop();
         assertThat(e, is(1));
 
         assertThat(stack.isEmpty(), is(true));
+    }
+
+    /**
+     * Tests maxElement functionality
+     */
+    @Test
+    public void testMax() {
+        stack.push(3);
+        assertThat(stack.maxElement(), is(4));
+        stack.pop();
+
+        int bigNumber = 6;
+        stack.push(bigNumber);
+        assertThat(stack.maxElement(), is(bigNumber));
+
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        assertThat(stack.maxElement(), is(1));
     }
 
 }
