@@ -21,44 +21,34 @@ class Stack(object):
         return s
 
 def merge_ll(head1, head2):
+    # Base cases
     if head1 is None:
         return head2
     if head2 is None:
         return head1
+
+    # Keep a pointer to the head of the new list
     new_ll = head1
+
+    # Use the correct head as the first element
     if head2.data < head1.data:
         new_ll = head2
         head2 = head2.next
     else:
         head1 = head1.next
+
+    # Iterate until both heads are None, selecting the smaller
+    # element and adding onto the end of the list
     new_head = new_ll
     while not (head1 is None and head2 is None):
-        if head1 is None:
+        if (head1 is None) or ((head2 is not None) and (head1.data > head2.data)):
             new_head.next = head2
             head2 = head2.next
-        elif head2 is None:
+        else:
             new_head.next = head1
             head1 = head1.next
-        elif head1.data < head2.data:
-            new_head.next = head1
-            head1 = head1.next
-        else :
-            new_head.next = head2
-            head2 = head2.next
         new_head = new_head.next
     return new_ll
-
-
-def sorted_ll(head):
-
-    second_head = head
-    while second_head.next.data > second_head.data:
-        second_head = second_head.next
-    temp = second_head.next
-    second_head.next = None
-    second_head = temp
-
-    return merge_ll(head, second_head)
 
 def num_palindrome(i):
     j = i
@@ -71,6 +61,12 @@ def num_palindrome(i):
             return False
         i/=10
     return True
+
+def reverse(stack):
+    rev = Stack()
+    while not stack.isEmpty():
+        rev.push(stack.pop())
+    return rev
 
 def valid_expr(s):
     stack = Stack()
@@ -89,16 +85,6 @@ def is_pop_sequence(s1, s2):
             s3.pop()
             s2.pop()
     return s3.isEmpty()
-
-def sorted_stack(stack):
-    l = []
-    while not stack.isEmpty():
-        l.append(stack.pop())
-    l = sorted(l, reverse=True)
-    sorted_stack = Stack()
-    for e in l:
-        sorted_stack.push(e)
-    return sorted_stack
 
 def sorted_stack_one_stack(stack):
     sorted_stack = Stack()
