@@ -71,7 +71,8 @@ def reverse(stack):
 def valid_expr(s):
     stack = Stack()
     for c in s:
-        if not stack.isEmpty() and c == ')' and stack.peek() == '(':
+        if (not stack.isEmpty() and c == ')'
+            and stack.peek() == '('):
             stack.pop()
         else:
             stack.push(c)
@@ -90,7 +91,8 @@ def sorted_stack_one_stack(stack):
     sorted_stack = Stack()
     while not stack.isEmpty():
         var = stack.pop()
-        while not sorted_stack.isEmpty() and sorted_stack.peek() < var:
+        while (not sorted_stack.isEmpty() and 
+                   sorted_stack.peek() < var):
             stack.push(sorted_stack.pop())
         sorted_stack.push(var)
     return sorted_stack
@@ -132,7 +134,7 @@ if __name__ == '__main__':
     print num_palindrome(123211) == False
     print valid_expr('()()()(())') == True
     print valid_expr('()()()(()))') == False
-    print sorted_stack(Stack([1, 2, 3, 3, 4, 1, 9, 5, 7, 2]))
+    print sorted_stack_one_stack(Stack([1, 2, 3, 3, 4, 1, 9, 5, 7, 2]))
     print longest_valid_substring('()()()(()))') == 10
     print longest_valid_substring('())))') == 2
     print longest_valid_substring('(()))(') == 4
