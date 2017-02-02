@@ -10,7 +10,7 @@ Students will be able to:
 
 ## Assignment
 
-#### Due via check-off on Monday night (by midnight).
+#### Due via check-off on Monday night (Feb 6).
 
 ### Reading
 
