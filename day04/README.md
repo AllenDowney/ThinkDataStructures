@@ -1,4 +1,4 @@
-# Day04 - `MyLinearMap`
+# Day04 - `MyLinearMap` and review
 
 ## Learning Goals:
 
@@ -9,6 +9,8 @@ Students will be able to:
 - Understand when a map is effective
 
 ## Assignment
+
+#### Due via check-off on Monday night (by midnight).
 
 ### Reading
 
