@@ -10,6 +10,10 @@ After completing this assignment you should be able to:
   * Understand how a hash map achieves average constant time
 * Identify when using a hash map is effective
 
+## Due Date:
+
+Midnight, Feb. 9, 2017
+
 ## Assignment
 
 ### Reading
