@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
 
@@ -13,10 +9,6 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author downey
- *
- */
 public class MyLinearMapTest {
 
 	protected Map<String, Integer> map;
@@ -102,7 +94,7 @@ public class MyLinearMapTest {
 		map.put("One", 11);
 		assertThat(map.size(), is(4));
 		assertThat(map.get("One"), is(11));
-		
+
 		map.put("Five", 5);
 		assertThat(map.size(), is(5));
 		assertThat(map.get("Five"), is(5));
