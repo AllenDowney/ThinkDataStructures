@@ -8,6 +8,10 @@ In this project, you will learn to:
 * Learn and understand the functionality of the basic components of a search engine
 * Write testable code, and test effectively
 
+## Due Date:
+
+Full Project: Midnight, Feb. 23, 2017
+
 ## Preparation
 * Redis: To learn what you can store in Redis, read **Chapter 19** in Think Algorithms. **19.5** and **19.6** will be particularly useful.
 
