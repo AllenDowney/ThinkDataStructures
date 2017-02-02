@@ -8,6 +8,10 @@ Students will be able to:
 - Be able to create a simple implementation of Java's `map` interface using an `ArrayList` of key-value pairs.
 - Understand when a map is effective
 
+## Due Date:
+
+Midnight, Feb. 6, 2017
+
 ## Assignment
 
 #### Due via check-off on Monday night (Feb 6).
