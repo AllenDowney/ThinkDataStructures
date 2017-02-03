@@ -20,18 +20,31 @@ public class ProblemsTest {
      * Test method for {@link Problems#getCountMap(int[])}.
      */
     @Test
-    public void testCountInts() {
+    public void testCountMap() {
         int[] in = new int[]{1, 1, 3, 4, 1, 4, 5};
-        assertThat(Problems.getCountMap(in).toArray(), is(new int[]{3, 1, 2, 1}));
+        Map m = Problems.getCountMap(in);
+        assertThat(m.get(1), is(3));
+        assertThat(m.get(3), is(1));
+        assertThat(m.get(4), is(2));
+        assertThat(m.get(5), is(1));
 
-        int[] in2 = new int[]{3, 4, 1, 4, 4};
-        assertThat(Problems.getCountMap(in2).toArray(), is(new int[]{1, 3, 1}));
+        in = new int[]{3, 4, 1, 4, 4};
+        m = Problems.getCountMap(in);
+        assertThat(m.get(3), is(1));
+        assertThat(m.get(4), is(3));
+        assertThat(m.get(1), is(1));
 
-        int[] in3 = new int[]{1, 2, 3, 4};
-        assertThat(countInts(in3).toArray(), is(new int[]{1, 1, 1, 1}));
+        in = new int[]{1, 2, 3, 4};
+        m = Problems.getCountMap(in);
+        assertThat(m.get(1), is(1));
+        assertThat(m.get(2), is(1));
+        assertThat(m.get(3), is(1));
+        assertThat(m.get(4), is(1));
 
-        int[] in4 = new int[]{2, 3, 2, 3, 2, 3, 2};
-        assertThat(countInts(in4).toArray(), is(new int[]{4, 3}));
+        in = new int[]{2, 3, 2, 3, 2, 3, 2};
+        m = Problems.getCountMap(in);
+        assertThat(m.get(2), is(4));
+        assertThat(m.get(3), is(3));
 
     }
 

@@ -17,11 +17,10 @@ public class Problems {
     public static Map<Integer, Integer> getCountMap(int[] arr) {
         Map<Integer, Integer> countMap = new MyLinearMap<>();
         for (int i : arr) {
-            if (countMap.containsKey(i)) {
+            if (countMap.containsKey(i))
                 countMap.put(i, countMap.get(i) + 1);
-            } else {
+            else
                 countMap.put(i, 1);
-            }
         }
         return countMap;
     }
