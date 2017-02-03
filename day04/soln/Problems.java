@@ -1,6 +1,8 @@
 package soln;
 
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Problems {
 
@@ -13,6 +15,24 @@ public class Problems {
                 countMap.put(i, 1);
         }
         return countMap;
+    }
+
+    public static List<Integer> removeKDigits(int[] num, int k) {
+
+        LinkedList<Integer> arr = new LinkedList<>();
+
+        for (int i : num) {
+
+            while (!arr.isEmpty() && i < arr.getLast() && k>0) {
+                arr.removeLast();
+                k--;
+            }
+            if (arr.size() < num.length - k)
+                arr.addLast(i);
+
+        }
+
+        return arr;
     }
 
     public static int sumLists(Node<Integer> l1, Node<Integer> l2) {
