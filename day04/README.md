@@ -14,8 +14,6 @@ Midnight, Feb. 6, 2017
 
 ## Assignment
 
-#### Due via check-off on Monday night (Feb 6).
-
 ### Reading
 
 In *Think Algorithms*, read sections **13.2 and 13.3**. For information about what the methods you're implementing should do, read section **13.4**.
