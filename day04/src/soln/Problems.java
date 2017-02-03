@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class MapProblems {
+public class Problems {
 
     public static Map<Integer, Integer> getCountMap(int[] arr) {
         Map<Integer, Integer> countMap = new MyLinearMap<>();
