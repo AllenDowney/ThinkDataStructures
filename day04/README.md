@@ -40,11 +40,6 @@ Run `MyLinearMapTest` to test your `Map` implementation. If your code isn't pass
 ## Pset Problems
 - **O(N)/O(1)** You are given the head nodes of two singly linked lists representing non-negative integers. I.e., the number 7,442 is represented by the linked list `[7->4->4->2]`. Return the sum of the two numbers represented by the linked lists. E.g. `[7->4->4-2] + [5->2->9] = 7971`. You may modify the lists.
 
-- **O(N)/O(N)**. Given a non-negative integer represented as an array (e.g., 329 would be `[3, 2, 9]`) and an integer k, remove k digits from the number so that the new number is the smallest possible. Assume `k < arr.length`. Return the new number as an array.  For example:
-  - 1432219, 3 -> 1219
-  - 10200, 1 -> 0200
-  - 859343, 2 -> 5343
-
 ### When you're done
 
 In *Think Algorithms*, read sections **14.4 and 14.5** in preparation for next class.
