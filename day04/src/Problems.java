@@ -1,15 +1,23 @@
-import java.util.List;
 import java.util.Map;
-import java.util.LinkedList;
 
 public class Problems {
+
+    private class Node<T> {
+        T val;
+        Node next;
+
+        private Node(T data) {
+            this.val = data;
+            this.next = null;
+        }
+    }
 
     public static Map<Integer, Integer> getCountMap(int[] arr) {
         // TODO: your code here
         return null;
     }
 
-    public static LinkedList<Integer> sumLists(LinkedList<Integer> L1, LinkedList<Integer> L2) {
+    public static Node<Integer> sumLists(Node<Integer> L1, Node<Integer> L2) {
     	// TODO: your code here
     	return null;
     }

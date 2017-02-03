@@ -1,10 +1,18 @@
 package soln;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class Problems {
+
+    private class Node<T> {
+        T val;
+        Node next;
+
+        private Node(T data) {
+            this.val = data;
+            this.next = null;
+        }
+    }
 
     public static Map<Integer, Integer> getCountMap(int[] arr) {
         Map<Integer, Integer> countMap = new MyLinearMap<>();
@@ -18,24 +26,37 @@ public class Problems {
         return countMap;
     }
 
-    public static List<int[]> pairsThatAddTo(int[] arr, int k) {
-        Map<Integer, Integer> countMap = getCountMap(arr);
-        List<int[]> res = new ArrayList<>();
-        for (int num1 : countMap.keySet()) {
-            int num2 = k - num1;
-            // Need 2 occurrences of a number if num2==num1, otherwise need 1 occurrence
-            int requiredCount = (num1==num2) ? 2 : 1;
-            int count1 = countMap.get(num1);
-            int count2 = countMap.get(num2);
-            while (count1 >= requiredCount && count2 >= requiredCount) {
-                res.add(new int[]{num1, num2});
-                count1--;
-                count2--;
-            }
-            countMap.put(num1, count1);
-            countMap.put(num2, count2);
+    public Node<Integer> sumLists(Node<Integer> l1, Node<Integer> l2) {
+        l1 = reverseList(l1);
+        l2 = reverseList(l2);
+
+        int carry = 0;
+        while (l1 != null || l2 != null || carry != 0) {
+            int sum = ((l2 == null) ? 0 : l2.val) + ((l1 == null) ? 0 : l1.val) + carry;
+            cur.val = sum % 10;
+            carry = sum / 10;
+
+            l1 = (l1 == null) ? l1 : l1.next;
+            l2 = (l2 == null) ? l2 : l2.next;
         }
-        return res;
+        return head.next;
+    }
+
+     public Node<Integer> reverseList(Node<Integer> head){
+         Node<Integer> previous = null;
+         Node<Integer> current;
+         while (head != null) {
+             current = head;
+             head = head.next;
+             current.next = previous;
+             previous = current;
+         }
+         return previous;
+     }
+
+    public int[] smallestPossible(int k, int[] arr) {
+        // TODO: your code here
+        return null;
     }
 
 }
