@@ -44,7 +44,7 @@ public class ProblemsTest {
 
     }
 
-    public Node<Integer> arrToNodes(int[] arr) {
+    private Node<Integer> arrToNodes(int[] arr) {
         Node<Integer> dummyHead = new Node<>(0);
         Node<Integer> current = dummyHead;
         for (int i : arr) {
