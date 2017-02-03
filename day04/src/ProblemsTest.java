@@ -16,17 +16,6 @@ import org.junit.Test;
  */
 public class ProblemsTest {
 
-
-    private class Node<T> {
-        T val;
-        Node<T> next;
-
-        private Node(T data) {
-            this.val = data;
-            this.next = null;
-        }
-    }
-
     /**
      * Test method for {@link Problems#getCountMap(int[])}.
      */
@@ -71,7 +60,7 @@ public class ProblemsTest {
     }
 
     /**
-     * Test method for {@link Problems#sumLists(Problems.Node, Problems.Node)}
+     * Test method for {@link Problems#sumLists(Node, Node)}
      */
     @Test
     public void testSumLists() {
@@ -83,7 +72,37 @@ public class ProblemsTest {
         Node<Integer> case1 = arrToNodes(soln1);
         Node<Integer> n1 = arrToNodes(a1);
         Node<Integer> n2 = arrToNodes(a2);
-        assertThat(sumLists(n1, n2), is(case1));
+        assertThat(Problems.sumLists(n1, n2), is(case1));
+
+        // Case 2: overflow example
+        int[] a3 = {9, 9, 9};
+        int[] a4 = {9, 9, 9};
+        int[] soln2 = {1, 9, 9, 8};
+
+        Node<Integer> case2 = arrToNodes(soln2);
+        Node<Integer> n3 = arrToNodes(a3);
+        Node<Integer> n4 = arrToNodes(a4);
+        assertThat(Problems.sumLists(n3, n4), is(case2));
+
+        // Case 3: different lengths
+        int[] a5 = {9, 9, 9};
+        int[] a6 = {9, 9, 9};
+        int[] soln3 = {1, 9, 9, 8};
+
+        Node<Integer> case3 = arrToNodes(soln3);
+        Node<Integer> n5 = arrToNodes(a5);
+        Node<Integer> n6 = arrToNodes(a6);
+        assertThat(Problems.sumLists(n5, n6), is(case3));
+
+        // Case 3: zeros
+        int[] a7 = {0};
+        int[] a8 = {0};
+        int[] soln4 = {0};
+
+        Node<Integer> case4 = arrToNodes(soln4);
+        Node<Integer> n7 = arrToNodes(a7);
+        Node<Integer> n8 = arrToNodes(a8);
+        assertThat(Problems.sumLists(n7, n8), is(case4));
     }
 
 }

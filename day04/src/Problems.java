@@ -2,37 +2,6 @@ import java.util.Map;
 
 public class Problems {
 
-//    private class Node<T> {
-//        T val;
-//        Node next;
-//
-//        private Node(T data) {
-//            this.val = data;
-//            this.next = null;
-//        }
-//    }
-//
-//    public static Map<Integer, Integer> getCountMap(int[] arr) {
-//        // TODO: your code here
-//        return null;
-//    }
-//
-//    public static int sumLists(Node<Integer> l1, Node<Integer> l2) {
-//    	// TODO: your code here
-//    	return 0;
-//    }
-
-
-    private class Node<T> {
-        T val;
-        Node<T> next;
-
-        private Node(T data) {
-            this.val = data;
-            this.next = null;
-        }
-    }
-
     public static Map<Integer, Integer> getCountMap(int[] arr) {
         Map<Integer, Integer> countMap = new MyLinearMap<>();
         for (int i : arr) {
@@ -45,7 +14,7 @@ public class Problems {
         return countMap;
     }
 
-    public int sumLists(Node<Integer> l1, Node<Integer> l2) {
+    public static int sumLists(Node<Integer> l1, Node<Integer> l2) {
         l1 = reverseList(l1);
         l2 = reverseList(l2);
         int carry = 0;
@@ -63,7 +32,7 @@ public class Problems {
         return listSum;
     }
 
-    public Node<Integer> reverseList(Node<Integer> head){
+    public static Node<Integer> reverseList(Node<Integer> head){
         Node<Integer> previous = null;
         Node<Integer> current;
         while (head != null) {
