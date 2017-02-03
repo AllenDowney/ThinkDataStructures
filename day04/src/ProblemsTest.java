@@ -10,10 +10,6 @@ import java.util.*;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author David Abrahams
- *
- */
 public class ProblemsTest {
 
     /**
