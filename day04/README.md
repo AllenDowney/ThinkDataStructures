@@ -38,7 +38,7 @@ Run `MyLinearMapTest` to test your `Map` implementation. If your code isn't pass
 - Write the function `getCountMap(int[] arr)`,  that returns a `MyLinearMap` that maps from `int`s to their appearance counts. For example, if the input is `[1, 1, 3, 4, 1, 4, 5]`, the output should be `MyLinearMap` containing `{1:3, 3:1, 4:2, 5:1}`.
 
 ## Pset Problems
-- **O(N)/O(1)** You are given the head nodes of two singly linked lists representing non-negative integers. I.e., the number 7,442 is represented by the linked list `[7->4->4->2]`. Return the sum of the two numbers represented by the linked lists. E.g. `[7->4->4-2] + [5->2->9] = 7971`. You may modify the lists.
+- **O(N)/O(1)** You are given the head nodes of two singly linked lists representing non-negative integers. I.e., the number 7,442 is represented by the linked list `[7->4->4->2]`. Return the sum of the two numbers represented by the linked lists. E.g. `[7->4->4-2] + [5->2->9] = 7971`. You may modify the lists. Assume neither head is null.
 
 ### When you're done
 
