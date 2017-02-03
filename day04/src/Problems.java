@@ -8,9 +8,4 @@ public class MapProblems {
         return null;
     }
 
-    public static List<int[]> pairsThatAddTo(int[] arr, int k) {
-        // TODO: your code here
-        return null;
-    }
-
 }
