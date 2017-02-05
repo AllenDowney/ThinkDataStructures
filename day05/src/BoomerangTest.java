@@ -11,26 +11,13 @@ import org.junit.Test;
 
 public class BoomerangTest {
 
-    protected Map<String, Integer> map;
-
     /**
-     * @throws java.lang.Exception
-     */
-    @Before
-    public void setUp() throws Exception {
-        map = new MyHashMap<>();
-        map.put("One", 1);
-        map.put("Two", 2);
-        map.put("Three", 3);
-        map.put(null, 0);
-    }
-
-    /**
-     * Test method for {@link MyLinearMap#clear()}.
+     * Test method for {@link Boomerang#numberOfBoomerangs(int[][])} ()}.
      */
     @Test
     public void testNumberOfBoomerangs() {
-        map.clear();
-        assertThat(map.size(), is(0));
+        // Case 1: Empty list of points
+        int[][] p = {{}, {}};
+
     }
 }

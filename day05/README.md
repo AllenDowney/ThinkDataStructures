@@ -32,12 +32,11 @@ Finish the implementation of these methods in MyHashMap:
 * `remove(Object key)` remove and return the key-value pair associated with the given key. Shrink if needed, according to `BETA`. Make sure the number of `LinearMaps` doesn't go below `MIN_MAPS`. 
 
 ### PSet Problem
-Given a string, pattern, and another string, str, return true if str follows the same sequence as pattern.  Following the sequence means that every space separated word in str has a one-to-one correspondence to a letter in pattern (for the curious, this is a bijection in graph theory).  For example:
+**Time: O(N$^2$), Space: O(N)**.  Given an array containing n tuples of points in a plane, a "boomerang" is a set of points (i, j, k) such that the distance between i and j is equal to the distance between j and k.  Find the number of boomerangs on the plane. Note that you can never have an odd number of boomerangs because every boomerang set counts twice, as it can be flipped. For example:
 
-- pattern = "abba" and str = "dog cat cat dog" -> return true
-- pattern = "abba" and str = "dog cat cat fish" -> return false  
-- pattern = "aaaa" and str = "dog cat cat dog" -> return false
-- pattern = "abba" and str = "dog dog dog dog" -> return false
+Given the set of points [(0,0),(1,0),(2,0)], you should return 2.  The boomerangs are [(0, 0), (1, 0), (2, 0)] and [(2,0), (1,0), (0,0)].
+
+Hint: If you have $n$ points equidistant from point j, then there are $n*(n-1)$ total boomerangs with j at the center.
 
 ### Checkoff
 
