@@ -1,3 +1,5 @@
+package soln;
+
 import java.util.*;
 
 /**
@@ -9,20 +11,24 @@ import java.util.*;
  * @param <V>
  *
  */
-public class MyHashMapSoln<K, V> implements Map<K, V> {
+public class MyHashMap<K, V> implements Map<K, V> {
 
-	// average number of entries per map before we rehash
-	protected static final double ALPHA = 2.0;
+	// average number of entries per map before we grow the map
+	private static final double ALPHA = 2.0;
+	// average number of entries per map before we shrink the map
+	private static final double BETA = 0.5;
 
 	// resizing factor: (new size) = (old size) * (resize factor)
-	protected static final double RESIZE_FACTOR = 2.0;
+	private static final double SHRINK_FACTOR = 0.5, GROWTH_FACTOR = 2.0;
+
+	private static final int MIN_MAPS = 16;
 
 	// list of maps
 	protected List<MyLinearMap<K,V>> maps;
 	private int size = 0;
 
-	public MyHashMapSoln() {
-		makeMaps(2);
+	public MyHashMap() {
+		makeMaps(MIN_MAPS);
 	}
 
 	@Override
@@ -38,14 +44,14 @@ public class MyHashMapSoln<K, V> implements Map<K, V> {
 	@Override
 	public boolean containsKey(Object key) {
 		// TODO: Complete this method
-        MyLinearMap<K,V> map = chooseMap(key);
+		MyLinearMap<K,V> map = chooseMap(key);
 		return map.containsKey(key);
 	}
 
 	@Override
 	public boolean containsValue(Object value) {
 		// TODO: Complete this method
-        for (MyLinearMap<K,V> map : maps) {
+		for (MyLinearMap<K,V> map : maps) {
 			if (map.containsValue(value)) return true;
 		}
 
@@ -54,14 +60,14 @@ public class MyHashMapSoln<K, V> implements Map<K, V> {
 
 	@Override
 	public V get(Object key) {
-        MyLinearMap<K,V> m = chooseMap(key);
+		MyLinearMap<K,V> m = chooseMap(key);
 		return m.get(key);
 	}
 
 	@Override
 	public V put(K key, V value) {
-        // TODO: Complete this method
-        MyLinearMap<K,V> map = chooseMap(key);
+		// TODO: Complete this method
+		MyLinearMap<K,V> map = chooseMap(key);
 		size -= map.size();
 		V oldValue = map.put(key, value);
 		size += map.size();
@@ -69,18 +75,24 @@ public class MyHashMapSoln<K, V> implements Map<K, V> {
 		// check if the number of elements per map exceeds the threshold
 		if (size() > maps.size() * ALPHA) {
 			size = 0;
-			rehash();
+			rehash(GROWTH_FACTOR);
 		}
 		return oldValue;
 	}
 
 	@Override
 	public V remove(Object key) {
-		// TODO: Complete this method
-        MyLinearMap<K,V> map = chooseMap(key);
+		MyLinearMap<K,V> map = chooseMap(key);
 		size -= map.size();
 		V oldValue = map.remove(key);
 		size += map.size();
+
+		// check if the number of elements per map is below the threshold
+		// make sure the number of maps doesn't go too low
+		if (maps.size() * SHRINK_FACTOR >= MIN_MAPS && size() < maps.size() * BETA) {
+			size = 0;
+			rehash(SHRINK_FACTOR);
+		}
 		return oldValue;
 	}
 
@@ -92,14 +104,16 @@ public class MyHashMapSoln<K, V> implements Map<K, V> {
 	}
 
 	/**
-	 * Doubles the number of maps and rehashes the existing entries.
+	 * Changes the number of maps and rehashes the existing entries.
+	 * If growthFactor is 2, the number of maps doubles. If it is 0.25,
+	 * the number of maps is divided by 4.
 	 */
-	protected void rehash() {
+	protected void rehash(double growthFactor) {
 		// TODO: Implement this method
 		List<MyLinearMap<K,V>> oldMaps = maps;
-        int newSize = (int) (maps.size() * RESIZE_FACTOR);
+		int newSize = (int) (maps.size() * growthFactor);
 
-        makeMaps(newSize);
+		makeMaps(newSize);
 
 		for (MyLinearMap<K,V> map : oldMaps) {
 			for (Map.Entry<K,V> entry : map.getEntries()) {
@@ -120,6 +134,7 @@ public class MyHashMapSoln<K, V> implements Map<K, V> {
 		for (int i=0; i<maps.size(); i++) {
 			maps.get(i).clear();
 		}
+		size = 0;
 	}
 
 	protected MyLinearMap<K, V> chooseMap(Object key) {
@@ -130,7 +145,7 @@ public class MyHashMapSoln<K, V> implements Map<K, V> {
 
 	@Override
 	public Set<K> keySet() {
-        Set<K> set = new HashSet<>();
+		Set<K> set = new HashSet<>();
 		for (MyLinearMap<K,V> map : maps) {
 			set.addAll(map.keySet());
 		}
@@ -139,7 +154,7 @@ public class MyHashMapSoln<K, V> implements Map<K, V> {
 
 	@Override
 	public Collection<V> values() {
-        Set<V> set = new HashSet<>();
+		Set<V> set = new HashSet<>();
 		for (MyLinearMap<K,V> map : maps) {
 			set.addAll(map.values());
 		}
@@ -148,7 +163,7 @@ public class MyHashMapSoln<K, V> implements Map<K, V> {
 
 	@Override
 	public Set<Entry<K, V>> entrySet() {
-        Set<Entry<K,V>> set = new HashSet<>();
+		Set<Entry<K,V>> set = new HashSet<>();
 		for (MyLinearMap<K,V> map : maps) {
 			set.addAll(map.getEntries());
 		}

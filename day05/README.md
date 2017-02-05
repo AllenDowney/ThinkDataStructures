@@ -18,21 +18,21 @@ Midnight, Feb. 9, 2017
 
 ### Reading
 
-- In *Think Algorithms*, read sections **15.4 and 15.5.**.
+- In *Think Algorithms*, read sections **15.4 and 15.5**.
 
 ### Code
 
-Write a couple of sentences describing the main purpose of a hash function. Are there any requirements or limitations when hashing? Find at least one problem with SillyString's hash function.
-
 Finish the implementation of these methods in MyHashMap:
-* `containsKey(Integer key)` return true if key is in map
-* `containsValue(Integer value)` return true if value is in map
-* `put(Integer key, Integer value)` add a new key-value pair to the map
-* `remove(Integer key)` remove and return the key-value pair associated with the given key
-* `rehash()` when the map has too many values, resize and copy all old elements into new map
+* `makeMaps(int size)` Initialize `maps` to `n` LinearMaps, where `n=size`
+* `chooseMap(Object key)` given a key, return the `LinearMap` where the `K, V` pair would be stored if it is in the map.
+* `containsKey(Object key)` return true if key is in map
+* `containsValue(Object value)` return true if value is in map
+* `rehash(double growthFactor)` Changes the number of maps and rehashes the existing entries. If growthFactor is 2, the number of maps doubles. If it is 0.25, the number of maps is divided by 4.
+* `put(K key, V value)` add a new key-value pair to the map. Grow if needed, according to `ALPHA`.
+* `remove(Object key)` remove and return the key-value pair associated with the given key. Shrink if needed, according to `BETA`. Make sure the number of `LinearMaps` doesn't go below `MIN_MAPS`. 
 
-Briefly describe the key differences and improvements between MyLinearMap and MyHashMap.
+### Checkoff
 
-## Problems
+Explain to a NINJA the main purpose of a hash function. Are there any requirements or limitations when hashing? Find at least one problem with SillyString's hash function.
 
-Fill in the missing functions in AirTrafficControl.java following the instructions in the file.
+Tell a NINJA about the key differences and improvements between MyLinearMap and MyHashMap.
