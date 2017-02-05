@@ -53,13 +53,13 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
 	@Override
 	public boolean containsKey(Object key) {
-		// TODO: Complete this method
+		// TODO
 		return false;
 	}
 
 	@Override
 	public boolean containsValue(Object value) {
-		// TODO: Complete this method
+		// TODO
 		return false;
 	}
 
@@ -75,13 +75,13 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
 	@Override
 	public V put(K key, V value) {
-		// TODO: Complete this method
+		// TODO
 		return null;
 	}
 
 	@Override
 	public V remove(Object key) {
-		// TODO: Complete this method
+		// TODO
 		return null;
 	}
 

@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class SillyString {
@@ -18,6 +19,7 @@ public class SillyString {
 
 	@Override
 	public int hashCode() {
+		// TODO What is wrong with this hash function??
 		int total = 0;
 		for (int i=0; i<innerString.length(); i++) {
 			total += innerString.charAt(i);
@@ -34,5 +36,7 @@ public class SillyString {
 
 		System.out.println(first.hashCode());
 		System.out.println(second.hashCode());
+
+		HashMap
 	}
 }

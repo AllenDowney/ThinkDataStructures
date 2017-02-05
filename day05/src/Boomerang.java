@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class Boomerang {
 
     public static int numberOfBoomerangs(int[][] points) {
-        // TODO: your code here
+        // TODO
         return 0;
     }
 

@@ -40,8 +40,7 @@ Hint: If you have n points equidistant from point j, then there are n*(n-1) tota
 
 ### Checkoff
 
-Explain to a NINJA the main purpose of a hash function. Are there any requirements or limitations when hashing? Find at least one problem with SillyString's hash function.
-
-Tell a NINJA about the key differences and improvements between MyLinearMap and MyHashMap.
-
-Explain the runtime complexity of your solution to the boomerang problem.
+Explain to a NINJA:
+- the main purpose of a hash function. Are there any requirements or limitations when hashing? Find at least one problem with SillyString's hash function.
+- the key differences and improvements between MyLinearMap and MyHashMap.
+- the runtime complexity of your solution to the boomerang problem.
