@@ -36,7 +36,7 @@ Finish the implementation of these methods in MyHashMap:
 
 Given the set of points [(0,0),(1,0),(2,0)], you should return 2.  The boomerangs are [(0, 0), (1, 0), (2, 0)] and [(2,0), (1,0), (0,0)].
 
-Hint: If you have $n$ points equidistant from point j, then there are $n*(n-1)$ total boomerangs with j at the center.
+Hint: If you have n points equidistant from point j, then there are n*(n-1) total boomerangs with j at the center.
 
 ### Checkoff
 
