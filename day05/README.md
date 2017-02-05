@@ -32,7 +32,7 @@ Finish the implementation of these methods in MyHashMap:
 * `remove(Object key)` remove and return the key-value pair associated with the given key. Shrink if needed, according to `BETA`. Make sure the number of `LinearMaps` doesn't go below `MIN_MAPS`. 
 
 ### PSet Problem
-**Time: O(N$^2$), Space: O(N)**.  Given an array containing n tuples of points in a plane, a "boomerang" is a set of points (i, j, k) such that the distance between i and j is equal to the distance between j and k.  Find the number of boomerangs on the plane. Note that you can never have an odd number of boomerangs because every boomerang set counts twice, as it can be flipped. For example:
+**Time: O(N^2), Space: O(N)**.  Given an array containing n tuples of points in a plane, a "boomerang" is a set of points (i, j, k) such that the distance between i and j is equal to the distance between j and k.  Find the number of boomerangs on the plane. Note that you can never have an odd number of boomerangs because every boomerang set counts twice, as it can be flipped. For example:
 
 Given the set of points [(0,0),(1,0),(2,0)], you should return 2.  The boomerangs are [(0, 0), (1, 0), (2, 0)] and [(2,0), (1,0), (0,0)].
 
