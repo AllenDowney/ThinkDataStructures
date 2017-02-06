@@ -36,7 +36,5 @@ public class SillyString {
 
 		System.out.println(first.hashCode());
 		System.out.println(second.hashCode());
-
-		HashMap
 	}
 }
