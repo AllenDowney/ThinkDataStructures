@@ -1,6 +1,12 @@
 package com.allendowney.thinkdast;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Collection;
 
 /**
  * Implementation of a Map using a collection of MyLinearMap, and
