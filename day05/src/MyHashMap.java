@@ -39,6 +39,18 @@ public class MyHashMap<K, V> implements Map<K, V> {
 		return size() == 0;
 	}
 
+	/**
+	 * Initialize maps
+	 */
+	protected void makeMaps(int size) {
+		// TODO: Implement this method
+	}
+
+	protected MyLinearMap<K, V> chooseMap(Object key) {
+		// TODO: Implement this method
+		return null;
+	}
+
 	@Override
 	public boolean containsKey(Object key) {
 		// TODO: Complete this method
@@ -49,6 +61,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
 	public boolean containsValue(Object value) {
 		// TODO: Complete this method
 		return false;
+	}
+
+	protected void rehash(double growthFactor) {
+		// TODO: Implement this method
 	}
 
 	@Override
@@ -76,27 +92,11 @@ public class MyHashMap<K, V> implements Map<K, V> {
 		}
 	}
 
-	protected void rehash(double growthFactor) {
-		// TODO: Implement this method
-	}
-
-	/**
-	 * Initialize maps
-	 */
-	protected void makeMaps(int size) {
-		// TODO: Implement this method
-	}
-
 	public void clear() {
 		for (int i=0; i<maps.size(); i++) {
 			maps.get(i).clear();
 		}
 		size = 0;
-	}
-
-	protected MyLinearMap<K, V> chooseMap(Object key) {
-		// TODO: Implement this method
-		return null;
 	}
 
 	@Override
