@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * Implementation of a HashMap using a collection of MyLinearMap and
- * resizing when there are too many entries.
+ * resizing when there are too many or few entries.
  *
  * @author downey
  * @param <K>
@@ -154,11 +154,11 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
 	@Override
 	public Collection<V> values() {
-		Set<V> set = new HashSet<>();
+		Collection<V> ll = new LinkedList<>();
 		for (MyLinearMap<K,V> map : maps) {
-			set.addAll(map.values());
+			ll.addAll(map.values());
 		}
-		return set;
+		return ll;
 	}
 
 	@Override

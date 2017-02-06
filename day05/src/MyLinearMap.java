@@ -1,9 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Implementation of a Map using a List of entries, so most
@@ -157,11 +152,11 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 
 	@Override
 	public Collection<V> values() {
-		Set<V> set = new HashSet<V>();
+		Collection<V> l = new LinkedList<>();
 		for (Entry entry: entries) {
-			set.add(entry.getValue());
+			l.add(entry.getValue());
 		}
-		return set;
+		return l;
 	}
 
 	/**
