@@ -12,9 +12,9 @@ import java.util.*;
 public class MyHashMap<K, V> implements Map<K, V> {
 
 	// average number of entries per map before we grow the map
-	private static final double ALPHA = 2.0;
+	private static final double ALPHA = 1.0;
 	// average number of entries per map before we shrink the map
-	private static final double BETA = 0.5;
+	private static final double BETA = .25;
 
 	// resizing factor: (new size) = (old size) * (resize factor)
 	private static final double SHRINK_FACTOR = 0.5, GROWTH_FACTOR = 2.0;
