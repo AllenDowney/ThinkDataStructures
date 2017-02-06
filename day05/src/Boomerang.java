@@ -1,6 +1,3 @@
-import java.util.Map;
-import java.util.HashMap;
-
 public class Boomerang {
 
     public static int numberOfBoomerangs(int[][] points) {
