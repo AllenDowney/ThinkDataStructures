@@ -1,11 +1,10 @@
-package soln;
-
 import java.util.*;
 
 /**
  * Implementation of a Map using a List of entries, so most
  * operations are linear time.
  *
+ * @author downey
  * @param <K>
  * @param <V>
  *
@@ -48,7 +47,11 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 		return findEntry(target) != null;
 	}
 
-	// Returns the entry that contains the target key, or null if there is none.
+	/**
+	 * Returns the entry that contains the target key, or null if there is none.
+	 *
+	 * @param target
+	 */
 	private Entry findEntry(Object target) {
 		for (Entry entry: entries) {
 			if (equals(target, entry.getKey())) {
@@ -58,7 +61,13 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 		return null;
 	}
 
-	// Compares two keys or two values, handling null correctly.
+	/**
+	 * Compares two keys or two values, handling null correctly.
+	 *
+	 * @param target
+	 * @param obj
+	 * @return
+	 */
 	private boolean equals(Object target, Object obj) {
 		if (target == null) {
 			return obj == null;
@@ -143,13 +152,16 @@ public class MyLinearMap<K, V> implements Map<K, V> {
 
 	@Override
 	public Collection<V> values() {
-		Set<V> set = new HashSet<V>();
+		Collection<V> l = new LinkedList<>();
 		for (Entry entry: entries) {
-			set.add(entry.getValue());
+			l.add(entry.getValue());
 		}
-		return set;
+		return l;
 	}
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Map<String, Integer> map = new MyLinearMap<String, Integer>();
 		map.put("Word1", 1);
