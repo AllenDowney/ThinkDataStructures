@@ -112,16 +112,16 @@ public class MyHashMapTest {
         for (int i = 0; i < 10000; i++)
             map.put(Integer.toString(i), i);
         MyHashMap temp = (MyHashMap) map;
-        assertThat(temp.maps.size(), is(8192));
+        assertThat(temp.maps.size(), is(16384));
         for (int i = 0; i < 6000; i++)
             map.remove(Integer.toString(i));
-        assertThat(temp.maps.size(), is(4096));
+        assertThat(temp.maps.size(), is(8192));
         for (int i = 6000; i < 9960; i++)
             map.remove(Integer.toString(i));
-        assertThat(temp.maps.size(), is(64));
+        assertThat(temp.maps.size(), is(128));
         for (int i = 9960; i < 9990; i++)
             map.remove(Integer.toString(i));
-        assertThat(temp.maps.size(), is(16));
+        assertThat(temp.maps.size(), is(32));
         for (int i = 9990; i < 9998; i++)
             map.remove(Integer.toString(i));
         assertThat(temp.maps.size(), is(16));
