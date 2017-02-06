@@ -43,7 +43,7 @@ public class Problems {
         int power_of_ten = 1;
 
         while (l1 != null || l2 != null || carry != 0) {
-            int sum = ((l2 == null) ? 0 : l2.val) + ((l1 == null) ? 0 : l1.val) + carry;
+            int sum = ((l2 == null) ? 0 : l2.data) + ((l1 == null) ? 0 : l1.data) + carry;
             listSum = listSum + (sum % 10)*power_of_ten;
             carry = sum / 10;
             power_of_ten *= 10;
