@@ -1,6 +1,5 @@
 package soln;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Boomerang {
@@ -8,7 +7,7 @@ public class Boomerang {
     public static int numberOfBoomerangs(int[][] points) {
         int res = 0;
 
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new MyHashMap<>();
         for (int i=0; i<points.length; i++) {
             for (int j=0; j<points.length; j++) {
                 if (i == j)

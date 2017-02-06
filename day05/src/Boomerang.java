@@ -8,7 +8,7 @@ public class Boomerang {
         return 0;
     }
 
-    private static int getDistance(int[] a, int[] b) {
+    private static int getSquaredDistance(int[] a, int[] b) {
         int dx = a[0] - b[0];
         int dy = a[1] - b[1];
 
