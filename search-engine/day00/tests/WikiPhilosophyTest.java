@@ -1,24 +1,11 @@
-/**
- * 
- */
-package com.allendowney.javacs;
-
 import static org.junit.Assert.*;
 
 import java.io.IOException;
 
 import org.junit.Test;
 
-/**
- * @author downey
- *
- */
 public class WikiPhilosophyTest {
 
-
-	/**
-	 * Test method for {@link com.allendowney.javacs.WikiPhilosophy#main(java.lang.String[])}.
-	 */
 	@Test
 	public void testMain() {
 		// Because this lab is more open-ended than others, we can't provide unit
