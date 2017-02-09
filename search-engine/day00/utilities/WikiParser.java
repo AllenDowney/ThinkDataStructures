@@ -7,27 +7,27 @@ import java.util.Deque;
 import java.util.StringTokenizer;
 
 public class WikiParser {
-	
+
 	// the list of paragraphs we should search
 	private Elements paragraphs;
-	
+
 	// the stack of open delimiters
 	private Deque<String> parenthesisStack;
-	
+
 
 	public WikiParser(Elements paragraphs) {
 		this.paragraphs = paragraphs;
 		this.parenthesisStack = new ArrayDeque<String>();
 	}
-	
+
 	public Element findFirstLink() {
-		for (Element paragraph: paragraphs) { 
+		for (Element paragraph: paragraphs) {
 			Element firstLink = findFirstLinkPara(paragraph);
 			if (firstLink != null) {
 				return firstLink;
 			}
 			if (!parenthesisStack.isEmpty()) {
-				System.err.println("Warning: unbalanced parentheses."); 
+				System.err.println("Warning: unbalanced parentheses.");
 	   	 	}
 		}
 		return null;
@@ -114,7 +114,7 @@ public class WikiParser {
 		     }
 		     if (token.equals(")")) {
 		    	 if (parenthesisStack.isEmpty()) {
-		    		 System.err.println("Warning: unbalanced parentheses."); 
+		    		 System.err.println("Warning: unbalanced parentheses.");
 		    	 }
 		    	 parenthesisStack.pop();
 		     }

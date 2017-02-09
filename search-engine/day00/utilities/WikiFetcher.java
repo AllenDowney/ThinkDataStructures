@@ -22,14 +22,14 @@ public class WikiFetcher {
 
 		// retrieve the portion of the html we care about
 		Element content = doc.getElementById("mw-content-text");
-		
+
 		Elements paras = content.select("p");
 		return paras;
 	}
 
 	public Elements readWikipedia(String url) throws IOException {
 		URL realURL = new URL(url);
-		
+
 		// assemble the file name
 		String slash = File.separator;
 		String filename = "resources" + slash + realURL.getHost() + realURL.getPath();
@@ -43,7 +43,7 @@ public class WikiFetcher {
 		Elements paras = content.select("p");
 		return paras;
 	}
-	
+
 	private void sleepIfNeeded() {
 		if (lastRequestTime != -1) {
 			long currentTime = System.currentTimeMillis();
@@ -58,12 +58,12 @@ public class WikiFetcher {
 		}
 		lastRequestTime = System.currentTimeMillis();
 	}
-	
+
 	public static void main(String[] args) throws IOException {
 		WikiFetcher wf = new WikiFetcher();
 		String url = "https://en.wikipedia.org/wiki/Java_(programming_language)";
 		Elements paragraphs = wf.readWikipedia(url);
-		
+
 		for (Element paragraph: paragraphs) {
 			System.out.println(paragraph);
 		}

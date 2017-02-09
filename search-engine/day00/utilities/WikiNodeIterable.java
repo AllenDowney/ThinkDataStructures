@@ -20,9 +20,9 @@ public class WikiNodeIterable implements Iterable<Node> {
 	public Iterator<Node> iterator() {
 		return new WikiNodeIterator(root);
 	}
-	
+
 	private class WikiNodeIterator implements Iterator<Node> {
-		
+
 		// this stack keeps track of the Nodes waiting to be visited
 		Deque<Node> stack;
 
@@ -30,7 +30,7 @@ public class WikiNodeIterable implements Iterable<Node> {
 			stack = new ArrayDeque<Node>();
 		    stack.push(root);
 		}
-		
+
 		@Override
 		public boolean hasNext() {
 			return !stack.isEmpty();
@@ -42,7 +42,7 @@ public class WikiNodeIterable implements Iterable<Node> {
 			if (stack.isEmpty()) {
 				throw new NoSuchElementException();
 			}
-			
+
 			// otherwise pop the next Node off the stack
 			Node node = stack.pop();
 
@@ -54,7 +54,7 @@ public class WikiNodeIterable implements Iterable<Node> {
 			}
 			return node;
 		}
-		
+
 		@Override
 		public void remove() {
 			throw new UnsupportedOperationException();
