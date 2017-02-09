@@ -11,7 +11,7 @@ public class Index {
 
     // Map of words to URL and their counts
 	private Map<String, Set<TermCounter>> index = new HashMap<String, Set<TermCounter>>();
-	
+
 	public void add(String term, TermCounter tc) {
 		Set<TermCounter> set = get(term);
 
@@ -32,7 +32,7 @@ public class Index {
 		// make a TermCounter and count the terms in the paragraphs
 		TermCounter tc = new TermCounter(url);
 		tc.processElements(paragraphs);
-		
+
 		// for each term in the TermCounter, add the TermCounter to the index
 		for (String term: tc.keySet()) {
 			add(term, tc);
@@ -43,7 +43,7 @@ public class Index {
 		// loop through the search terms
 		for (String term: keySet()) {
 			System.out.println(term);
-			
+
 			// for each term, print the pages where it appears
 			Set<TermCounter> tcs = get(term);
 			for (TermCounter tc: tcs) {
@@ -58,18 +58,18 @@ public class Index {
 	}
 
 	public static void main(String[] args) throws IOException {
-		
+
 		WikiFetcher wf = new WikiFetcher();
 		Index indexer = new Index();
 
 		String url = "https://en.wikipedia.org/wiki/Java_(programming_language)";
 		Elements paragraphs = wf.fetchWikipedia(url);
 		indexer.indexPage(url, paragraphs);
-		
+
 		url = "https://en.wikipedia.org/wiki/Programming_language";
 		paragraphs = wf.fetchWikipedia(url);
 		indexer.indexPage(url, paragraphs);
-		
+
 		indexer.printIndex();
 	}
 

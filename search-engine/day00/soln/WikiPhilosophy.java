@@ -6,34 +6,34 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class WikiPhilosophy {
-	
+
 	final static List<String> visited = new ArrayList<String>();
 	final static WikiFetcher wf = new WikiFetcher();
-	
+
 	/**
 	 * Tests a conjecture about Wikipedia and Philosophy.
-	 * 
+	 *
 	 * https://en.wikipedia.org/wiki/Wikipedia:Getting_to_Philosophy
-	 * 
+	 *
 	 * 1. Clicking on the first non-parenthesized, non-italicized link
      * 2. Ignoring external links, links to the current page, or red links
      * 3. Stopping when reaching "Philosophy", a page with no links or a page
      *    that does not exist, or when a loop occurs
-	 * 
+	 *
 	 * @param args
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		
+
 		String destination = "https://en.wikipedia.org/wiki/Philosophy";
 		String source = "https://en.wikipedia.org/wiki/Java_(programming_language)";
-		
-		testConjecture(destination, source, 10);		
+
+		testConjecture(destination, source, 10);
 	}
 
 	/**
 	 * Starts from given URL and follows first link until it finds the destination or exceeds the limit.
-	 * 
+	 *
 	 * @param destination
 	 * @param source
 	 * @throws IOException
@@ -52,10 +52,10 @@ public class WikiPhilosophy {
 				System.err.println("Got to a page with no valid links.");
 				return;
 			}
-			
+
 			System.out.println("**" + elt.text() + "**");
 			url = elt.attr("abs:href");
-			
+
 			if (url.equals(destination)) {
 				System.out.println("Eureka!");
 				break;
@@ -65,7 +65,7 @@ public class WikiPhilosophy {
 
 	/**
 	 * Loads and parses a URL, then extracts the first link.
-	 * 
+	 *
 	 * @param url
 	 * @return the Element of the first link, or null.
 	 * @throws IOException
@@ -80,7 +80,7 @@ public class WikiPhilosophy {
 
 	/**
 	 * Formats and print the arguments.
-	 * 
+	 *
 	 * @param msg
 	 * @param args
 	 */

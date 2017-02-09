@@ -8,19 +8,19 @@ import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 
 public class TermCounter {
-	
+
 	private Map<String, Integer> map;
 	private String label;
-	
+
 	public TermCounter(String label) {
 		this.label = label;
 		this.map = new HashMap<String, Integer>();
 	}
-	
+
 	public String getLabel() {
 		return label;
 	}
-	
+
 	public int size() {
 		int total = 0;
 		for (Integer value: map.values()) {
@@ -34,7 +34,7 @@ public class TermCounter {
 			processTree(node);
 		}
 	}
-	
+
 	public void processTree(Node root) {
 		// NOTE: we could use select to find the TextNodes, but since
 		// we already have a tree iterator, let's use it.
@@ -48,7 +48,7 @@ public class TermCounter {
 	public void processText(String text) {
 		// replace punctuation with spaces, convert to lower case, and split on whitespace
 		String[] array = text.replaceAll("\\pP", " ").toLowerCase().split("\\s+");
-		
+
 		for (int i=0; i<array.length; i++) {
 			String term = array[i];
 			incrementTermCount(term);
@@ -71,7 +71,7 @@ public class TermCounter {
 	public Set<String> keySet() {
 		return map.keySet();
 	}
-	
+
 	public void printCounts() {
 		for (String key: keySet()) {
 			Integer count = get(key);
@@ -82,10 +82,10 @@ public class TermCounter {
 
 	public static void main(String[] args) throws IOException {
 		String url = "https://en.wikipedia.org/wiki/Java_(programming_language)";
-		
+
 		WikiFetcher wf = new WikiFetcher();
 		Elements paragraphs = wf.fetchWikipedia(url);
-		
+
 		TermCounter counter = new TermCounter(url.toString());
 		counter.processElements(paragraphs);
 		counter.printCounts();

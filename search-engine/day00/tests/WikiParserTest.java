@@ -10,7 +10,7 @@ import org.junit.Test;
 public class WikiParserTest {
 
 	final static WikiFetcher wf = new WikiFetcher();
-	
+
 	@Test
 	public void testFindFirstLink1() throws IOException {
 		String url = "https://en.wikipedia.org/wiki/Java_(programming_language)";
