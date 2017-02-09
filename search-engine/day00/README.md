@@ -1,6 +1,8 @@
 # Wikipedia Search Engine Project - Day00
 
-## Learning Goals
+## Project Description
+
+### Learning Goals
 
 In this project, you will learn to:
 
@@ -10,11 +12,20 @@ In this project, you will learn to:
 * Learn and understand the functionality of the basic components of a search engine
 * Write testable code, and test effectively
 
-## Due Date
+### Specifications
 
-Day00: 
+Your team is going to design a Wikipedia search engine that comprises of the following components:
 
-Midnight, Feb. 13
+* *Crawler*: A program that can download a web page, parse it, and then "crawl" to other pages via hyperlinks.
+* *Indexer*: We’ll need an index that makes it possible to look up a search term and find the pages that contain it.
+* *SearchTool*: A way to collect results from the Index and identify pages that are relevant to the search terms.
+* *Persistent Storage*: Store the data from your Indexer on a database (Redis)
+
+## Due Date (Day00)
+
+The project is split up over three assignments.  Day00 is due:
+
+**Midnight, Feb. 13**
 
 ## Assignment
 
