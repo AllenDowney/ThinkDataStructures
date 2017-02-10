@@ -7,13 +7,13 @@ import java.util.Set;
 
 public class Index {
 
-	// Map of words to URL and their counts
+	// Index: map of words to URL and their counts
 	private Map<String, Set<TermCounter>> index = new HashMap<String, Set<TermCounter>>();
 
 	public void add(String term, TermCounter tc) {
 		// TODO
 		// if we're seeing a term for the first time, make a new Set
-		// otherwise we can modify an existing Set
+		// otherwise we can add the term to an existing Set
 	}
 
 	public Set<TermCounter> get(String term) {
