@@ -23,35 +23,36 @@ Your team is going to design a Wikipedia search engine that comprises of the fol
 
 ## Due Date (Day00)
 
-The project is split up over three assignments.  Day00 is due:
-
-**Midnight, Feb. 13**
+This project is split up over three assignments.  Day00 is due **Midnight, Feb. 13**.
 
 ## Assignment
 
-### Reading
-
-In *Think Algorithms*, read the following sections:
-
-* 
-* 
-
 ### Code
+
+Each file has comments with definitions for the methods listed below.  If you get stuck, refer to the optional reading section.
 
 Finish the implementation of these methods in TermCounter.java:
 
-* `TermCounter(String label)`
-* `String getLabel()`
 * `int size()`
-* `void processElements(Elements paragraphs)`
-* `void printCounts()`
+* `void processText(String text)`
+* `void incrementTermCount(String term)`
+* `void put(String term, int count)`
+* `Integer get(String term)`
 
 Finish the implementation of these methods in Index.java:
 
-* `void get(String term)`
+* `void add(String term, TermCounter tc)`
+* `Set<TermCounter> get(String term)`
 * `void indexPage(String url, Elements paragraphs)`
-* `void printIndex()`
 
 Finish the implementation of these methods in WikiPhilosophy.java:
 
-* `void testConjecture(String destination, String source, int limit)`
+* `boolean testConjecture(String destination, String source, int limit)`
+
+### (Optional) Reading
+
+If you get stuck during the implementation, you can read the following sections in *Think Algorithms*:
+
+* TermCounter: Chapter 12.1-12.5
+* Index: Chapter 12.6
+* WikiPhilosophy: Chapter 11
