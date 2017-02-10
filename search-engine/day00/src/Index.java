@@ -61,6 +61,4 @@ public class Index {
 
 		indexer.printIndex();
 	}
-
-
 }

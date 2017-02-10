@@ -6,11 +6,9 @@
 
 In this project, you will learn to:
 
-* Use persistent storage in the form of Redis
-* Make meaningful and justifiable design decisions regarding which data structure(s) to use given specifications/requirements
-* Design classes and their appropriate methods
+* Use Redis as persistent storage
+* Design classes with appropriate methods and their implementations
 * Learn and understand the functionality of the basic components of a search engine
-* Write testable code, and test effectively
 
 ### Specifications
 
@@ -31,7 +29,9 @@ This project is split up over three assignments.  Day00 is due **Midnight, Feb. 
 
 Each file has comments with definitions for the methods listed below.  If you get stuck, refer to the optional reading section.
 
-Finish the implementation of these methods in TermCounter.java:
+Complete these methods:
+
+in `TermCounter.java`:
 
 * `int size()`
 * `void processText(String text)`
@@ -39,13 +39,13 @@ Finish the implementation of these methods in TermCounter.java:
 * `void put(String term, int count)`
 * `Integer get(String term)`
 
-Finish the implementation of these methods in Index.java:
+in `Index.java`:
 
 * `void add(String term, TermCounter tc)`
 * `Set<TermCounter> get(String term)`
 * `void indexPage(String url, Elements paragraphs)`
 
-Finish the implementation of these methods in WikiPhilosophy.java:
+in `WikiPhilosophy.java`:
 
 * `boolean testConjecture(String destination, String source, int limit)`
 
