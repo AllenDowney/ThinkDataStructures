@@ -30,9 +30,9 @@ public class TermCounter {
 	}
 
 	public void processElements(Elements paragraphs) {
-		for (Node node: paragraphs) {
-			processTree(node);
-		}
+for (Node node: paragraphs) {
+	processTree(node);
+}
 	}
 
 	public void processTree(Node root) {
