@@ -28,13 +28,21 @@ public class WikiPhilosophy {
 
 	/**
 	 * Starts from given URL and follows first link until it finds the destination or exceeds the limit.
+	 *
+	 * If you hit the limit or get stuck in a loop, throw an IllegalArgumentException()
      *
 	 * @param source: url to start from
 	 * @param destination: url to end up at
 	 * @param limit: maximum number of clicks before we give up
 	 */
-	public static void testConjecture(String destination, String source, int limit) throws IOException {
-		// TODO
+	public static boolean testConjecture(String destination, String source, int limit) throws IOException {
+		// TODO: fix this method.
+		// Right now, it tries the first link on the page, and if it is the destination, it returns true
+		Element elt = getFirstValidLink(source);
+		String url = elt.attr("abs:href");
+		if (url.equals(destination))
+			return true;
+		return false;
 	}
 
 	/**

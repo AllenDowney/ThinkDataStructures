@@ -38,19 +38,19 @@ public class WikiPhilosophy {
 	 * @param source
 	 * @throws IOException
 	 */
-	public static void testConjecture(String destination, String source, int limit) throws IOException {
+	public static boolean testConjecture(String destination, String source, int limit) throws IOException {
 		String url = source;
 		for (int i=0; i<limit; i++) {
 			if (visited.contains(url)) {
 				System.err.println("We're in a loop, exiting.");
-				return;
+				return false;
 			} else {
 				visited.add(url);
 			}
 			Element elt = getFirstValidLink(url);
 			if (elt == null) {
 				System.err.println("Got to a page with no valid links.");
-				return;
+				return false;
 			}
 
 			System.out.println("**" + elt.text() + "**");
@@ -58,9 +58,10 @@ public class WikiPhilosophy {
 
 			if (url.equals(destination)) {
 				System.out.println("Eureka!");
-				break;
+				return true;
 			}
 		}
+		return false;
 	}
 
 	/**
