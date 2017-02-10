@@ -17,7 +17,7 @@ public class Index {
 	}
 
 	public Set<TermCounter> get(String term) {
-		return index.get(term);
+		// TODO
 	}
 
 	public void indexPage(String url, Elements paragraphs) {
