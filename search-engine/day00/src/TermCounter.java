@@ -47,6 +47,7 @@ public class TermCounter {
 		String[] array = text.replaceAll("\\pP", " ").toLowerCase().split("\\s+");
 
 		// TODO
+		// increment the count for each term
 	}
 
 	public void incrementTermCount(String term) {
