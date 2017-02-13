@@ -4,7 +4,7 @@
 
 ### Reading
 
-To learn what you can store in Redis, read **Chapter 19** in Think Algorithms. **19.5** and **19.6** will be particularly useful.
+To learn what you can store in Redis, read **Chapter 19** in *Think Algorithms*. **19.5** and **19.6** will be particularly useful.
 
 ### Set-up
 
