@@ -70,39 +70,18 @@ public class JedisIndex {
 		jedis.sadd(urlSetKey(term), tc.getLabel());
 	}
 
-	/**
-	 * Looks up a search term and returns a set of URLs.
-	 * 
-	 * @param term
-	 * @return Set of URLs.
-	 */
-	public Set<String> getURLs(String term) {
-        // FILL THIS IN!
-		return null;
-	}
 
-    /**
+        /**
 	 * Looks up a term and returns a map from URL to count.
 	 * 
 	 * @param term
 	 * @return Map from URL to count.
 	 */
 	public Map<String, Integer> getCounts(String term) {
-        // FILL THIS IN!
+                // TODO: FILL THIS IN!
 		return null;
 	}
 
-    /**
-	 * Returns the number of times the given term appears at the given URL.
-	 * 
-	 * @param url
-	 * @param term
-	 * @return
-	 */
-	public Integer getCount(String url, String term) {
-        // FILL THIS IN!
-		return null;
-	}
 
 	/**
 	 * Adds a page to the index.
