@@ -17,7 +17,6 @@ To learn what you can store in Redis, read **Chapter 19** in *Think Algorithms*.
   * In your Terminal, `cd` into your `search-engine/day01/resources/` directory and execute `touch redis_url.txt`. This is the file `JedisMaker` will read when connecting to your Redis instance.
   * Copy your Redis instance's ID into the `redis_url.txt` file.
   * Read through `JedisMaker.make()`. Assure that your team understand what the code is doing.
-  * Follow the instructions in `JedisMaker.main()`.
 
 
 ## Jsoup
