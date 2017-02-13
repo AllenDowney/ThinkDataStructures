@@ -48,8 +48,8 @@ In `JedisIndex.java`:
 * `Map<String, Integer> getCounts(String term)`: Takes a search term and returns a map from each URL that contains the search term to the number of times is appears on that page.
 * `void add(String term)`: Add a URL to the set associated with term.
 * `Set<String> getURLs(String term)`: Looks up a search term and returns a set of URLs
-* Integer getCount(String url, String term): Returns the number of times the given term appears at the given URL.
-* List <Object> pushTermCounterToRedis(TermCounter tc): Pushes the contents of the term counter to Redis.
+* `Integer getCount(String url, String term)`: Returns the number of times the given term appears at the given URL.
+* `List <Object> pushTermCounterToRedis(TermCounter tc)`: Pushes the contents of the term counter to Redis.
 
 
 To complete the Crawler, read section 21.2 in *Think Algorithms* to get the functionality list for the crawl function.  Then implement the following method:
