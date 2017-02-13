@@ -59,16 +59,6 @@ public class WikiCrawler {
         return null;
 	}
 
-	/**
-	 * Parses paragraphs and adds internal links to the queue.
-	 * 
-	 * @param paragraphs
-	 */
-	// NOTE: absence of access level modifier means package-level
-	void queueInternalLinks(Elements paragraphs) {
-        // TODO: FILL THIS IN!
-	}
-
 	public static void main(String[] args) throws IOException {
 		// make a WikiCrawler
 		Jedis jedis = JedisMaker.make();
