@@ -33,7 +33,11 @@ This project is split up over three assignments.  Day01 is due **Midnight, Feb. 
 
 ### Code
 
-Start by copying the Index.java and TermCounter.java files from search engine hw00 into your hw01 src folder.
+## Prerequisites
+
+Start by copying the Index.java and TermCounter.java files from search engine hw00 into your hw01 src folder.  Because the project is organized into the src, utils, and tests files, you will need to mark all of them as source folders in IntelliJ as with the last homework.  To do this, right click on the folder in IntelliJ, select Mark Directory as, and finally select Sources Root.
+
+## Methods
 
 Each file has comments with definitions for the methods listed below along with the written definitions below.  If you get stuck, refer to the optional reading section.
 
