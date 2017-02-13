@@ -9,12 +9,13 @@ To learn what you can store in Redis, read **Chapter 19** in *Think Algorithms*.
 ### Set-up
 
   * Go to [redistogo](https://redistogo.com)
-  * Select the free plan and set up your account. You need 1 account for your team.
+  * Select the free plan and set up your account. You need one account for your team.
   * Select "New Instance"
   * Scroll to the bottom and select "Free"
   * You should see an ID that starts with `redis://redistogo`. Copy it.
-  * In your Terminal, `cd` into your `day07/resources/` directory and execute `touch redis_url.txt`. This is the file `JedisMaker` will read when connecting to your Redis instance.
-  * Copy your Redis instance's ID into the file.
+  * Create a new folder `resources` in the `search-engine/day01/` directory.
+  * In your Terminal, `cd` into your `search-engine/day01/resources/` directory and execute `touch redis_url.txt`. This is the file `JedisMaker` will read when connecting to your Redis instance.
+  * Copy your Redis instance's ID into the `redis_url.txt` file.
   * Read through `JedisMaker.make()`. Assure that your team understand what the code is doing.
   * Follow the instructions in `JedisMaker.main()`.
 
@@ -31,13 +32,11 @@ This project is split up over three assignments.  Day01 is due **Midnight, Feb. 
 
 ## Assignment
 
-### Code
-
-## Prerequisites
+### Prerequisites
 
 Start by copying the Index.java and TermCounter.java files from search engine hw00 into your hw01 src folder.  Because the project is organized into the src, utils, and tests files, you will need to mark all of them as source folders in IntelliJ as with the last homework.  To do this, right click on the folder in IntelliJ, select Mark Directory as, and finally select Sources Root.
 
-## Methods
+### Code
 
 Each file has comments with definitions for the methods listed below along with the written definitions below.  If you get stuck, refer to the optional reading section.
 
