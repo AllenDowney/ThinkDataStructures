@@ -1,6 +1,6 @@
 # Wikipedia Search Engine Project - Day01
 
-## Redis Setup
+## Getting Started with Redis
 
 ### Reading
 
@@ -23,7 +23,7 @@ To learn what you can store in Redis, read **Chapter 19** in Think Algorithms. *
 
 ### Set-up
 
-No fancy set up required here. Just read through `WikiFetcher.java`. Make sure your team understand what `fetchWikipedia` is doing.
+No fancy setup required here. Just read through `WikiFetcher.java`. Make sure your team understands what `fetchWikipedia` is doing.
 
 ## Due Date (Day01)
 
@@ -33,9 +33,11 @@ This project is split up over three assignments.  Day01 is due **Midnight, Feb. 
 
 ### Code
 
+Start by copying the Index.java and TermCounter.java files from search engine hw00 into your hw01 src folder.
+
 Each file has comments with definitions for the methods listed below along with the written definitions below.  If you get stuck, refer to the optional reading section.
 
-Complete these methods:
+To complete the Indexer, implement the following methods:
 
 In `JedisIndex.java`:
 
@@ -46,10 +48,16 @@ In `JedisIndex.java`:
 * Integer getCount(String url, String term): Returns the number of times the given term appears at the given URL.
 * List <Object> pushTermCounterToRedis(TermCounter tc): Pushes the contents of the term counter to Redis.
 
+To complete the Crawler, read section 21.2 in *Think Algorithms* to get the functionality list for the crawl function.  Then implement the following method:
+
+In 'WikiCrawler.java':
+
+* String crawl(boolean testing) throws IOException`
+
 
 ### (Optional) Reading
 
 If you get stuck during the implementation, you can read the following sections in *Think Algorithms*:
 
 * JedisIndex: Chapter 19
-* Crawler: Chapter 11
+* WikiCrawler: Chapter 20
