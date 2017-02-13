@@ -33,23 +33,23 @@ This project is split up over three assignments.  Day01 is due **Midnight, Feb. 
 
 ### Code
 
-Each file has comments with definitions for the methods listed below.  If you get stuck, refer to the optional reading section.
+Each file has comments with definitions for the methods listed below along with the written definitions below.  If you get stuck, refer to the optional reading section.
 
 Complete these methods:
 
-In `JedisMaker.java`:
-
-
 In `JedisIndex.java`:
 
-
-In `Crawler.java`:
+* `void indexPage(String url, Elements paragraphs)`: Takes a URL and JSoup Elements object that contains the elements of the page that should be indexed and adds the web page to the index.
+* `Map<String, Integer> getCounts(String term)`: Takes a search term and returns a map from each URL that contains the search term to the number of times is appears on that page.
+* `void add(String term)`: Add a URL to the set associated with term.
+* `Set<String> getURLs(String term)`: Looks up a search term and returns a set of URLs
+* Integer getCount(String url, String term): Returns the number of times the given term appears at the given URL.
+* List <Object> pushTermCounterToRedis(TermCounter tc): Pushes the contents of the term counter to Redis.
 
 
 ### (Optional) Reading
 
 If you get stuck during the implementation, you can read the following sections in *Think Algorithms*:
 
-* JedisMaker: Chapter 12.1-12.5
-* JedisIndex: Chapter 12.6
+* JedisIndex: Chapter 19
 * Crawler: Chapter 11
