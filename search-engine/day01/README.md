@@ -20,7 +20,7 @@ To learn what you can store in Redis, read **Chapter 19** in *Think Algorithms*.
   * Run the example code in `JedisMaker.main()` to understand the data types and methods used.
 
 
-## Jsoup
+## Getting Started with Jsoup
 
 ### Set-up
 
