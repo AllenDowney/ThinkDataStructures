@@ -1,5 +1,3 @@
-package com.allendowney.thinkdast;
-
 import java.io.IOException;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -16,7 +14,6 @@ import redis.clients.jedis.Transaction;
 
 /**
  * Represents a Redis-backed web search index.
- *
  */
 public class JedisIndex {
 
@@ -24,7 +21,6 @@ public class JedisIndex {
 
 	/**
 	 * Constructor.
-	 *
 	 * @param jedis
 	 */
 	public JedisIndex(Jedis jedis) {
@@ -33,7 +29,6 @@ public class JedisIndex {
 
 	/**
 	 * Returns the Redis key for a given search term.
-	 *
 	 * @return Redis key.
 	 */
 	private String urlSetKey(String term) {
@@ -42,7 +37,6 @@ public class JedisIndex {
 
 	/**
 	 * Returns the Redis key for a URL's TermCounter.
-	 *
 	 * @return Redis key.
 	 */
 	private String termCounterKey(String url) {
@@ -51,9 +45,6 @@ public class JedisIndex {
 
 	/**
 	 * Checks whether we have a TermCounter for a given URL.
-	 *
-	 * @param url
-	 * @return
 	 */
 	public boolean isIndexed(String url) {
 		String redisKey = termCounterKey(url);
