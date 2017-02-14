@@ -5,7 +5,6 @@ import redis.clients.jedis.Jedis;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Queue;
 
 public class Crawler {
@@ -13,7 +12,7 @@ public class Crawler {
 	private Index index;
 
 	// queue of URLs to be indexed
-	private Queue<String> queue = new LinkedList<String>();
+	private Queue<String> queue = new LinkedList<>();
 
 	// fetcher used to get pages from Wikipedia
 	final static WikiFetcher wf = new WikiFetcher();
@@ -45,6 +44,7 @@ public class Crawler {
 	}
 
 	private void queueInternalLinks(Element paragraph) {
+
 		Elements elts = paragraph.select("a[href]");
 		for (Element elt: elts) {
 			String relURL = elt.attr("href");
@@ -67,6 +67,16 @@ public class Crawler {
 		Elements paragraphs = wf.fetchWikipedia(source);
 		wc.queueInternalLinks(paragraphs);
 
-        // TODO
+        // TODO: Crawl outward starting at source
+
+		// TODO: Test that your index contains multiple pages.
+		// Here is some sample code that tests your index, which assumes
+		// you have written a getCounts() method in Index, which returns
+		// a map from {url: count} for a given keyword
+		// Map<String, Integer> map = index.getCounts("programming");
+		// for (Map.Entry<String, Integer> entry: map.entrySet()) {
+		// 	System.out.println(entry);
+		// }
+
 	}
 }

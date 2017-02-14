@@ -22,7 +22,7 @@ To learn what you can store in Redis, read **Chapter 19** in *Think Algorithms*.
   * A map of each URL to their `TermCounter` data.
   * A map of each term to a set of URLs that contain that term.
 
-*Hint: each of the above object is the value in a key-value pair in Redis.*
+*Hint: each of the above objects is the value in a key-value pair in Redis.*
 
 ## Due Date (Day01)
 
@@ -40,9 +40,22 @@ We do not provide test files for this homework. You will need to justify the cor
 
 You will improve your Indexer and Crawler in this homework.
 
-* For the indexer, after you index each page, push the relevant data to Redis. *Use a `Transaction t = jedis.multi()` to make multiple updates, rather than pushing an update every time you increment a count. This will improve the performance of your indexer.*
-* You are also provided the `StopWords.java` class in `utils/` that has the method `getStopWords()`. This will return you a `Set` of stop words that you should not index.
-* For the crawler, implement `crawl()` that will take each of the URLs in the queue and 1. index the page 2. add all hyperlinks on that page using the provided method `queueInternalLinks()`.
+* For the indexer, after you index each page, push the relevant data to Redis. *Use a `Transaction t = jedis.multi()` to make multiple updates, rather than pushing an update every time you increment a count. This will improve the performance of your indexer.* Here's a sample `Transaction`, updating a TermCounter hash and a urlSet set:
+```java
+Transaction t = jedis.multi();
+
+String url = "wikipedia.org/wiki/Java_(programming_language)";
+String hashname = "TermCounter: " + url;
+String term = "programming";
+String urlSetKey = "urlSet: " + term;
+Integer count = 43;
+t.hset(hashname, term, count.toString());
+t.sadd(urlSetKey, url);
+List<Object> res = t.exec();
+return res;
+```
+* For the crawler, implement `crawl()` that will take each of the URLs in the queue and 1. index the page 2. add all hyperlinks on that page to the queue using the provided method `queueInternalLinks()`. Make sure you do not index the same page repeatedly.
+* You are also provided the `StopWords.java` class in `utils/` that has the method `getStopWords()`. This will return a `Set` of stop words that you should not index.
 
 If you get stuck, reference Chapter 19.9 in *Think Algorithms* for some suggested helper methods to work on.
 
