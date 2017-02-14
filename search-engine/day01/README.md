@@ -34,7 +34,7 @@ This project is split up over three assignments.  Day01 is due **Midnight, Feb. 
 
 ### Prerequisites
 
-Start by copying the `Index.java` and `TermCounter.java` files from search engine `day00` into your `day01/src` folder.  Because the project is organized into the `src`, `utils`, and `tests` folders, you will need to mark all of them as source folders in IntelliJ as with the last homework.  To do this, right click on the folder in IntelliJ, select Mark Directory as, and finally select Sources Root.
+Start by copying the `Index.java` and `TermCounter.java` files from search engine `day00` into your `day01/src` folder.  Because the project is organized into the `src`, `utils`, and `tests` folders, you will need to mark all of them as source folders in IntelliJ as with the last homework.  To do this, right click on the `utils` and `tests` folders in IntelliJ, select Mark Directory as, and then select Sources Root for `utils` and Test Sources Root for `tests`.
 
 ### Code
 
