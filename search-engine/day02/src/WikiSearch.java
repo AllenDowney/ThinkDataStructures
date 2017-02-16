@@ -18,8 +18,6 @@ public class WikiSearch {
 
     /**
      * Constructor.
-     *
-     * @param map
      */
     public WikiSearch(Map<String, Integer> map) {
         this.map = map;
@@ -27,9 +25,6 @@ public class WikiSearch {
 
     /**
      * Looks up the relevance of a given URL.
-     *
-     * @param url
-     * @return
      */
     public Integer getRelevance(String url) {
         // TODO: FILL THIS IN!
@@ -114,7 +109,7 @@ public class WikiSearch {
     public static WikiSearch search(String term, Index index) {
         // TODO: Use the index to get a map from URL to count
         Map<String, Integer> map = null; // Fix this
-
+        // Store the map locally in the WikiSearch
         return new WikiSearch(map);
     }
 
