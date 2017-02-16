@@ -8,7 +8,9 @@ This project is split up over three assignments.  Day02 is due **Midnight, Feb. 
 
 ### Prerequisites
 
-Start by copying the `Index.java`, `TermCounter.java`, and `Crawler.java` files from search engine `day01/src` into your `day02/src` folder. Mark the `src` and `utils` folders as `Sources Root`.  To do this, right click on the `utils` and `src` folders in IntelliJ, select Mark Directory as, and then select Sources Root for `utils` and Test Sources Root for `tests`.
+* Start by copying the `Index.java`, `TermCounter.java`, and `Crawler.java` files from search engine `day01/src` into your `day02/src` folder. 
+* Copy the `redis_url.txt` file from `day01/resources` into `day02/resources`.
+* Mark the `src` and `utils` folders as `Sources Root`.  To do this, right click on the `utils` and `src` folders in IntelliJ, select Mark Directory as, and then select Sources Root for `utils` and Test Sources Root for `tests`.
 
 We do not provide test files for this homework. You will need to justify the correctness of your search engine components to your check-off NINJAs.
 
