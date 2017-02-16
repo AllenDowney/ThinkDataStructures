@@ -2,7 +2,7 @@
 
 ## Due Date (Day02)
 
-This project is split up over three assignments.  Day01 is due **Midnight, Feb. 20**.
+This project is split up over three assignments.  Day02 is due **Midnight, Feb. 20**.
 
 ## Assignment
 
@@ -14,13 +14,16 @@ We do not provide test files for this homework. You will need to justify the cor
 
 ### Code
 
-You will fill in the methods of WikiSearch.java to complete your search engine.  If you get stuck, refer to the optional reading section below.
+You will fill in the methods of WikiSearch.java to complete your search engine.  Each of the methods is commented with instructions.  If you get stuck, refer to the optional reading section below.
 
 In `WikiSearch.java`:
 
+* `WikiSearch search(String term, JedisIndex index)`
+* `Integer getRelevance(String url)`
 * `WikiSearch or(WikiSearch that)`
 * `WikiSearch and(WikiSearch that)`
 * `WikiSearch minus(WikiSearch that)`
+* `List<Entry<String, Integer>> sort()`
 
 
 ### (Optional) Reading
