@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -6,36 +5,21 @@ import java.util.Map.Entry;
 
 import redis.clients.jedis.Jedis;
 
-
-/**
- * Represents the results of a search query.
- *
- */
 public class WikiSearch {
 
     // map from URLs that contain the term(s) to relevance score
     private Map<String, Integer> map;
 
-    /**
-     * Constructor.
-     */
     public WikiSearch(Map<String, Integer> map) {
         this.map = map;
     }
 
-    /**
-     * Looks up the relevance of a given URL.
-     */
     public Integer getRelevance(String url) {
-        // TODO: FILL THIS IN!
+        // TODO
         return null;
     }
 
-    /**
-     * Prints the contents in order of term frequency.
-     *
-     * @param
-     */
+    // Prints the contents in order of term frequency.
     private  void print() {
         List<Entry<String, Integer>> entries = sort();
         for (Entry<String, Integer> entry: entries) {
@@ -43,72 +27,44 @@ public class WikiSearch {
         }
     }
 
-    /**
-     * Computes the union of two search results.
-     *
-     * @param that
-     * @return New WikiSearch object.
-     */
+    // Computes the union of two search results.
     public WikiSearch or(WikiSearch that) {
-        // TODO: FILL THIS IN!
+        // TODO
         return null;
     }
 
-    /**
-     * Computes the intersection of two search results.
-     *
-     * @param that
-     * @return New WikiSearch object.
-     */
+    // Computes the intersection of two search results.
     public WikiSearch and(WikiSearch that) {
-        // TODO: FILL THIS IN!
+        // TODO
         return null;
     }
 
-    /**
-     * Computes the intersection of two search results.
-     *
-     * @param that
-     * @return New WikiSearch object.
-     */
+    // Computes the intersection of two search results.
     public WikiSearch minus(WikiSearch that) {
-        // TODO: FILL THIS IN!
+        // TODO
         return null;
     }
 
-    /**
-     * Computes the relevance of a search with multiple terms.
-     *
-     * @param rel1: relevance score for the first search
-     * @param rel2: relevance score for the second search
-     * @return
-     */
+    // Computes the relevance of a search with multiple terms.
     protected int totalRelevance(Integer rel1, Integer rel2) {
-        // TODO: FILL THIS IN!
+        // TODO
         return 0;
     }
 
-    /**
-     * Sort the results by relevance.
-     *
-     * @return List of entries with URL and relevance.
-     */
+    // Sort the results by relevance.
     public List<Entry<String, Integer>> sort() {
-        // TODO: FILL THIS IN!
+        // TODO
         return null;
     }
 
 
-    /**
-     * Performs a search and makes a WikiSearch object.
-     *
-     * @param term
-     * @param index
-     * @return
-     */
+    // Performs a search and makes a WikiSearch object.
     public static WikiSearch search(String term, Index index) {
         // TODO: Use the index to get a map from URL to count
-        Map<String, Integer> map = null; // Fix this
+
+        // Fix this
+        Map<String, Integer> map = null;
+
         // Store the map locally in the WikiSearch
         return new WikiSearch(map);
     }

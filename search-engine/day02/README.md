@@ -26,7 +26,10 @@ In `WikiSearch.java`:
 * `WikiSearch minus(WikiSearch that)`
 * `List<Entry<String, Integer>> sort()`
 
+#### Optional Code
+
+If you find the exercise above easy, feel free to explore further and enhance your search engine using the suggestions in **Chapter 22.9**.
 
 ### (Optional) Reading
 
-If you get stuck during the implementation, you can read Chapter 22 in *Think Algorithms*.
+If you get stuck during the implementation, you can read Chapter 22 (section 22.4 onwards) in *Think Algorithms*.
