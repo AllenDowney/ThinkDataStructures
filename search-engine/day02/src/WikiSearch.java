@@ -69,6 +69,8 @@ public class WikiSearch {
         return new WikiSearch(map);
     }
 
+    // TODO: Choose an extension and add your methods here
+
     public static void main(String[] args) throws IOException {
 
         // make a Index
