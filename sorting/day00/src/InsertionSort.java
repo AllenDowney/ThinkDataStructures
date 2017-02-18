@@ -1,6 +1,5 @@
 
-
-public class InsertionSort extends Sorter {
+public class InsertionSort extends SortAlgorithm {
     /**
      * Use the insertion sort algorithm to sort the array
      *

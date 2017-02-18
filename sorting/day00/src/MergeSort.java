@@ -1,4 +1,5 @@
-public class MergeSort extends Sorter {
+
+public class MergeSort extends SortAlgorithm {
 
     /**
      * This is the recursive step in which you split the array up into
@@ -12,7 +13,7 @@ public class MergeSort extends Sorter {
      */
     @Override
     public int[] sort(int[] array) {
-        // TODO: Complete this method
+        // TODO
         return new int[0];
     }
 
@@ -21,6 +22,6 @@ public class MergeSort extends Sorter {
      * take left and right, and merge them into a new sorted array "out".
      */
     private void merge(int[] left, int[] right, int[] out) {
-        // TODO: Complete this method
+        // TODO
     }
 }
