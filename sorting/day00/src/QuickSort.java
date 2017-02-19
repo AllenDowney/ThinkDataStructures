@@ -20,7 +20,7 @@ public class QuickSort implements SortAlgorithm {
      * portions of the array. A test for this method is provided in `SortTest.java`
      * Optional: use Insertion Sort if the length of the array is <= INSERTION_THRESHOLD
      */
-    private void quickSort(int[] a, int low, int high) {
+    public void quickSort(int[] a, int low, int high) {
         // TODO
     }
 

@@ -1,8 +1,9 @@
-import com.sun.scenario.effect.Merge;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertThat;
@@ -10,6 +11,8 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class SortTest {
     private int[] emptyCase;
+    private int[] oneCase;
+    private int[] twoCase;
     private int[] fastCase;
     private int[] slowCase;
 
@@ -18,6 +21,8 @@ public class SortTest {
     @Before
     public void setup() {
         emptyCase = generateRandomArrayOfSize(0);
+        oneCase = generateRandomArrayOfSize(1);
+        twoCase = generateRandomArrayOfSize(2);
         fastCase = generateRandomArrayOfSize(1000);
         slowCase = generateRandomArrayOfSize(100000);
     }
@@ -34,13 +39,16 @@ public class SortTest {
 
     private void testSort(SortAlgorithm sorter) {
         assertArrayEquals(sorter.sort(emptyCase), emptyCase);
+        assertArrayEquals(sorter.sort(oneCase), sort(oneCase));
+        assertArrayEquals(sorter.sort(twoCase), sort(twoCase));
         assertArrayEquals(sorter.sort(fastCase), sort(fastCase));
         assertArrayEquals(sorter.sort(slowCase), sort(slowCase));
     }
 
     private int[] sort(int[] array) {
-        Arrays.sort(array);
-        return array;
+        int[] copy = Arrays.copyOf(array, array.length);
+        Arrays.sort(copy);
+        return copy;
     }
 
     @Test
@@ -61,6 +69,43 @@ public class SortTest {
         a = new int[] {1};
         b = new int[0];
         assertArrayEquals(mergeSort.merge(a, b), a);
+    }
+
+
+    @Test
+    public void testQuick() {
+        QuickSort quickSort = new QuickSort();
+        int[] a, b, c;
+
+        a = new int[] {8, 3, 4, 6, 7, 2, 1, 6};
+        int[] a_sorted = sort(a);
+        quickSort.quickSort(a, 0, a.length-1);
+        assertArrayEquals(a, a_sorted);
+
+        // Quicksort the middle of a an array
+        a = generateRandomArrayOfSize(500);
+        b = generateRandomArrayOfSize(10000);
+        c = generateRandomArrayOfSize(85);
+
+        List<Integer> inputAL = new ArrayList<>();
+        for (int i: a)
+            inputAL.add(i);
+        for (int i: b)
+            inputAL.add(i);
+        for (int i: c)
+            inputAL.add(i);
+        List<Integer> outputAL = new ArrayList<>();
+        for (int i: a)
+            outputAL.add(i);
+        for (int i: sort(b))
+            outputAL.add(i);
+        for (int i: c)
+            outputAL.add(i);
+        int[] in = inputAL.stream().mapToInt(i -> i).toArray();
+        int[] out = outputAL.stream().mapToInt(i -> i).toArray();
+        quickSort.quickSort(in, a.length, a.length+b.length);
+        assertArrayEquals(in, out);
+
     }
 
     /**
