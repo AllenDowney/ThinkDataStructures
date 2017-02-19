@@ -26,26 +26,17 @@ public class MergeSort extends SortAlgorithm {
 
         int i=0, j=0, k=0;
 
-        while (i < left.length && j < right.length) {
-            if (left[i] < right[j]) {
+        while (k < out.length) {
+            // If j has reached the end of `right`, or i has not reached the end of `left` and left[i]<right[i],
+            // choose the element in left.
+            if (j==right.length || (i < left.length && left[i] < right[j])) {
                 out[k] = left[i];
                 i++;
             } else {
                 out[k] = right[j];
                 j++;
             }
-
             k++;
-        }
-
-        while (i < left.length) {
-            out[k] = left[i];
-            i++; k++;
-        }
-
-        while (j < right.length) {
-            out[k] = right[j];
-            j++; k++;
         }
         return out;
     }
