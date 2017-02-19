@@ -1,29 +1,20 @@
-# Sorting Day 0 - `BubbleSort`, `InsertionSort`, and `MergeSort`
+# Sorting Day00 - `InsertionSort`, `MergeSort` and `QuickSort`
 
 ## Learning Goals
 
 By doing this assignment, you should be able to:
-* Justify the listed runtime and space complexities of each sort
-* Implement bubblesort
-  * O(1) space
-  * Best, worst, and average case O(N^2) time
-* Understand the insertion sort algorithm:
-  * Understand the benefit of a simplistic and slow sorting algorithm, and it's practical uses.
-  * O(1) space
-  * Worst and average case O(N^2) time
-  * Best case O(N) time
-* Understand the merge sort algorithm:
-  * Understand the roles of the recursive split then merge steps
-  * O(N) space
-  * Worst, average, and best case O(NlogN) time
+
+* Understand and justify the runtime and space complexities of each sort
+* Combine sorts to prevent stack overflow errors / improve runtime
+* Understand how these three sorts are implemented.
   
 ## Assignment
 
 ### Code
 
-- Draw the recursive trees (see [here](https://docs.google.com/presentation/d/1mNRb1tx3ibY2FjKkcXqJvjfDnT0vkxfYKEf38HrU26Y/edit?usp=sharing)) of the merge sort algorithm for the input array `[4,8,62,9,14,19]`.
-- In `BubbleSort.java`, `InsertionSort.java`, and `MergeSort.java`, complete the methods annotated with `TODO`s so that `sort` runs.
-- For each `sort` function, detail the best, worst, and average case runtime complexity in the comments. Also, detail the space complexity. Provide a short, one to two sentence total explanation for the complexities.
+- Draw the recursive trees (see [here](https://docs.google.com/presentation/d/1mNRb1tx3ibY2FjKkcXqJvjfDnT0vkxfYKEf38HrU26Y/edit?usp=sharing)) of the merge sort algorithm for the input array `[4,8,62,9,14,19]`. Show (a photo of) this to your NINJA at checkoff.
+- In `InsertionSort.java`, `MergeSort.java`, and `QuickSort.java`, complete the `sort` method.
+- For each `sort` function, detail the best, worst, and average case runtime complexity, as well as the space complexity, in the comments. Provide a short (one to two sentences total) explanation for the complexities.
 
 ### Reading
 

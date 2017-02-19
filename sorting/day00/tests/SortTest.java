@@ -2,22 +2,21 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
 
 public class SortTest {
-    private static List<Integer[]> testArrays;
+    private int[] emptyCase;
+    private int[] fastCase;
+    private int[] slowCase;
 
-    private static final int NUM_TESTS = 3;
-    private static final int RANGE = 100;
+    private final int RANGE = 100;
 
     @Before
     public void setup() {
-        for (int i=0; i < NUM_TESTS; i++) {
-            testArrays.add(generateRandomArrayOfSize(i*100));
-        }
+        emptyCase = generateRandomArrayOfSize(0);
+        fastCase = generateRandomArrayOfSize(1000);
+        slowCase = generateRandomArrayOfSize(100000);
     }
 
     private int[] generateRandomArrayOfSize(int n) {
@@ -31,9 +30,9 @@ public class SortTest {
     }
 
     private void testSort(SortAlgorithm sorter) {
-        for (int i=0; i < NUM_TESTS; i++) {
-            assertArrayEquals(sorter.sort(testArrays[i]), sort(testArrays[i]));
-        }
+        assertArrayEquals(sorter.sort(emptyCase), emptyCase);
+        assertArrayEquals(sorter.sort(fastCase), sort(fastCase));
+        assertArrayEquals(sorter.sort(slowCase), sort(slowCase));
     }
 
     private int[] sort(int[] array) {
@@ -52,5 +51,9 @@ public class SortTest {
         testSort(new InsertionSort());
     }
 
+    @Test
+    public void testQuickSort() {
+        testSort(new QuickSort());
+    }
 
 }

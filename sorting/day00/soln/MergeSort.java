@@ -1,7 +1,10 @@
-public class MergeSort extends Sorter {
+public class MergeSort implements SortAlgorithm {
+    private static final int INSERTION_THRESHOLD = 20;
+    private InsertionSort insertionSort = new InsertionSort();
+
     @Override
     public int[] sort(int[] array) {
-        if (array.length == 1) return array;
+        if (array.length < INSERTION_THRESHOLD) return insertionSort.sort(array);
 
         int m = array.length / 2;
         int[] out = new int[array.length];

@@ -1,15 +1,10 @@
-public class QuickSort extends Sorter {
 
-    /**
-     * Best-case runtime:
-     * Worst-case runtime:
-     * Average-case runtime:
-     *
-     * Space-complexity:
-     */
+public class QuickSort implements SortAlgorithm {
+
     @Override
     public int[] sort(int[] array) {
-        // TODO
+        quickSort(array, 0, array.length-1);
+        return array;
     }
 
     /**
@@ -17,7 +12,11 @@ public class QuickSort extends Sorter {
      * portions of the array.
      */
     private void quickSort(int[] a, int lo, int hi) {
-        // TODO
+        if (lo < hi) {
+            int p = partition(a, lo, hi);
+            quickSort(a, lo, p-1);
+            quickSort(a, p+1, hi);
+        }
     }
 
     /**
@@ -26,7 +25,19 @@ public class QuickSort extends Sorter {
      * Return the index of the pivot in the array after partitioning.
      */
     private int partition(int[] a, int lo, int hi) {
-        // TODO
+        int pivot = a[lo];
+
+        int i = lo + 1;
+
+        for (int j = lo + 1; j <= hi; j++) {
+            if (a[j] < pivot) {
+                swap(a, j, i);
+                i++;
+            }
+        }
+
+        swap(a, lo, i-1);
+        return i-1;
     }
 
     private static void swap(int[] a, int i, int j) {

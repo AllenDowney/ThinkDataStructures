@@ -1,5 +1,3 @@
-public abstract class SortAlgorithm {
-    public SortAlgorithm() {}
-
-    public abstract int[] sort(int[] array);
+public interface SortAlgorithm {
+    int[] sort(int[] array);
 }
