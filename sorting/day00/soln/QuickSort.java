@@ -1,5 +1,5 @@
 
-public class QuickSort implements SortAlgorithm {
+public class QuickSort extends SortAlgorithm {
 
     @Override
     public int[] sort(int[] array) {
@@ -11,7 +11,7 @@ public class QuickSort implements SortAlgorithm {
      * Partition the array around a pivot, then recursively sort the left and right
      * portions of the array.
      */
-    private void quickSort(int[] a, int lo, int hi) {
+    public void quickSort(int[] a, int lo, int hi) {
         if (lo < hi) {
             int p = partition(a, lo, hi);
             quickSort(a, lo, p-1);
@@ -24,7 +24,7 @@ public class QuickSort implements SortAlgorithm {
      * than the pivot before the pivot, and all others after the pivot.
      * Return the index of the pivot in the array after partitioning.
      */
-    private int partition(int[] a, int lo, int hi) {
+    public int partition(int[] a, int lo, int hi) {
         int pivot = a[lo];
 
         int i = lo + 1;
@@ -38,11 +38,5 @@ public class QuickSort implements SortAlgorithm {
 
         swap(a, lo, i-1);
         return i-1;
-    }
-
-    private static void swap(int[] a, int i, int j) {
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
     }
 }

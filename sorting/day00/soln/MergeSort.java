@@ -1,4 +1,4 @@
-public class MergeSort implements SortAlgorithm {
+public class MergeSort extends SortAlgorithm {
     private static final int INSERTION_THRESHOLD = 10;
     private InsertionSort insertionSort = new InsertionSort();
 
@@ -7,7 +7,6 @@ public class MergeSort implements SortAlgorithm {
         if (array.length < INSERTION_THRESHOLD) return insertionSort.sort(array);
 
         int m = array.length / 2;
-        int[] out = new int[array.length];
 
         int[] tempLeft = new int[m];
         int[] tempRight = new int[array.length - m];
@@ -18,11 +17,13 @@ public class MergeSort implements SortAlgorithm {
         int[] left = sort(tempLeft);
         int[] right = sort(tempRight);
 
-        merge(left, right, out);
-        return out;
+        return merge(left, right);
     }
 
-    private void merge(int[] left, int[] right, int[] out) {
+    public int[] merge(int[] left, int[] right) {
+
+        int[] out = new int[left.length + right.length];
+
         int i=0, j=0, k=0;
 
         while (i < left.length && j < right.length) {
@@ -46,5 +47,6 @@ public class MergeSort implements SortAlgorithm {
             out[k] = right[j];
             j++; k++;
         }
+        return out;
     }
 }

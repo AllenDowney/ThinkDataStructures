@@ -77,15 +77,19 @@ public class SortTest {
         QuickSort quickSort = new QuickSort();
         int[] a, b, c;
 
-        a = new int[] {8, 3, 4, 6, 7, 2, 1, 6};
+        a = new int[] {8, 3, 4, 6, 7, 2, 1, 2};
         int[] a_sorted = sort(a);
         quickSort.quickSort(a, 0, a.length-1);
         assertArrayEquals(a, a_sorted);
 
+        a = new int[] {8, 3, 4, 6, 7, 2, 1, 2};
+        quickSort.quickSort(a, 1, a.length-2);
+        assertArrayEquals(a, new int[] {8, 1, 2, 3, 4, 6, 7, 2});
+
         // Quicksort the middle of a an array
-        a = generateRandomArrayOfSize(500);
-        b = generateRandomArrayOfSize(10000);
-        c = generateRandomArrayOfSize(85);
+        a = generateRandomArrayOfSize(984);
+        b = generateRandomArrayOfSize(1593);
+        c = generateRandomArrayOfSize(48);
 
         List<Integer> inputAL = new ArrayList<>();
         for (int i: a)
@@ -103,7 +107,7 @@ public class SortTest {
             outputAL.add(i);
         int[] in = inputAL.stream().mapToInt(i -> i).toArray();
         int[] out = outputAL.stream().mapToInt(i -> i).toArray();
-        quickSort.quickSort(in, a.length, a.length+b.length);
+        quickSort.quickSort(in, a.length, a.length+b.length-1);
         assertArrayEquals(in, out);
 
     }

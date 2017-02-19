@@ -1,4 +1,4 @@
-public class QuickSort implements SortAlgorithm {
+public class QuickSort extends SortAlgorithm {
 
     private static final int INSERTION_THRESHOLD = 10;
 
@@ -38,9 +38,4 @@ public class QuickSort implements SortAlgorithm {
         return 0;
     }
 
-    private static void swap(int[] a, int i, int j) {
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
 }
