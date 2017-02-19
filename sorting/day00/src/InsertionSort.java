@@ -1,5 +1,5 @@
 
-public class InsertionSort implements SortAlgorithm {
+public class InsertionSort extends SortAlgorithm {
     /**
      * Use the insertion sort algorithm to sort the array
      *
@@ -13,11 +13,5 @@ public class InsertionSort implements SortAlgorithm {
     public int[] sort(int[] array) {
         // TODO
         return new int[0];
-    }
-
-    private static void swap(int[] a, int i, int j) {
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
     }
 }
