@@ -1,5 +1,5 @@
 public class MergeSort implements SortAlgorithm {
-    private static final int INSERTION_THRESHOLD = 20;
+    private static final int INSERTION_THRESHOLD = 10;
     private InsertionSort insertionSort = new InsertionSort();
 
     @Override
