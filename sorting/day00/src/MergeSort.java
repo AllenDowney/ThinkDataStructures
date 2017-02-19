@@ -16,4 +16,13 @@ public class MergeSort implements SortAlgorithm {
         // TODO
         return new int[0];
     }
+
+    /**
+     * Given two sorted arrays a and b, return a new sorted array containing
+     * all elements in a and b. A test for this method is provided in `SortTest.java`
+     */
+    public int[] merge(int[] a, int[] b) {
+        // TODO
+        return new int[0];
+    }
 }

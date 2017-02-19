@@ -5,8 +5,10 @@
 By doing this assignment, you should be able to:
 
 * Understand and justify the runtime and space complexities of each sort
-* Combine sorts to prevent stack overflow errors / improve runtime
 * Understand how these three sorts are implemented.
+* Avoid worst case performances (time and/or space) of:
+  * Merge sort by using insertion sort on smaller arrays
+  * Quick sort by randomly shuffling before sorting
   
 ## Assignment
 
