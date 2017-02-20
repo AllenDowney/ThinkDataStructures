@@ -27,9 +27,7 @@ public class MergeSort extends SortAlgorithm {
         int i=0, j=0, k=0;
 
         while (k < out.length) {
-            // If j has reached the end of `right`, or i has not reached the end of `left` and left[i]<right[i],
-            // choose the element in left.
-            if (j==right.length || (i < left.length && left[i] < right[j])) {
+            if (chooseLeft(i, j, left, right)) {
                 out[k] = left[i];
                 i++;
             } else {
@@ -39,5 +37,15 @@ public class MergeSort extends SortAlgorithm {
             k++;
         }
         return out;
+    }
+
+    // Helper function that determines if the next item to merge should be from
+    // the left array
+    private boolean chooseLeft(int i, int j, int[] left, int[] right) {
+        if (j==right.length)
+            return true;
+        if (i==left.length)
+            return false;
+        return left[i] < right[j];
     }
 }
