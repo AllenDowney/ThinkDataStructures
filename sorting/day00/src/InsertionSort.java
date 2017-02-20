@@ -1,5 +1,5 @@
 
-public class InsertionSort implements SortAlgorithm {
+public class InsertionSort extends SortAlgorithm {
     /**
      * Use the insertion sort algorithm to sort the array
      *

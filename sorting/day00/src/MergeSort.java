@@ -1,5 +1,7 @@
 
-public class MergeSort implements SortAlgorithm {
+public class MergeSort extends SortAlgorithm {
+
+    private static final int INSERTION_THRESHOLD = 10;
 
     /**
      * This is the recursive step in which you split the array up into
@@ -20,9 +22,11 @@ public class MergeSort implements SortAlgorithm {
     /**
      * Given two sorted arrays a and b, return a new sorted array containing
      * all elements in a and b. A test for this method is provided in `SortTest.java`
+     * Use Insertion Sort if the length of the array is <= INSERTION_THRESHOLD
      */
     public int[] merge(int[] a, int[] b) {
         // TODO
         return new int[0];
     }
+
 }

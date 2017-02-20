@@ -1,5 +1,5 @@
-public class MergeSort implements SortAlgorithm {
-    private static final int INSERTION_THRESHOLD = 20;
+public class MergeSort extends SortAlgorithm {
+    private static final int INSERTION_THRESHOLD = 10;
     private InsertionSort insertionSort = new InsertionSort();
 
     @Override
@@ -7,7 +7,6 @@ public class MergeSort implements SortAlgorithm {
         if (array.length < INSERTION_THRESHOLD) return insertionSort.sort(array);
 
         int m = array.length / 2;
-        int[] out = new int[array.length];
 
         int[] tempLeft = new int[m];
         int[] tempRight = new int[array.length - m];
@@ -18,33 +17,35 @@ public class MergeSort implements SortAlgorithm {
         int[] left = sort(tempLeft);
         int[] right = sort(tempRight);
 
-        merge(left, right, out);
-        return out;
+        return merge(left, right);
     }
 
-    private void merge(int[] left, int[] right, int[] out) {
+    public int[] merge(int[] left, int[] right) {
+
+        int[] out = new int[left.length + right.length];
+
         int i=0, j=0, k=0;
 
-        while (i < left.length && j < right.length) {
-            if (left[i] < right[j]) {
+        while (k < out.length) {
+            if (chooseLeft(i, j, left, right)) {
                 out[k] = left[i];
                 i++;
             } else {
                 out[k] = right[j];
                 j++;
             }
-
             k++;
         }
+        return out;
+    }
 
-        while (i < left.length) {
-            out[k] = left[i];
-            i++; k++;
-        }
-
-        while (j < right.length) {
-            out[k] = right[j];
-            j++; k++;
-        }
+    // Helper function that determines if the next item to merge should be from
+    // the left array
+    private boolean chooseLeft(int i, int j, int[] left, int[] right) {
+        if (j==right.length)
+            return true;
+        if (i==left.length)
+            return false;
+        return left[i] < right[j];
     }
 }
