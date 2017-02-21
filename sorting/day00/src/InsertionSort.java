@@ -1,6 +1,5 @@
 
-
-public class InsertionSort extends Sorter {
+public class InsertionSort extends SortAlgorithm {
     /**
      * Use the insertion sort algorithm to sort the array
      *
@@ -12,7 +11,7 @@ public class InsertionSort extends Sorter {
      */
     @Override
     public int[] sort(int[] array) {
-        // TODO: Complete this method
+        // TODO
         return new int[0];
     }
 }

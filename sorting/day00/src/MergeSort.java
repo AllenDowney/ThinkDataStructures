@@ -1,4 +1,7 @@
-public class MergeSort extends Sorter {
+
+public class MergeSort extends SortAlgorithm {
+
+    private static final int INSERTION_THRESHOLD = 10;
 
     /**
      * This is the recursive step in which you split the array up into
@@ -12,15 +15,18 @@ public class MergeSort extends Sorter {
      */
     @Override
     public int[] sort(int[] array) {
-        // TODO: Complete this method
+        // TODO
         return new int[0];
     }
 
     /**
-     * This is the helper method to the sort method above. Its role is to
-     * take left and right, and merge them into a new sorted array "out".
+     * Given two sorted arrays a and b, return a new sorted array containing
+     * all elements in a and b. A test for this method is provided in `SortTest.java`
+     * Use Insertion Sort if the length of the array is <= INSERTION_THRESHOLD
      */
-    private void merge(int[] left, int[] right, int[] out) {
-        // TODO: Complete this method
+    public int[] merge(int[] a, int[] b) {
+        // TODO
+        return new int[0];
     }
+
 }
