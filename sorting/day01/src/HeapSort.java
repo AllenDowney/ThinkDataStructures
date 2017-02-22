@@ -18,13 +18,7 @@ public class HeapSort extends SortAlgorithm {
      * Recursively corrects the position of element indexed i: check children, and swap with larger child if necessary.
      */
     private void sink(int i) {
-        // TODO: Complete this method
-    }
-
-    private void swap(int i, int j) {
-        int temp = heap[i];
-        heap[i] = heap[j];
-        heap[j] = temp;
+        // TODO
     }
 
     /**
@@ -33,7 +27,7 @@ public class HeapSort extends SortAlgorithm {
     private void buildHeapFrom(int[] array) {
         this.heap = array;
         this.size = array.length;
-        // TODO: Complete this method
+        // TODO
     }
 
     /**
@@ -48,9 +42,7 @@ public class HeapSort extends SortAlgorithm {
         buildHeapFrom(array);
 
         for (int i=size-1; i>0; i--) {
-            swap(i, 0);
-            size--;
-            sink(0);
+            // TODO
         }
 
         return heap;
