@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.22}
+\newcommand{\theversion}{0.24}
 
 %%%% Both LATEX and PLASTEX
 
@@ -252,7 +252,7 @@ and is an interesting and important topic in its own right.
 
 This application also motivates some topics that are not usually
 covered in an introductory data structures class, including persistent
-data structures, with Redis, and streaming algorithms.
+data structures with Redis.
 
 I have made difficult decisions about what to leave out, but 
 I have made some compromises.  I include a few topics
@@ -312,12 +312,8 @@ the code:
 
 \item If you don't want to use Git at all, you can download the code
   in a ZIP archive using the {\sf Download ZIP} button on the GitHub
-  page, or this link:
-  \url{https://github.com/AllenDowney/ThinkDataStructures/archive/master.zip}.
+  page, or this link: \url{http://bit.ly/tds-zip}.
 
-% or http://tinyurl.com/thinkdastcode
-
-% TODO: make this short link
 
 \end{itemize}
 
@@ -326,8 +322,9 @@ a directory called {\tt ThinkDataStructures} with a subdirectory
 called {\tt code}.
 
 The examples in this book were developed and tested using Java SE
-Development Kit 7.  If you an older version, some examples will not
-work.  If you are using a more recent version, they should all work.
+Development Kit 7.  If you are using an older version, some examples
+will not work.  If you are using a more recent version, they should
+all work.
 
 
 \section*{Contributors}
@@ -347,6 +344,10 @@ Pletcher provided guidance, suggestions, and corrections from the
 initial specification all the way through implementation and testing.
 Thank you all!
 
+\item I am very grateful to my technical reviewers, Barry Whitman and
+  Patrick White, who made many helpful suggestions and caught many
+  errors.  Of course, any remaining errors are my fault, not theirs!
+
 % ENDCONTRIB
 
 \end{itemize}
@@ -362,6 +363,8 @@ them to: {\tt feedback@greenteapress.com}.
 
 \chapter{Interfaces and implementations}
 \label{cs-lists-programming-to-an-interface-readme}
+
+%TODO: Reorganize this chapter (see comments from Patrick White)
 
 This book presents three topics:
 
@@ -415,6 +418,8 @@ But first, a few prerequisites.
 \section{Prerequisites}
 \label{prerequisites}
 
+%TODO: move this section to preface?
+
 Before you start this book, you should know Java pretty well; in
 particular, you should know how to define a new class that extends an
 existing class or implements an \java{interface}. If your Java is rusty, 
@@ -453,7 +458,7 @@ If not, you can read about type parameters at
 
 You should be familiar with the Java Collections Framework
 (JCF), which you can read about at
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html}.
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html}.
 In particular, you should know about the \java{List} \java{interface}
 and the classes \java{ArrayList} and \java{LinkedList}.
 
@@ -473,8 +478,8 @@ framework for Java.  You can read more about it at
 
 When people start working with the Java Collections Framework, they
 are sometimes confused about \java{ArrayList} and
-\java{LinkedList}.  Why does Java provide two implementations of the
-\java{List} \java{interface}?  And how should you choose which one to
+\java{LinkedList}.  Why does Java provide two implementations of
+the \java{List} \java{interface}?  And how should you choose which one to
 use? We will answer these questions in the next few chapters.
 
 I'll start by reviewing \java{interface}s, and the classes that implement
@@ -612,10 +617,10 @@ Here we are talking about the general idea of an interface,
 not a Java \java{interface}
 (see \url{https://en.wikipedia.org/wiki/interface-based_programming}).
 
-When you use a library, your code should only depend on the
-interface the library provides; it should not depend on details of the
-implementation. That way, if the implementation of the library changes
-in the future, your code will still work.
+When you use a library, your code should only depend on the interface,
+like list \java{List}.  It should not depend on a specific
+implementation, like \java{ArrayList}. That way, if the implementation
+changes in the future, the code that uses it will still work.
 
 On the other hand, if the interface changes, the code that depends on
 it has to change, too.  That's why library developers avoid changing
@@ -731,7 +736,7 @@ replace \java{ArrayList} with \java{List}? Why can't you instantiate a
 \label{cs-analysis-of-algorithms-readme}
 
 As we saw in the previous chapter, Java provides two
-implementations of the\java{List} interface, \java{ArrayList} and
+implementations of the \java{List} interface, \java{ArrayList} and
 \java{LinkedList}. For some applications \java{LinkedList} is faster;
 for other applications \java{ArrayList} is faster.
 
@@ -803,11 +808,15 @@ Most simple algorithms fall into just a few categories.
   proportional to $n$.
 
 \item Quadratic: An algorithm is ``quadratic'' if the run time is
-  proportional to $n^2$. For example, if the input has 2 elements,
-  it might require 4 operations; with 3 elements, it might require 9,
-  and so on.
+  proportional to $n^2$.  For example, suppose you want to check whether
+  any element in a list appears more than once.  A simple algorithm
+  is to compare each element to all of the others.  If there are
+  $n$ elements and each is compared to $n-1$ others, the total
+  number of comparisons is $n^2 -n$, which is proportional to
+  $n^2$ as $n$ grows.
 
 \end{itemize}
+
 
 \section{Selection sort}
 \label{selection-sort}
@@ -857,9 +866,9 @@ public class SelectionSort {
 
 The first method, \java{swapElements}, swaps two elements of the
 array. Reading and writing elements are constant time operations,
-because if we know where
-the beginning of the array is, we can compute the location of element
-\java{i} or \java{j} with one multiplication and one addition, and
+because if we know the size of the elements and the location of
+the first, we can compute the location any other element
+with one multiplication and one addition, and
 those are constant time operations. Since everything in
 \java{swapElements} is constant time, the whole method is constant
 time.
@@ -874,11 +883,12 @@ count the number of comparisons.
 \begin{enumerate}
 
 \item If \java{start} is 0, \java{indexLowest} traverses the entire
-  array, and the total number of comparisons is $n$.
+  array, and the total number of comparisons is the length of
+  the array, which I'll call $n$.
 
-\item If \java{start} is 1, the number of comparisons is \java{n-1}.
+\item If \java{start} is 1, the number of comparisons is $n-1$.
 
-\item In general, the number of comparisons is \java{n-start}.
+\item In general, the number of comparisons is $n$ - \java{start}.
 
 \end{enumerate}
 
@@ -886,17 +896,15 @@ count the number of comparisons.
 %have additional information about \java{start}.
 
 The third method, \java{selectionSort}, sorts the array. It loops from
-\java{0} to \java{n-1}, so the loop executes $n$ times. Each
+$0$ to $n-1$, so the loop executes $n$ times. Each
 time, it calls \java{indexLowest} and then performs a constant time
 operation, \java{swapElements},
 
 The first time \java{indexLowest} is called, it
 performs $n$ comparisons. The second time, it performs
-\java{n-1} comparisons, and so on. The total number of comparisons is
+$n-1$ comparisons, and so on. The total number of comparisons is
 
-\begin{verbatim}
-n + n-1 + n-2 + ... + 1 + 0
-\end{verbatim}
+\[ n + n-1 + n-2 + ... + 1 + 0 \]
 
 The sum of this series is $n(n+1)/2$, which is
 proportional to $n^2$; and that means that \java{selectionSort}
@@ -1028,7 +1036,7 @@ parameter; for example, the following will not work:
 \end{verbatim}
 
 To work around this limitation, you
-have to instantiate an array of Object and then typecast it. You can
+have to instantiate an array of \java{Object} and then typecast it. You can
 read more about this issue at
 \url{http://www.ibm.com/developerworks/java/library/j-jtp01255/index.html}.
 
@@ -1055,7 +1063,7 @@ array and increment \java{size}.
 It might not be obvious why this method returns a boolean, since it
 seems like it always returns \java{true}. As always, you can find the
 answer in the documentation:
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html#add(E)}.
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html#add(E)}.
 It's also not obvious how to analyze the performance of this
 method. In the normal case, it's constant time, but if we have to
 resize the array, it's linear. I'll explain how to handle this in
@@ -1090,13 +1098,13 @@ looks like this:
 \end{verbatim}
 
 Read the documentation of \java{set} at
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#set(int,\%20E)}, then fill in the body of this method. If you run
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#set(int,\%20E)}, then fill in the body of this method. If you run
 \java{MyArrayListTest} again, \java{testSet} should pass.
 
 HINT: Try to avoid repeating the index-checking code.
 
 Your next mission is to fill in \java{indexOf}. As usual, you should
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#indexOf(java.lang.Object)}{read
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#indexOf(java.lang.Object)}{read
   the documentation} so you know what it's supposed to do. In
 particular, notice how it is supposed to handle \java{null}.
 
@@ -1117,14 +1125,14 @@ Only two more methods to go, and you'll be done with this exercise. The
   elements to make room, if necessary.
 
 Again,
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#add(int,\%20E)}{read
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#add(int,\%20E)}{read
 the documentation}, write an implementation, and run the tests for
 confirmation.
 
 HINT: Avoid repeating the code that makes the array bigger.
 
 Last one: fill in the body of \java{remove}.
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#remove(int)}{The
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#remove(int)}{The
   documentation is here}. When you finish this one, all tests should
 pass.
 
@@ -1268,7 +1276,7 @@ index and an element as parameters:
 \end{verbatim}
 
 This two-parameter version, called \java{add(int, E)}, uses
-the one-parameter version, called \java{add(E)}, to put the
+the one-parameter version, called \java{add(E)}, which puts the
 new element at the end. Then it shifts the other elements to the right,
 and puts the new element in the correct place.
 
@@ -1292,6 +1300,8 @@ to classify the one-parameter \java{add(E)}:
 The one-parameter version turns out to be hard to analyze. If there is
 an unused space in the array, it is constant time, but if we have to
 resize the array, it's linear. So which is it?
+
+% TODO: Maybe explain why resizing is linear?
 
 We can classify this method by thinking about the average number of
 operations per add over a series of $n$ adds. For simplicity,
@@ -1361,6 +1371,15 @@ element gets copied. Otherwise --- if we add a fixed amount to the
 length of the array, rather than multiplying by a fixed amount --- the
 analysis doesn't work.
 
+% NOTE: Patrick notes potential confusion in my use of average, which
+% was an average over a hypothetical set of inputs when we looked at
+% indexOf, and here is the average over a sequence of operations.
+
+% I am inclined to leave this alone on the grounds that it it more
+% confusing for experts (who know the difference between average
+% case analysis and amortized analysis) than for beginners (who will
+% not, I conjecture, be bothered).
+
 This way of classifying an algorithm, by computing the average time in a
 series of invocations, is called {\bf amortized analysis}.  You can
 read more about it at 
@@ -1398,14 +1417,15 @@ which is linear. So it is tempting to think that \java{removeAll} is
 quadratic. But that's not necessarily the case.
 
 In this method, the loop runs once for each element in
-\java{collection}. If \java{collection} contains m elements and the list we are
-removing from contains $n$ elements, this method is in $O(nm)$. If
-the size of \java{collection} can be considered constant,
-\java{removeAll} is linear. But if the size of the collection is
-proportional to n, it's quadratic. For example, if \java{collection} always
-contains 100 or fewer elements, \java{removeAll} is linear. But if
-\java{collection} generally contains 1\% of the elements in the list,
-\java{removeAll} is quadratic.
+\java{collection}. If \java{collection} contains $m$ elements and the
+list we are removing from contains $n$ elements, this method is in
+$O(nm)$. If the size of \java{collection} can be considered constant,
+\java{removeAll} is linear with respect to $n$. But if the size of the
+collection is proportional to $n$, \java{removeAll} is quadratic. For
+example, if \java{collection} always contains 100 or fewer elements,
+\java{removeAll} is linear. But if \java{collection} generally
+contains 1\% of the elements in the list, \java{removeAll} is
+quadratic.
 
 Sometimes when we talk about ``problem size'' we have to be careful
 about which size, or sizes, we are talking about. This example
@@ -1444,7 +1464,7 @@ you can think of nodes as rail cars, where each car contains cargo and
 the cars are connected together.
 
 Let's see what this looks like in code. Here's a class definition for a
-simple Node:
+simple node:
 
 \begin{verbatim}
 public class ListNode {
@@ -1474,7 +1494,7 @@ public class ListNode {
 \end{verbatim}
 
 The \java{ListNode} object has two instance variables: \java{cargo} is a
-reference to some kind of Object, and \java{next} is a reference to
+reference to some kind of \java{Object}, and \java{next} is a reference to
 the next node in the list. In the last node in the list, by convention,
 \java{next} is \java{null}.
 
@@ -1501,15 +1521,15 @@ And then link them up, like this:
         node3.next = null;
 \end{verbatim}
 
-Alternatively, you can create a Node and link it at the same time. For
-example, if you want to add a new Node at the beginning of a list, you
+Alternatively, you can create a node and link it at the same time. For
+example, if you want to add a new node at the beginning of a list, you
 can do it like this:
 
 \begin{verbatim}
         ListNode node0 = new ListNode(0, node1);
 \end{verbatim}
 
-After this sequence of instructions, we have four Nodes containing the
+After this sequence of instructions, we have four nodes containing the
 Integers 0, 1, 2, and 3 as cargo, linked up in increasing order. In the
 node that has 3 as \java{cargo}, the \java{next} field is
 \java{null}.
@@ -1572,7 +1592,7 @@ public class MyLinkedList<E> implements List<E> {
 
 As the comments indicate, \java{size} keeps track of how many elements
 are in \java{MyLinkedList}; \java{head} is a reference to the first
-Node in the list or \java{null} if the list is empty.
+\java{Node} in the list or \java{null} if the list is empty.
 
 Storing the number of elements is not necessary, and in general it is
 risky to keep redundant information, because if it's not updated
@@ -1657,7 +1677,7 @@ This example demonstrates two patterns you'll need for your solutions:
 
 Now it's your turn.  Fill in the body of \java{indexOf}.  As usual,
 you should read the documentation, at
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#indexOf(java.lang.Object)},
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#indexOf(java.lang.Object)},
 so you know what it is supposed to do. In particular, notice how it's
 supposed to handle \java{null}.
 
@@ -1673,12 +1693,12 @@ should pass now, as well as the other tests that depend on it.
 Next, you should fill in the two-parameter version of \java{add},
 which takes an index and stores the new value at the given index.
 Again, read the documentation at
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#add(int,\%20E)}, write an implementation, and run the tests for
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#add(int,\%20E)}, write an implementation, and run the tests for
 confirmation.
 
 Last one: fill in the body of \java{remove}.  The documentation is
 here:
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/List.html\#remove(int)}.
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#remove(int)}.
 When you finish this one, all tests should pass.
 
 Once you have your implementation working, compare it to the version
@@ -1694,7 +1714,7 @@ and the elements don't get garbage collected until the list itself is
 destroyed.
 
 One advantage of the linked list implementation is that it shrinks when
-elements are removed, and the unused Nodes can get garbage collected
+elements are removed, and the unused nodes can get garbage collected
 immediately.
 
 Here is my implementation of the \java{clear} method:
@@ -1711,7 +1731,7 @@ first \java{Node}. If there are no other references to that
 \java{Node} (and there shouldn't be), it will get garbage collected.
 At that point, the reference to the second \java{Node} is removed, so
 it gets garbage collected, too. This process continues until all
-\java{Nodes} are collected.
+nodes are collected.
 
 So how should we classify \java{clear}? The method itself contains two
 constant time operations, so it sure looks like it's constant time. But
@@ -1728,7 +1748,7 @@ scenes, this kind of error can be hard to find.
 
 \chapter{LinkedList}
 
-This chapter solutions to the
+This chapter presents solutions to the
 previous exercise and continues the discussion of analysis of algorithms.
 
 
@@ -1752,15 +1772,15 @@ if you can identify its order of growth before you read the explanation.
 \end{verbatim}
 
 Initially \java{node} gets a copy of \java{head}, so they both refer
-to the same Node. The loop variable, \java{i}, counts from 0 to
+to the same \java{Node}. The loop variable, \java{i}, counts from 0 to
 \java{size-1}. Each time through the loop, we use \java{equals} to
 see if we've found the target. If so, we return \java{i} immediately.
-Otherwise we advance to the next Node in the list.
+Otherwise we advance to the next \java{Node} in the list.
 
-Normally we would
-check to make sure the next Node is not \java{null}, but in this case
-it is safe because the loop ends when we get to the end of the list (assuming \java{size} is consistent with the actual number of Nodes in
-the list).
+Normally we would check to make sure the next \java{Node} is not
+\java{null}, but in this case it is safe because the loop ends when we
+get to the end of the list (assuming \java{size} is consistent with
+the actual number of nodes in the list).
 
 If we get through the loop without finding the target, we return
 \java{-1}.
@@ -1781,9 +1801,10 @@ So what is the order of growth for this method?
 
 \end{enumerate}
 
-So this method is linear.
+So the runtime of this method is proportional to the length of the
+list.
 
-Up next, here is my implementation of the two-parameter \java{add}
+Next, here is my implementation of the two-parameter \java{add}
 method. Again, you should try to classify it before you read the
 explanation.
 
@@ -1821,8 +1842,8 @@ helper method \java{getNode}:
 it throws an exception. Otherwise it traverses the list and returns the
 requested Node.
 
-Jumping back to \java{add}, once we find the right Node, we create the
-new Node and put it between \java{node} and \java{node.next}. You
+Jumping back to \java{add}, once we find the right \java{Node}, we create the
+new \java{Node} and put it between \java{node} and \java{node.next}. You
 might find it helpful to draw a diagram of this operation to make sure
 you understand it.
 
@@ -1859,7 +1880,7 @@ Finally, let's look at \java{remove}:
 \end{verbatim}
 
 \java{remove} uses \java{get} to find and store the element at
-\java{index}. Then it removes the Node that contained it.
+\java{index}. Then it removes the \java{Node} that contained it.
 
 If \java{index==0}, we handle that as a special case again. Otherwise
 we find the node at \java{index-1} and modify it to skip over
@@ -2110,6 +2131,8 @@ intercept, but the slope indicates the order of growth: if
 $k=1$, the algorithm is linear; if $k=2$, it's
 quadratic.
 
+%TODO: help for people who are shaky about logs?
+
 Looking at the figure in the previous section, you can estimate the
 slope by eye. But when you call \java{plotResults} it computes a least
 squares fit to the data and prints the estimated slope. In this example:
@@ -2208,6 +2231,10 @@ estimated slope was close to 1. We concluded that performing $n$
 adds is in $O(n)$, so on average the time for a single add is
 constant time, or $O(1)$, which is what we expect based on algorithm
 analysis.
+
+% NOTE: Again, Patrick is concerned that my use of ``average'' might
+% be confusing, but I think it's reasonable to describe amortized
+% analysis as an average over a series of operations.
 
 The exercise asks you to fill in the body of
 \java{profileArrayListAddBeginning}, which tests the performance of
@@ -2420,7 +2447,7 @@ singly-linked list; that is, each element contains a link to the next,
 and the \java{MyArrayList} object itself has a link to the first node.
 
 But if you read the documentation of \java{LinkedList} at
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html},
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html},
 it says
 
 \begin{quote}
@@ -2675,7 +2702,7 @@ more complicated than this example.
 
 Most web browsers provide tools for inspecting the DOM of the page you
 are viewing. In Chrome, you can right-click on any part of a web page
-and select ``''Inspect" from the menu that pops up. In Firefox, you can
+and select ``Inspect'' from the menu that pops up. In Firefox, you can
 right-click and select ``Inspect Element'' from the menu. Safari
 provides a tool called Web Inspector, which you can read about at
 \url{https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html\#//apple_ref/doc/uid/TP40007874-CH2-SW1}.
@@ -2692,6 +2719,8 @@ shows a screenshot of the DOM for the Wikipedia page on Java,
 \caption{Screenshot of the Chrome DOM Inspector.}
 \label{fig-dom2}
 \end{figure}
+
+
 
 
 The element that's highlighted is the first paragraph of the main text
@@ -2759,6 +2788,9 @@ about at
 \url{http://jsoup.org/apidocs/org/jsoup/select/Elements.html}, and
 \url{http://jsoup.org/apidocs/org/jsoup/nodes/Node.html}.
 
+% TODO: Provide more information about these classes here, rather than
+% relying on the links?
+
 It's easy to get \java{Node} and \java{Element} confused:
 \java{Node} is the superclass of \java{Element}, so every
 \java{Element} is a \java{Node}, but not every \java{Node} is an
@@ -2788,8 +2820,8 @@ DOM tree. Here's an example that shows how to use it:
 This example picks up where the previous one leaves off. It selects the
 first paragraph in \java{paragraphs} and then creates a
 \java{WikiNodeIterable}, which implements
-\java{Iterable<Node>}. The \java{for} loop
-iterates the nodes in the tree using a ``depth first search'', which
+\java{Iterable<Node>}. 
+\java{WikiNodeIterable} performs a ``depth-first search'', which
 produces the nodes in the order they would appear on the page.
 
 In this example, we print a \java{Node} only if it is a
@@ -2859,8 +2891,10 @@ the tree iteratively.
 Before I explain the iterative version of DFS, I'll explain
 the stack data structure.  We'll start with the general concept of a
 stack, which we'll call a ``stack'' with a lowercase ``s''. Then we'll
-talk about two Java implementations of a stack, which are called
+talk about two Java \java{interfaces} that define stack methods:
 \java{Stack} and \java{Deque}.
+
+% TODO: introduce the term ``Abstract Data Type''?
 
 A stack is a data structure that is similar to a list: it is a
 collection that maintains the order of the elements. The primary
@@ -2931,6 +2965,8 @@ To implement a stack in Java, you have three options:
   consistent with the Java Collections Framework, which came later, and
   it does not handle synchronization as well as more recent classes.
 
+% NOTE: This is the only mention of synchronization.  Remove or expand?
+
 \item
   Probably the best choice is to use one of the implementations of the
   \java{Deque} interface, like \java{ArrayDeque}.
@@ -2942,7 +2978,7 @@ pronounced ``deck'', but some people say ``deek''. In Java, the
 \java{Deque} interface provides \java{push}, \java{pop},
 \java{peek}, and \java{isEmpty}, so you can use a \java{Deque} as
 a stack. It provides other methods, which you can read about at
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html},
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html},
 but we won't use them for now.
 
 \section{Iterative DFS}
@@ -3066,18 +3102,18 @@ a simple bit of starter code.
 
 In the previous chapter, I presented an iterative depth-first search
 (DFS), and suggested that an advantage of the iterative version,
-compared to the recursive version, it that it is easier to wrap in an
+compared to the recursive version, is that it is easier to wrap in an
 \java{Iterator} object. In this section we'll see how to do that.
 
 If you are not familiar with the \java{Iterator} and \java{Iterable}
 interfaces, you can read about them at
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html}
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html}
 and
-\url{https://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html}.
+\url{https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html}.
 
 Take a look at the contents of \java{WikiNodeIterable.java}. The outer
 class, \java{WikiNodeIterable} implements the
-\java{Iterable<Node>} interface, so we can use
+\java{Iterable<Node>} interface  so we can use
 it in a for loop like this:
 
 \begin{verbatim}
@@ -3092,7 +3128,8 @@ Where \java{root} is the root of the tree we want to traverse and
 \java{visit} is a method that does whatever we want when we ``visit''
 a \java{Node}.
 
-The implementation of WikiNodeIterable follows a conventional formula:
+The implementation of \java{WikiNodeIterable} follows a conventional
+formula:
 
 \begin{enumerate}
 
@@ -3177,6 +3214,14 @@ it's split into three methods:
   an exception.
 
 \end{enumerate}
+
+It might not be obvious that it is worthwhile to rewrite
+a perfectly good method
+method with two classes and five methods.  But now that we've done
+it, we can use \java{WikiNodeIterable} anywhere an \java{Iterable}
+is called for, which make it easy an syntactially clean to separate
+the logic of the iteration (DFS) from whatever processing we are
+doing on the nodes.
 
 
 \section{\java{WikiFetcher}}
@@ -3371,7 +3416,7 @@ Or you might want to read these hints:
 
 \end{enumerate}
 
-Ok, that's all the help you're going to get. Now it's up to you.
+OK, that's all the help you're going to get. Now it's up to you.
 Have fun!
 
 
@@ -3435,7 +3480,7 @@ methods a map should provide; the most important are:
 
 Java provides several implementations of \java{Map}, including the two
 we will focus on, \java{HashMap} and \java{TreeMap}. In upcoming
-labs, we'll look at these implementations and analyze their performance.
+exercises, we'll look at these implementations and analyze their performance.
 
 In addition to the \java{TermCounter}, which maps from search terms to
 counts, we will define a class called \java{Index}, which maps from a
@@ -3704,7 +3749,12 @@ corresponding set of \java{TermCounter} objects.
 This data structure is moderately complicated. To review, an
 \java{Index} object contains a map from each search term to a set of
 \java{TermCounter} objects, and each \java{TermCounter} is a map
-from search terms to counts. The method \java{printIndex} shows how to
+from search terms to counts. 
+
+% TODO: Draw a diagram (both reviewers)!
+COMING SOON: There will be a diagram!
+
+The method \java{printIndex} shows how to
 unpack this data structure:
 
 \begin{verbatim}
@@ -3765,9 +3815,9 @@ The order of the search terms might be different when you run it.
 Also, run \java{ant TestIndex} to confirm that this part of the exercise is
 complete.
 
-This exercise involved more reading that some of the others, and not as much
-programming. But we hope you learned a lot. Congratulations on getting
-to the end!
+This exercise involves more reading than some of the others, and not
+as much programming. But I hope you learned a lot. Congratulations on
+getting to the end!
 
 
 \chapter{The Map interface}
@@ -3777,7 +3827,7 @@ In the next few exercises, we present several implementations of the
 by Java, is based on a \textbf{hash table}, which is arguably the most
 magical data structure ever invented. Another, which is similar to
 \java{TreeMap}, is not quite as magical, but it has the added
-capability that it can iterate the element in order.
+capability that it can iterate the elements in order.
 
 You will have a chance to implement these data structures, and then we
 will analyze their performance.
@@ -3799,7 +3849,7 @@ public class MyLinearMap<K, V> implements Map<K, V> {
     private List<Entry> entries = new ArrayList<Entry>();
 \end{verbatim}
 
-This class uses two type parameters, $k$, which is the type of
+This class uses two type parameters, \java{K}, which is the type of
 the keys, and \java{V}, which is the type of the values.
 \java{MyLinearMap} implements \java{Map}, which means it has to
 provide the methods in the \java{Map} interface.
@@ -3832,7 +3882,7 @@ definition:
 
 There's not much to it; an \java{Entry} is just a container for a key
 and a value. This definition is nested inside \java{MyLinearList}, so
-it uses the same type parameters, $k$ and \java{V}.
+it uses the same type parameters, \java{K} and \java{V}.
 
 That's all you need to do the exercise, so let's get started.
 
@@ -3874,7 +3924,7 @@ You can run \java{ant MyLinearMapTest} again, but even if your
 
 Fill in \java{put}. You should read the documentation of
 \java{Map.put} at
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#put(K, V)}
+  \url{https://docs.oracle.com/javase/8/docs/api/java/util/Map.html\#put(K, V)}
  so you know what it is supposed to do. You might want to start with
   a version of \java{put} that always adds a new entry and does not
   modify an existing entry; that way you can test the simple case
@@ -3885,16 +3935,16 @@ Once you've got \java{put} working, the test for \java{containsKey}
 should pass.
 
 Read the documentation of \java{Map.get} at
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#get(java.lang.Object)}
+  \url{https://docs.oracle.com/javase/8/docs/api/java/util/Map.html\#get(java.lang.Object)}
   and then fill in the method. Run the tests again.
 
 Finally, read the documentation of \java{Map.remove} at
-  \url{https://docs.oracle.com/javase/7/docs/api/java/util/Map.html\#remove(java.lang.Object)}
+  \url{https://docs.oracle.com/javase/8/docs/api/java/util/Map.html\#remove(java.lang.Object)}
   and fill in the method.
 
 At this point, all tests should pass. Congratulations!
 
-In the next lesson, I'll present a solutions, analyze the performance
+In the next lesson, I'll present a solution, analyze the performance
 of the core \java{Map} methods, and introduce a more efficient
 implementation.
 
@@ -3908,7 +3958,7 @@ the performance of \java{MyLinearMap}. Then we'll define
 that uses many instances of \java{MyLinearMap}; and we'll introduce
 \textbf{hashing}, which makes \java{MyBetterMap} more efficient.
 Finally, we'll demonstrate a function that implements hashing for a
-String-like object.
+\java{String}-like object.
 
 
 \section{Analyzing \java{MyLinearMap}}
@@ -3997,7 +4047,7 @@ By the same reasoning, \java{get} is also linear.
 \java{remove} is slightly more complicated because
 \java{entries.remove} might have to remove an element from the
 beginning or middle of the \java{ArrayList}, and that takes linear
-time. But that's ok: two linear operations are still linear.
+time. But that's OK: two linear operations are still linear.
 
 In summary, the core methods are all linear, which is why we called this
 implementation \java{MyLinearMap} (ta-da!).
@@ -4059,7 +4109,7 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 }
 \end{verbatim}
 
-The instance variable, \java{maps} is a collection of
+The instance variable, \java{maps}, is a collection of
 \java{MyLinearMap} objects. The constructor takes a parameter,
 \java{k}, that determines how many maps to use, at least initially.
 Then \java{makeMaps} creates the embedded maps and stores them in an
@@ -4091,6 +4141,8 @@ soon.
 
 Here's a helper function that chooses the right sub-map for a
 given key:
+
+% TODO: rewrite this to handle negative hashcodes
 
 \begin{verbatim}
 protected MyLinearMap<K, V> chooseMap(Object key) {
@@ -4133,7 +4185,9 @@ That's how it works; now let's think about performance.
 If there are $n$ entries split up among $k$ sub-maps,
 there will be $n/k$ entries per map, on average. When we look up
 a key, we have to compute its hash code, which takes some time, then we
-search the corresponding sub-map. Because the entry lists in
+search the corresponding sub-map.
+
+Because the entry lists in
 \java{MyBetterMap} are $k$ times shorter than the entry list in
 \java{MyLinearMap}, we expect the search to be $k$ times
 faster. But the run time is still proportional to $n$, so
@@ -4167,7 +4221,7 @@ public class SillyString {
 \end{verbatim}
 
 This class is not very useful, which is why it's called
-\java{SillyString}, but we'll use it to show how a class can define
+\java{SillyString}, but I'll use it to show how a class can define
 its own hash function:
 
 \begin{verbatim}
@@ -4182,7 +4236,6 @@ its own hash function:
         for (int i=0; i<innerString.length(); i++) {
             total += innerString.charAt(i);
         }
-        System.out.println(total);
         return total;
     }
 \end{verbatim}
@@ -4228,15 +4281,15 @@ designing good hash functions at
 \section{Hashing and mutation}
 \label{hashing-and-mutation}
 
-Strings are immutable, and \java{SillyString} is also immutable because
-\java{innerString} is declared to be \java{final}. Once you create a
-\java{SillyString}, you can't make \java{innerString} refer to a
-different String, and you can change the String it refers to. Therefore,
-it will always have the same hash code.
+Strings are immutable, and \java{SillyString} is also immutable
+because \java{innerString} is declared to be \java{final}. Once you
+create a \java{SillyString}, you can't make \java{innerString} refer
+to a different \java{String}, and you can change the \java{String} it
+refers to. Therefore, it will always have the same hash code.
 
 But let's see what happens with a mutable object. Here's a definition
 for \java{SillyArray}, which is identical to \java{SillyString},
-except that it uses an array of characters instead of a String:
+except that it uses an array of characters instead of a \java{String}:
 
 \begin{verbatim}
 public class SillyArray {
@@ -4439,8 +4492,10 @@ of maps, $k$, each time it is called.
 \section{Analyzing \java{MyHashMap}}
 \label{analyzing-myhashmap}
 
-If the number of entries per sub-map, $n/k$, is constant, several
-of the core \java{MyBetterMap} methods become constant time:
+If the number of entries in the biggest sub-map is proportional to
+$n/k$, and $k$ grows in proportion to $n$,
+several of the core \java{MyBetterMap} methods
+become constant time:
 
 \begin{verbatim}
     public boolean containsKey(Object target) {
@@ -4525,10 +4580,10 @@ fits in memory; and \emph{much} slower if the structure doesn't fit in
 memory.
 
 Another limitation of this implementation is that hashing doesn't help
-if we want to look up a value: \java{containsValue} is still linear
-because it has to search all of the sub-maps. And there is no
-particularly efficient way to look up a value and find the corresponding
-key (or possibly keys).
+if we are given a value rather than a key: \java{containsValue} is
+linear because it has to search all of the sub-maps. And there
+is no particularly efficient way to look up a value and find the
+corresponding key (or possibly keys).
 
 And there's one more limitation: some of the methods that were constant
 time in \java{MyLinearMap} have become linear. For example:
@@ -4550,31 +4605,31 @@ tradeoff is acceptable.
 \section{Profiling \java{MyHashMap}}
 \label{profiling-myhashmap}
 
-Before we go on, we should check whether \java{MyHashMap} is really
+Before we go on, we should check whether \java{MyHashMap.put} is really
 constant time.
 
 Run \java{ant build} to compile the source
-  files. Then run \java{ant ProfileMapPut}. It measures the runtime of
-  \java{HashMap.put} (provided by Java) with a range of problem sizes,
-  and plots runtime versus problem size on a log-log scale. If this
-  operation is constant time, the total time for $n$ operations
-  should be linear, so the result should be a straight line with slope
-  1. When we ran this code, the estimated slope was close to 1, which is
-  consistent with our analysis. You should get something similar.
+files. Then run \java{ant ProfileMapPut}. It measures the runtime of
+\java{HashMap.put} (provided by Java) with a range of problem sizes,
+and plots runtime versus problem size on a log-log scale. If this
+operation is constant time, the total time for $n$ operations
+should be linear, so the result should be a straight line with slope
+1. When we ran this code, the estimated slope was close to 1, which is
+consistent with our analysis. You should get something similar.
 
 
 Modify \java{ProfileMapPut.java} so it profiles your implementation,
-  \java{MyHashMap}, instead of Java's \java{HashMap}. Run the
-  profiler again and see if the slope is near 1. You might have to
-  adjust \java{startN} and \java{endMillis} to find a range of
-  problem sizes where the runtimes are more than a few milliseconds, but
-  not more than a few thousand.
+\java{MyHashMap}, instead of Java's \java{HashMap}. Run the
+profiler again and see if the slope is near 1. You might have to
+adjust \java{startN} and \java{endMillis} to find a range of
+problem sizes where the runtimes are more than a few milliseconds, but
+not more than a few thousand.
 
 When I ran this code, I got a surprise: the slope was about 1.7,
-  which suggests that this implementation is not constant time after all.
-  It contains a ``performance bug''. As the last part of this exercise,
-  you should track down the error, fix it, and confirm that \java{put}
-  is constant time, as expected.
+which suggests that this implementation is not constant time after all.
+It contains a ``performance bug''. As the last part of this exercise,
+you should track down the error, fix it, and confirm that \java{put}
+is constant time, as expected.
 
 
 \chapter{TreeMap}
@@ -4647,7 +4702,7 @@ public class MyFixedHashMap<K, V> extends MyHashMap<K, V> implements Map<K, V> {
     }
 \end{verbatim}
 
-Rather than modify \java{MyHashedMap}, we define a new class that
+Rather than modify \java{MyHashMap}, I define a new class that
 extends it. It adds a new instance variable, \java{size}, which is
 initialized to zero.
 
@@ -4657,7 +4712,7 @@ the superclass (which clears the sub-maps), and then update
 
 Updating \java{remove} and \java{put} is a little more difficult
 because when we invoke the method on the superclass, we can't tell
-whether the size of the sub-map changed. Here's how we worked around
+whether the size of the sub-map changed. Here's how I worked around
 that:
 
 \begin{verbatim}
@@ -4734,11 +4789,11 @@ relationships between the classes:
   implements \java{Map}.
 \end{itemize}
 
-To help keep track of relationships like these, software engineers often
-use ``UML class diagrams''. UML stands for
-\url{https://en.wikipedia.org/wiki/Unified_Modeling_Language}{Unified
-Modeling Language}; a class diagram is one of several graphical
-standards defined by UML.
+To help keep track of relationships like these, software engineers
+often use ``UML class diagrams''. UML stands for Unified Modeling
+Language
+(\url{https://en.wikipedia.org/wiki/Unified_Modeling_Language}; a
+class diagram is one of several graphical standards defined by UML.
 
 % Edit: http://yuml.me/edit/2aa18a2d
 
@@ -4795,6 +4850,8 @@ Because of this performance, \java{HashMap} is widely used, but it is
 not the only implementation of \java{Map}. There are two reasons you
 might want another implementation:
 
+% TODO: Add info about computing good hashes?
+
 \begin{enumerate}
 
 \item
@@ -4838,14 +4895,15 @@ A binary search tree (BST) is a tree where each node contains a key, and
 every \java{node} has the ``BST property'':
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 
 \item
   If \java{node} has a left child, all keys in the left subtree must
   be less than the key in \java{node}.
+
 \item
   If \java{node} has a right child, all keys in the right subtree must
   be greater than the key in \java{node}.
+
 \end{enumerate}
 
 \begin{figure}
@@ -4924,7 +4982,7 @@ and working up:
 
 By now you might see the pattern. If we number the levels of the tree from
 \java{1} to \java{h}, the level with index \java{i} can have up to
-$2^(i-1)$ nodes. And the total number of nodes in \java{h} levels is $2^h-1$.
+$2^{i-1}$ nodes. And the total number of nodes in \java{h} levels is $2^h-1$.
 If we have
 
 \[ n = 2^h - 1 \]
@@ -5040,10 +5098,12 @@ I've provided outlines for \java{get} and \java{containsKey}.
   defined; it is not part of the \java{Map} interface. Here's how it
   starts:
 
+% TODO: add IllegalArgumentException to the code
+
 \begin{verbatim}
     private Node findNode(Object target) {
         if (target == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
 
         @SuppressWarnings("unchecked")
@@ -5100,7 +5160,7 @@ The next method you should fill in is \java{put}. I've provided
 \begin{verbatim}
     public V put(K key, V value) {
         if (key == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (root == null) {
             root = new Node(key, value);
@@ -5138,14 +5198,15 @@ Fill in \java{putHelper} so it searches the tree and:
 
 \end{enumerate}
 
-Your implementation of \java{put} should take time proportional to
-$h$, not $n$. Ideally you should search the tree only
-once, but if you find it easier to search twice, you can do that; it
-will be slower, but it doesn't change the order of growth.
+Your implementation of \java{put} should take time proportional to the
+height of the tree, $h$, not the number of elements, $n$. Ideally you
+should search the tree only once, but if you find it easier to search
+twice, you can do that; it will be slower, but it doesn't change the
+order of growth.
 
 Finally, you should fill in the body of \java{keySet}.
 According to the documentation at
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html\#keySet()}, this method should return some kind of
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html\#keySet()}, this method should return some kind of
   \java{Set} that iterates the keys in order; that is, in increasing
   order according to the \java{compareTo} method. There are several
   ways to do that, but the simplest is to return an implementation of
@@ -5169,6 +5230,8 @@ method, you might want to make it recursive, and you might want to
 read about in-order tree traversal at
 \url{https://en.wikipedia.org/wiki/Tree_traversal\#In-order}.
 
+% TODO: more help with recursion?
+
 When you are done, all tests should pass. In the next chapter, we'll go
 over our solutions and test the performance of the core methods.
 
@@ -5185,13 +5248,13 @@ problem.
 
 In the previous exercise I gave you the outline of \java{MyTreeMap} and
 asked you to fill in the missing methods. Now I'll present a
-solutions, starting with \java{findNode}:
+solution, starting with \java{findNode}:
 
 \begin{verbatim}
 private Node findNode(Object target) {
     // some implementations can handle null as a key, but not this one
     if (target == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
     }
 
     // something to make the compiler happy
@@ -5228,7 +5291,7 @@ first part of this function in the previous exercise:
   typecast it to some kind of \java{Comparable}. The ``type wildcard''
   used here is as permissive as possible; that is, it works with any
   type that implements \java{Comparable} and whose \java{compareTo}
-  method accepts $k$ or any supertype of $k$.
+  method accepts \java{K} or any supertype of \java{K}.
 
 \end{itemize}
 
@@ -5325,7 +5388,7 @@ In the previous exercise, we provided this starter code:
 \begin{verbatim}
 public V put(K key, V value) {
     if (key == null) {
-        throw new NullPointerException();
+        throw new IllegalArgumentException();
     }
     if (root == null) {
         root = new Node(key, value);
@@ -5447,13 +5510,13 @@ we return without adding anything to \java{set}. Otherwise we:
 \begin{enumerate}
 
 \item
-  Traverse the left subtree.
+  Traverse the left subtree in order.
 
 \item
   Add \java{node.key}.
 
 \item
-  Traverse the right subtree.
+  Traverse the right subtree in order.
 
 \end{enumerate}
 
@@ -5480,7 +5543,7 @@ Because this method visits every node in the tree, like
 
 In \java{MyTreeMap}, the methods \java{get} and \java{put} take
 time proportional to the height of the tree, $h$. In the previous
-lab, we showed that if the tree is full --- if every level of the tree
+exercise, we showed that if the tree is full --- if every level of the tree
 contains the maximum number of nodes --- the height of the tree is
 proportional to $\log n$.
 
@@ -5519,7 +5582,7 @@ log base 2 of size of MyTreeMap = 14.0
 Final height of MyTreeMap = 33
 \end{verbatim}
 
-We computed ``log base 2 of size of MyTreeMap'' to see how tall the tree
+I included ``log base 2 of size of MyTreeMap'' to see how tall the tree
 would be if it were full. The result indicates that a full tree with
 height 14 would contain 16,384 nodes.
 
@@ -5566,6 +5629,8 @@ Final height of MyTreeMap = 16384
 The runtime is longer than in the previous case, more than 7 times
 longer. If you wonder why, take a look at the final height of the tree:
 16384!
+
+% TODO: Add a diagram?
 
 If you think about how \java{put} works, you can figure out what's
 going on. Every time we add a new key, it's larger than all of the keys
@@ -5651,11 +5716,13 @@ engine. To review, the components of a search engine are:
 
 \end{itemize}
 
-If you did Exercise 6 in Section~\ref{exercise6}, you implemented an index
-using Java maps. In this exercise, we'll revisit the Indexer and make
+% TODO: check these references
+
+If you did Exercise~\ref{exercise6}, you implemented an index
+using Java maps. In this exercise, we'll revisit the `Indexer` and make
 a new version that stores the results in a database.
 
-If you did Exercise 5 in Section~\ref{exercise5}, you
+If you did Exercise~\ref{exercise5}, you
 built a crawler that follows the first link it finds. In the next exercise,
 we'll make a more general version that stores every link it finds in a
 queue and explores them in order.
@@ -5730,7 +5797,7 @@ Specifically, it provides:
   Hashes, similar to Java Maps.
 
 \item
-  Sets of strings, similar Java Sets.
+  Sets of strings, similar to Java Sets.
 
 \end{itemize}
 
@@ -5747,7 +5814,7 @@ Redis is usually run as a remote service; in fact, the name stands for
 ``REmote DIctionary Server''. To use Redis, you have to run the Redis
 server somewhere and then connect to it using a Redis client. There are
 many ways to set up a server and many clients you could use. For this
-lab, we recommend:
+exercise, I recommend:
 
 \begin{enumerate}
 
@@ -5847,11 +5914,11 @@ about your Redis server from a file, connects to it and logs in using
 your password, then returns a \java{Jedis} object you can use to
 perform Redis operations.
 
-If you open \java{JedisMaker.java}, you should see the java{JedisMaker}
-class, which is a helper class that provides one static method,
-\java{make}, which creates a \java{Jedis} object. Once this object
-is authenticated, you can use it to
-communicate with your Redis database.
+If you open \java{JedisMaker.java}, you should see the
+\java{JedisMaker} class, which is a helper class that provides one
+static method, \java{make}, which creates a \java{Jedis} object. Once
+this object is authenticated, you can use it to communicate with your
+Redis database.
 
 \java{JedisMaker} reads information about your Redis server from a
 file named \java{redis_url.txt}, which you should put in the
@@ -5930,12 +5997,12 @@ In the next section, I'll explain how the code works.
 \section{Redis data types}
 \label{redis-data-types}
 
-Redis is basically a map from keys, which are Strings, to values, which
-can be one of several data types. The most basic Redis data type is a
-String. To add a String to the database, use \java{jedis.set}, which
-is similar to \java{Map.put}; the parameters are the new key and the
-corresponding value. To look up a key and get its value, use
-\java{jedis.get}:
+Redis is basically a map from keys, which are \java{String}s, to
+values, which can be one of several data types. The most basic Redis
+data type is a \java{String}. To add a \java{String} to the database,
+use \java{jedis.set}, which is similar to \java{Map.put}; the
+parameters are the new key and the corresponding value. To look up a
+key and get its value, use \java{jedis.get}:
 
 \begin{verbatim}
         jedis.set("mykey", "myvalue");
@@ -5945,9 +6012,10 @@ corresponding value. To look up a key and get its value, use
 In this example, the key is \java{"mykey"} and the value is
 \java{"myvalue"}.
 
-A Redis \java{Set} is similar to a Java
-\java{Set<String>}. To add elements to a set,
-you have to choose a key to identify the set and then use
+Redis provides a Set structure, which is
+similar to a Java
+\java{Set<String>}. To add elements to a Redis Set,
+you choose a key to identify the set and then use
 \java{jedis.sadd}:
 
 \begin{verbatim}
@@ -5963,7 +6031,8 @@ The method \java{jedis.sismember} checks whether an element is in a
 Set. Adding elements and checking membership are constant time
 operations.
 
-A Redis \java{List} is similar to a Java
+Redis also provides a list structure, which is
+similar to a Java
 \java{List<String>}. The method
 \java{jedis.rpush} adds elements to the end (right side) of a
 \java{List}:
@@ -5973,15 +6042,15 @@ A Redis \java{List} is similar to a Java
         String element = jedis.lindex("mylist", 1);
 \end{verbatim}
 
-Again, you don't have to create the data structure before you start
+Again, you don't have to create the structure before you start
 adding elements. This example creates a List named ``mylist'' that
 contains three elements.
 
 The method \java{jedis.lindex} takes an integer index and returns the
-indicated element. Adding and accessing elements are constant time
-operations.
+indicated element of a List. Adding and accessing elements are
+constant time operations.
 
-Finally, a Redis \java{Hash} is similar to a Java
+Finally, Redis provides a Hash structure, which is similar to a Java
 \java{Map<String, String>}. The method
 \java{jedis.hset} adds a new entry to the hash:
 
@@ -5991,20 +6060,23 @@ Finally, a Redis \java{Hash} is similar to a Java
 \end{verbatim}
 
 This example creates a Hash named \java{myhash} that contains one
-entry.
+entry, which maps from the key \java{word1} to the value \java{"2"}.
 
-The value it stores is an \java{Integer}, so we have to convert it to
-a \java{String}. When we look up the value using \java{jedis.hget},
-the result is a \java{String}.
+The keys and values are strings, so if we want to store
+an \java{Integer}, so we have to convert it to
+a \java{String} before we call \java{hset}. 
+And when we look up the value using \java{hget},
+the result is a \java{String}, so we might have to convert it back
+to \java{Integer}.
 
-Working with Redis hashes can be confusing, because we use a key to
+Working with Redis Hashes can be confusing, because we use a key to
 identify which hash we want, and then another key to identify a value in
 the hash. In the context of Redis, the second key is called a ``field'',
 which might help keep things straight. So a ``key'' like \java{myhash}
 identifies a particular hash, and then a ``field'' like \java{word1}
 identifies a value in the hash.
 
-For many applications, the values in a Redis hash are integers, so Redis
+For many applications, the values in a Redis Hash are integers, so Redis
 provides a few special methods, like \java{hincrby}, that treat the
 values as integers:
 
@@ -6019,7 +6091,7 @@ with \java{word2} (or 0 if it doesn't already exist), increments it by
 Setting, getting, and incrementing entries in a hash are constant time
 operations.
 
-You can read more about Redis data types here at
+You can read more about Redis data types at
 \url{http://redis.io/topics/data-types}.
 
 
@@ -6042,7 +6114,7 @@ fail, because you have some work to do!
 
 \item
   \java{indexPage}, which adds a Web page to the index; it takes a
-  String URL and a JSoup \java{Elements} object that contains the
+  \java{String} URL and a JSoup \java{Elements} object that contains the
   elements of the page that should be indexed.
 
 \item
@@ -6191,7 +6263,7 @@ know how to get started, you can come back for a few more hints.
 out some basic Redis commands, and written a few methods in
 \java{JedisIndex.java}}.
 
-Ok, if you are really stuck, here are some methods you might want to
+OK, if you are really stuck, here are some methods you might want to
 work on:
 
 \begin{verbatim}
@@ -6530,6 +6602,8 @@ visiting each reachable node once.
 The behavior of the queue determines what kind of traversal the crawler
 performs:
 
+% TODO: consider using ``buffer'' instead of ``queue''
+
 \begin{itemize}
 
 \item
@@ -6579,7 +6653,7 @@ You'll also need some of the helper classes we've used in previous exercises:
 
 Before you run \java{JedisMaker}, you have to provide a file with
 information about your Redis server. If you did this in the previous
-lab, you should be all set. Otherwise you can find instructions in
+exercise, you should be all set. Otherwise you can find instructions in
 Section~\ref{hello-jedis}.
 
 Run \java{ant build} to compile the source files, then run
@@ -6837,11 +6911,11 @@ does the real work.
 To determine whether a link is ``internal,'' we check whether the URL
 starts with ``/wiki/''. This might include some pages we don't want to
 index, like meta-pages about Wikipedia. And it might exclude some pages
-we want, like links to pages in non-English languages. But let's keep it
-simple.
+we want, like links to pages in non-English languages. But this simple
+test is good enough to get started.
 
-That's all there is to it. This exercise didn't have a lot of new material;
-it was mostly a chance to bring the pieces together.
+That's all there is to it. This exercise doesn't have a lot of new material;
+it is mostly a chance to bring the pieces together.
 
 
 \section{Information retrieval}
@@ -6963,7 +7037,7 @@ you'll find the source files for this exercise:
 \end{itemize}
 
 You will also find some of the helper classes we've used in previous
-labs.
+exercises.
 
 Here's the beginning of the \java{WikiSearch} class definition:
 
@@ -7047,9 +7121,9 @@ Initially the results will be in no particular order, because
 
 Fill in the body of \java{sort} so the results are returned in
 increasing order of relevance. I suggest you use the \java{sort}
-method provided by {java.util.Collections} which sorts any kind of
+method provided by \java{java.util.Collections} which sorts any kind of
 \java{List}. You can read the documentation at
-\url{https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html}.
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html}.
 
 There are two version of \java{sort}:
 
@@ -7184,8 +7258,9 @@ that considers ``Aces high'', like this:
 \end{verbatim}
 
 This code defines an anonymous class that implements \java{compare},
-as required. Then it creates an instance of the class. If you are not
-familiar with anonymous classes in Java, you can read about them at
+as required. Then it creates an instance of the newly-defined,
+unnamed class. If you are not familiar with anonymous classes in Java, you can
+read about them at
 \url{https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html}.
 
 Using this \java{Comparator}, we can invoke \java{sort} like this:
@@ -7194,8 +7269,8 @@ Using this \java{Comparator}, we can invoke \java{sort} like this:
         Collections.sort(cards, comparator);
 \end{verbatim}
 
-In this ordering, the Ace of Spaces is considered the highest class in
-the deck; the two of clubs is the lowest.
+In this ordering, the Ace of Spades is considered the highest class in
+the deck; the two of Clubs is the lowest.
 
 The code in this section is in \java{Card.java} if you want to
 experiment with it. As an exercise, you might want to write a comparator
@@ -7327,14 +7402,16 @@ existing list and does not have to allocate any new space.
 The following example shows how to call this function with a \java{List} of
 \java{Integer} objects:
 
+% TODO: in the code, change n and m to elt1 and elt2
+
 \begin{verbatim}
         List<Integer> list = new ArrayList<Integer>(
             Arrays.asList(3, 5, 1, 4, 2));
 
         Comparator<Integer> comparator = new Comparator<Integer>() {
             @Override
-            public int compare(Integer n, Integer m) {
-                return n.compareTo(m);
+            public int compare(Integer elt1, Integer elt2) {
+                return elt1.compareTo(elt2);
             }
         };
 
@@ -7343,15 +7420,16 @@ The following example shows how to call this function with a \java{List} of
         System.out.println(list);
 \end{verbatim}
 
-\java{insertionSort}, has two nested loops, so you might guess that
+\java{insertionSort} has two nested loops, so you might guess that
 its runtime is quadratic. In this case, that turns out to be correct,
 but before you jump to that conclusion, you have to check that the
 number of times each loop runs is proportional to $n$, the size
 of the array.
 
-The outer loop iterates from 1 to $n$, so it is clearly linear.
-The inner loop iterates from \java{i} to 0, so it is also linear, and
-the total number of times the inner loop runs is quadratic.
+The outer loop iterates from 1 to \java{list.size()}, so it is linear
+in the size of the list, $n$.
+The inner loop iterates from \java{i} to 0, so it is also linear in $n$.
+Therefore, the total number of times the inner loop runs is quadratic.
 
 If you are not sure about that, here's the argument:
 
@@ -7387,7 +7465,7 @@ In the worst case, insertion sort is quadratic. However:
 
 \item
   Because the implementation is simple, the overhead is low; that is,
-  even if the runtime is
+  although the runtime is
   $a n^2$, the coefficient of the leading term, $a$, is probably small.
 
 \end{enumerate}
@@ -7522,8 +7600,9 @@ of recursion, as in Figure~\ref{fig-sort2}.
 \label{fig-sort2}
 \end{figure}
 
-At the top level, we have $1$ list with $n$ elements. At
-the next level there are $2$ lists with $n/2$ elements.
+At the top level, we have $1$ list with $n$ elements. 
+For simplicity, let's assume $n$ is a power of 2.
+At the next level there are $2$ lists with $n/2$ elements.
 Then $4$ lists with $n/4$ elements, and so on until we get
 to $n$ lists with $1$ element.
 
@@ -7542,8 +7621,7 @@ ways to think about that:
   How many times do we have to cut $n$ in half to get to 1. Or,
 
 \item
-  How many times do we have to double $1$ before we get to
-  $n$.
+  How many times do we have to double $1$ before we get to $n$.
 
 \end{enumerate}
 
@@ -7554,19 +7632,19 @@ $2^h = n$
 
 Taking the $\log_2$ of both sides yields
 
-$h = log_2 n$
+$h = \log_2 n$
 
-So the total time is $O(n log n)$. I didn't bother to write the
+So the total time is $O(n \log n)$. I didn't bother to write the
 base of the logarithm because logarithms with different bases differ by
 a constant factor, so all logarithms are in the same order of growth.
 
-Algorithms in $O(n log n)$ are sometimes called
+Algorithms in $O(n \log n)$ are sometimes called
 ``linearithmic'', but most people just say ``n log n''.
 
-It turns out that $O(n log n)$ is the theoretical lower bound for
+It turns out that $O(n \log n)$ is the theoretical lower bound for
 sort algorithms that work by comparing elements to each other. That
 means there is no ``comparison sort''
-whose order of growth is better than $n log n$.
+whose order of growth is better than $n \log n$.
 See \url{https://en.wikipedia.org/wiki/Comparison_sort}.
 
 But as we'll see in the next section, there are non-comparison sorts
@@ -7603,7 +7681,7 @@ cards:
 \item
   Make one pass through the cards and divide them into buckets based on
   the first letter. So words starting with \java{a} should be
-  together, followed by words starting with \java{b}, and so on.
+  in one bucket, followed by words starting with \java{b}, and so on.
 
 \item
   Divide each bucket again based on the second letter. So words starting
@@ -7703,6 +7781,9 @@ structure similar to a binary search tree (BST). Here's the difference:
 
 \end{itemize}
 
+%TODO: also mention that the heap is completely balanced, which
+% makes it easy to implement with an array
+
 The smallest element in a heap is always at the root, so we can find it
 in constant time. Adding and removing elements from a heap takes time
 proportional to the height of the tree $h$. And it is easy to
@@ -7762,7 +7843,7 @@ A bounded heap is a heap that is limited to contain at most $k$
 elements. If you have $n$ elements, you can keep track of the
 $k$ largest elements like this:
 
-For each element, \java{x}:
+Initially, the heap is empty.  For each element, \java{x}:
 
 \begin{itemize}
 
