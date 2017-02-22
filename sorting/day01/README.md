@@ -1,20 +1,16 @@
-# Sorting Day 1 - `QuickSort` and `HeapSort`
+# Sorting Day 1 - Heaps and `HeapSort`
 
 ## Learning Goals
 
 By doing this assignment, you should be able to
 
-* Justify the listed runtime and space complexities of each sort
-* Understand the quicksort algorithm:
-  * Understand the role of partitioning around a pivot.
-  * Understand how the algorithm recursively sorts the left and right partitions.
-  * O(logN) space
-  * Average and best case O(NlogN) time
-  * Worst case O(N^2) time
 * Understand the heap sort algorithm:
-  * Use and understand the heap data structure: how it is used in the algorithm, and what augmentation it needs in order to implement a priority queue
+  * Understand why building a heap is O(N) time
+  * Understand why heap sort is worst, average and best case O(NlogN) time
+  * Understand the O(1) space complexity of heap sort
+* Understand how to implement a priority queue
+  * How to implement it using a max-heap
   * O(1) space
-  * Worst, average and best case O(NlogN) time
 
 ## Assignment
 

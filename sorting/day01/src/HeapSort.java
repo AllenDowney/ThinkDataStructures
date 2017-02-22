@@ -1,4 +1,4 @@
-public class HeapSort extends Sorter {
+public class HeapSort extends SortAlgorithm {
     private int size;
     private int[] heap;
 

@@ -19,7 +19,7 @@ public class SortTest {
         testSort(new HeapSort());
     }
 
-    private void testSort(Sorter sorter) {
+    private void testSort(SortAlgorithm sorter) {
         assertArrayEquals(sorter.sort(FIRST), RESULT);
         assertArrayEquals(sorter.sort(SECOND), RESULT);
         assertArrayEquals(sorter.sort(THIRD), RESULT);
