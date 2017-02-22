@@ -16,7 +16,7 @@ public class SortTest {
     private int[] fastCase;
     private int[] slowCase;
 
-    private final int RANGE = 100;
+    private static final int RANGE = 100;
 
     @Before
     public void setup() {
@@ -27,7 +27,7 @@ public class SortTest {
         slowCase = generateRandomArrayOfSize(100000);
     }
 
-    private int[] generateRandomArrayOfSize(int n) {
+    public static int[] generateRandomArrayOfSize(int n) {
         int[] random = new int[n];
 
         for (int i=0; i < n; i++) {

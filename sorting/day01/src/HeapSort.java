@@ -40,11 +40,9 @@ public class HeapSort extends SortAlgorithm {
     @Override
     public int[] sort(int[] array) {
         buildHeapFrom(array);
-
         for (int i=size-1; i>0; i--) {
             // TODO
         }
-
         return heap;
     }
 }

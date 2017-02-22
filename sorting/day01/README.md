@@ -14,13 +14,37 @@ By doing this assignment, you should be able to
 
 ## Assignment
 
-### Reading
-
-- In *Think Algorithms*, read sections **23.4, 23.5 and 23.7**.
-
 ### Code
 
-- For both `QuickSort.java` and `HeapSort.java`, complete the methods annotated with `TODO`s so that `sort` runs; use (or not) the helper methods and method declarations we've provided for you.
+#### Heapsort
 
-- For each sort function, detail the best, worst, and average case runtime complexity in the comments. Also, detail the space complexity. Provide an explanation for each of the four complexities.
+- For `HeapSort.java`, complete the methods annotated with `TODO`s so that `sort` runs; use (or not) the helper methods and method declarations we've provided for you.
 
+- For each sort function, detail the best, worst, and average case runtime complexity in the comments. Also, detail the space complexity.
+
+#### Running Median
+
+##### `PriorityQueue`
+
+For this problem, you might find it helpful to use a priority queue (PQ). Java offers an implementation of `PriorityQueue`, with the following methods:
+
+- `isEmpty`
+- `peek`
+- `offer`, which is the same as `enqueue` from the queue you implemented.
+- `poll`, which is the same as `dequeue` from the queue you implemented.
+
+**Optional**: To learn about Java's `PriorityQueue` API, in *Think Algorithms*, read section **23.7**.
+
+##### The Problem
+
+You are given an input stream of integers `inputStream`. Return a `double[] runningMedian`, where `runningMedian[i]` is the median of all elements in `inputStream[:i+1]`, that is, up to and including `i`.
+
+You can think of it like you are seeing the integers one at a time, and at any given time you must output what the median of all the integers you've seen so far is.
+
+You may find it helpful to think about the O(N^2) solution first. Maintain a sorted dynamic array `sortedArray`, and after each element comes in, find its place in the sorted array and insert it, then output the median of the sorted array. Why is this O(N^2)?
+
+The code for the N^2 solution is provided in `Problems.java`. Can you do better? For your convenience, we provide two helper functions which initialize a maxPQ and a minPQ. Feel free to use one or both in your solution.
+
+### Getting Checked Off
+
+- Provide an explanation for each of the four heapsort complexities to your NINJA.
