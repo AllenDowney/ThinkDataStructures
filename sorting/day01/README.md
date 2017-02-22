@@ -20,7 +20,7 @@ By doing this assignment, you should be able to
 
 - For `HeapSort.java`, complete the methods annotated with `TODO`s so that `sort` runs; use (or not) the helper methods and method declarations we've provided for you.
 
-- For each sort function, detail the best, worst, and average case runtime complexity in the comments. Also, detail the space complexity.
+- Detail the best, worst, and average case runtime complexity in the comments. Also, detail the space complexity.
 
 #### Running Median
 
