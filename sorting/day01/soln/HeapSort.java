@@ -14,7 +14,7 @@ public class HeapSort extends SortAlgorithm {
         return 2 * (i + 1);
     }
 
-    private void sink(int i) {
+    private void heapify(int i) {
         int left = leftChild(i), right = rightChild(i);
 
         // select largest element from indices i, left, and right
@@ -24,7 +24,7 @@ public class HeapSort extends SortAlgorithm {
 
         if (largest != i) {
             swap(heap, largest, i);
-            sink(largest);
+            heapify(largest);
         }
     }
 
@@ -34,7 +34,7 @@ public class HeapSort extends SortAlgorithm {
         int m = this.size / 2;
 
         for (int i=m; i>=0; i--) {
-            sink(i);
+            heapify(i);
         }
     }
 
@@ -45,7 +45,7 @@ public class HeapSort extends SortAlgorithm {
         for (int i=size-1; i>0; i--) {
             swap(heap, i, 0);
             size--;
-            sink(0);
+            heapify(0);
         }
 
         return heap;

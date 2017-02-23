@@ -17,7 +17,7 @@ public class HeapSort extends SortAlgorithm {
     /**
      * Recursively corrects the position of element indexed i: check children, and swap with larger child if necessary.
      */
-    private void sink(int i) {
+    private void heapify(int i) {
         // TODO
     }
 

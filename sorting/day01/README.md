@@ -29,6 +29,7 @@ By doing this assignment, you should be able to
 For this problem, you might find it helpful to use a priority queue (PQ). Java offers an implementation of `PriorityQueue`, with the following methods:
 
 - `isEmpty`
+- `size`
 - `peek`
 - `offer`, which is the same as `enqueue` from the queue you implemented.
 - `poll`, which is the same as `dequeue` from the queue you implemented.
