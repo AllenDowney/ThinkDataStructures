@@ -1,8 +1,17 @@
+import java.util.concurrent.ThreadLocalRandom;
 
 public class QuickSort extends SortAlgorithm {
 
+    private void shuffleArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int randIndex = ThreadLocalRandom.current().nextInt(i+1);
+            swap(array, i, randIndex);
+        }
+    }
+
     @Override
     public int[] sort(int[] array) {
+        shuffleArray(array);
         quickSort(array, 0, array.length-1);
         return array;
     }
