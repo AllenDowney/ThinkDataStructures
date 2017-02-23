@@ -6,25 +6,25 @@ package com.allendowney.thinkdast;
  */
 public class ListNode {
 
-	public Object cargo;
+	public Object data;
 	public ListNode next;
 
 	public ListNode() {
-		this.cargo = null;
+		this.data = null;
 		this.next = null;
 	}
 	
-	public ListNode(Object cargo) {
-		this.cargo = cargo;
+	public ListNode(Object data) {
+		this.data = data;
 		this.next = null;
 	}
 	
-	public ListNode(Object cargo, ListNode next) {
-		this.cargo = cargo;
+	public ListNode(Object data, ListNode next) {
+		this.data = data;
 		this.next = next;
 	}
 	
 	public String toString() {
-		return "ListNode(" + cargo.toString() + ")";
+		return "ListNode(" + data.toString() + ")";
 	}
 }

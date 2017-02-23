@@ -23,20 +23,20 @@ public class MyLinkedList<E> implements List<E> {
 	 *
 	 */
 	private class Node {
-		public E cargo;
+		public E data;
 		public Node next;
 
-		public Node(E cargo) {
-			this.cargo = cargo;
+		public Node(E data) {
+			this.data = data;
 			this.next = null;
 		}
 		@SuppressWarnings("unused")
-		public Node(E cargo, Node next) {
-			this.cargo = cargo;
+		public Node(E data, Node next) {
+			this.data = data;
 			this.next = next;
 		}
 		public String toString() {
-			return "Node(" + cargo.toString() + ")";
+			return "Node(" + data.toString() + ")";
 		}
 	}
 
@@ -123,7 +123,7 @@ public class MyLinkedList<E> implements List<E> {
 	@Override
 	public E get(int index) {
 		Node node = getNode(index);
-		return node.cargo;
+		return node.data;
 	}
 
 	/** Returns the node at the given index.
@@ -178,7 +178,7 @@ public class MyLinkedList<E> implements List<E> {
 		Node node = head;
 		int index = -1;
 		for (int i=0; i<size; i++) {
-			if (equals(target, node.cargo)) {
+			if (equals(target, node.data)) {
 				index = i;
 			}
 			node = node.next;
@@ -229,8 +229,8 @@ public class MyLinkedList<E> implements List<E> {
 	@Override
 	public E set(int index, E element) {
 		Node node = getNode(index);
-		E old = node.cargo;
-		node.cargo = element;
+		E old = node.data;
+		node.data = element;
 		return old;
 	}
 
@@ -249,7 +249,7 @@ public class MyLinkedList<E> implements List<E> {
 		MyLinkedList<E> list = new MyLinkedList<E>();
 		for (Node node=head; node != null; node = node.next) {
 			if (i >= fromIndex && i <= toIndex) {
-				list.add(node.cargo);
+				list.add(node.data);
 			}
 			i++;
 		}
@@ -262,7 +262,7 @@ public class MyLinkedList<E> implements List<E> {
 		int i = 0;
 		for (Node node=head; node != null; node = node.next) {
 			// System.out.println(node);
-			array[i] = node.cargo;
+			array[i] = node.data;
 			i++;
 		}
 		return array;
