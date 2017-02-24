@@ -1,4 +1,4 @@
-public class HeapSort extends Sorter {
+public class HeapSort extends SortAlgorithm {
     private int size;
     private int[] heap;
 
@@ -14,26 +14,16 @@ public class HeapSort extends Sorter {
         return 2 * (i + 1);
     }
 
-    /**
-     * Recursively corrects the position of element indexed i: check children, and swap with larger child if necessary.
-     */
-    private void sink(int i) {
-        // TODO: Complete this method
+    // Recursively corrects the position of element indexed i: check children, and swap with larger child if necessary.
+    private void heapify(int i) {
+        // TODO
     }
 
-    private void swap(int i, int j) {
-        int temp = heap[i];
-        heap[i] = heap[j];
-        heap[j] = temp;
-    }
-
-    /**
-     * Given the array, build a heap by correcting every non-leaf's position.
-     */
+    // Given the array, build a heap by correcting every non-leaf's position.
     private void buildHeapFrom(int[] array) {
         this.heap = array;
         this.size = array.length;
-        // TODO: Complete this method
+        // TODO
     }
 
     /**
@@ -46,13 +36,9 @@ public class HeapSort extends Sorter {
     @Override
     public int[] sort(int[] array) {
         buildHeapFrom(array);
-
         for (int i=size-1; i>0; i--) {
-            swap(i, 0);
-            size--;
-            sink(0);
+            // TODO
         }
-
         return heap;
     }
 }

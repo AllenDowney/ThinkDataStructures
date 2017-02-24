@@ -1,4 +1,4 @@
-public class HeapSort extends Sorter {
+public class HeapSort extends SortAlgorithm {
     private int size;
     private int[] heap;
 
@@ -14,30 +14,18 @@ public class HeapSort extends Sorter {
         return 2 * (i + 1);
     }
 
-    private void sink(int i) {
+    private void heapify(int i) {
         int left = leftChild(i), right = rightChild(i);
-        int largest;
 
-        if (left < size && heap[left] > heap[i]) {
-            largest = left;
-        } else {
-            largest = i;
-        }
-
-        if (right < size && heap[right] > heap[largest]) {
-            largest = right;
-        }
+        // select largest element from indices i, left, and right
+        int largest = i;
+        if (left < size && heap[left] > heap[i]) largest = left;
+        if (right < size && heap[right] > heap[largest]) largest = right;
 
         if (largest != i) {
-            swap(largest, i);
-            sink(largest);
+            swap(heap, largest, i);
+            heapify(largest);
         }
-    }
-
-    private void swap(int i, int j) {
-        int temp = heap[i];
-        heap[i] = heap[j];
-        heap[j] = temp;
     }
 
     private void buildHeapFrom(int[] array) {
@@ -46,7 +34,7 @@ public class HeapSort extends Sorter {
         int m = this.size / 2;
 
         for (int i=m; i>=0; i--) {
-            sink(i);
+            heapify(i);
         }
     }
 
@@ -55,9 +43,9 @@ public class HeapSort extends Sorter {
         buildHeapFrom(array);
 
         for (int i=size-1; i>0; i--) {
-            swap(i, 0);
+            swap(heap, i, 0);
             size--;
-            sink(0);
+            heapify(0);
         }
 
         return heap;
