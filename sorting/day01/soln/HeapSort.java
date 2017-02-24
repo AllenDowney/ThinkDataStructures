@@ -1,6 +1,6 @@
 public class HeapSort extends SortAlgorithm {
-    private int size;
-    private int[] heap;
+    int size;
+    int[] heap;
 
     private int parent(int i) {
         return (i-1) / 2;
@@ -14,7 +14,7 @@ public class HeapSort extends SortAlgorithm {
         return 2 * (i + 1);
     }
 
-    private void heapify(int i) {
+    public void heapify(int i) {
         int left = leftChild(i), right = rightChild(i);
 
         // select largest element from indices i, left, and right
@@ -28,7 +28,7 @@ public class HeapSort extends SortAlgorithm {
         }
     }
 
-    private void buildHeapFrom(int[] array) {
+    public void buildHeapFrom(int[] array) {
         this.heap = array;
         this.size = array.length;
         int m = this.size / 2;
