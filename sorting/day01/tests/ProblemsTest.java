@@ -36,6 +36,4 @@ public class ProblemsTest {
         assertTrue(Arrays.equals(Problems.runningMedian(slowCase), Problems.runningMedianReallySlow(slowCase)));
     }
 
-
-
 }

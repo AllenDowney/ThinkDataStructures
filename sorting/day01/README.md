@@ -49,3 +49,5 @@ The code for the N^2 solution is provided in `Problems.java`. Can you do better?
 ### Getting Checked Off
 
 - Provide an explanation for each of the four heapsort complexities to your NINJA.
+- Talk your NINJA through your solution to the peak finding problem, if you didn't finish it last time
+- Talk your NINJA through your solution to your running median problem.

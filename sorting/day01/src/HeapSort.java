@@ -14,16 +14,12 @@ public class HeapSort extends SortAlgorithm {
         return 2 * (i + 1);
     }
 
-    /**
-     * Recursively corrects the position of element indexed i: check children, and swap with larger child if necessary.
-     */
+    // Recursively corrects the position of element indexed i: check children, and swap with larger child if necessary.
     private void heapify(int i) {
         // TODO
     }
 
-    /**
-     * Given the array, build a heap by correcting every non-leaf's position.
-     */
+    // Given the array, build a heap by correcting every non-leaf's position.
     private void buildHeapFrom(int[] array) {
         this.heap = array;
         this.size = array.length;
