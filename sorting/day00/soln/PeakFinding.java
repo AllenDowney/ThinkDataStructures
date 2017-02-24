@@ -1,9 +1,3 @@
-import javax.print.AttributeException;
-import java.util.Arrays;
-
-/**
- * Created by sidd on 2/20/17.
- */
 public class PeakFinding {
 
     // Return -1 is left is higher, 1 if right is higher, 0 if peak
@@ -33,19 +27,19 @@ public class PeakFinding {
         return 0;
     }
 
-    // Return the index of the highest value along the X or Y axis, with the given
-    // value for the other axis
-    private static int maxX(int y, int[][] nums) {
+    // These two functions return the index of the highest value along the X or Y axis, with the given
+    // value for the other axis. Searches between hi (exclusive) and lo (inclusive)
+    private static int maxXIndex(int y, int lo, int hi, int[][] nums) {
         int maxIndex = -1;
-        for (int x = 0; x < nums[0].length; x++) {
+        for (int x = lo; x < hi; x++) {
             if (maxIndex == -1 || nums[y][x] > nums[y][maxIndex])
                 maxIndex = x;
         }
         return maxIndex;
     }
-    private static int maxY(int x, int[][] nums) {
+    private static int maxYIndex(int x, int lo, int hi, int[][] nums) {
         int maxIndex = -1;
-        for (int y = 0; y < nums.length; y++) {
+        for (int y = lo; y < hi; y++) {
             if (maxIndex == -1 || nums[y][x] > nums[maxIndex][x])
                 maxIndex = y;
         }
@@ -75,7 +69,7 @@ public class PeakFinding {
         while (hiX > loX && hiY > loY) {
             if (middleColumn) {
                 int midX = (hiX + loX) / 2;
-                int yMax = maxY(midX, nums);
+                int yMax = maxYIndex(midX, loY, hiY, nums);
                 int peak = peakX(midX, yMax, nums);
                 if (peak == 0)
                     return new int[]{yMax, midX};
@@ -85,7 +79,7 @@ public class PeakFinding {
                     loX = midX + 1;
             } else {
                 int midY = (hiY + loY) / 2;
-                int xMax = maxX(midY, nums);
+                int xMax = maxXIndex(midY, loX, hiX, nums);
                 int peak = peakY(xMax, midY, nums);
                 if (peak == 0)
                     return new int[]{midY, xMax};
