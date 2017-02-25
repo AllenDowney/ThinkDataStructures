@@ -14,9 +14,9 @@ public class Problems {
     }
 
     private static double getMedian(List<Integer> A) {
-        double median = (double) A.get(A.size()/2);
+        double median = (double) A.get(A.size() / 2);
         if (A.size() % 2 == 0)
-            median = (median + A.get(A.size()/2-1))/2.0;
+            median = (median + A.get(A.size() / 2 - 1)) / 2.0;
         return median;
     }
 
@@ -37,11 +37,13 @@ public class Problems {
 
     /**
      * Runtime is NlogN
+     *
      * @param inputStream an input stream of integers
      * @return the median of the stream, after each element has been added
      */
     public static double[] runningMedian(int[] inputStream) {
-        // Maintain a PQ around the median. Always keep an equal number of elements in both, or one more in belowMedian
+        // Maintain a PQ around the median.
+        // Always make sure 0 <= belowMedian.size() - aboveMedian.size <= 1
         PriorityQueue<Integer> belowMedian = maxPQ();
         PriorityQueue<Integer> aboveMedian = minPQ();
 
@@ -49,25 +51,14 @@ public class Problems {
 
         for (int i = 0; i < inputStream.length; i++) {
             int value = inputStream[i];
-            if (belowMedian.isEmpty()) belowMedian.offer(value);
-            else if (belowMedian.size() == aboveMedian.size()) {
-                if (value <= aboveMedian.peek())
-                    belowMedian.offer(value);
-                else {
-                    belowMedian.offer(aboveMedian.poll());
-                    aboveMedian.offer(value);
-                }
-            } else if (belowMedian.size() == aboveMedian.size() + 1) {
-                if (value >= belowMedian.peek())
-                    aboveMedian.offer(value);
-                else {
-                    aboveMedian.offer(belowMedian.poll());
-                    belowMedian.offer(value);
-                }
-            } else {
-                // Just to make sure belowMedian is always equal in size or one larger than aboveMedian
-                throw new IllegalArgumentException();
-            }
+            // Insert into belowMedian if aboveMedian is empty or the value is below the top of aboveMedian.
+            boolean insertIntoBelow = aboveMedian.isEmpty() || value <= aboveMedian.peek();
+            // Insert into one of the PQs
+            boolean b = (insertIntoBelow) ? belowMedian.offer(value) : aboveMedian.offer(value);
+            // Correct the sizes of the PQs according to the rule above
+            if (belowMedian.size() > aboveMedian.size() + 1) aboveMedian.offer(belowMedian.poll());
+            if (belowMedian.size() < aboveMedian.size()) belowMedian.offer(aboveMedian.poll());
+            // Calculate the median
             if (belowMedian.size() > aboveMedian.size())
                 runningMedian[i] = belowMedian.peek();
             else
