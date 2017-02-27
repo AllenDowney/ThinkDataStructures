@@ -1,7 +1,7 @@
 public class RadixSort {
 
     /**
-     * Runtime: TODO
+     * Runtime: O((n+b)w) -> O(nc), when b=n, where k<= n^c
      *
      * n: length of array
      * w: word length of integers A in base b (equal to log base b of k (log_b k) )
@@ -11,7 +11,8 @@ public class RadixSort {
      */
     static void radixSort(int[] A, int b, int k) {
         int w = (int) Math.ceil(Math.log(k) / Math.log(b)); // w = log base b of k
-        // TODO
+        for (int i = 0; i < w; i++)
+            CountingSort.countingSortByDigit(A, b, i);
     }
 
 }

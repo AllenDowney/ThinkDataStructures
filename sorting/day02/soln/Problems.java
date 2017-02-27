@@ -1,4 +1,8 @@
-public class SortStrings {
+public class Problems {
+
+    static void sortNumsUnder100(int[] A) {
+        CountingSort.countingSort(A, 100);
+    }
 
     /**
      * @param stringLength The length of each of the strings in S
@@ -7,6 +11,5 @@ public class SortStrings {
         for (int i = 0; i < stringLength; i++)
             CountingSort.countingSortByCharacter(S, i);
     }
-
 
 }

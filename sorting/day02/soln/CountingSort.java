@@ -21,12 +21,18 @@ public class CountingSort {
     /**
      * Use counting sort to sort positive integer array A.
      *
-     * Runtime: TODO
+     * Runtime: O(k+n)
      *
      * @param k The upper bound for the integers in A, exclusive
      */
     static void countingSort(int[] A, int k) {
-        // TODO
+        int[] counts = new int[k];
+        for (int i : A)
+            counts[i]++;
+        int m = 0;
+        for (int i = 0; i < k; i++)
+            for (int j = 0; j < counts[i]; j++)
+                A[m++] = i;
     }
 
     /**
@@ -36,7 +42,17 @@ public class CountingSort {
      * @param n The digit number (where 0 is the least significant digit)
      */
     static void countingSortByDigit(int[] A, int b, int n) {
-        // TODO
+        LinkedList<Integer>[] counts = new LinkedList[b];
+        for (int i = 0; i < b; i++)
+            counts[i] = new LinkedList<>();
+        for (int i : A) {
+            int nthDigit = getNthDigit(i, b, n);
+            counts[nthDigit].add(i);
+        }
+        int m = 0;
+        for (LinkedList<Integer> list : counts)
+            while (!list.isEmpty())
+                A[m++] = list.removeFirst();
     }
 
 
@@ -46,7 +62,18 @@ public class CountingSort {
      * @param n The digit number (where 0 is the least significant digit)
      */
     static void countingSortByCharacter(String[] A, int n) {
-        // TODO
+        int b = 26;
+        LinkedList<String>[] counts = new LinkedList[b];
+        for (int i = 0; i < b; i++)
+            counts[i] = new LinkedList<>();
+        for (String s : A) {
+            int nthDigit = getNthCharacter(s, n);
+            counts[nthDigit].add(s);
+        }
+        int m = 0;
+        for (LinkedList<String> list : counts)
+            while (!list.isEmpty())
+                A[m++] = list.removeFirst();
     }
 
 }

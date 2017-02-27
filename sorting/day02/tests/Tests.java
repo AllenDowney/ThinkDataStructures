@@ -38,20 +38,6 @@ public class Tests {
     }
 
     /**
-     * Test method for {@link SortNumsUnder100#sortNumsUnder100(int[])}.
-     */
-    @Test
-    public void testSortNumsUnder100() {
-        int[] array_lengths = new int[]{10, 100, 1000, 100000};
-        for (int l : array_lengths) {
-            int[] A = generateRandomArrayOfSize(l, 100);
-            int[] sorted = sort(A);
-            SortNumsUnder100.sortNumsUnder100(A);
-            assertArrayEquals(A, sorted);
-        }
-    }
-
-    /**
      * Test method for {@link RadixSort#radixSort(int[], int, int)}.
      */
     @Test
@@ -69,7 +55,44 @@ public class Tests {
     }
 
     /**
-     * Test method for {@link SortStrings#sortStrings(String[], int)}.
+     * Test method for {@link Problems#sortNumsUnder100(int[])}.
+     */
+    @Test
+    public void testSortNumsUnder100() {
+        int[] array_lengths = new int[]{10, 100, 1000, 100000};
+        for (int l : array_lengths) {
+            int[] A = generateRandomArrayOfSize(l, 100);
+            int[] sorted = sort(A);
+            Problems.sortNumsUnder100(A);
+            assertArrayEquals(A, sorted);
+        }
+    }
+
+    /**
+     * Test method for {@link CountingSort#countingSortByDigit(int[], int, int)}.
+     */
+    @Test
+    public void testCountingSortByDigit() {
+        int[] in = new int[]{43, 4, 32, 107, 1920, 10010, 1, 484, 295};
+        int[] out = new int[]{1920, 10010, 1, 32, 43, 4, 484, 295, 107};
+        CountingSort.countingSortByDigit(in, 10, 0);
+        assertArrayEquals(in,out);
+        in = new int[]{43, 4, 32, 107, 1920, 10010, 1, 484, 295};
+        out = new int[]{4, 107, 1, 10010, 1920, 32, 43, 484, 295};
+        CountingSort.countingSortByDigit(in, 10, 1);
+        assertArrayEquals(in,out);
+        in = new int[]{43, 4, 32, 107, 1920, 10010, 1, 484, 295};
+        out = new int[]{4, 1, 295, 107, 1920, 10010, 32, 43, 484};
+        CountingSort.countingSortByDigit(in, 7, 1);
+        assertArrayEquals(in,out);
+        in = new int[]{43, 4, 32, 107, 1920, 10010, 1, 484, 295};
+        out = new int[]{4, 107, 1, 43, 32, 10010, 295, 1920, 484};
+        CountingSort.countingSortByDigit(in, 3, 3);
+        assertArrayEquals(in,out);
+    }
+
+    /**
+     * Test method for {@link Problems#sortStrings(String[], int)}.
      */
     @Test
     public void testSortString() {
@@ -77,7 +100,7 @@ public class Tests {
         for (int l : lengths) {
             String[] S = generateRandomStringArrayOfSize(10000, l);
             String[] sorted = sort(S);
-            SortStrings.sortStrings(S, l);
+            Problems.sortStrings(S, l);
             assertArrayEquals(S, sorted);
 
         }
