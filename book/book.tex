@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{0.26}
+\newcommand{\theversion}{0.27}
 
 %%%% Both LATEX and PLASTEX
 
@@ -30,7 +30,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 
-% format end of chapter excercises
+% format end of chapter exercises
 \newtheoremstyle{exercise}
   {12pt}        % space above
   {12pt}        % space below
@@ -161,13 +161,17 @@ Green Tea Press \\
 Needham, MA 02492
 \end{flushleft}
 
-Permission is granted to copy, distribute, and/or modify this work under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, which is available at \url{http://creativecommons.org/licenses/by-nc-sa/3.0/}.
+Permission is granted to copy, distribute, and/or modify this work
+under the terms of the Creative Commons
+Attribution-NonCommercial-ShareAlike 3.0 Unported License, which is
+available at \url{https://creativecommons.org/licenses/by-nc-sa/3.0/}.
 
-The original form of this book is \LaTeX\ source code.
-Compiling this code has the effect of generating a device-independent representation of the book, which can be converted to other formats and printed.
+The original form of this book is \LaTeX\ source code.  Compiling this
+code has the effect of generating a device-independent representation
+of the book, which can be converted to other formats and printed.
 
 The \LaTeX\ source for this book is available from
-\url{http://github.com/AllenDowney/ThinkDataStructures}.
+\url{https://github.com/AllenDowney/ThinkDataStructures}.
 
 %--table of contents------------------------------------------
 
@@ -193,7 +197,7 @@ Version \theversion
 
 Copyright \copyright ~2016 \theauthors.
 
-Permission is granted to copy, distribute, and/or modify this work under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, which is available at \url{http://creativecommons.org/licenses/by-nc-sa/3.0/}.
+Permission is granted to copy, distribute, and/or modify this work under the terms of the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, which is available at \url{https://creativecommons.org/licenses/by-nc-sa/3.0/}.
 
 \vspace{1em}
 
@@ -312,7 +316,7 @@ the code:
 
 \item If you don't want to use Git at all, you can download the code
   in a ZIP archive using the {\sf Download ZIP} button on the GitHub
-  page, or this link: \url{http://bit.ly/tds-zip}.
+  page, or this link: \url{https://bit.ly/tds-zip}.
 
 
 \end{itemize}
@@ -341,13 +345,14 @@ certificate of completion.  You can find more information at
 \begin{itemize}
 
 \item At the Flatiron School, Joe Burgess, Ann John, and Charles
-Pletcher provided guidance, suggestions, and corrections from the
-initial specification all the way through implementation and testing.
-Thank you all!
+  Pletcher provided guidance, suggestions, and corrections from the
+  initial specification all the way through implementation and
+  testing.  Thank you all!
 
-\item I am very grateful to my technical reviewers, Barry Whitman and
-  Patrick White, who made many helpful suggestions and caught many
-  errors.  Of course, any remaining errors are my fault, not theirs!
+\item I am very grateful to my technical reviewers, Barry Whitman,
+  Patrick White, and Chris Mayfield, who made many helpful suggestions
+  and caught many errors.  Of course, any remaining errors are my
+  fault, not theirs!
 
 % ENDCONTRIB
 
@@ -1042,7 +1047,7 @@ parameter; for example, the following will not work:
 To work around this limitation, you
 have to instantiate an array of \java{Object} and then typecast it. You can
 read more about this issue at
-\url{http://www.ibm.com/developerworks/java/library/j-jtp01255/index.html}.
+\url{https://www.ibm.com/developerworks/java/library/j-jtp01255/index.html}.
 
 Next we'll look at the method that adds elements to the list:
 
@@ -1102,7 +1107,7 @@ looks like this:
 \end{verbatim}
 
 Read the documentation of \java{set} at
-\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#set(int,\%20E)}, then fill in the body of this method. If you run
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#set(int E)}, then fill in the body of this method. If you run
 \java{MyArrayListTest} again, \java{testSet} should pass.
 
 HINT: Try to avoid repeating the index-checking code.
@@ -1130,7 +1135,7 @@ Only two more methods to go, and you'll be done with this exercise. The
   elements to make room, if necessary.
 
 Again, read the documentation at
-\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#add(int,\%20E)},
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#add(int E)},
 write an implementation, and run the tests for confirmation.
 
 HINT: Avoid repeating the code that makes the array bigger.
@@ -1677,7 +1682,7 @@ should pass now, as well as the other tests that depend on it.
 Next, you should fill in the two-parameter version of \java{add},
 which takes an index and stores the new value at the given index.
 Again, read the documentation at
-\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#add(int,\%20E)}, write an implementation, and run the tests for
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/List.html\#add(int E)}, write an implementation, and run the tests for
 confirmation.
 
 Last one: fill in the body of \java{remove}.  The documentation is
@@ -2689,9 +2694,9 @@ are viewing. In Chrome, you can right-click on any part of a web page
 and select ``Inspect'' from the menu that pops up. In Firefox, you can
 right-click and select ``Inspect Element'' from the menu. Safari
 provides a tool called Web Inspector, which you can read about at
-\url{https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html\#//apple_ref/doc/uid/TP40007874-CH2-SW1}.
+\url{https://thinkdast.com/safari}.
 For Internet Explorer, you can read the instructions at
-\url{http://support.janova.us/entries/20181293-How-to-inspect-an-Element-in-Internet-Explorer}.
+\url{https://support.janova.us/entries/20181293-How-to-inspect-an-Element-in-Internet-Explorer}.
 
 Figure~\ref{fig-dom2}
 shows a screenshot of the DOM for the Wikipedia page on Java,
@@ -2768,9 +2773,9 @@ Before you go on, you should skim the documentation of these classes so
 you know what they can do. The most important classes are
 \java{Element}, \java{Elements}, and \java{Node}, which you can read 
 about at 
-\url{http://jsoup.org/apidocs/org/jsoup/nodes/Element.html},
-\url{http://jsoup.org/apidocs/org/jsoup/select/Elements.html}, and
-\url{http://jsoup.org/apidocs/org/jsoup/nodes/Node.html}.
+\url{https://jsoup.org/apidocs/org/jsoup/nodes/Element.html},
+\url{https://jsoup.org/apidocs/org/jsoup/select/Elements.html}, and
+\url{https://jsoup.org/apidocs/org/jsoup/nodes/Node.html}.
 
 % TODO: Provide more information about these classes here, rather than
 % relying on the links?
@@ -2786,7 +2791,7 @@ we will use soon), \java{DataNode}, and \java{Comment}.
 %\includegraphics[width=5in]{figs/yuml2.pdf}
 %\caption{UML diagram for selected classes provided by JSoup.}
 %\label{fig-uml2}
-% Edit: http://yuml.me/edit/4bc1c919
+% Edit: https://yuml.me/edit/4bc1c919
 %\end{figure}
 
 %Figure~\ref{fig-uml2} shows the relationships among these classes.
@@ -4789,14 +4794,14 @@ In a class diagram, each class is represented by a box, and
 relationships between classes are represented by
 arrows. Figure~\ref{fig-uml} shows a UML class diagram for the classes
 from the previous exercise, generated using the online tool yUML at
-\url{http://yuml.me/}.
+\url{https://yuml.me/}.
 
 \begin{figure}
 \centering
 \includegraphics[width=5in]{figs/yuml1.pdf}
 \caption{UML diagram for the classes in this chapter.}
 \label{fig-uml}
-% Edit: http://yuml.me/edit/2aa18a2d
+% Edit: https://yuml.me/edit/2aa18a2d
 \end{figure}
 
 Different relationships are represented by different arrows:
@@ -5116,7 +5121,7 @@ to be able to compare keys, so we typecast \java{target} to
 it is comparable to an instance of type \java{K}, or any superclass of
 \java{K}.  If you are not familiar with this use of ``type
 wildcards'', you can read more at
-\url{http://docs.oracle.com/javase/tutorial/extra/generics/morefun.html}.
+\url{https://docs.oracle.com/javase/tutorial/extra/generics/morefun.html}.
 
 Fortunately, dealing with Java's type system is not the point of this
 exercise. Your job is to fill in the rest of \java{findNode}. If it
@@ -5200,7 +5205,7 @@ method.  The \java{HashSet} implementation of \java{Set}, which we
 used in Section~\ref{exercise6}, doesn't maintain the order of the
 keys, but the \java{LinkedHashSet} implementation does.  You can read
 about it at
-\url{http://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashSet.html}.
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashSet.html}.
 
 I've provided an outline of \java{keySet} that creates and returns a
 \java{LinkedHashSet}:
@@ -6079,7 +6084,7 @@ Setting, getting, and incrementing entries in a hash are constant time
 operations.
 
 You can read more about Redis data types at
-\url{http://redis.io/topics/data-types}.
+\url{https://redis.io/topics/data-types}.
 
 
 \section{Exercise 11}
@@ -6310,7 +6315,7 @@ In my solution, we store two kinds of structures in Redis:
 
 We discussed these data types in the previous chapter. You can also
 read about Redis Sets and
-Hashes at \url{http://redis.io/topics/data-types}
+Hashes at \url{https://redis.io/topics/data-types}
 
 In \java{JedisIndex}, I provide a function that takes a search term
 and returns the Redis key of its URLSet:
@@ -7648,7 +7653,7 @@ visited Google. Chief executive Eric Schmidt jokingly asked him for
 apparently been tipped off, because he quickly replied, ``I think the
 bubble sort would be the wrong way to go.'' You can watch the
 video at
-\url{http://www.youtube.com/watch?v=k4RRi_ntQc8}.
+\url{https://www.youtube.com/watch?v=k4RRi_ntQc8}.
 
 Obama was right: bubble
 sort is conceptually simple but its runtime is quadratic; and even
@@ -7711,7 +7716,7 @@ So the order of growth is $O(wn)$, which is linear in $n$.
 
 There are many variations on radix sort, and many ways to implement
 each one. You can read more about them at
-\url{http://en.wikipedia.org/wiki/Radix_sort}. As an optional
+\url{https://en.wikipedia.org/wiki/Radix_sort}. As an optional
 exercise, consider writing a version of radix sort.
 
 
