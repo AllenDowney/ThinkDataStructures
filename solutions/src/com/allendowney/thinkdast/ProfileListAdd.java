@@ -14,10 +14,10 @@ public class ProfileListAdd {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		profileArrayListAddEnd();
+		//profileArrayListAddEnd();
 		//profileArrayListAddBeginning();
 		//profileLinkedListAddBeginning();
-		//profileLinkedListAddEnd();
+		profileLinkedListAddEnd();
 	}
 
 	/**

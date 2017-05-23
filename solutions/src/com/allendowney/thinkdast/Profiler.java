@@ -3,7 +3,9 @@
  */
 package com.allendowney.thinkdast;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 
 import org.apache.commons.math3.stat.regression.SimpleRegression;
 import org.jfree.chart.ChartFactory;
@@ -11,6 +13,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.LogarithmicAxis;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYDataItem;
@@ -134,13 +137,27 @@ public class Profiler extends ApplicationFrame {
         final NumberAxis rangeAxis = new LogarithmicAxis("Runtime (ms)");
         plot.setDomainAxis(domainAxis);
         plot.setRangeAxis(rangeAxis);
-        chart.setBackgroundPaint(Color.white);
         plot.setOutlinePaint(Color.black);
         final ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setPreferredSize(new java.awt.Dimension(1000, 600));
         setContentPane(chartPanel);
         pack();
         RefineryUtilities.centerFrameOnScreen(this);
+
+        // customize the appearance of the graph
+        plot.setBackgroundPaint(Color.white);
+        int seriesCount = plot.getSeriesCount();
+
+        for (int i = 0; i < seriesCount; i++) {
+        	plot.getRenderer().setSeriesStroke(i, new BasicStroke(3));
+        }
+        Font font24 = new Font("Dialog", Font.PLAIN, 24); 
+        plot.getDomainAxis().setLabelFont(font24);
+        plot.getRangeAxis().setLabelFont(font24);
+        Font font20 = new Font("Dialog", Font.PLAIN, 20); 
+        plot.getDomainAxis().setTickLabelFont(font20);
+        plot.getRangeAxis().setTickLabelFont(font20);
+        
         setVisible(true);
 	}
 
