@@ -173,8 +173,8 @@ public class ListSorter<T> {
 		
 		Comparator<Integer> comparator = new Comparator<Integer>() {
 			@Override
-			public int compare(Integer n, Integer m) {
-				return n.compareTo(m);
+			public int compare(Integer elt1, Integer elt2) {
+				return elt1.compareTo(elt2);
 			}
 		};
 		
