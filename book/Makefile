@@ -33,7 +33,7 @@ lint:
 
 oreilly:
 	rsync -a $(F)/$(F).xml atlas	
-	#rsync -a figs/*.pdf atlas/figs/
+	rsync -a figs/*.pdf atlas/figs/
 	rsync -a figs/*.png atlas/figs/
 	cd atlas; git add $(F).xml figs/*	
 	cd atlas; git commit -m "Automated check in."
