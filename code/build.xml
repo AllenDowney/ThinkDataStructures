@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="ThinkDaSt">
+    <property environment="env"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="ThinkDaSt.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/jedis-2.8.0.jar"/>
+        <pathelement location="lib/jsoup-1.8.3.jar"/>
+        <pathelement location="lib/junit-4.12.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/jcommon-1.0.23.jar"/>
+        <pathelement location="lib/jfreechart-1.0.19.jar"/>
+        <pathelement location="lib/servlet.jar"/>
+        <pathelement location="lib/ant-junit.jar"/>
+        <pathelement location="lib/commons-math3-3.6.jar"/>
+        <pathelement location="lib/hamcrest-library-1.3.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="WikiSearchTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.WikiSearchTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="WikiPhilosophyTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.WikiPhilosophyTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="Card">
+        <java classname="com.allendowney.thinkdast.Card" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="Crawler">
+        <java classname="com.allendowney.thinkdast.Crawler" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="CrawlerTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.CrawlerTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="HelloJsoup">
+        <java classname="com.allendowney.thinkdast.HelloJsoup" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="Index">
+        <java classname="com.allendowney.thinkdast.Index" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="IndexTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.IndexTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="JedisIndex">
+        <java classname="com.allendowney.thinkdast.JedisIndex" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="JedisIndexTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.JedisIndexTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="JedisMaker">
+        <java classname="com.allendowney.thinkdast.JedisMaker" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="JedisTermCounter">
+        <java classname="com.allendowney.thinkdast.JedisTermCounter" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="JedisTermCounterTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.JedisTermCounterTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="LinkedListExample">
+        <java classname="com.allendowney.thinkdast.LinkedListExample" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="ListClientExample">
+        <java classname="com.allendowney.thinkdast.ListClientExample" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="ListClientExampleTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.ListClientExampleTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="ListLinks">
+        <java classname="com.allendowney.thinkdast.ListLinks" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="ListSorter">
+        <java classname="com.allendowney.thinkdast.ListSorter" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="ListSorterTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.ListSorterTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="MyArrayList">
+        <java classname="com.allendowney.thinkdast.MyArrayList" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyArrayListSoln">
+        <java classname="com.allendowney.thinkdast.MyArrayListSoln" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyArrayListTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.MyArrayListTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="MyBetterMap">
+        <java classname="com.allendowney.thinkdast.MyBetterMap" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyBetterMapTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.MyBetterMapTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="MyFixedHashMap">
+        <java classname="com.allendowney.thinkdast.MyFixedHashMap" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyFixedHashMapTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.MyFixedHashMapTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="MyHashMap">
+        <java classname="com.allendowney.thinkdast.MyHashMap" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyHashMapTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.MyHashMapTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="MyLinearMap">
+        <java classname="com.allendowney.thinkdast.MyLinearMap" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyLinearMapTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.MyLinearMapTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="MyLinkedList">
+        <java classname="com.allendowney.thinkdast.MyLinkedList" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyLinkedListSoln">
+        <java classname="com.allendowney.thinkdast.MyLinkedListSoln" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyLinkedListTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.MyLinkedListTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="MyTreeMap">
+        <java classname="com.allendowney.thinkdast.MyTreeMap" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyTreeMapExample">
+        <java classname="com.allendowney.thinkdast.MyTreeMapExample" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="MyTreeMapTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.MyTreeMapTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="ProfileListAdd">
+        <java classname="com.allendowney.thinkdast.ProfileListAdd" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="ProfileMapPut">
+        <java classname="com.allendowney.thinkdast.ProfileMapPut" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="SelectionSort">
+        <java classname="com.allendowney.thinkdast.SelectionSort" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="SillyArray">
+        <java classname="com.allendowney.thinkdast.SillyArray" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="SillyString">
+        <java classname="com.allendowney.thinkdast.SillyString" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="TermCounter">
+        <java classname="com.allendowney.thinkdast.TermCounter" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="TermCounterTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.TermCounterTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="WikiCrawler">
+        <java classname="com.allendowney.thinkdast.WikiCrawler" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="WikiCrawlerTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.WikiCrawlerTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="WikiFetcher">
+        <java classname="com.allendowney.thinkdast.WikiFetcher" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="WikiNodeExample">
+        <java classname="com.allendowney.thinkdast.WikiNodeExample" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="WikiParserTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.allendowney.thinkdast.WikiParserTest" todir="${junit.output.dir}"/>
+            <classpath refid="ThinkDaSt.classpath"/>
+        </junit>
+    </target>
+    <target name="WikiPhilosophy">
+        <java classname="com.allendowney.thinkdast.WikiPhilosophy" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="WikiSearch">
+        <java classname="com.allendowney.thinkdast.WikiSearch" failonerror="true" fork="yes">
+            <classpath refid="ThinkDaSt.classpath"/>
+        </java>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>
