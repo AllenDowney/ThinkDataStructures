@@ -888,7 +888,7 @@ make some assumptions:
 \end{enumerate}
 
 This kind of analysis lends itself to simple classification of
-algorithms. For example, if we know that the run time of Algorithm A
+algorithms. For example, if we know that the runtime of Algorithm A
 tends to be proportional to the size of the input, $n$, and Algorithm
 B tends to be proportional to $n^2$, we expect A to be faster than B,
 at least for large values of $n$.
@@ -901,21 +901,21 @@ Most simple algorithms fall into just a few categories.
 
 \begin{itemize}
 
-\item Constant time: An algorithm is ``constant time'' if the run time
+\item Constant time: An algorithm is ``constant time'' if the runtime
   does not depend on the size of the input. For example, if you have
   an array of $n$ elements and you use the bracket operator
   (\java{[]}) to access one of the elements, this operation takes
   the same number of operations regardless of how big the array
   is.
 
-\item Linear: An algorithm is ``linear'' if the run time is
+\item Linear: An algorithm is ``linear'' if the runtime is
   proportional to the size of the input. For example, if you add up the
   elements of an array, you have to access $n$ elements and
   perform $n-1$ additions. The total number of operations
   (element accesses and additions) is $2n-1$, which is
   proportional to $n$.
 
-\item Quadratic: An algorithm is ``quadratic'' if the run time is
+\item Quadratic: An algorithm is ``quadratic'' if the runtime is
   proportional to $n^2$.  For example, suppose you want to check whether
   any element in a list appears more than once.  A simple algorithm
   is to compare each element to all of the others.  If there are
@@ -1076,9 +1076,9 @@ not important for this kind of analysis. Similarly, $n^2 + 100n + 1000$ is
 in $O(n^2)$.  Don't be distracted by the big numbers!
 
 ``Order of growth'' is another name for the same idea.  An order of
-growth is a set of algorithms whose run times are in the same big O
+growth is a set of algorithms whose runtimes are in the same big O
 category; for example, all linear algorithms belong to the same order
-of growth because their run times are in $O(n)$.
+of growth because their runtimes are in $O(n)$.
 
 \index{order of growth}
 
@@ -1368,7 +1368,7 @@ we have to classify \java{equals} first. Here it is:
     }
 \end{verbatim}
 
-This method invokes \java{target.equals}; the run time of this method
+This method invokes \java{target.equals}; the runtime of this method
 might depend on the size of \java{target} or \java{element}, but it
 probably doesn't depend on the size of the array, so we consider it
 constant time for purposes of analyzing \java{indexOf}.
@@ -2001,7 +2001,7 @@ So what is the order of growth for this method?
 
 \end{enumerate}
 
-So the run time of this method is proportional to the length of the
+So the runtime of this method is proportional to the length of the
 list.
 
 \index{add}
@@ -2107,7 +2107,7 @@ So, what's the order of growth for \java{remove}? Everything in
 
 When people see two linear operations, they sometimes think the result
 is quadratic, but that only applies if one operation is nested inside
-the other. If you invoke one operation after the other, the run times
+the other. If you invoke one operation after the other, the runtimes
 add. If they are both in $O(n)$, the sum is also in
 $O(n)$.
 
@@ -2171,7 +2171,7 @@ implementation, because it depends.
 
 For the next exercise I provide a class called \java{Profiler} that
 contains code that runs a method with a range of problem sizes,
-measures run times, and plots the results.
+measures runtimes, and plots the results.
 
 \index{profiling}
 
@@ -2251,16 +2251,16 @@ parameters:
 
 \item
   \java{endMillis} is a threshold in milliseconds. As
-  \java{timingLoop} increases the problem size, the run time increases;
-  when the run time exceeds this threshold, \java{timingLoop} stops.
+  \java{timingLoop} increases the problem size, the runtime increases;
+  when the runtime exceeds this threshold, \java{timingLoop} stops.
 
 \end{itemize}
 
 When you run the experiments, you might have to adjust these
-parameters. If \java{startN} is too low, the run time might be too
+parameters. If \java{startN} is too low, the runtime might be too
 short to measure accurately. If \java{endMillis} is too low, you might
 not get enough data to see a clear relationship between problem size and
-run time.
+runtime.
 
 This code is in \java{ProfileListAdd.java}, which you'll run in the next
 exercise. When I ran it, I got this output:
@@ -2282,7 +2282,7 @@ exercise. When I ran it, I got this output:
 \end{verbatim}
 
 The first column is problem size, $n$; the second column is
-run time in milliseconds. The first few measurements are pretty noisy; it
+runtime in milliseconds. The first few measurements are pretty noisy; it
 might have been better to set \java{startN} around 64000.
 
 \index{XYSeries}
@@ -2294,7 +2294,7 @@ generates a plot like the one in Figure~\ref{fig-profile1}.
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/profile1.png}
-\caption{Profiling results: run time versus problem size for
+\caption{Profiling results: runtime versus problem size for
 adding $n$ elements to the end of an \java{ArrayList}.}
 \label{fig-profile1}
 \end{figure}
@@ -2312,7 +2312,7 @@ the end. So the total time to add $n$ elements should be linear.
 \index{linear time}
 \index{ArrayList}
 
-To test that theory, we could plot total run time versus problem size,
+To test that theory, we could plot total runtime versus problem size,
 and we should see a straight line, at least for problem sizes that are
 big enough to measure accurately. Mathematically, we can write the
 function for that line:
@@ -2327,7 +2327,7 @@ slope.
 \index{quadratic time}
 
 On the other hand, if \java{add} is linear, the total time for
-$n$ adds would be quadratic. If we plot run time versus problem
+$n$ adds would be quadratic. If we plot runtime versus problem
 size, we expect to see a parabola. Or mathematically, something like:
 
 \[ \runtime = a + b n + c n^2 \]
@@ -2335,12 +2335,12 @@ size, we expect to see a parabola. Or mathematically, something like:
 With perfect data, we might be able to tell the difference between a
 straight line and a parabola, but if the measurements are noisy, it can
 be hard to tell. A better way to interpret noisy measurements is to plot
-run time and problem size on a \textbf{log-log} scale.
+runtime and problem size on a \textbf{log-log} scale.
 
 \index{logarithm}
 \index{log-log scale}
 
-Why? Let's suppose that run time is proportional to $n^k$, but we
+Why? Let's suppose that runtime is proportional to $n^k$, but we
 don't know what the exponent $k$ is. We can write the
 relationship like this:
 
@@ -2468,9 +2468,9 @@ list.
 
 In the previous exercise, we used \java{Profiler.java} to run various
 \java{ArrayList} and \java{LinkedList} operations with a range of
-problem sizes. We plotted run time versus problem size on a log-log
+problem sizes. We plotted runtime versus problem size on a log-log
 scale and estimated the slope of the resulting curve, which indicates
-the leading exponent of the relationship between run time and problem
+the leading exponent of the relationship between runtime and problem
 size.
 
 \index{Profiler}
@@ -2530,7 +2530,7 @@ only difference is in \java{timeMe}, which uses the two-parameter
 version of \java{add} to put the new element at index 0. Also, we
 increased \java{endMillis} to get one additional data point.
 
-Here are the timing results (problem size on the left, run time in
+Here are the timing results (problem size on the left, runtime in
 milliseconds on the right):
 
 \begin{verbatim}
@@ -2543,19 +2543,19 @@ milliseconds on the right):
 \end{verbatim}
 
 Figure~\ref{fig-profile2}
-shows the graph of run time versus problem size.
+shows the graph of runtime versus problem size.
 \index{problem size}
 
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/profile2.png}
-\caption{Profiling results: run time versus problem size for adding
+\caption{Profiling results: runtime versus problem size for adding
 $n$ elements at the beginning of an \java{ArrayList}.}
 \label{fig-profile2}
 \end{figure}
 
 Remember that a straight line on this graph does \textbf{not} mean that
-the algorithm is linear. Rather, if the run time is proportional to
+the algorithm is linear. Rather, if the runtime is proportional to
 $n^k$ for any exponent, $k$, we expect to see a straight
 line with slope $k$. In this case, we expect the total time for
 $n$ adds to be proportional to $n^2$, so we expect a
@@ -2625,7 +2625,7 @@ shows the graph of these results.
 \begin{figure}
 \centering
 \includegraphics[height=2.5in]{figs/profile3.png}
-\caption{Profiling results: run time versus problem size for adding
+\caption{Profiling results: runtime versus problem size for adding
 $n$ elements at the beginning of a \java{LinkedList}.}
 \label{fig-profile3}
 \end{figure}
@@ -2797,9 +2797,9 @@ which require linear time in a linked list, even if it is doubly-linked.
 \index{data structure selection}
 \index{choosing a data structure}
 
-If you know that the run time of your application depends on the time it
+If you know that the runtime of your application depends on the time it
 takes to \java{get} and \java{set} elements, an \java{ArrayList}
-might be the better choice. If the run time depends on adding and
+might be the better choice. If the runtime depends on adding and
 removing elements near the beginning or the end, \java{LinkedList}
 might be better.
 
@@ -2813,7 +2813,7 @@ for large problems. There are other factors to consider:
 
 \item
   If these operations don't take up a substantial fraction of the
-  run time for your application --- that is, if your applications spends
+  runtime for your application --- that is, if your applications spends
   most of its time doing other things --- then your choice of a
   \java{List} implementation won't matter very much.
 
@@ -2825,7 +2825,7 @@ for large problems. There are other factors to consider:
   doesn't matter.
 
 \item
-  Also, don't forget about space. So far we have focused on run time, but
+  Also, don't forget about space. So far we have focused on runtime, but
   different implementations require different amounts of space. In an
   \java{ArrayList}, the elements are stored side-by-side in a single
   chunk of memory, so there is little wasted space, and computer
@@ -2842,10 +2842,10 @@ data structures, but only if
 \begin{enumerate}
 
 \item
-  The run time of your application is important,
+  The runtime of your application is important,
 
 \item
-  The run time of your application depends on your choice of data
+  The runtime of your application depends on your choice of data
   structure, and
 
 \item
@@ -3115,7 +3115,7 @@ subclasses that extend \java{Node}, including
 \includegraphics[width=5in]{figs/yuml2.pdf}
 \caption{UML diagram for selected classes provided by jsoup.}
 \label{fig-uml2}
- Edit: http://yuml.me/edit/4bc1c919
+% Edit: http://yuml.me/edit/4bc1c919
 \end{figure}
 
 Figure~\ref{fig-uml2} is a UML diagram showing the relationships among
@@ -3836,7 +3836,7 @@ The fundamental operation of the index is a \textbf{lookup};
 specifically, we need the ability to look up a term and find all pages
 that contain it. The simplest implementation would be a collection of
 pages. Given a search term, we could iterate through the contents of the
-pages and select the ones that contain the search term. But the run time
+pages and select the ones that contain the search term. But the runtime
 would be proportional to the total number of words on all the pages,
 which would be way too slow.
 
@@ -4440,7 +4440,7 @@ private boolean equals(Object target, Object obj) {
 }
 \end{verbatim}
 
-The run time of \java{equals} might depend on the size of the
+The runtime of \java{equals} might depend on the size of the
 \java{target} and the keys, but does not generally depend on
 the number of entries, $n$. So \java{equals} is constant time.
 
@@ -4695,7 +4695,7 @@ search the corresponding sub-map.
 Because the entry lists in
 \java{MyBetterMap} are $k$ times shorter than the entry list in
 \java{MyLinearMap}, we expect the search to be $k$ times
-faster. But the run time is still proportional to $n$, so
+faster. But the runtime is still proportional to $n$, so
 \java{MyBetterMap} is still linear. In the next exercise, you'll see how we
 can fix that.
 
@@ -4916,7 +4916,7 @@ you'll find the source files for this exercise:
 
 \item
   \java{Profiler.java} contains code for measuring and plotting
-  run time versus problem size.
+  runtime versus problem size.
 
 \item
   \java{ProfileMapPut.java} contains code that profiles the
@@ -5192,9 +5192,9 @@ constant time.
 \index{Ant}
 
 Run \java{ant build} to compile the source
-files. Then run \java{ant ProfileMapPut}. It measures the run time of
+files. Then run \java{ant ProfileMapPut}. It measures the runtime of
 \java{HashMap.put} (provided by Java) with a range of problem sizes,
-and plots run time versus problem size on a log-log scale. If this
+and plots runtime versus problem size on a log-log scale. If this
 operation is constant time, the total time for $n$ operations
 should be linear, so the result should be a straight line with slope
 1. When I ran this code, the estimated slope was close to 1, which is
@@ -5204,7 +5204,7 @@ Modify \java{ProfileMapPut.java} so it profiles your implementation,
 \java{MyHashMap}, instead of Java's \java{HashMap}. Run the
 profiler again and see if the slope is near 1. You might have to
 adjust \java{startN} and \java{endMillis} to find a range of
-problem sizes where the run times are more than a few milliseconds, but
+problem sizes where the runtimes are more than a few milliseconds, but
 not more than a few thousand.
 
 When I ran this code, I got a surprise: the slope was about 1.7,
@@ -5496,7 +5496,7 @@ comes close:
   keys, in order, in linear time.
 
 \item
-  The run time of the core methods is proportional to $\log n$,
+  The runtime of the core methods is proportional to $\log n$,
   which is not quite as good as constant time, but it is still
   very good.
 
@@ -5805,7 +5805,7 @@ opposed to the keys) are not necessarily comparable, so we can't use
 
 Unlike your previous solution for \java{findNode}, your solution for
 \java{containsValue} \emph{does} have to search the whole tree, so its
-run time is proportional to the number of keys, $n$, not the
+runtime is proportional to the number of keys, $n$, not the
 height of the tree, \java{h}.
 
 The next method you should fill in is \java{put}. I've provided
@@ -5978,7 +5978,7 @@ conclude that it is not in the tree and return \java{null}.
 \section{Searching for values}
 \label{searching-for-values}
 
-As I explained in the previous exercise, the run time of
+As I explained in the previous exercise, the runtime of
 \java{findNode} is proportional to the height of the tree, not the
 number of nodes, because we don't have to search the whole tree. But
 for \java{containsValue}, we have to search the values, not the keys;
@@ -6266,7 +6266,7 @@ advantage of an easy way to generate random strings.
 
 \index{UUID}
 
-I ran this code with \java{n=16384} and measured the run time and the
+I ran this code with \java{n=16384} and measured the runtime and the
 height of the final tree. Here's the output:
 
 \begin{verbatim}
@@ -6326,7 +6326,7 @@ log base 2 of size of MyTreeMap = 14.0
 Final height of MyTreeMap = 16384
 \end{verbatim}
 
-The run time is more than seven times longer than in the previous case.
+The runtime is more than seven times longer than in the previous case.
 longer. If you wonder why, take a look at the final height of the tree:
 16384!
 
@@ -6389,7 +6389,7 @@ the inventors), and the red-black tree, which is what the Java
 \index{red-black tree}
 
 In our example code, if we replace \java{MyTreeMap} with the Java
-\java{TreeMap}, the run times are about the same for the random strings
+\java{TreeMap}, the runtimes are about the same for the random strings
 and the timestamps. In fact, the timestamps run faster, even though they
 are in order, probably because they take less time to hash.
 
@@ -6786,7 +6786,7 @@ In this example, the key is \java{"mykey"} and the value is
 Redis provides a \redis{set} structure, which is
 similar to a Java
 \java{Set<String>}. To add elements to a Redis \redis{set},
-you choose a key to identify the set and then use
+you choose a key to identify the \redis{set} and then use
 \java{jedis.sadd}:
 
 \begin{verbatim}
@@ -7112,18 +7112,17 @@ In my solution, we store two kinds of structures in Redis:
 \begin{itemize}
 
 \item
-  For each search term, we have a \java{URLSet}, which is a Redis Set
+  For each search term, we have a \java{URLSet}, which is a Redis \redis{set}
   of URLs that contain the search term.
 
 \item
-  For each URL, we have a \java{TermCounter}, which is a Redis Hash
+  For each URL, we have a \java{TermCounter}, which is a Redis \redis{hash}
   that maps each search term to the number of times it appears.
 
 \end{itemize}
 
 We discussed these data types in the previous chapter. You can also
-read about Redis Sets and
-Hashes at \url{http://thinkdast.com/redistypes}
+read about Redis structures at \url{http://thinkdast.com/redistypes}
 
 \index{JedisIndex}
 
@@ -7309,7 +7308,7 @@ Inside the loop, we run \java{getCount}, which finds a
 \java{TermCounter} on Redis, looks up a term, and adds an entry to a
 HashMap. Those are all constant time operations, so the overall
 complexity of \java{getCounts} is $O(N)$ in the worst case. However, in
-practice the run time is proportional to the number of pages that contain
+practice the runtime is proportional to the number of pages that contain
 the term, which is normally much less than $N$.
 
 \index{constant time}
@@ -7524,6 +7523,7 @@ public class WikiCrawler {
     public int queueSize() {
         return queue.size();
     }
+}
 \end{verbatim}
 
 The instance variables are
@@ -8334,7 +8334,7 @@ The following example shows how to call this method with a \java{List} of
 \end{verbatim}
 
 \java{insertionSort} has two nested loops, so you might guess that
-its run time is quadratic. In this case, that turns out to be correct,
+its runtime is quadratic. In this case, that turns out to be correct,
 but before you jump to that conclusion, you have to check that the
 number of times each loop runs is proportional to $n$, the size
 of the array.
@@ -8380,11 +8380,11 @@ In the worst case, insertion sort is quadratic. However:
   If the elements are already sorted, or nearly so, insertion sort is
   linear. Specifically, if each element is no more than $k$
   locations away from where it should be, the inner loop never runs more
-  than $k$ times, and the total run time is $O(kn)$.
+  than $k$ times, and the total runtime is $O(kn)$.
 
 \item
   Because the implementation is simple, the overhead is low; that is,
-  although the run time is $a n^2$, the coefficient of the leading
+  although the runtime is $a n^2$, the coefficient of the leading
   term, $a$, is probably small.
 
 \end{enumerate}
@@ -8397,7 +8397,7 @@ do better. In fact, much better.
 \section{Exercise 14}
 \label{exercise14}
 
-Merge sort is one of several algorithms whose run time is better than
+Merge sort is one of several algorithms whose runtime is better than
 quadratic. Again, rather than explaining the algorithm here, I suggest
 you read about it on Wikipedia at
 \url{http://thinkdast.com/mergesort}.  Once you get the idea, come
@@ -8489,7 +8489,7 @@ and \java{testMergeSortInPlace} should pass.
 
 \index{analysis}
 
-To classify the run time of merge sort, it helps to think in terms of
+To classify the runtime of merge sort, it helps to think in terms of
 levels of recursion and how much work is done on each level. Suppose
 we start with a list that contains $n$ elements. Here are the steps of
 the algorithm:
@@ -8607,7 +8607,7 @@ had apparently been tipped off, because he quickly replied, ``I think
 the bubble sort would be the wrong way to go.'' You can watch the
 video at \url{http://thinkdast.com/obama}.
 
-Obama was right: bubble sort is conceptually simple but its run time is
+Obama was right: bubble sort is conceptually simple but its runtime is
 quadratic; and even among quadratic sort algorithms, its performance
 is not very good.  See \url{http://thinkdast.com/bubble}.
 
@@ -8800,7 +8800,7 @@ This way of sorting is called {\bf heap sort}
 \index{n log n}
 
 Adding $n$ elements to the queue takes $n \log n$ time. So
-does removing $n$ elements. So the run time for heap sort is
+does removing $n$ elements. So the runtime for heap sort is
 $O(n \log n)$.
 
 \index{ListSorter}
@@ -8880,7 +8880,7 @@ integer $k$. It should return the $k$ largest elements in the
 \index{space complexity}
 \index{analysis}
 
-Until now we have talked a lot about run time analysis, but for many
+Until now we have talked a lot about runtime analysis, but for many
 algorithms we are also concerned about space. For example, one of the
 drawbacks of merge sort is that it makes copies of the data. In our
 implementation, the total amount of space it allocates is
@@ -8902,7 +8902,7 @@ is that it only needs space proportional to $k$ (the number of
 elements we want to keep), and $k$ is often much smaller than
 $n$.
 
-Software developers tend to pay more attention to run time than space, and
+Software developers tend to pay more attention to runtime than space, and
 for many applications, that's appropriate. But for large datasets, space
 can be just as important or more so. For example:
 
