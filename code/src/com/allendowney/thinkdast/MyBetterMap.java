@@ -1,11 +1,12 @@
 package com.allendowney.thinkdast;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
+import java.util.HashSet;
+import java.util.Collection;
 
 /**
  * Implementation of a Map using a collection of MyLinearMap, and
@@ -90,6 +91,9 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 		return size() == 0;
 	}
 
+	/**
+	 * Returns a Set of keys in the Map. Note that this Set is not backed by the Map.
+	 */
 	@Override
 	public Set<K> keySet() {
 		// add up the keySets from the sub-maps
@@ -129,14 +133,18 @@ public class MyBetterMap<K, V> implements Map<K, V> {
 		return total;
 	}
 
+	/**
+	 * Returns a collection of values in the map. Note that this Collection is not
+	 * backed by the Map.
+	 */
 	@Override
 	public Collection<V> values() {
 		// add up the valueSets from the sub-maps
-		Set<V> set = new HashSet<V>();
+		Collection<V> list = new LinkedList<>();
 		for (MyLinearMap<K, V> map: maps) {
-			set.addAll(map.values());
+			list.addAll(map.values());
 		}
-		return set;
+		return list;
 	}
 
 	/**
