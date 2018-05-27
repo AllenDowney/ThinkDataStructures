@@ -49,8 +49,7 @@ public class WikiFetcher {
 		URL realURL = new URL(url);
 
 		// assemble the file name
-		String slash = File.separator;
-		String filename = "resources" + slash + realURL.getHost() + realURL.getPath();
+		String filename = realURL.getHost() + realURL.getPath();
 
 		// read the file
 		InputStream stream = WikiFetcher.class.getClassLoader().getResourceAsStream(filename);
