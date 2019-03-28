@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Represents a playing card.
+ * i.e. Poker
  *
  */
 public class Card implements Comparable<Card> {
