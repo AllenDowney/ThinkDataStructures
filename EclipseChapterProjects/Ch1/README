@@ -1,0 +1,3 @@
+The use of org.JUnit.Assert.assertThat in JUnit test classes is deprecated.  
+Replace import of org.JUnit.Assert.assertThat with:
+import org.hamcrest.MatcherAssert.assertThat instead

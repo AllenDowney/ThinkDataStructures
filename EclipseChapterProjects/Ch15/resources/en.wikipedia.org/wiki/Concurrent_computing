@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Concurrent computing - Wikipedia, the free encyclopedia</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Concurrent_computing","wgTitle":"Concurrent computing","wgCurRevisionId":713121274,"wgRevisionId":713121274,"wgArticleId":2581605,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Pages using web citations with no URL","Pages using citations with accessdate and no URL","Articles needing additional references from December 2006","All articles needing additional references","Articles to be expanded from February 2014","All articles to be expanded","Articles using small message boxes","All articles with unsourced statements","Articles with unsourced statements from May 2013","Articles with unsourced statements from August 2010","Articles needing additional references from February 2014","Operating system technology","Concurrent computing"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Concurrent_computing","wgRelevantArticleId":2581605,"wgRequestId":"6c27981778834b9842e31125","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","usePageImages":true,"usePageDescriptions":true},"wgPreferredVariant":"en","wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSAcceptLanguageList":["en-us","en"],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgCentralAuthMobileDomain":false,"wgWikibaseItemId":"Q128392","wgVisualEditorToolbarScrollOffset":0});mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.desktopArticleTarget.init","ext.uls.init","ext.uls.interface","ext.quicksurveys.init","mw.MediaWikiPlayer.loader","mw.PopUpMediaTransform","ext.centralNotice.bannerController","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.pygments%2CwikimediaBadges%7Cext.tmh.thumbnail.styles%7Cext.uls.nojs%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.raggett%2CsectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.27.0-wmf.19"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Concurrent_computing"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Concurrent_computing&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Concurrent_computing&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Concurrent_computing"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Concurrent_computing skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Concurrent computing</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div role="note" class="hatnote">For a more theoretical discussion, see <a href="/wiki/Concurrency_(computer_science)" title="Concurrency (computer science)">Concurrency (computer science)</a>.</div>
+<table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%">
+<tr>
+<th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Programming_paradigm" title="Programming paradigm">Programming paradigms</a></th>
+</tr>
+<tr>
+<td style="padding:0 0.1em 0.4em;text-align: left">
+<ul>
+<li><a href="/wiki/Action_language" title="Action language">Action</a></li>
+<li><a href="/wiki/Agent-oriented_programming" title="Agent-oriented programming">Agent-oriented</a></li>
+<li><a href="/wiki/Array_programming" title="Array programming">Array-oriented</a></li>
+<li><a href="/wiki/Automata-based_programming" title="Automata-based programming">Automata-based</a></li>
+<li><strong class="selflink">Concurrent computing</strong>
+<ul>
+<li><a href="/wiki/Relativistic_programming" title="Relativistic programming">Relativistic programming</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Data-driven_programming" title="Data-driven programming">Data-driven</a></li>
+<li><a href="/wiki/Declarative_programming" title="Declarative programming">Declarative</a> (contrast: <a href="/wiki/Imperative_programming" title="Imperative programming">Imperative</a>)
+<ul>
+<li><a href="/wiki/Constraint_programming" title="Constraint programming">Constraint</a>
+<ul>
+<li><a href="/wiki/Constraint_logic_programming" title="Constraint logic programming">Constraint logic</a>
+<ul>
+<li><a href="/wiki/Concurrent_constraint_logic_programming" title="Concurrent constraint logic programming">Concurrent constraint logic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/wiki/Dataflow_programming" title="Dataflow programming">Dataflow</a>
+<ul>
+<li><a href="/wiki/Flow-based_programming" title="Flow-based programming">Flow-based</a></li>
+<li>Cell-oriented (<a href="/wiki/Spreadsheet" title="Spreadsheet">spreadsheets</a>)</li>
+<li><a href="/wiki/Reactive_programming" title="Reactive programming">Reactive</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Functional_programming" title="Functional programming">Functional</a>
+<ul>
+<li><a href="/wiki/Functional_logic_programming" title="Functional logic programming">Functional logic</a></li>
+<li><a href="/wiki/Purely_functional" title="Purely functional">Purely functional</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Logic_programming" title="Logic programming">Logic</a>
+<ul>
+<li><a href="/wiki/Abductive_logic_programming" title="Abductive logic programming">Abductive logic</a></li>
+<li><a href="/wiki/Answer_set_programming" title="Answer set programming">Answer set</a></li>
+<li><a href="/wiki/Concurrent_logic_programming" title="Concurrent logic programming">Concurrent logic</a></li>
+<li><a href="/wiki/Functional_logic_programming" title="Functional logic programming">Functional logic</a></li>
+<li><a href="/wiki/Inductive_logic_programming" title="Inductive logic programming">Inductive logic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/wiki/Dynamic_programming_language" title="Dynamic programming language">Dynamic</a></li>
+<li><a href="/wiki/End-user_development" title="End-user development">End-user programming</a></li>
+<li><a href="/wiki/Event-driven_programming" title="Event-driven programming">Event-driven</a>
+<ul>
+<li><a href="/wiki/Service-oriented_architecture" title="Service-oriented architecture">Service-oriented</a></li>
+<li><a href="/wiki/Time-driven_programming" title="Time-driven programming">Time-driven</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Expression-oriented_programming_language" title="Expression-oriented programming language">Expression-oriented</a></li>
+<li><a href="/wiki/Feature-oriented_programming" title="Feature-oriented programming">Feature-oriented</a></li>
+<li><a href="/wiki/Function-level_programming" title="Function-level programming">Function-level</a> (contrast: <a href="/wiki/Value-level_programming" title="Value-level programming">Value-level</a>)</li>
+<li><a href="/wiki/Generic_programming" title="Generic programming">Generic</a></li>
+<li><a href="/wiki/Imperative_programming" title="Imperative programming">Imperative</a> (contrast: <a href="/wiki/Declarative_programming" title="Declarative programming">Declarative</a>)
+<ul>
+<li><a href="/wiki/Literate_programming" title="Literate programming">Literate</a></li>
+<li><a href="/wiki/Procedural_programming" title="Procedural programming">Procedural</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Inductive_programming" title="Inductive programming">Inductive programming</a></li>
+<li><a href="/wiki/Language-oriented_programming" title="Language-oriented programming">Language-oriented</a>
+<ul>
+<li><a href="/wiki/Natural_language_programming" title="Natural language programming">Natural language programming</a></li>
+<li><a href="/wiki/Service-oriented_modeling#Discipline-specific_modeling" title="Service-oriented modeling">Discipline-specific</a></li>
+<li><a href="/wiki/Domain-specific_language" title="Domain-specific language">Domain-specific</a></li>
+<li><a href="/wiki/Grammar-oriented_programming" title="Grammar-oriented programming">Grammar-oriented</a>
+<ul>
+<li><a href="/wiki/Dialect_(computing)" title="Dialect (computing)">Dialecting</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Intentional_programming" title="Intentional programming">Intentional</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Metaprogramming" title="Metaprogramming">Metaprogramming</a>
+<ul>
+<li><a href="/wiki/Automatic_programming" title="Automatic programming">Automatic</a></li>
+<li><a href="/wiki/Reflection_(computer_programming)" title="Reflection (computer programming)">Reflective</a>
+<ul>
+<li><a href="/wiki/Attribute-oriented_programming" title="Attribute-oriented programming">Attribute-oriented</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Homoiconicity" title="Homoiconicity">Homoiconic</a></li>
+<li><a href="/wiki/Template_metaprogramming" title="Template metaprogramming">Template</a>
+<ul>
+<li><a href="/wiki/Policy-based_design" title="Policy-based design">Policy-based</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/wiki/Non-structured_programming" title="Non-structured programming">Non-structured</a> (contrast: <a href="/wiki/Structured_programming" title="Structured programming">Structured</a>)
+<ul>
+<li><a href="/wiki/Array_programming" title="Array programming">Array</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Nondeterministic_programming" title="Nondeterministic programming">Nondeterministic</a></li>
+<li><a href="/wiki/Parallel_computing" title="Parallel computing">Parallel computing</a>
+<ul>
+<li><a href="/wiki/Process-oriented_programming" title="Process-oriented programming">Process-oriented</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Tacit_programming" title="Tacit programming">Point-free style</a>
+<ul>
+<li><a href="/wiki/Concatenative_programming_language" title="Concatenative programming language">Concatenative</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Semantic-oriented_programming" title="Semantic-oriented programming">Semantic</a></li>
+<li><a href="/wiki/Structured_programming" title="Structured programming">Structured</a> (contrast: <a href="/wiki/Non-structured_programming" title="Non-structured programming">Non-structured</a>)
+<ul>
+<li><a href="/wiki/Block_(programming)" title="Block (programming)">Block-structured</a></li>
+<li><a href="/wiki/Modular_programming" title="Modular programming">Modular</a> (contrast: <a href="/wiki/Monolithic_application" title="Monolithic application">Monolithic</a>)</li>
+<li><a href="/wiki/Object-oriented_programming" title="Object-oriented programming">Object-oriented</a>
+<ul>
+<li><a href="/wiki/Actor_model" title="Actor model">Actor-based</a></li>
+<li><a href="/wiki/Class-based_programming" title="Class-based programming">Class-based</a></li>
+<li><a href="/wiki/Concurrent_object-oriented_programming" title="Concurrent object-oriented programming">Concurrent</a></li>
+<li><a href="/wiki/Prototype-based_programming" title="Prototype-based programming">Prototype-based</a></li>
+<li>By <a href="/wiki/Separation_of_concerns" title="Separation of concerns">separation of concerns</a>:
+<ul>
+<li><a href="/wiki/Aspect-oriented_programming" title="Aspect-oriented programming">Aspect-oriented</a></li>
+<li><a href="/wiki/Role-oriented_programming" title="Role-oriented programming">Role-oriented</a></li>
+<li><a href="/wiki/Subject-oriented_programming" title="Subject-oriented programming">Subject-oriented</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/wiki/Recursion_(computer_science)" title="Recursion (computer science)">Recursive</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Value-level_programming" title="Value-level programming">Value-level</a> (contrast: <a href="/wiki/Function-level_programming" title="Function-level programming">Function-level</a>)</li>
+<li><a href="/wiki/Probabilistic_programming_language" title="Probabilistic programming language">Probabilistic</a></li>
+<li><a href="/wiki/Concept_programming" title="Concept programming">Concept</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-size:115%">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Programming_paradigms" title="Template:Programming paradigms"><abbr title="View this template">v</abbr></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Programming_paradigms" title="Template talk:Programming paradigms"><abbr title="Discuss this template">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Programming_paradigms&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+<p><b>Concurrent computing</b> is a form of <a href="/wiki/Computing" title="Computing">computing</a> in which several <a href="/wiki/Computation" title="Computation">computations</a> are executing during overlapping time periods—<i><a href="/wiki/Concurrency_(computer_science)" title="Concurrency (computer science)">concurrently</a></i>—instead of <i>sequentially</i> (one completing before the next starts). This is a property of a system—this may be an individual <a href="/wiki/Computer_program" title="Computer program">program</a>, a <a href="/wiki/Computer" title="Computer">computer</a>, or a <a href="/wiki/Computer_network" title="Computer network">network</a>—and there is a separate execution point or "thread of control" for each computation ("process"). A <i>concurrent system</i> is one where a computation can advance without waiting for all other computations to complete; where more than one computation can advance at <i>the same time</i>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
+<p>As a <a href="/wiki/Programming_paradigm" title="Programming paradigm">programming paradigm</a>, concurrent computing is a form of <a href="/wiki/Modular_programming" title="Modular programming">modular programming</a>, namely <a href="/wiki/Decomposition_(computer_science)" title="Decomposition (computer science)">factoring</a> an overall computation into subcomputations that may be executed concurrently. Pioneers in the field of concurrent computing include <a href="/wiki/Edsger_Dijkstra" title="Edsger Dijkstra" class="mw-redirect">Edsger Dijkstra</a>, <a href="/wiki/Per_Brinch_Hansen" title="Per Brinch Hansen">Per Brinch Hansen</a>, and <a href="/wiki/C.A.R._Hoare" title="C.A.R. Hoare" class="mw-redirect">C.A.R. Hoare</a>.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Coordinating_access_to_shared_resources"><span class="tocnumber">1.1</span> <span class="toctext">Coordinating access to shared resources</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Advantages"><span class="tocnumber">1.2</span> <span class="toctext">Advantages</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Models"><span class="tocnumber">2</span> <span class="toctext">Models</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Implementation"><span class="tocnumber">3</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Interaction_and_communication"><span class="tocnumber">3.1</span> <span class="toctext">Interaction and communication</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#History"><span class="tocnumber">4</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Prevalence"><span class="tocnumber">5</span> <span class="toctext">Prevalence</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Languages_supporting_it"><span class="tocnumber">6</span> <span class="toctext">Languages supporting it</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Notes"><span class="tocnumber">8</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#Further_reading"><span class="tocnumber">10</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#External_links"><span class="tocnumber">11</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Introduction">Introduction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div role="note" class="hatnote">See also: <a href="/wiki/Parallel_computing" title="Parallel computing">Parallel computing</a></div>
+<p>Concurrent computing is related to but distinct from <a href="/wiki/Parallel_computing" title="Parallel computing">parallel computing</a>, though these concepts are frequently confused,<sup id="cite_ref-waza_2-0" class="reference"><a href="#cite_note-waza-2">[2]</a></sup><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup> and both can be described as "multiple processes executing <i>during the same period of time</i>". In parallel computing, execution occurs at the same physical instant, for example on separate <a href="/wiki/Central_processing_unit" title="Central processing unit">processors</a> of a <a href="/wiki/Multi-processor" title="Multi-processor" class="mw-redirect">multi-processor</a> machine, with the goal of speeding up computations—parallel computing is impossible on a (<a href="/wiki/Multi-core_processor" title="Multi-core processor">one-core</a>) single processor, as only one computation can occur at any instant (during any single clock cycle).<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[a]</a></sup> By contrast, concurrent computing consists of process <i>lifetimes</i> overlapping, but execution need not happen at the same instant. The goal here is to model processes in the outside world that happen concurrently, such as multiple clients accessing a server at the same time. Structuring software systems as composed of multiple concurrent, communicating parts can be useful for tackling complexity, regardless of whether the parts can be executed in parallel.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[4]</a></sup><sup class="reference" style="white-space:nowrap;">:1</sup></p>
+<p>For example, concurrent processes can be executed on one core by interleaving the execution steps of each process via <a href="/wiki/Time-sharing" title="Time-sharing">time-sharing</a> slices: only one process runs at a time, and if it does not complete during its time slice, it is <i>paused</i>, another process begins or resumes, and then later the original process is resumed. In this way, multiple processes are part-way through execution at a single instant, but only one process is being executed at that instant.</p>
+<p>Concurrent computations <i>may</i> be executed in parallel,<sup id="cite_ref-waza_2-1" class="reference"><a href="#cite_note-waza-2">[2]</a></sup><sup id="cite_ref-benari2006_6-0" class="reference"><a href="#cite_note-benari2006-6">[5]</a></sup> for example by assigning each process to a separate processor or processor core, or <a href="/wiki/Distributed_computing" title="Distributed computing">distributing</a> a computation across a network, but in general, the languages, tools and techniques for parallel programming may not be suitable for concurrent programming, and vice versa.</p>
+<p>The exact timing of when tasks in a concurrent system are executed depend on the <a href="/wiki/Schedule_(computer_science)" title="Schedule (computer science)">scheduling</a>, and tasks need not always be executed concurrently. For example, given two tasks, T1 and T2:</p>
+<ul>
+<li>T1 may be executed and finished before T2 or <i>vice versa</i> (serial <i>and</i> sequential);</li>
+<li>T1 and T2 may be executed alternately (serial <i>and</i> concurrent);</li>
+<li>T1 and T2 may be executed simultaneously at the same instant of time (parallel <i>and</i> concurrent).</li>
+</ul>
+<p>The word "sequential" is used as an antonym for both "concurrent" and "parallel"; when these are explicitly distinguished, <i>concurrent/sequential</i> and <i>parallel/serial</i> are used as opposing pairs.<sup id="cite_ref-FOOTNOTEPattersonHennessy2013503_7-0" class="reference"><a href="#cite_note-FOOTNOTEPattersonHennessy2013503-7">[6]</a></sup> A schedule in which tasks execute one at a time (serially, no parallelism), without interleaving (sequentually, no concurrency: no task begins until the prior task ends) is called a <i>serial schedule</i>. A set of tasks that can be scheduled serially is <i><a href="/wiki/Serializability" title="Serializability">serializable</a></i>, which simplifies <a href="/wiki/Concurrency_control" title="Concurrency control">concurrency control</a>.</p>
+<h3><span class="mw-headline" id="Coordinating_access_to_shared_resources">Coordinating access to shared resources</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=2" title="Edit section: Coordinating access to shared resources">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The main challenge in designing concurrent programs is <a href="/wiki/Concurrency_control" title="Concurrency control">concurrency control</a>: ensuring the correct sequencing of the interactions or communications between different computational executions, and coordinating access to resources that are shared among executions.<sup id="cite_ref-benari2006_6-1" class="reference"><a href="#cite_note-benari2006-6">[5]</a></sup> Potential problems include <a href="/wiki/Race_condition#Software" title="Race condition">race conditions</a>, <a href="/wiki/Deadlock" title="Deadlock">deadlocks</a>, and <a href="/wiki/Resource_starvation" title="Resource starvation" class="mw-redirect">resource starvation</a>. For example, consider the following algorithm to make withdrawals from a checking account represented by the shared resource <code>balance</code>:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>
+<span class="lineno">1 </span><span class="kt">bool</span> <span class="nf">withdraw</span><span class="p">(</span><span class="kt">int</span> <span class="n">withdrawal</span><span class="p">)</span>
+<span class="lineno">2 </span><span class="p">{</span>
+<span class="lineno">3 </span><span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="n">balance</span> <span class="o">&gt;=</span> <span class="n">withdrawal</span><span class="p">)</span>
+</span><span class="lineno">4 </span>    <span class="p">{</span>
+<span class="lineno">5 </span><span class="hll">        <span class="n">balance</span> <span class="o">-=</span> <span class="n">withdrawal</span><span class="p">;</span>
+</span><span class="lineno">6 </span>        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="lineno">7 </span>    <span class="p">}</span> 
+<span class="lineno">8 </span>    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="lineno">9 </span><span class="p">}</span>
+</pre></div>
+<p>Suppose <code>balance = 500</code>, and two concurrent <i>threads</i> make the calls <code>withdraw(300)</code> and <code>withdraw(350)</code>. If line 3 in both operations executes before line 5 both operations will find that <code>balance &gt;= withdrawal</code> evaluates to <code>true</code>, and execution will proceed to subtracting the withdrawal amount. However, since both processes perform their withdrawals, the total amount withdrawn will end up being more than the original balance. These sorts of problems with shared resources need the use of <a href="/wiki/Concurrency_control" title="Concurrency control">concurrency control</a>, or <a href="/wiki/Non-blocking_algorithm" title="Non-blocking algorithm">non-blocking algorithms</a>.</p>
+<p>Because concurrent systems rely on the use of shared resources (including communication media), concurrent computing in general needs the use of some form of <a href="/wiki/Metastability_in_electronics" title="Metastability in electronics">arbiter</a> somewhere in the implementation to mediate access to these resources.</p>
+<p>Unfortunately, while many solutions exist to the problem of a conflict over one resource, many of those "solutions" have their own concurrency problems such as <a href="/wiki/Deadlock" title="Deadlock">deadlock</a> when more than one resource is involved.</p>
+<h3><span class="mw-headline" id="Advantages">Advantages</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=3" title="Edit section: Advantages">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="metadata plainlinks ambox ambox-content ambox-Unreferenced" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><a href="/wiki/File:Question_book-new.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="262" data-file-height="204" /></a></div>
+</td>
+<td class="mbox-text"><span class="mbox-text-span">This section <b>does not <a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">cite</a> any <a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">sources</a></b>. <span class="hide-when-compact">Please help improve this section by <a href="/wiki/Help:Introduction_to_referencing_with_Wiki_Markup/1" title="Help:Introduction to referencing with Wiki Markup/1">adding citations to reliable sources</a>. Unsourced material may be challenged and <a href="/wiki/Wikipedia:Verifiability#Burden_of_evidence" title="Wikipedia:Verifiability">removed</a>.</span> <small><i>(December 2006)</i></small></span></td>
+</tr>
+</table>
+<ul>
+<li>Increased program throughput—parallel execution of a concurrent program allows the number of tasks completed in a given time to increase.</li>
+<li>High responsiveness for input/output—input/output-intensive programs mostly wait for input or output operations to complete. Concurrent programming allows the time that would be spent waiting to be used for another task.</li>
+<li>More appropriate program structure—some problems and problem domains are well-suited to representation as concurrent tasks or processes.</li>
+</ul>
+<h2><span class="mw-headline" id="Models">Models</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=4" title="Edit section: Models">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are several models of concurrent computing, which can be used to understand and analyze concurrent systems. These models include:</p>
+<ul>
+<li><a href="/wiki/Actor_model" title="Actor model">Actor model</a>
+<ul>
+<li><a href="/wiki/Object-capability_model" title="Object-capability model">Object-capability model</a> for security</li>
+</ul>
+</li>
+<li><a href="/wiki/Petri_net" title="Petri net">Petri nets</a></li>
+<li><a href="/wiki/Process_calculus" title="Process calculus">Process calculi</a> such as
+<ul>
+<li><a href="/wiki/Ambient_calculus" title="Ambient calculus">Ambient calculus</a></li>
+<li><a href="/wiki/Calculus_of_communicating_systems" title="Calculus of communicating systems">Calculus of communicating systems</a> (CCS)</li>
+<li><a href="/wiki/Communicating_sequential_processes" title="Communicating sequential processes">Communicating sequential processes</a> (CSP)</li>
+<li><a href="/wiki/%CE%A0-calculus" title="Π-calculus">π-calculus</a></li>
+<li><a href="/wiki/Join-calculus" title="Join-calculus">Join-calculus</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Input/output_automaton" title="Input/output automaton">Input/output automaton</a></li>
+</ul>
+<h2><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=5" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="metadata plainlinks ambox mbox-small-left ambox-content" role="presentation">
+<tr>
+<td class="mbox-image"><a href="/wiki/File:Wiki_letter_w_cropped.svg" class="image"><img alt="[icon]" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/20px-Wiki_letter_w_cropped.svg.png" width="20" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/30px-Wiki_letter_w_cropped.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/40px-Wiki_letter_w_cropped.svg.png 2x" data-file-width="44" data-file-height="31" /></a></td>
+<td class="mbox-text"><span class="mbox-text-span">This section requires <a class="external text" href="//en.wikipedia.org/w/index.php?title=Concurrent_computing&amp;action=edit">expansion</a>. <small><i>(February 2014)</i></small></span></td>
+</tr>
+</table>
+<p>A number of different methods can be used to implement concurrent programs, such as implementing each computational execution as an <a href="/wiki/Process_(computer_science)" title="Process (computer science)" class="mw-redirect">operating system process</a>, or implementing the computational processes as a set of <a href="/wiki/Thread_(computer_science)" title="Thread (computer science)" class="mw-redirect">threads</a> within a single operating system process.</p>
+<h3><span class="mw-headline" id="Interaction_and_communication">Interaction and communication</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=6" title="Edit section: Interaction and communication">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In some concurrent computing systems, communication between the concurrent components is hidden from the programmer (e.g., by using <a href="/wiki/Future_(programming)" title="Future (programming)" class="mw-redirect">futures</a>), while in others it must be handled explicitly. Explicit communication can be divided into two classes:</p>
+<dl>
+<dt><a href="/wiki/Shared_memory_(interprocess_communication)" title="Shared memory (interprocess communication)" class="mw-redirect">Shared memory</a> communication</dt>
+<dd>Concurrent components communicate by altering the contents of shared memory locations (exemplified by <a href="/wiki/Java_(programming_language)" title="Java (programming language)">Java</a> and <a href="/wiki/C_Sharp_(programming_language)" title="C Sharp (programming language)">C#</a>). This style of concurrent programming usually needs the use of some form of locking (e.g., <a href="/wiki/Mutual_exclusion" title="Mutual exclusion">mutexes</a>, <a href="/wiki/Semaphore_(programming)" title="Semaphore (programming)">semaphores</a>, or <a href="/wiki/Monitor_(synchronization)" title="Monitor (synchronization)">monitors</a>) to coordinate between threads. A program that properly implements any of these is said to be <a href="/wiki/Thread_safety" title="Thread safety">thread-safe</a>.</dd>
+</dl>
+<dl>
+<dt><a href="/wiki/Message_passing" title="Message passing">Message passing</a> communication</dt>
+<dd>Concurrent components communicate by exchanging messages (exemplified by <a href="/wiki/Scala_(programming_language)" title="Scala (programming language)">Scala</a>, <a href="/wiki/Erlang_(programming_language)" title="Erlang (programming language)">Erlang</a> and <a href="/wiki/Occam_(programming_language)" title="Occam (programming language)">occam</a>). The exchange of messages may be carried out asynchronously, or may use a synchronous "rendezvous" style in which the sender blocks until the message is received. Asynchronous message passing may be reliable or unreliable (sometimes referred to as "send and pray"). Message-passing concurrency tends to be far easier to reason about than shared-memory concurrency, and is typically considered a more robust form of concurrent programming.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (May 2013)">citation needed</span></a></i>]</sup> A wide variety of mathematical theories to understand and analyze message-passing systems are available, including the <a href="/wiki/Actor_model" title="Actor model">actor model</a>, and various <a href="/wiki/Process_calculi" title="Process calculi" class="mw-redirect">process calculi</a>. Message passing can be efficiently implemented via <a href="/wiki/Symmetric_multiprocessing" title="Symmetric multiprocessing">symmetric multiprocessing</a>, with or without shared memory <a href="/wiki/Cache_coherence" title="Cache coherence">cache coherence</a>.</dd>
+</dl>
+<p>Shared memory and message passing concurrency have different performance characteristics. Typically (although not always), the per-process memory overhead and task switching overhead is lower in a message passing system, but the overhead of message passing is greater than for a procedure call. These differences are often overwhelmed by other performance factors.</p>
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=7" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Concurrent computing developed out of earlier work on railroads and <a href="/wiki/Telegraphy" title="Telegraphy">telegraphy</a>, from the 19th and early 20th century, and some terms date to this period, such as semaphores. These arose to address the question of how to handle multiple trains on the same railroad system (avoiding collisions and maximizing efficiency) and how to handle multiple transmissions over a given set of wires (improving efficiency), such as via <a href="/wiki/Time-division_multiplexing" title="Time-division multiplexing">time-division multiplexing</a> (1870s).</p>
+<p>The academic study of concurrent algorithms started in the 1960s, with <a href="#CITEREFDijkstra1965">Dijkstra (1965)</a> credited with being the first paper in this field, identifying and solving <a href="/wiki/Mutual_exclusion" title="Mutual exclusion">mutual exclusion</a>.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[7]</a></sup></p>
+<h2><span class="mw-headline" id="Prevalence">Prevalence</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=8" title="Edit section: Prevalence">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Concurrency is pervasive in computing, occurring from low-level hardware on a single chip to world-wide networks. Examples follow.</p>
+<p>At the programming language level:</p>
+<ul>
+<li><a href="/wiki/Channel_(programming)" title="Channel (programming)">Channel</a></li>
+<li><a href="/wiki/Coroutine" title="Coroutine">Coroutine</a></li>
+<li><a href="/wiki/Futures_and_promises" title="Futures and promises">Futures and promises</a></li>
+</ul>
+<p>At the operating system level:</p>
+<ul>
+<li><a href="/wiki/Computer_multitasking" title="Computer multitasking">Computer multitasking</a>, including both <a href="/wiki/Cooperative_multitasking" title="Cooperative multitasking">cooperative multitasking</a> and <a href="/wiki/Preemptive_multitasking" title="Preemptive multitasking" class="mw-redirect">preemptive multitasking</a>
+<ul>
+<li><a href="/wiki/Time-sharing" title="Time-sharing">Time-sharing</a>, which replaced sequential <a href="/wiki/Batch_processing" title="Batch processing">batch processing</a> of jobs with concurrent use of a system</li>
+</ul>
+</li>
+<li><a href="/wiki/Process_(computing)" title="Process (computing)">Process</a></li>
+<li><a href="/wiki/Thread_(computing)" title="Thread (computing)">Thread</a></li>
+</ul>
+<p>At the network level, networked systems are generally concurrent by their nature, as they consist of separate devices.</p>
+<h2><span class="mw-headline" id="Languages_supporting_it"><span id="Concurrent_programming_languages"></span><span id="Languages_supporting_concurrent_programming"></span>Languages supporting it</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=9" title="Edit section: Languages supporting it">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Concurrent programming languages are <a href="/wiki/Programming_languages" title="Programming languages" class="mw-redirect">programming languages</a> that use language constructs for <a href="/wiki/Concurrency_(computer_science)" title="Concurrency (computer science)">concurrency</a>. These constructs may involve <a href="/wiki/Thread_(computer_science)" title="Thread (computer science)" class="mw-redirect">multi-threading</a>, support for <a href="/wiki/Distributed_computing" title="Distributed computing">distributed computing</a>, <a href="/wiki/Message_passing_programming" title="Message passing programming" class="mw-redirect">message passing</a>, <a href="/wiki/Sharing" title="Sharing">shared resources</a> (including <a href="/wiki/Parallel_Random_Access_Machine" title="Parallel Random Access Machine" class="mw-redirect">shared memory</a>) or <a href="/wiki/Futures_and_promises" title="Futures and promises">futures and promises</a>. Such languages are sometimes described as Concurrency Oriented Languages or Concurrency Oriented Programming Languages (COPL).<sup id="cite_ref-armstrong2003_9-0" class="reference"><a href="#cite_note-armstrong2003-9">[8]</a></sup></p>
+<p>Today, the most commonly used programming languages that have specific constructs for concurrency are <a href="/wiki/Java_(programming_language)" title="Java (programming language)">Java</a> and <a href="/wiki/C_Sharp_(programming_language)" title="C Sharp (programming language)">C#</a>. Both of these languages fundamentally use a shared-memory concurrency model, with locking provided by <a href="/wiki/Monitor_(synchronization)" title="Monitor (synchronization)">monitors</a> (although message-passing models can and have been implemented on top of the underlying shared-memory model). Of the languages that use a message-passing concurrency model, <a href="/wiki/Erlang_(programming_language)" title="Erlang (programming language)">Erlang</a> is probably the most widely used in industry at present.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (August 2010)">citation needed</span></a></i>]</sup></p>
+<p>Many concurrent programming languages have been developed more as research languages (e.g. <a href="/wiki/Pict_(programming_language)" title="Pict (programming language)">Pict</a>) rather than as languages for production use. However, languages such as <a href="/wiki/Erlang_(programming_language)" title="Erlang (programming language)">Erlang</a>, <a href="/wiki/Limbo_(programming_language)" title="Limbo (programming language)">Limbo</a>, and <a href="/wiki/Occam_(programming_language)" title="Occam (programming language)">occam</a> have seen industrial use at various times in the last 20 years. Languages in which concurrency plays an important role include:</p>
+<ul>
+<li><a href="/wiki/Ada_(programming_language)" title="Ada (programming language)">Ada</a>—general purpose, with native support for message passing and monitor based concurrency</li>
+<li><a href="/wiki/Alef_(programming_language)" title="Alef (programming language)">Alef</a>—concurrent, with threads and message passing, for system programming in early versions of <a href="/wiki/Plan_9_from_Bell_Labs" title="Plan 9 from Bell Labs">Plan 9 from Bell Labs</a></li>
+<li><a href="/wiki/Alice_(programming_language)" title="Alice (programming language)">Alice</a>—extension to <a href="/wiki/Standard_ML" title="Standard ML">Standard ML</a>, adds support for concurrency via futures</li>
+<li><a href="/wiki/Ateji_PX" title="Ateji PX">Ateji PX</a>—extension to <a href="/wiki/Java_(programming_language)" title="Java (programming language)">Java</a> with parallel primitives inspired from <a href="/wiki/%CE%A0-calculus" title="Π-calculus">π-calculus</a></li>
+<li><a href="/wiki/Axum_(programming_language)" title="Axum (programming language)">Axum</a>—domain specific, concurrent, based on actor model and .NET Common Language Runtime using a C-like syntax</li>
+<li><a href="/wiki/C%2B%2B" title="C++">C++</a>—std::thread</li>
+<li><a href="/wiki/C%CF%89" title="Cω">Cω</a> (C omega)—for research, extends C#, uses asynchronous communication</li>
+<li><a href="/wiki/C_Sharp_(programming_language)" title="C Sharp (programming language)">C#</a>—supports concurrent computing since version 5.0 using lock, yield, async and await keywords</li>
+<li><a href="/wiki/Clojure" title="Clojure">Clojure</a>—modern Lisp for the <a href="/wiki/JVM" title="JVM" class="mw-redirect">JVM</a></li>
+<li><a href="/wiki/Concurrent_Clean" title="Concurrent Clean" class="mw-redirect">Concurrent Clean</a>—functional programming, similar to <a href="/wiki/Haskell_(programming_language)" title="Haskell (programming language)">Haskell</a></li>
+<li><a href="/wiki/Concurrent_Collections" title="Concurrent Collections">Concurrent Collections</a> (CnC)—Achieves implicit parallelism independent of memory model by explicitly defining flow of data and control</li>
+<li><a href="/wiki/Concurrent_Haskell" title="Concurrent Haskell">Concurrent Haskell</a>—lazy, pure functional language operating concurrent processes on shared memory</li>
+<li><a href="/wiki/Concurrent_ML" title="Concurrent ML">Concurrent ML</a>—concurrent extension of <a href="/wiki/Standard_ML" title="Standard ML">Standard ML</a></li>
+<li><a href="/wiki/Concurrent_Pascal" title="Concurrent Pascal">Concurrent Pascal</a>—by <a href="/wiki/Per_Brinch_Hansen" title="Per Brinch Hansen">Per Brinch Hansen</a></li>
+<li><a href="/wiki/Curry_(programming_language)" title="Curry (programming language)">Curry</a></li>
+<li><a href="/wiki/D_(programming_language)" title="D (programming language)">D</a>—<a href="/wiki/Multi-paradigm_programming_language" title="Multi-paradigm programming language" class="mw-redirect">multi-paradigm</a> <a href="/wiki/System_programming_language" title="System programming language">system programming language</a> with explicit support for concurrent programming (<a href="/wiki/Actor_model" title="Actor model">actor model</a>)</li>
+<li><a href="/wiki/E_(programming_language)" title="E (programming language)">E</a>—uses promises to preclude deadlocks</li>
+<li><a href="/wiki/ECMAScript" title="ECMAScript">ECMAScript</a>—promises available in various libraries, proposed for inclusion in standard in ECMAScript 6</li>
+<li><a href="/wiki/Eiffel_(programming_language)" title="Eiffel (programming language)">Eiffel</a>—through its <a href="/wiki/SCOOP_(software)" title="SCOOP (software)">SCOOP</a> mechanism based on the concepts of Design by Contract</li>
+<li><a href="/wiki/Elixir_(programming_language)" title="Elixir (programming language)">Elixir</a>—dynamic and functional meta-programming aware language running on the Erlang VM.</li>
+<li><a href="/wiki/Erlang_(programming_language)" title="Erlang (programming language)">Erlang</a>—uses asynchronous message passing with nothing shared</li>
+<li><a href="/wiki/FAUST_(programming_language)" title="FAUST (programming language)">FAUST</a>—real-time functional, for signal processing, compiler provides automatic parallelization via <a href="/wiki/OpenMP" title="OpenMP">OpenMP</a> or a specific <a href="/wiki/Cilk#Work-stealing" title="Cilk">work-stealing</a> scheduler</li>
+<li><a href="/wiki/Fortran" title="Fortran">Fortran</a>—<a href="/wiki/Coarray_Fortran" title="Coarray Fortran">coarrays</a> and <i>do concurrent</i> are part of Fortran 2008 standard</li>
+<li><a href="/wiki/Go_(programming_language)" title="Go (programming language)">Go</a>—for system programming, with a concurrent programming model based on <a href="/wiki/Communicating_sequential_processes" title="Communicating sequential processes">CSP</a></li>
+<li><a href="/wiki/Hume_(programming_language)" title="Hume (programming language)">Hume</a>—functional, concurrent, for bounded space and time environments where automata processes are described by synchronous channels patterns and message passing</li>
+<li><a href="/wiki/Io_(programming_language)" title="Io (programming language)">Io</a>—actor-based concurrency</li>
+<li><a href="/wiki/Janus_(programming_language)" title="Janus (programming language)">Janus</a>—features distinct <i>askers</i> and <i>tellers</i> to logical variables, bag channels; is purely declarative</li>
+<li><a href="/wiki/Java" title="Java">Java</a>—Thread class or Runnable interface.</li>
+<li><a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>—via <a href="/wiki/Web_worker" title="Web worker">web workers</a>, in a browser environment, <a href="/wiki/Futures_and_promises" title="Futures and promises">promises</a>, and <a href="/wiki/Callback_(computer_programming)" title="Callback (computer programming)">callbacks</a>.</li>
+<li><a href="/wiki/JoCaml" title="JoCaml">JoCaml</a>—concurrent and distributed channel based, extension of <a href="/wiki/OCaml" title="OCaml">OCaml</a>, implements the <a href="/wiki/Join-calculus" title="Join-calculus">Join-calculus</a> of processes</li>
+<li><a href="/wiki/Join_Java" title="Join Java">Join Java</a>—concurrent, based on <a href="/wiki/Java_(programming_language)" title="Java (programming language)">Java</a> language</li>
+<li><a href="/wiki/Joule_(programming_language)" title="Joule (programming language)">Joule</a>—dataflow-based, communicates by message passing</li>
+<li><a href="/wiki/Joyce_(programming_language)" title="Joyce (programming language)">Joyce</a>—concurrent, teaching, built on <a href="/wiki/Concurrent_Pascal" title="Concurrent Pascal">Concurrent Pascal</a> with features from <a href="/wiki/Communicating_sequential_processes" title="Communicating sequential processes">CSP</a> by <a href="/wiki/Per_Brinch_Hansen" title="Per Brinch Hansen">Per Brinch Hansen</a></li>
+<li><a href="/wiki/LabVIEW" title="LabVIEW">LabVIEW</a>—graphical, dataflow, functions are nodes in a graph, data is wires between the nodes; includes object-oriented language</li>
+<li><a href="/wiki/Limbo_(programming_language)" title="Limbo (programming language)">Limbo</a>—relative of <a href="/wiki/Alef_(programming_language)" title="Alef (programming language)">Alef</a>, for system programming in <a href="/wiki/Inferno_(operating_system)" title="Inferno (operating system)">Inferno (operating system)</a></li>
+<li><a href="/wiki/MultiLisp" title="MultiLisp">MultiLisp</a>—<a href="/wiki/Scheme_(programming_language)" title="Scheme (programming language)">Scheme</a> variant extended to support parallelism</li>
+<li><a href="/wiki/Modula-2" title="Modula-2">Modula-2</a>—for system programming, by N. Wirth as a successor to Pascal with native support for coroutines</li>
+<li><a href="/wiki/Modula-3" title="Modula-3">Modula-3</a>—modern member of Algol family with extensive support for threads, mutexes, condition variables</li>
+<li><a href="/wiki/Newsqueak" title="Newsqueak">Newsqueak</a>—for research, with channels as first-class values; predecessor of <a href="/wiki/Alef_(programming_language)" title="Alef (programming language)">Alef</a></li>
+<li><a href="/wiki/Node.js" title="Node.js">Node.js</a>—a server-side runtime environment for JavaScript</li>
+<li><a href="/wiki/Occam_(programming_language)" title="Occam (programming language)">occam</a>—influenced heavily by <a href="/wiki/Communicating_sequential_processes" title="Communicating sequential processes">communicating sequential processes</a> (CSP)
+<ul>
+<li><a href="/wiki/Occam-%CF%80" title="Occam-π">occam-π</a>—a modern variant of <a href="/wiki/Occam_(programming_language)" title="Occam (programming language)">occam</a>, which incorporates ideas from Milner's <a href="/wiki/%CE%A0-calculus" title="Π-calculus">π-calculus</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Orc_(programming_language)" title="Orc (programming language)">Orc</a>—heavily concurrent, nondeterministic, based on <a href="/wiki/Kleene_algebra" title="Kleene algebra">Kleene algebra</a></li>
+<li><a href="/wiki/Oz_(programming_language)" title="Oz (programming language)">Oz-Mozart</a>—multiparadigm, supports shared-state and message-passing concurrency, and futures</li>
+<li><a href="/wiki/ParaSail_(programming_language)" title="ParaSail (programming language)">ParaSail</a>—object-oriented, parallel, free of pointers, race conditions</li>
+<li><a href="/wiki/Pict_(programming_language)" title="Pict (programming language)">Pict</a>—essentially an executable implementation of Milner's <a href="/wiki/%CE%A0-calculus" title="Π-calculus">π-calculus</a></li>
+<li><a href="/wiki/Perl" title="Perl">Perl</a> with <a rel="nofollow" class="external text" href="https://metacpan.org/module/AnyEvent">AnyEvent</a> and <a rel="nofollow" class="external text" href="https://metacpan.org/module/Coro">Coro</a></li>
+<li><a href="/wiki/Python_(programming_language)" title="Python (programming language)">Python</a> with <a rel="nofollow" class="external text" href="http://twistedmatrix.com/">Twisted</a>, <a rel="nofollow" class="external text" href="http://codespeak.net/py/0.9.2/greenlet.html">greenlet</a> and <a rel="nofollow" class="external text" href="http://www.gevent.org">gevent</a></li>
+<li><a href="/wiki/Reia_(programming_language)" title="Reia (programming language)">Reia</a>—uses asynchronous message passing between shared-nothing objects</li>
+<li><a href="/wiki/Red_(programming_language)" title="Red (programming language)">Red/System</a>—for system programming, based on <a href="/wiki/Rebol" title="Rebol">Rebol</a></li>
+<li><a href="/wiki/Ruby_(programming_language)" title="Ruby (programming language)">Ruby</a> with <a rel="nofollow" class="external text" href="http://www.concurrent-ruby.com">Concurrent Ruby</a> and <a rel="nofollow" class="external text" href="https://celluloid.io/">Celluloid</a></li>
+<li><a href="/wiki/Rust_(programming_language)" title="Rust (programming language)">Rust</a>—for system programming, focus on massive concurrency, using message-passing with move semantics, shared immutable memory, and shared mutable memory that is provably free of <a href="/wiki/Race_condition" title="Race condition">race conditions</a>.<sup id="cite_ref-bblum2012_10-0" class="reference"><a href="#cite_note-bblum2012-10">[9]</a></sup></li>
+<li><a href="/wiki/SALSA_(programming_language)" title="SALSA (programming language)">SALSA</a>—actor-based with token-passing, join, and first-class continuations for distributed computing over the Internet</li>
+<li><a href="/wiki/Scala_(programming_language)" title="Scala (programming language)">Scala</a>—general purpose, designed to express common programming patterns in a concise, elegant, and type-safe way</li>
+<li><a href="/wiki/SequenceL" title="SequenceL">SequenceL</a>—general purpose functional, main design objectives are ease of programming, code clarity-readability, and automatic parallelization for performance on multicore hardware, and provably free of <a href="/wiki/Race_condition" title="Race condition">race conditions</a></li>
+<li><a href="/wiki/SR_language" title="SR language" class="mw-redirect">SR</a>—for research</li>
+<li><a href="/wiki/Stackless_Python" title="Stackless Python">Stackless Python</a></li>
+<li><a href="/w/index.php?title=StratifiedJS&amp;action=edit&amp;redlink=1" class="new" title="StratifiedJS (page does not exist)">StratifiedJS</a>—combinator-based concurrency, based on <a href="/wiki/JavaScript" title="JavaScript">JavaScript</a></li>
+<li><a href="/wiki/SuperPascal" title="SuperPascal">SuperPascal</a>—concurrent, for teaching, built on <a href="/wiki/Concurrent_Pascal" title="Concurrent Pascal">Concurrent Pascal</a> and <a href="/wiki/Joyce_(programming_language)" title="Joyce (programming language)">Joyce</a> by <a href="/wiki/Per_Brinch_Hansen" title="Per Brinch Hansen">Per Brinch Hansen</a></li>
+<li><a href="/wiki/Unicon_(programming_language)" title="Unicon (programming language)">Unicon</a>—for research</li>
+<li><a href="/w/index.php?title=Termite_Scheme&amp;action=edit&amp;redlink=1" class="new" title="Termite Scheme (page does not exist)">Termite Scheme</a>—adds Erlang-like concurrency to Scheme</li>
+<li><a href="/wiki/TNSDL" title="TNSDL">TNSDL</a>—for developing telecommunication exchanges, uses asynchronous message passing</li>
+<li>VHSIC Hardware Description Language (<a href="/wiki/VHDL" title="VHDL">VHDL</a>)—IEEE STD-1076</li>
+<li><a href="/wiki/XC_(programming_language)" title="XC (programming language)">XC</a>—concurrency-extended subset of C language developed by <a href="/wiki/XMOS" title="XMOS">XMOS</a>, based on <a href="/wiki/Communicating_sequential_processes" title="Communicating sequential processes">communicating sequential processes</a>, built-in constructs for programmable I/O</li>
+</ul>
+<p>Many other languages provide support for concurrency in the form of libraries, at levels roughly comparable with the above list.</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=10" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/List_of_important_publications_in_concurrent,_parallel,_and_distributed_computing" title="List of important publications in concurrent, parallel, and distributed computing">List of important publications in concurrent, parallel, and distributed computing</a></li>
+<li><a href="/wiki/Chu_space" title="Chu space">Chu space</a></li>
+<li><a href="/wiki/Critical_section" title="Critical section">Critical section</a></li>
+<li><a href="/wiki/Flow-based_programming" title="Flow-based programming">Flow-based programming</a></li>
+<li><a href="/wiki/Multitasking" title="Multitasking" class="mw-redirect">Multitasking</a></li>
+<li><a href="/wiki/Parallel_computing" title="Parallel computing">Parallel computing</a></li>
+<li><a href="/wiki/Ptolemy_Project" title="Ptolemy Project" class="mw-redirect">Ptolemy Project</a></li>
+<li><a href="/wiki/Race_condition#Computing" title="Race condition">Race condition</a></li>
+<li><a href="/wiki/Sheaf_(mathematics)" title="Sheaf (mathematics)">Sheaf (mathematics)</a></li>
+<li><a href="/wiki/Software_transactional_memory" title="Software transactional memory">Software transactional memory</a></li>
+<li><a href="/wiki/Transaction_processing" title="Transaction processing">Transaction processing</a></li>
+<li><a href="/wiki/Java_ConcurrentMap" title="Java ConcurrentMap">Java ConcurrentMap</a></li>
+</ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=11" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: lower-alpha;">
+<ol class="references">
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text">This is discounting parallelism internal to a processor core, such as pipelining or vectorized instructions. A one-core, one-processor <i>machine</i> may be capable of some parallelism, such as with a <a href="/wiki/Coprocessor" title="Coprocessor">coprocessor</a>, but the processor alone is not.</span></li>
+</ol>
+</div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=12" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="metadata plainlinks ambox ambox-content ambox-Refimprove" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><a href="/wiki/File:Question_book-new.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="262" data-file-height="204" /></a></div>
+</td>
+<td class="mbox-text"><span class="mbox-text-span">This article <b>needs additional citations for <a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>. <span class="hide-when-compact">Please help <a class="external text" href="//en.wikipedia.org/w/index.php?title=Concurrent_computing&amp;action=edit">improve this article</a> by <a href="/wiki/Help:Introduction_to_referencing_with_Wiki_Markup/1" title="Help:Introduction to referencing with Wiki Markup/1">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.</span> <small><i>(February 2014)</i></small></span></td>
+</tr>
+</table>
+<div class="reflist columns references-column-count references-column-count-1" style="-moz-column-count: 1; -webkit-column-count: 1; column-count: 1; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><i>Operating System Concepts</i> 9th edition, Abraham Silberschatz. "Chapter 4: Threads"</span></li>
+<li id="cite_note-waza-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-waza_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-waza_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">"Concurrency is not Parallelism", <i>Waza conference</i> Jan 11, 2012, <a href="/wiki/Rob_Pike" title="Rob Pike">Rob Pike</a> (<a rel="nofollow" class="external text" href="http://talks.golang.org/2012/waza.slide">slides</a>) (<a rel="nofollow" class="external text" href="http://vimeo.com/49718712">video</a>)</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="https://wiki.haskell.org/Parallelism_vs._Concurrency">"Parallelism vs. Concurrency"</a>. <i>Haskell Wiki</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.atitle=Parallelism+vs.+Concurrency&amp;rft.genre=unknown&amp;rft_id=https%3A%2F%2Fwiki.haskell.org%2FParallelism_vs._Concurrency&amp;rft.jtitle=Haskell+Wiki&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><cite class="citation book">Schneider, Fred B. <i>On Concurrent Programming</i>. Springer. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/9780387949420" title="Special:BookSources/9780387949420">9780387949420</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.aufirst=Fred+B.&amp;rft.aulast=Schneider&amp;rft.btitle=On+Concurrent+Programming&amp;rft.genre=book&amp;rft.isbn=9780387949420&amp;rft.pub=Springer&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-benari2006-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-benari2006_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-benari2006_6-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation book">Ben-Ari, Mordechai (2006). <i>Principles of Concurrent and Distributed Programming</i> (2nd ed.). Addison-Wesley. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-321-31283-9" title="Special:BookSources/978-0-321-31283-9">978-0-321-31283-9</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.aufirst=Mordechai&amp;rft.aulast=Ben-Ari&amp;rft.btitle=Principles+of+Concurrent+and+Distributed+Programming&amp;rft.date=2006&amp;rft.edition=2nd&amp;rft.genre=book&amp;rft.isbn=978-0-321-31283-9&amp;rft.pub=Addison-Wesley&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-FOOTNOTEPattersonHennessy2013503-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEPattersonHennessy2013503_7-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFPattersonHennessy2013">Patterson &amp; Hennessy 2013</a>, p.&#160;503.</span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><cite class="citation"><a rel="nofollow" class="external text" href="http://www.podc.org/influential/2002.html">"PODC Influential Paper Award: 2002"</a>, <i>ACM Symposium on Principles of Distributed Computing</i><span class="reference-accessdate">, retrieved <span class="nowrap">2009-08-24</span></span></cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.atitle=PODC+Influential+Paper+Award%3A+2002&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fwww.podc.org%2Finfluential%2F2002.html&amp;rft.jtitle=ACM+Symposium+on+Principles+of+Distributed+Computing&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-armstrong2003-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-armstrong2003_9-0">^</a></b></span> <span class="reference-text"><cite class="citation web">Armstrong, Joe (2003). "Making reliable distributed systems in the presence of software errors".</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.aufirst=Joe&amp;rft.aulast=Armstrong&amp;rft.btitle=Making+reliable+distributed+systems+in+the+presence+of+software+errors&amp;rft.date=2003&amp;rft.genre=unknown&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span> <span style="display:none;font-size:100%" class="error citation-comment">Missing or empty <code style="color:inherit; border:inherit; padding:inherit;">|url=</code> (<a href="/wiki/Help:CS1_errors#cite_web_url" title="Help:CS1 errors">help</a>);</span> <span style="display:none;font-size:100%" class="error citation-comment"><code style="color:inherit; border:inherit; padding:inherit;">|access-date=</code> requires <code style="color:inherit; border:inherit; padding:inherit;">|url=</code> (<a href="/wiki/Help:CS1_errors#accessdate_missing_url" title="Help:CS1 errors">help</a>)</span></span></li>
+<li id="cite_note-bblum2012-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-bblum2012_10-0">^</a></b></span> <span class="reference-text"><cite class="citation web">Blum, Ben (2012). <a rel="nofollow" class="external text" href="http://winningraceconditions.blogspot.com/2012/09/rust-4-typesafe-shared-mutable-state.html">"Typesafe Shared Mutable State"</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2012-11-14</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.aufirst=Ben&amp;rft.aulast=Blum&amp;rft.btitle=Typesafe+Shared+Mutable+State&amp;rft.date=2012&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwinningraceconditions.blogspot.com%2F2012%2F09%2Frust-4-typesafe-shared-mutable-state.html&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+</ol>
+</div>
+<div class="refbegin" style="">
+<ul>
+<li><cite id="CITEREFPattersonHennessy2013" class="citation book">Patterson, David A.; Hennessy, John L. (2013). <i>Computer Organization and Design: The Hardware/Software Interface</i>. The Morgan Kaufmann Series in Computer Architecture and Design (5 ed.). Morgan Kaufmann. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-12407886-4" title="Special:BookSources/978-0-12407886-4">978-0-12407886-4</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.aufirst=David+A.&amp;rft.au=Hennessy%2C+John+L.&amp;rft.aulast=Patterson&amp;rft.btitle=Computer+Organization+and+Design%3A+The+Hardware%2FSoftware+Interface&amp;rft.date=2013&amp;rft.edition=5&amp;rft.genre=book&amp;rft.isbn=978-0-12407886-4&amp;rft.pub=Morgan+Kaufmann&amp;rft.series=The+Morgan+Kaufmann+Series+in+Computer+Architecture+and+Design&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=13" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><cite id="CITEREFDijkstra1965" class="citation journal"><a href="/wiki/Edsger_W._Dijkstra" title="Edsger W. Dijkstra">Dijkstra, E. W.</a> (1965). "Solution of a problem in concurrent programming control". <i><a href="/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a></i> <b>8</b> (9): 569. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//dx.doi.org/10.1145%2F365559.365617">10.1145/365559.365617</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.atitle=Solution+of+a+problem+in+concurrent+programming+control&amp;rft.aufirst=E.+W.&amp;rft.aulast=Dijkstra&amp;rft.date=1965&amp;rft.genre=article&amp;rft_id=info%3Adoi%2F10.1145%2F365559.365617&amp;rft.issue=9&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.pages=569&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=8" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+<li><cite class="citation book">Herlihy, Maurice (2008) [2008]. <a rel="nofollow" class="external text" href="http://www.amazon.co.uk/The-Multiprocessor-Programming-Maurice-Herlihy/dp/0123705916"><i>The Art of Multiprocessor Programming</i></a>. Morgan Kaufmann. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0123705914" title="Special:BookSources/978-0123705914">978-0123705914</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.aufirst=Maurice&amp;rft.aulast=Herlihy&amp;rft.btitle=The+Art+of+Multiprocessor+Programming&amp;rft.date=2008&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.amazon.co.uk%2FThe-Multiprocessor-Programming-Maurice-Herlihy%2Fdp%2F0123705916&amp;rft.isbn=978-0123705914&amp;rft.pub=Morgan+Kaufmann&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+<li><cite class="citation book">Downey, Allen B. (2005) [2005]. <a rel="nofollow" class="external text" href="http://www.greenteapress.com/semaphores/downey08semaphores.pdf"><i>The Little Book of Semaphores</i></a> <span style="font-size:85%;">(PDF)</span>. Green Tea Press. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/1-4414-1868-7" title="Special:BookSources/1-4414-1868-7">1-4414-1868-7</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.aufirst=Allen+B.&amp;rft.aulast=Downey&amp;rft.btitle=The+Little+Book+of+Semaphores&amp;rft.date=2005&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.greenteapress.com%2Fsemaphores%2Fdowney08semaphores.pdf&amp;rft.isbn=1-4414-1868-7&amp;rft.pub=Green+Tea+Press&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+<li><cite class="citation book">Filman, Robert E.; Daniel P. Friedman (1984). <i>Coordinated Computing: Tools and Techniques for Distributed Software</i>. New York: McGraw-Hill. p.&#160;370. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/0-07-022439-0" title="Special:BookSources/0-07-022439-0">0-07-022439-0</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.au=Daniel+P.+Friedman&amp;rft.aufirst=Robert+E.&amp;rft.aulast=Filman&amp;rft.btitle=Coordinated+Computing%3A+Tools+and+Techniques+for+Distributed+Software&amp;rft.date=1984&amp;rft.genre=book&amp;rft.isbn=0-07-022439-0&amp;rft.pages=370&amp;rft.place=New+York&amp;rft.pub=McGraw-Hill&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+<li><cite class="citation book">Leppäjärvi, Jouni (2008). <a rel="nofollow" class="external text" href="http://www.enseignement.polytechnique.fr/informatique/INF431/X09-2010-2011/AmphiTHC/SynchronizationPrimitives.pdf"><i>A pragmatic, historically oriented survey on the universality of synchronization primitives</i></a> <span style="font-size:85%;">(PDF)</span>. University of Oulu.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.aufirst=Jouni&amp;rft.aulast=Lepp%C3%A4j%C3%A4rvi&amp;rft.btitle=A+pragmatic%2C+historically+oriented+survey+on+the+universality+of+synchronization+primitives&amp;rft.date=2008&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.enseignement.polytechnique.fr%2Finformatique%2FINF431%2FX09-2010-2011%2FAmphiTHC%2FSynchronizationPrimitives.pdf&amp;rft.pub=University+of+Oulu&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+<li><cite class="citation book">Taubenfeld, Gadi (2006). <a rel="nofollow" class="external text" href="http://www.faculty.idc.ac.il/gadi/book.htm"><i>Synchronization Algorithms and Concurrent Programming</i></a>. Pearson / Prentice Hall. p.&#160;433. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/0-13-197259-6" title="Special:BookSources/0-13-197259-6">0-13-197259-6</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AConcurrent+computing&amp;rft.aufirst=Gadi&amp;rft.aulast=Taubenfeld&amp;rft.btitle=Synchronization+Algorithms+and+Concurrent+Programming&amp;rft.date=2006&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.faculty.idc.ac.il%2Fgadi%2Fbook.htm&amp;rft.isbn=0-13-197259-6&amp;rft.pages=433&amp;rft.pub=Pearson+%2F+Prentice+Hall&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+</ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit&amp;section=14" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://vl.fmnet.info/concurrent/">Concurrent Systems Virtual Library</a></li>
+</ul>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Concurrent_computing" title="Template:Concurrent computing"><abbr title="View this template" style=";;background:none transparent;border:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/w/index.php?title=Template_talk:Concurrent_computing&amp;action=edit&amp;redlink=1" class="new" title="Template talk:Concurrent computing (page does not exist)"><abbr title="Discuss this template" style=";;background:none transparent;border:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Concurrent_computing&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;">e</abbr></a></li>
+</ul>
+</div>
+<div style="font-size:114%"><strong class="selflink">Concurrent computing</strong></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">General</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Concurrency_(computer_science)" title="Concurrency (computer science)">Concurrency</a></li>
+<li><a href="/wiki/Concurrency_control" title="Concurrency control">Concurrency control</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Process_calculus" title="Process calculus">Process calculi</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Communicating_Sequential_Processes" title="Communicating Sequential Processes" class="mw-redirect">CSP</a></li>
+<li><a href="/wiki/Calculus_of_Communicating_Systems" title="Calculus of Communicating Systems" class="mw-redirect">CCS</a></li>
+<li><a href="/wiki/Algebra_of_Communicating_Processes" title="Algebra of Communicating Processes">ACP</a></li>
+<li><a href="/wiki/Language_Of_Temporal_Ordering_Specification" title="Language Of Temporal Ordering Specification">LOTOS</a></li>
+<li><a href="/wiki/%CE%A0-calculus" title="Π-calculus">π-calculus</a></li>
+<li><a href="/wiki/Ambient_calculus" title="Ambient calculus">Ambient calculus</a></li>
+<li><a href="/wiki/API-Calculus" title="API-Calculus">API-Calculus</a></li>
+<li><a href="/wiki/PEPA" title="PEPA">PEPA</a></li>
+<li><a href="/wiki/Join-calculus" title="Join-calculus">Join-calculus</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><img alt="Category" src="//upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/16px-Folder_Hexagonal_Icon.svg.png" title="Category" width="16" height="14" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/24px-Folder_Hexagonal_Icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/32px-Folder_Hexagonal_Icon.svg.png 2x" data-file-width="36" data-file-height="31" />&#160;<a href="/wiki/Category:Concurrent_computing" title="Category:Concurrent computing">Category: Concurrent computing</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Types_of_programming_languages" title="Template:Types of programming languages"><abbr title="View this template" style=";;background:none transparent;border:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Types_of_programming_languages" title="Template talk:Types of programming languages"><abbr title="Discuss this template" style=";;background:none transparent;border:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Types_of_programming_languages&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;">e</abbr></a></li>
+</ul>
+</div>
+<div style="font-size:114%"><a href="/wiki/Programming_paradigm" title="Programming paradigm">Types of programming languages</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-odd hlist" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Actor_model" title="Actor model">Actor-based</a></li>
+<li><a href="/wiki/Array_programming" title="Array programming">Array</a></li>
+<li><a href="/wiki/Aspect-oriented_programming" title="Aspect-oriented programming">Aspect-oriented</a></li>
+<li><a href="/wiki/Class-based_programming" title="Class-based programming">Class-based</a></li>
+<li><a href="/wiki/Concatenative_programming_language" title="Concatenative programming language">Concatenative</a></li>
+<li><strong class="selflink">Concurrent</strong></li>
+<li><a href="/wiki/Data-structured_language" title="Data-structured language">Data-structured</a></li>
+<li><a href="/wiki/Dataflow_programming" title="Dataflow programming">Dataflow</a></li>
+<li><a href="/wiki/Declarative_programming" title="Declarative programming">Declarative</a></li>
+<li><a href="/wiki/Domain-specific_language" title="Domain-specific language">Domain-specific</a></li>
+<li><a href="/wiki/Dynamic_programming_language" title="Dynamic programming language">Dynamic</a></li>
+<li><a href="/wiki/Esoteric_programming_language" title="Esoteric programming language">Esoteric</a></li>
+<li><a href="/wiki/Event-driven_programming" title="Event-driven programming">Event-driven</a></li>
+<li><a href="/wiki/Extensible_programming" title="Extensible programming">Extensible</a></li>
+<li><a href="/wiki/Functional_programming" title="Functional programming">Functional</a></li>
+<li><a href="/wiki/Imperative_programming" title="Imperative programming">Imperative</a></li>
+<li><a href="/wiki/Logic_programming" title="Logic programming">Logic</a></li>
+<li><a href="/wiki/Macro_(computer_science)" title="Macro (computer science)">Macro</a></li>
+<li><a href="/wiki/Metaprogramming" title="Metaprogramming">Metaprogramming</a></li>
+<li><a href="/wiki/Multi-paradigm_programming_language" title="Multi-paradigm programming language" class="mw-redirect">Multi-paradigm</a></li>
+<li><a href="/wiki/Object-based_language" title="Object-based language">Object-based</a></li>
+<li><a href="/wiki/Object-oriented_programming" title="Object-oriented programming">Object-oriented</a></li>
+<li><a href="/wiki/Pipeline_programming" title="Pipeline programming" class="mw-redirect">Pipeline</a></li>
+<li><a href="/wiki/Procedural_programming" title="Procedural programming">Procedural</a></li>
+<li><a href="/wiki/Prototype-based_programming" title="Prototype-based programming">Prototype-based</a></li>
+<li><a href="/wiki/Reflection_(computer_programming)" title="Reflection (computer programming)">Reflective</a></li>
+<li><a href="/wiki/Rule-based_system" title="Rule-based system">Rule-based</a></li>
+<li><a href="/wiki/Scripting_language" title="Scripting language">Scripting</a></li>
+<li><a href="/wiki/Synchronous_programming_language" title="Synchronous programming language">Synchronous</a></li>
+<li><a href="/wiki/Templating_language" title="Templating language" class="mw-redirect">Templating</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-even hlist" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Assembly_language" title="Assembly language">Assembly</a></li>
+<li><a href="/wiki/Compiled_language" title="Compiled language">Compiled</a></li>
+<li><a href="/wiki/Interpreted_language" title="Interpreted language">Interpreted</a></li>
+<li><a href="/wiki/Machine_code" title="Machine code">Machine</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-odd hlist" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Low-level_programming_language" title="Low-level programming language">Low-level</a></li>
+<li><a href="/wiki/High-level_programming_language" title="High-level programming language">High-level</a></li>
+<li><a href="/wiki/Very_high-level_programming_language" title="Very high-level programming language">Very high-level</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-even hlist" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/First-generation_programming_language" title="First-generation programming language">First generation</a></li>
+<li><a href="/wiki/Second-generation_programming_language" title="Second-generation programming language">Second generation</a></li>
+<li><a href="/wiki/Third-generation_programming_language" title="Third-generation programming language">Third generation</a></li>
+<li><a href="/wiki/Fourth-generation_programming_language" title="Fourth-generation programming language">Fourth generation</a></li>
+<li><a href="/wiki/Fifth-generation_programming_language" title="Fifth-generation programming language">Fifth generation</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-odd hlist" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Non-English-based_programming_languages" title="Non-English-based programming languages">Non-English-based</a></li>
+<li><a href="/wiki/Off-side_rule" title="Off-side rule">Off-side rule</a></li>
+<li><a href="/wiki/Visual_programming_language" title="Visual programming language">Visual</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1110
+Cached time: 20160405094049
+Cache expiry: 2592000
+Dynamic content: false
+CPU time usage: 0.490 seconds
+Real time usage: 0.591 seconds
+Preprocessor visited node count: 1863/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 67540/2097152 bytes
+Template argument size: 1404/2097152 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 5/500
+Lua time usage: 0.204/10.000 seconds
+Lua memory usage: 3.91 MB/50 MB
+Number of Wikibase entities loaded: 0-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  442.222      1 - -total
+ 23.24%  102.793      2 - Template:Reflist
+ 15.89%   70.281      2 - Template:Citation_needed
+ 14.17%   62.668      2 - Template:Fix
+ 12.24%   54.147      3 - Template:Cite_web
+ 12.10%   53.507      3 - Template:Ambox
+ 11.43%   50.546      8 - Template:Cite_book
+ 10.62%   46.978      1 - Template:Unreferenced_section
+  7.91%   35.002      2 - Template:Delink
+  6.47%   28.612      2 - Template:Navbox
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:2581605-0!*!0!!en!4!* and timestamp 20160405094049 and revision id 713121274
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Concurrent_computing&amp;oldid=713121274">https://en.wikipedia.org/w/index.php?title=Concurrent_computing&amp;oldid=713121274</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Operating_system_technology" title="Category:Operating system technology">Operating system technology</a></li><li><a href="/wiki/Category:Concurrent_computing" title="Category:Concurrent computing">Concurrent computing</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Pages_using_web_citations_with_no_URL" title="Category:Pages using web citations with no URL">Pages using web citations with no URL</a></li><li><a href="/wiki/Category:Pages_using_citations_with_accessdate_and_no_URL" title="Category:Pages using citations with accessdate and no URL">Pages using citations with accessdate and no URL</a></li><li><a href="/wiki/Category:Articles_needing_additional_references_from_December_2006" title="Category:Articles needing additional references from December 2006">Articles needing additional references from December 2006</a></li><li><a href="/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li><li><a href="/wiki/Category:Articles_to_be_expanded_from_February_2014" title="Category:Articles to be expanded from February 2014">Articles to be expanded from February 2014</a></li><li><a href="/wiki/Category:All_articles_to_be_expanded" title="Category:All articles to be expanded">All articles to be expanded</a></li><li><a href="/wiki/Category:Articles_using_small_message_boxes" title="Category:Articles using small message boxes">Articles using small message boxes</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_May_2013" title="Category:Articles with unsourced statements from May 2013">Articles with unsourced statements from May 2013</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_August_2010" title="Category:Articles with unsourced statements from August 2010">Articles with unsourced statements from August 2010</a></li><li><a href="/wiki/Category:Articles_needing_additional_references_from_February_2014" title="Category:Articles needing additional references from February 2014">Articles needing additional references from February 2014</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Concurrent+computing&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Concurrent+computing" title="You're encouraged to log in; however, it's not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Concurrent_computing"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Concurrent_computing"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Concurrent_computing" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=Concurrent_computing&amp;action=edit"  title="Edit this page [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Concurrent_computing&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Concurrent_computing" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Concurrent_computing" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Concurrent_computing&amp;oldid=713121274" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Concurrent_computing&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q128392" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Concurrent_computing&amp;id=713121274" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+						<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Concurrent+computing">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Concurrent+computing&amp;returnto=Concurrent+computing&amp;oldid=713121274&amp;writer=rdf2latex">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Concurrent_computing&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+						<li class="interlanguage-link interwiki-bg"><a href="//bg.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D0%B5%D0%BD%D1%82%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5" title="Конкурентно програмиране – Bulgarian" lang="bg" hreflang="bg">Български</a></li><li class="interlanguage-link interwiki-ca"><a href="//ca.wikipedia.org/wiki/Computaci%C3%B3_concurrent" title="Computació concurrent – Catalan" lang="ca" hreflang="ca">Català</a></li><li class="interlanguage-link interwiki-de"><a href="//de.wikipedia.org/wiki/Parallele_Programmierung" title="Parallele Programmierung – German" lang="de" hreflang="de">Deutsch</a></li><li class="interlanguage-link interwiki-es"><a href="//es.wikipedia.org/wiki/Computaci%C3%B3n_concurrente" title="Computación concurrente – Spanish" lang="es" hreflang="es">Español</a></li><li class="interlanguage-link interwiki-eu"><a href="//eu.wikipedia.org/wiki/Programazio_konkurrente" title="Programazio konkurrente – Basque" lang="eu" hreflang="eu">Euskara</a></li><li class="interlanguage-link interwiki-fr"><a href="//fr.wikipedia.org/wiki/Programmation_concurrente" title="Programmation concurrente – French" lang="fr" hreflang="fr">Français</a></li><li class="interlanguage-link interwiki-ko"><a href="//ko.wikipedia.org/wiki/%EB%B3%91%ED%96%89_%EC%BB%B4%ED%93%A8%ED%8C%85" title="병행 컴퓨팅 – Korean" lang="ko" hreflang="ko">한국어</a></li><li class="interlanguage-link interwiki-nl"><a href="//nl.wikipedia.org/wiki/Multiprogrammeren" title="Multiprogrammeren – Dutch" lang="nl" hreflang="nl">Nederlands</a></li><li class="interlanguage-link interwiki-ja"><a href="//ja.wikipedia.org/wiki/%E4%B8%A6%E8%A1%8C%E8%A8%88%E7%AE%97" title="並行計算 – Japanese" lang="ja" hreflang="ja">日本語</a></li><li class="interlanguage-link interwiki-pl"><a href="//pl.wikipedia.org/wiki/Przetwarzanie_wsp%C3%B3%C5%82bie%C5%BCne" title="Przetwarzanie współbieżne – Polish" lang="pl" hreflang="pl">Polski</a></li><li class="interlanguage-link interwiki-pt"><a href="//pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_concorrente" title="Programação concorrente – Portuguese" lang="pt" hreflang="pt">Português</a></li><li class="interlanguage-link interwiki-ru"><a href="//ru.wikipedia.org/wiki/%D0%9F%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F" title="Параллельные вычисления – Russian" lang="ru" hreflang="ru">Русский</a></li><li class="interlanguage-link interwiki-sr"><a href="//sr.wikipedia.org/wiki/%D0%9F%D0%B0%D1%80%D0%B0%D0%BB%D0%B5%D0%BB%D0%BD%D0%BE_%D0%B8%D0%B7%D1%80%D0%B0%D1%87%D1%83%D0%BD%D0%B0%D0%B2%D0%B0%D1%9A%D0%B5" title="Паралелно израчунавање – Serbian" lang="sr" hreflang="sr">Српски / srpski</a></li><li class="interlanguage-link interwiki-fi"><a href="//fi.wikipedia.org/wiki/Rinnakkaisuus" title="Rinnakkaisuus – Finnish" lang="fi" hreflang="fi">Suomi</a></li><li class="interlanguage-link interwiki-zh"><a href="//zh.wikipedia.org/wiki/%E5%B9%B6%E5%8F%91%E8%AE%A1%E7%AE%97" title="并发计算 – Chinese" lang="zh" hreflang="zh">中文</a></li><li class="uls-p-lang-dummy"><a href="#"></a></li>					</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a href="//www.wikidata.org/wiki/Q128392#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 2 April 2016, at 02:03.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wmf:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-cookiestatement"><a href="//wikimediafoundation.org/wiki/Cookie_statement">Cookie statement</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Concurrent_computing&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+							<a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>						</li>
+											<li id="footer-poweredbyico">
+							<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","user":"ready","user.groups":"ready"});mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.eventLogging.subscriber","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.visualEditor.targetLoader","ext.wikimediaEvents","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":94,"wgHostname":"mw1111"});});</script>
+	</body>
+</html>
