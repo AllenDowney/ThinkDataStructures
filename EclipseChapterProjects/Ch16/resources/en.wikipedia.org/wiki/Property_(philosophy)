@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Property (philosophy) - Wikipedia, the free encyclopedia</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>window.RLQ = window.RLQ || []; window.RLQ.push( function () {
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Property_(philosophy)","wgTitle":"Property (philosophy)","wgCurRevisionId":702331819,"wgRevisionId":702331819,"wgArticleId":508057,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Pages using citations with accessdate and no URL","Articles with specifically marked weasel-worded phrases from March 2011","Wikipedia articles incorporating text from PlanetMath","Abstraction","Concepts in metaphysics","Mathematical terminology","Mereology","Ontology","Philosophical concepts","Quality"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Property_(philosophy)","wgRelevantArticleId":508057,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","usePageImages":true,"usePageDescriptions":true},"wikilove-recipient":"","wikilove-anon":0,"wgGatherShouldShowTutorial":true,"wgGatherEnableSample":0,"wgGatherPageImageThumbnail":"//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Property_dualism.jpg/100px-Property_dualism.jpg","wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSAcceptLanguageList":[],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgCentralAuthMobileDomain":false,"wgWikibaseItemId":"Q937228","wgVisualEditorToolbarScrollOffset":0}); /* @nomin */mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"}); /* @nomin */ ;
+
+});mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","ext.centralauth.centralautologin","ext.gadget.WatchlistBase","ext.gadget.WatchlistGreenIndicators","mmv.head","ext.visualEditor.desktopArticleTarget.init","ext.uls.init","ext.uls.interface","ext.quicksurveys.init","mw.MediaWikiPlayer.loader","mw.PopUpMediaTransform","ext.centralNotice.bannerController","skins.vector.js"]);
+} );</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cext.gadget.DRN-wizard%2CReferenceTooltips%2CWatchlistBase%2CWatchlistGreenIndicators%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.tmh.thumbnail.styles%7Cext.uls.nojs%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.raggett%2CsectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector" />
+<script async="" src="https://en.wikipedia.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.27.0-wmf.10" />
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Property_(philosophy)" />
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit" />
+<link rel="edit" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit" />
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikipedia.org/w/api.php?action=rsd" />
+<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Property_(philosophy)" />
+<link rel="dns-prefetch" href="https://meta.wikimedia.org/" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static/1.27.0-wmf.10/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Property_philosophy skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Property (philosophy)</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Property_(philosophy)#mw-head">navigation</a>, 					<a href="Property_(philosophy)#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="hatnote">"Determinate" redirects here. For the biology term, see <a href="https://en.wikipedia.org/wiki/Determinate_growth" title="Determinate growth" class="mw-redirect">Determinate growth</a>. For the song, see <a href="https://en.wikipedia.org/wiki/Determinate_(song)" title="Determinate (song)">Determinate (song)</a>.</div>
+<p>In <a href="Modern_philosophy" title="Modern philosophy">modern philosophy</a> and <a href="https://en.wikipedia.org/wiki/Mathematics" title="Mathematics">mathematics</a>, a <b>property</b> is a characteristic of an <a href="https://en.wikipedia.org/wiki/Object_(philosophy)" title="Object (philosophy)">object</a>; a red object is said to have the property of redness. The property may be considered a form of object in its own right, able to possess other properties. A property however differs from individual objects in that it may be <a href="https://en.wikipedia.org/wiki/Instantiation_principle" title="Instantiation principle">instantiated</a>, and often in more than one thing. It differs from the logical/mathematical concept of <a href="https://en.wikipedia.org/wiki/Class_(set_theory)" title="Class (set theory)">class</a> by not having any concept of <a href="https://en.wikipedia.org/wiki/Extensionality" title="Extensionality">extensionality</a>, and from the philosophical concept of <a href="https://en.wikipedia.org/wiki/Class_(philosophy)" title="Class (philosophy)">class</a> in that a property is considered to be distinct from the objects which possess it. Understanding how different individual entities (or particulars) can in some sense have some of the same properties is the basis of the <a href="https://en.wikipedia.org/wiki/Problem_of_universals" title="Problem of universals">problem of universals</a>. The terms <b>attribute</b> and <b>quality</b> have similar meanings.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Property_(philosophy)#Essential_and_accidental_properties"><span class="tocnumber">1</span> <span class="toctext">Essential and accidental properties</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Property_(philosophy)#Determinate_and_determinable_properties"><span class="tocnumber">2</span> <span class="toctext">Determinate and determinable properties</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Property_(philosophy)#Lovely_and_suspect_qualities"><span class="tocnumber">3</span> <span class="toctext">Lovely and suspect qualities</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Property_(philosophy)#Property_dualism"><span class="tocnumber">4</span> <span class="toctext">Property dualism</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Property_(philosophy)#Properties_in_mathematics"><span class="tocnumber">5</span> <span class="toctext">Properties in mathematics</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Property_(philosophy)#Properties_and_predicates"><span class="tocnumber">6</span> <span class="toctext">Properties and predicates</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Property_(philosophy)#Intrinsic_and_extrinsic_properties"><span class="tocnumber">7</span> <span class="toctext">Intrinsic and extrinsic properties</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Property_(philosophy)#Relations"><span class="tocnumber">8</span> <span class="toctext">Relations</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Property_(philosophy)#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Property_(philosophy)#References"><span class="tocnumber">10</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Property_(philosophy)#External_links"><span class="tocnumber">11</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Essential_and_accidental_properties">Essential and accidental properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=1" title="Edit section: Essential and accidental properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In classical <a href="https://en.wikipedia.org/wiki/Aristotelianism" title="Aristotelianism">Aristotelian</a> terminology, a <i>property</i> (Greek: <i>idion</i>, Latin: <i>proprium</i>) is one of the <a href="https://en.wikipedia.org/wiki/Predicables" title="Predicables" class="mw-redirect">predicables</a>. It is a non-<a href="https://en.wikipedia.org/wiki/Essence" title="Essence">essential</a> quality of a species (like an <a href="https://en.wikipedia.org/wiki/Accident_(philosophy)" title="Accident (philosophy)">accident</a>), but a quality which is nevertheless characteristically present in members of that species (and in no others). For example, "ability to laugh" may be considered a special characteristic of human beings. However, "laughter" is not an <i>essential</i> quality of the species <i>human</i>, whose Aristotelian definition of "rational animal" does not require laughter. Thus, in the classical framework, <i>properties</i> are characteristic, but non-essential, qualities.</p>
+<h2><span class="mw-headline" id="Determinate_and_determinable_properties">Determinate and determinable properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=2" title="Edit section: Determinate and determinable properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A property may be classified as either determinate or determinable. A determinable property is one that can get more specific. For example, color is a determinable property because it can be restricted to redness, blueness, etc.<sup id="cite_ref-1" class="reference"><a href="Property_(philosophy)#cite_note-1"><span>[</span>1<span>]</span></a></sup> A determinate property is one that cannot become more specific. This distinction may be useful in dealing with issues of <a href="https://en.wikipedia.org/wiki/Identity_(philosophy)" title="Identity (philosophy)">identity</a>.<sup id="cite_ref-2" class="reference"><a href="Property_(philosophy)#cite_note-2"><span>[</span>2<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="Lovely_and_suspect_qualities">Lovely and suspect qualities</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=3" title="Edit section: Lovely and suspect qualities">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="https://en.wikipedia.org/wiki/Daniel_Dennett" title="Daniel Dennett">Daniel Dennett</a> distinguishes between <i>lovely</i> properties (such as loveliness itself), which, although they require an observer to be recognised, exist latently in perceivable objects; and <i>suspect</i> properties which have no existence at all until attributed by an observer (such as being a suspect in a murder enquiry)<sup id="cite_ref-3" class="reference"><a href="Property_(philosophy)#cite_note-3"><span>[</span>3<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="Property_dualism">Property dualism</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=4" title="Edit section: Property dualism">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="hatnote relarticle mainarticle">Main article: <a href="https://en.wikipedia.org/wiki/Property_dualism" title="Property dualism">Property dualism</a></div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Property_dualism.jpg" class="image"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Property_dualism.jpg/220px-Property_dualism.jpg" width="220" height="190" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/9/99/Property_dualism.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/9/99/Property_dualism.jpg 2x" data-file-width="292" data-file-height="252" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Property_dualism.jpg" class="internal" title="Enlarge"></a></div>
+Property dualism: the exemplification of two kinds of property by one kind of substance</div>
+</div>
+</div>
+<p>Property dualism describes a category of positions in the <a href="https://en.wikipedia.org/wiki/Philosophy_of_mind" title="Philosophy of mind">philosophy of mind</a> which hold that, although the world is constituted of just one kind of <a href="https://en.wikipedia.org/wiki/Substance_theory" title="Substance theory">substance</a>—the physical kind—there exist two distinct kinds of properties: <a href="https://en.wikipedia.org/wiki/Physical_properties" title="Physical properties" class="mw-redirect">physical properties</a> and <a href="https://en.wikipedia.org/wiki/Mental_properties" title="Mental properties" class="mw-redirect">mental properties</a>. In other words, it is the view that non-physical, mental properties (such as beliefs, desires and emotions) inhere in some physical substances (namely brains).</p>
+<h2><span class="mw-headline" id="Properties_in_mathematics">Properties in mathematics</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=5" title="Edit section: Properties in mathematics">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In <a href="https://en.wikipedia.org/wiki/Mathematics" title="Mathematics">mathematical terminology</a>, a property <i>p</i> defined for all elements of a set <i>X</i> is usually defined as a function <i>p</i>: <i>X</i> → {true, false}, that is true whenever the property holds; or equivalently, as the subset of <i>X</i> for which <i>p</i> holds; i.e. the set {<i>x</i>| <i>p</i>(<i>x</i>) = true}; <i>p</i> is its <a href="https://en.wikipedia.org/wiki/Indicator_function" title="Indicator function">indicator function</a>. It may be objected (see above) that this defines merely the <a href="https://en.wikipedia.org/wiki/Extension_(semantics)" title="Extension (semantics)">extension</a> of a property, and says nothing about what causes the property to hold for exactly those values.</p>
+<h2><span class="mw-headline" id="Properties_and_predicates">Properties and predicates</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=6" title="Edit section: Properties and predicates">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The ontological fact that something has a property is typically represented in language by applying a <a href="https://en.wikipedia.org/wiki/Predicate_(grammar)" title="Predicate (grammar)">predicate</a> to a <a href="https://en.wikipedia.org/wiki/Subject_(grammar)" title="Subject (grammar)">subject</a>. However, taking any grammatical predicate whatsoever to be a property, or to have a corresponding property, leads to certain difficulties, such as <a href="https://en.wikipedia.org/wiki/Russell%27s_paradox" title="Russell's paradox">Russell's paradox</a> and the <a href="https://en.wikipedia.org/wiki/Grelling%E2%80%93Nelson_paradox" title="Grelling–Nelson paradox">Grelling–Nelson paradox</a>. Moreover, a real property can imply a host of true predicates: for instance, if X has the property of weighing more than 2 kilos, then the predicates "..weighs more than 1.9 kilos", "..weighs more than 1.8 kilos", etc., are all true of it. Other predicates, such as "is an individual", or "has some properties" are uninformative or vacuous. There is some resistance to regarding such so-called <b>"Cambridge properties"</b> as legitimate.<sup id="cite_ref-4" class="reference"><a href="Property_(philosophy)#cite_note-4"><span>[</span>4<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="Intrinsic_and_extrinsic_properties">Intrinsic and extrinsic properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=7" title="Edit section: Intrinsic and extrinsic properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="hatnote relarticle mainarticle">Main article: <a href="https://en.wikipedia.org/wiki/Intrinsic_and_extrinsic_properties_(philosophy)" title="Intrinsic and extrinsic properties (philosophy)">Intrinsic and extrinsic properties (philosophy)</a></div>
+<p>An <b>intrinsic</b> property is a property that an object or a thing has of itself, independently of other things, including its context. An <b>extrinsic</b> (or <b>relational</b>) property is a property that depends on a thing's relationship with other things. For example, <a href="https://en.wikipedia.org/wiki/Mass" title="Mass">mass</a> is a physical intrinsic property of any <a href="https://en.wikipedia.org/wiki/Physical_body" title="Physical body">physical object</a>, whereas <a href="https://en.wikipedia.org/wiki/Weight" title="Weight">weight</a> is an extrinsic property that varies depending on the strength of the gravitational field in which the <a href="https://en.wikipedia.org/wiki/Respect" title="Respect">respective</a> object is placed.</p>
+<h2><span class="mw-headline" id="Relations">Relations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=8" title="Edit section: Relations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A relation is often considered<sup class="noprint Inline-Template" style="white-space:nowrap;">[<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch#Unsupported_attributions" title="Wikipedia:Manual of Style/Words to watch"><span title="The material near this tag may use weasel words or too-vague attribution. (March 2011)">by whom?</span></a></i>]</sup> to be a more general case of a property. Relations are true of several particulars, or shared amongst them. Thus the relation ".. is taller than .." holds "between" two individuals, who would occupy the two ellipses ('..'). Relations can be expressed by N-place predicates, where N is greater than 1.</p>
+<p>It is widely accepted<sup class="noprint Inline-Template" style="white-space:nowrap;">[<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch#Unsupported_attributions" title="Wikipedia:Manual of Style/Words to watch"><span title="The material near this tag may use weasel words or too-vague attribution. (March 2011)">by whom?</span></a></i>]</sup> that there are at least some apparent relational properties which are merely derived from non-relational (or 1-place) properties. For instance "A is heavier than B" is a relational <i>predicate</i>, but it is derived from the two non relational properties: the mass of A and the mass of B. Such relations are called external relations, as opposed to the more genuine internal relations.<sup id="cite_ref-5" class="reference"><a href="Property_(philosophy)#cite_note-5"><span>[</span>5<span>]</span></a></sup> Some philosophers believe that all relations are external, leading to a scepticism about relations in general, on the basis that external relations have no fundamental existence.</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Abstraction" title="Abstraction">Abstraction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Doctrine_of_internal_relations" title="Doctrine of internal relations">Doctrine of internal relations</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" title="Identity of indiscernibles">Identity of indiscernibles</a> (AKA <a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz" title="Gottfried Wilhelm Leibniz">Leibniz</a>'s law)</li>
+<li><a href="https://en.wikipedia.org/wiki/Intension" title="Intension">Intension</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unary_relation" title="Unary relation" class="mw-redirect">Unary relation</a></li>
+</ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=10" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="Property_(philosophy)#cite_ref-1">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://plato.stanford.edu/entries/determinate-determinables/">Stanford Encyclopaedia of Philosophy <i>Determinate and Determinable Properties</i></a></span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="Property_(philosophy)#cite_ref-2">^</a></b></span> <span class="reference-text"><cite class="citation book">Georges Dicker (1998). <i>Hume's Epistemology &amp; Metaphysics</i>. Routledge. p.&#160;31.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AProperty+%28philosophy%29&amp;rft.au=Georges+Dicker&amp;rft.btitle=Hume%27s+Epistemology+%26+Metaphysics&amp;rft.date=1998&amp;rft.genre=book&amp;rft.pages=31&amp;rft.pub=Routledge&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span> <span style="display:none;font-size:100%" class="error citation-comment"><code style="color:inherit; border:inherit; padding:inherit;">|access-date=</code> requires <code style="color:inherit; border:inherit; padding:inherit;">|url=</code> (<a href="https://en.wikipedia.org/wiki/Help:CS1_errors#accessdate_missing_url" title="Help:CS1 errors">help</a>)</span></span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="Property_(philosophy)#cite_ref-3">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://ase.tufts.edu/cogstud/dennett/papers/lovely&amp;s.htm">Lovely and Suspect Qualities</a></span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="Property_(philosophy)#cite_ref-4">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://plato.stanford.edu/entries/existence/">"... the distinguishing mark of Cambridge properties is precisely that they add nothing to individuals."</a></span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="Property_(philosophy)#cite_ref-5">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www-philosophy.ucdavis.edu/mattey/phi157/mattey/phi156/moore.pdf"></a><a href="https://en.wikipedia.org/wiki/G._E._Moore" title="G. E. Moore">George Moore</a>, <i>External and Internal Relations</i></span></li>
+</ol>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit&amp;section=11" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://plato.stanford.edu/entries/properties">Properties</a> entry by Chris Swoyer, Francesco Orilia in the <i><a href="https://en.wikipedia.org/wiki/Stanford_Encyclopedia_of_Philosophy" title="Stanford Encyclopedia of Philosophy">Stanford Encyclopedia of Philosophy</a></i></li>
+</ul>
+<p><i>This article incorporates material from <a href="http://planetmath.org/node/35001" class="extiw" title="planetmath:35001">property</a> on <a href="https://en.wikipedia.org/wiki/PlanetMath" title="PlanetMath">PlanetMath</a>, which is licensed under the <a href="https://en.wikipedia.org/wiki/Wikipedia:CC-BY-SA" title="Wikipedia:CC-BY-SA" class="mw-redirect">Creative Commons Attribution/Share-Alike License</a>.</i></p>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Metaphysics" title="Template:Metaphysics"><abbr title="View this template" style=";;background:none transparent;border:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Metaphysics" title="Template talk:Metaphysics"><abbr title="Discuss this template" style=";;background:none transparent;border:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Metaphysics&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;">e</abbr></a></li>
+</ul>
+</div>
+<div style="font-size:114%"><a href="https://en.wikipedia.org/wiki/Metaphysics" title="Metaphysics">Metaphysics</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="https://en.wikipedia.org/wiki/Category:Metaphysicians" title="Category:Metaphysicians">Metaphysicians</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Parmenides" title="Parmenides">Parmenides</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Plato" title="Plato">Plato</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Aristotle" title="Aristotle">Aristotle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Plotinus" title="Plotinus">Plotinus</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Duns_Scotus" title="Duns Scotus">Duns Scotus</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Thomas_Aquinas" title="Thomas Aquinas">Thomas Aquinas</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Francisco_Su%C3%A1rez" title="Francisco Suárez">Francisco Suárez</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nicolas_Malebranche" title="Nicolas Malebranche">Nicolas Malebranche</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes" title="René Descartes">René Descartes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/John_Locke" title="John Locke">John Locke</a></li>
+<li><a href="https://en.wikipedia.org/wiki/David_Hume" title="David Hume">David Hume</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Thomas_Reid" title="Thomas Reid">Thomas Reid</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Immanuel_Kant" title="Immanuel Kant">Immanuel Kant</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Isaac_Newton" title="Isaac Newton">Isaac Newton</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Arthur_Schopenhauer" title="Arthur Schopenhauer">Arthur Schopenhauer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Baruch_Spinoza" title="Baruch Spinoza">Baruch Spinoza</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Georg_Wilhelm_Friedrich_Hegel" title="Georg Wilhelm Friedrich Hegel">Georg W. F. Hegel</a></li>
+<li><a href="https://en.wikipedia.org/wiki/George_Berkeley" title="George Berkeley">George Berkeley</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz" title="Gottfried Wilhelm Leibniz">Gottfried Wilhelm Leibniz</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Henri_Bergson" title="Henri Bergson">Henri Bergson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" title="Friedrich Nietzsche">Friedrich Nietzsche</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Charles_Sanders_Peirce" title="Charles Sanders Peirce">Charles Sanders Peirce</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Joseph_Mar%C3%A9chal" title="Joseph Maréchal">Joseph Maréchal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ludwig_Wittgenstein" title="Ludwig Wittgenstein">Ludwig Wittgenstein</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Martin_Heidegger" title="Martin Heidegger">Martin Heidegger</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Alfred_North_Whitehead" title="Alfred North Whitehead">Alfred N. Whitehead</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bertrand_Russell" title="Bertrand Russell">Bertrand Russell</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dorothy_Emmet" title="Dorothy Emmet">Dorothy Emmet</a></li>
+<li><a href="https://en.wikipedia.org/wiki/G._E._Moore" title="G. E. Moore">G. E. Moore</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jean-Paul_Sartre" title="Jean-Paul Sartre">Jean-Paul Sartre</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gilbert_Ryle" title="Gilbert Ryle">Gilbert Ryle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hilary_Putnam" title="Hilary Putnam">Hilary Putnam</a></li>
+<li><a href="https://en.wikipedia.org/wiki/P._F._Strawson" title="P. F. Strawson">P. F. Strawson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R._G._Collingwood" title="R. G. Collingwood">R. G. Collingwood</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adolph_St%C3%B6hr" title="Adolph Stöhr">Adolph Stöhr</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Rudolf_Carnap" title="Rudolf Carnap">Rudolf Carnap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Saul_Kripke" title="Saul Kripke">Saul Kripke</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Willard_Van_Orman_Quine" title="Willard Van Orman Quine">Willard V. O. Quine</a></li>
+<li><a href="https://en.wikipedia.org/wiki/G._E._M._Anscombe" title="G. E. M. Anscombe" class="mw-redirect">G. E. M. Anscombe</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Donald_Davidson_(philosopher)" title="Donald Davidson (philosopher)">Donald Davidson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Michael_Dummett" title="Michael Dummett">Michael Dummett</a></li>
+<li><a href="https://en.wikipedia.org/wiki/David_Malet_Armstrong" title="David Malet Armstrong">David Malet Armstrong</a></li>
+<li><a href="https://en.wikipedia.org/wiki/David_Lewis_(philosopher)" title="David Lewis (philosopher)">David Lewis</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Alvin_Plantinga" title="Alvin Plantinga">Alvin Plantinga</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Peter_van_Inwagen" title="Peter van Inwagen">Peter van Inwagen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Derek_Parfit" title="Derek Parfit">Derek Parfit</a></li>
+<li><i><a href="https://en.wikipedia.org/wiki/List_of_metaphysicians" title="List of metaphysicians">more ...</a></i></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="https://en.wikipedia.org/wiki/Category:Metaphysical_theories" title="Category:Metaphysical theories">Theories</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Abstract_object_theory" title="Abstract object theory">Abstract object theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Action_theory_(philosophy)" title="Action theory (philosophy)">Action theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Anti-realism" title="Anti-realism">Anti-realism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Determinism" title="Determinism">Determinism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dualism" title="Dualism">Dualism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Enactivism_(psychology)" title="Enactivism (psychology)" class="mw-redirect">Enactivism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Essentialism" title="Essentialism">Essentialism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Existentialism" title="Existentialism">Existentialism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Free_will" title="Free will">Free will</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Idealism" title="Idealism">Idealism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Libertarianism_(metaphysics)" title="Libertarianism (metaphysics)">Libertarianism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Liberty" title="Liberty">Liberty</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Materialism" title="Materialism">Materialism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Meaning_of_life" title="Meaning of life">Meaning of life</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Monism" title="Monism">Monism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Naturalism_(philosophy)" title="Naturalism (philosophy)">Naturalism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nihilism" title="Nihilism">Nihilism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Phenomenalism" title="Phenomenalism">Phenomenalism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Philosophical_realism" title="Philosophical realism">Realism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Physicalism" title="Physicalism">Physicalism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pirsig%27s_metaphysics_of_Quality" title="Pirsig's metaphysics of Quality">Pirsig's metaphysics of Quality</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Platonic_idealism" title="Platonic idealism">Platonic idealism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Relativism" title="Relativism">Relativism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scientific_realism" title="Scientific realism">Scientific realism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Solipsism" title="Solipsism">Solipsism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Subjectivism" title="Subjectivism">Subjectivism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Substance_theory" title="Substance theory">Substance theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Type_theory" title="Type theory">Type theory</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="https://en.wikipedia.org/wiki/Category:Concepts_in_metaphysics" title="Category:Concepts in metaphysics">Concepts</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Abstract_and_concrete" title="Abstract and concrete">Abstract object</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Anima_mundi" title="Anima mundi">Anima mundi</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Being" title="Being">Being</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Category_of_being" title="Category of being">Category of being</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Causality" title="Causality">Causality</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Choice" title="Choice">Choice</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cogito_ergo_sum" title="Cogito ergo sum">Cogito ergo sum</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Concept" title="Concept">Concept</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Embodied_cognition" title="Embodied cognition">Embodied cognition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Entity" title="Entity">Entity</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Essence" title="Essence">Essence</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Existence" title="Existence">Existence</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Experience" title="Experience">Experience</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hypostatic_abstraction" title="Hypostatic abstraction">Hypostatic abstraction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Idea" title="Idea">Idea</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Identity_(philosophy)" title="Identity (philosophy)">Identity</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Identity_and_change" title="Identity and change">Identity and change</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Information" title="Information">Information</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Insight" title="Insight">Insight</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Intelligence" title="Intelligence">Intelligence</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Intention" title="Intention">Intention</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linguistic_modality" title="Linguistic modality">Linguistic modality</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Matter_(philosophy)" title="Matter (philosophy)">Matter</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Meaning_(existential)" title="Meaning (existential)">Meaning</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Memetics" title="Memetics">Memetics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mental_representation" title="Mental representation">Mental representation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mind" title="Mind">Mind</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Motion_(physics)" title="Motion (physics)">Motion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Necessity" title="Necessity">Necessity</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Notion_(philosophy)" title="Notion (philosophy)">Notion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Object_(philosophy)" title="Object (philosophy)">Object</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pattern" title="Pattern">Pattern</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Perception" title="Perception">Perception</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Physical_body" title="Physical body">Physical body</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Principle" title="Principle">Principle</a></li>
+<li><strong class="selflink">Property</strong></li>
+<li><a href="https://en.wikipedia.org/wiki/Qualia" title="Qualia">Qualia</a></li>
+<li><a href="Quality_(philosophy)" title="Quality (philosophy)">Quality</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Reality" title="Reality">Reality</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Soul" title="Soul">Soul</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Subject_(philosophy)" title="Subject (philosophy)">Subject</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Substantial_form" title="Substantial form">Substantial form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Thought" title="Thought">Thought</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Time" title="Time">Time</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Truth" title="Truth">Truth</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Type%E2%80%93token_distinction" title="Type–token distinction">Type–token distinction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Universal_(metaphysics)" title="Universal (metaphysics)">Universal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unobservable" title="Unobservable">Unobservable</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Value_(ethics)" title="Value (ethics)">Value</a></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Index_of_metaphysics_articles" title="Index of metaphysics articles">more ...</a></i></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Related topics</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Axiology" title="Axiology">Axiology</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cosmology" title="Cosmology">Cosmology</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Epistemology" title="Epistemology">Epistemology</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Feminist_metaphysics" title="Feminist metaphysics">Feminist metaphysics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpretations_of_quantum_mechanics" title="Interpretations of quantum mechanics">Interpretations of quantum mechanics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Meta" title="Meta">Meta-</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ontology" title="Ontology">Ontology</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Philosophy_of_mind" title="Philosophy of mind">Philosophy of mind</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Philosophy_of_psychology" title="Philosophy of psychology">Philosophy of psychology</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Philosophy_of_self" title="Philosophy of self">Philosophy of self</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Philosophy_of_space_and_time" title="Philosophy of space and time">Philosophy of space and time</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Teleology" title="Teleology">Teleology</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Theoretical_physics" title="Theoretical physics">Theoretical physics</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><img alt="Category" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/16px-Folder_Hexagonal_Icon.svg.png" title="Category" width="16" height="14" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/24px-Folder_Hexagonal_Icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/32px-Folder_Hexagonal_Icon.svg.png 2x" data-file-width="36" data-file-height="31" /> <a href="https://en.wikipedia.org/wiki/Category:Metaphysics" title="Category:Metaphysics">Category</a></li>
+<li><img alt="Portal" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Portal-puzzle.svg/16px-Portal-puzzle.svg.png" title="Portal" width="16" height="14" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/fd/Portal-puzzle.svg/24px-Portal-puzzle.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/fd/Portal-puzzle.svg/32px-Portal-puzzle.svg.png 2x" data-file-width="32" data-file-height="28" /> <a href="https://en.wikipedia.org/wiki/Portal:Metaphysics" title="Portal:Metaphysics">Portal</a></li>
+<li><img alt="WikiProject" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/People_icon.svg/16px-People_icon.svg.png" title="WikiProject" width="16" height="16" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/37/People_icon.svg/24px-People_icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/37/People_icon.svg/32px-People_icon.svg.png 2x" data-file-width="100" data-file-height="100" /> <a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Philosophy/Metaphysics" title="Wikipedia:WikiProject Philosophy/Metaphysics">WikiProject</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks hlist collapsible collapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Philosophy_of_language" title="Template:Philosophy of language"><abbr title="View this template" style=";;background:none transparent;border:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Philosophy_of_language" title="Template talk:Philosophy of language"><abbr title="Discuss this template" style=";;background:none transparent;border:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Philosophy_of_language&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;">e</abbr></a></li>
+</ul>
+</div>
+<div style="font-size:114%"><a href="https://en.wikipedia.org/wiki/Philosophy_of_language" title="Philosophy of language">Philosophy of language</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="https://en.wikipedia.org/wiki/List_of_philosophers_of_language" title="List of philosophers of language">Philosophers</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Plato" title="Plato">Plato</a> (<i><a href="https://en.wikipedia.org/wiki/Cratylus_(dialogue)" title="Cratylus (dialogue)">Cratylus</a></i>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Gorgias" title="Gorgias">Gorgias</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Confucius" title="Confucius">Confucius</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Xun_Kuang" title="Xun Kuang">Xunzi</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Aristotle" title="Aristotle">Aristotle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stoicism" title="Stoicism">Stoics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pyrrhonism" title="Pyrrhonism">Pyrrhonists</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scholasticism" title="Scholasticism">Scholasticism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Averroes" title="Averroes">Ibn Rushd</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ibn_Khaldun" title="Ibn Khaldun">Ibn Khaldun</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Thomas_Hobbes" title="Thomas Hobbes">Thomas Hobbes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz" title="Gottfried Wilhelm Leibniz">Gottfried Wilhelm Leibniz</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Johann_Gottfried_Herder" title="Johann Gottfried Herder">Johann Herder</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ludwig_Noire" title="Ludwig Noire" class="mw-redirect">Ludwig Noire</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wilhelm_von_Humboldt" title="Wilhelm von Humboldt">Wilhelm von Humboldt</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fritz_Mauthner" title="Fritz Mauthner">Fritz Mauthner</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Paul_Ric%C5%93ur" title="Paul Ricœur">Paul Ricœur</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ferdinand_de_Saussure" title="Ferdinand de Saussure">Ferdinand de Saussure</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gottlob_Frege" title="Gottlob Frege">Gottlob Frege</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Franz_Boas" title="Franz Boas">Franz Boas</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Paul_Tillich" title="Paul Tillich">Paul Tillich</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Edward_Sapir" title="Edward Sapir">Edward Sapir</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leonard_Bloomfield" title="Leonard Bloomfield">Leonard Bloomfield</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Zhuang_Zhou" title="Zhuang Zhou">Zhuangzi</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Henri_Bergson" title="Henri Bergson">Henri Bergson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lev_Vygotsky" title="Lev Vygotsky">Lev Vygotsky</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ludwig_Wittgenstein" title="Ludwig Wittgenstein">Ludwig Wittgenstein</a>
+<ul>
+<li><i><a href="https://en.wikipedia.org/wiki/Philosophical_Investigations" title="Philosophical Investigations">Philosophical Investigations</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Tractatus_Logico-Philosophicus" title="Tractatus Logico-Philosophicus">Tractatus Logico-Philosophicus</a></i></li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Bertrand_Russell" title="Bertrand Russell">Bertrand Russell</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Rudolf_Carnap" title="Rudolf Carnap">Rudolf Carnap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jacques_Derrida" title="Jacques Derrida">Jacques Derrida</a>
+<ul>
+<li><i><a href="https://en.wikipedia.org/wiki/Of_Grammatology" title="Of Grammatology">Of Grammatology</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Limited_Inc" title="Limited Inc">Limited Inc</a></i></li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Benjamin_Lee_Whorf" title="Benjamin Lee Whorf">Benjamin Lee Whorf</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gustav_Bergmann" title="Gustav Bergmann">Gustav Bergmann</a></li>
+<li><a href="https://en.wikipedia.org/wiki/J._L._Austin" title="J. L. Austin">J. L. Austin</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Noam_Chomsky" title="Noam Chomsky">Noam Chomsky</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hans-Georg_Gadamer" title="Hans-Georg Gadamer">Hans-Georg Gadamer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Saul_Kripke" title="Saul Kripke">Saul Kripke</a></li>
+<li><a href="https://en.wikipedia.org/wiki/A._J._Ayer" title="A. J. Ayer">A. J. Ayer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/G._E._M._Anscombe" title="G. E. M. Anscombe" class="mw-redirect">G. E. M. Anscombe</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jaakko_Hintikka" title="Jaakko Hintikka">Jaakko Hintikka</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Michael_Dummett" title="Michael Dummett">Michael Dummett</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Donald_Davidson_(philosopher)" title="Donald Davidson (philosopher)">Donald Davidson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Paul_Grice" title="Paul Grice">Paul Grice</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gilbert_Ryle" title="Gilbert Ryle">Gilbert Ryle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/P._F._Strawson" title="P. F. Strawson">P. F. Strawson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Willard_Van_Orman_Quine" title="Willard Van Orman Quine">Willard Van Orman Quine</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hilary_Putnam" title="Hilary Putnam">Hilary Putnam</a></li>
+<li><a href="https://en.wikipedia.org/wiki/David_Lewis_(philosopher)" title="David Lewis (philosopher)">David Lewis</a></li>
+<li><a href="https://en.wikipedia.org/wiki/John_Searle" title="John Searle">John Searle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Joxe_Azurmendi" title="Joxe Azurmendi">Joxe Azurmendi</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scott_Soames" title="Scott Soames">Scott Soames</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stephen_Yablo" title="Stephen Yablo">Stephen Yablo</a></li>
+<li><a href="https://en.wikipedia.org/wiki/John_Hawthorne" title="John Hawthorne">John Hawthorne</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stephen_Neale" title="Stephen Neale">Stephen Neale</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="https://en.wikipedia.org/wiki/Category:Theories_of_language" title="Category:Theories of language">Theories</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Causal_theory_of_reference" title="Causal theory of reference">Causal theory of reference</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Contrast_theory_of_meaning" title="Contrast theory of meaning" class="mw-redirect">Contrast theory of meaning</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Contrastivism" title="Contrastivism">Contrastivism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Conventionalism" title="Conventionalism">Conventionalism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cratylism" title="Cratylism">Cratylism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deconstruction" title="Deconstruction">Deconstruction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Descriptivist_theory_of_names" title="Descriptivist theory of names">Descriptivist theory of names</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Direct_reference_theory" title="Direct reference theory">Direct reference theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dramatism" title="Dramatism">Dramatism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Expressivism" title="Expressivism">Expressivism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linguistic_determinism" title="Linguistic determinism">Linguistic determinism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Logical_atomism" title="Logical atomism">Logical atomism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Logical_positivism" title="Logical positivism">Logical positivism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mediated_reference_theory" title="Mediated reference theory">Mediated reference theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nominalism" title="Nominalism">Nominalism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Non-cognitivism" title="Non-cognitivism">Non-cognitivism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Phallogocentrism" title="Phallogocentrism">Phallogocentrism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quietism_(philosophy)" title="Quietism (philosophy)">Quietism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Relevance_theory" title="Relevance theory">Relevance theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Semantic_externalism" title="Semantic externalism">Semantic externalism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Semantic_holism" title="Semantic holism">Semantic holism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Structuralism" title="Structuralism">Structuralism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Supposition_theory" title="Supposition theory">Supposition theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Symbiosism" title="Symbiosism">Symbiosism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Theological_noncognitivism" title="Theological noncognitivism">Theological noncognitivism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Theory_of_descriptions" title="Theory of descriptions">Theory of descriptions</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Verification_theory" title="Verification theory" class="mw-redirect">Verification theory</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Concepts</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Ambiguity" title="Ambiguity">Ambiguity</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linguistic_relativity" title="Linguistic relativity">Linguistic relativity</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Meaning_(linguistics)" title="Meaning (linguistics)">Meaning</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Language" title="Language">Language</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Truth-bearer" title="Truth-bearer">Truth-bearer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proposition" title="Proposition">Proposition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Use%E2%80%93mention_distinction" title="Use–mention distinction">Use–mention distinction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Concept" title="Concept">Concept</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Categorization" title="Categorization">Categories</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Set_(mathematics)" title="Set (mathematics)">Set</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Class_(philosophy)" title="Class (philosophy)">Class</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Intension" title="Intension">Intension</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Logical_form" title="Logical form">Logical form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Metalanguage" title="Metalanguage">Metalanguage</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mental_representation" title="Mental representation">Mental representation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Principle_of_compositionality" title="Principle of compositionality">Principle of compositionality</a></li>
+<li><strong class="selflink">Property</strong></li>
+<li><a href="https://en.wikipedia.org/wiki/Sign_(semiotics)" title="Sign (semiotics)">Sign</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sense_and_reference" title="Sense and reference">Sense and reference</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Speech_act" title="Speech act">Speech act</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Symbol" title="Symbol">Symbol</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Entity" title="Entity">Entity</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sentence_(linguistics)" title="Sentence (linguistics)">Sentence</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Statement_(logic)" title="Statement (logic)">Statement</a></li>
+<li><b><a href="https://en.wikipedia.org/wiki/Index_of_philosophy_of_language_articles" title="Index of philosophy of language articles">more...</a></b></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Related articles</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Analytic_philosophy" title="Analytic philosophy">Analytic philosophy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Philosophy_of_information" title="Philosophy of information">Philosophy of information</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Philosophical_logic" title="Philosophical logic">Philosophical logic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linguistics" title="Linguistics">Linguistics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pragmatics" title="Pragmatics">Pragmatics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Rhetoric" title="Rhetoric">Rhetoric</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Semantics" title="Semantics">Semantics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Formal_semantics_(linguistics)" title="Formal semantics (linguistics)">Formal semantics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Semiotics" title="Semiotics">Semiotics</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Category:Philosophy_of_language" title="Category:Philosophy of language">Category</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Philosophy/Language" title="Wikipedia:WikiProject Philosophy/Language">Task Force</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wikipedia_talk:WikiProject_Philosophy" title="Wikipedia talk:WikiProject Philosophy">Discussion</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1174
+Cached time: 20160129225011
+Cache expiry: 2592000
+Dynamic content: false
+CPU time usage: 0.194 seconds
+Real time usage: 0.249 seconds
+Preprocessor visited node count: 665/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 40466/2097152 bytes
+Template argument size: 1112/2097152 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 2/500
+Lua time usage: 0.059/10.000 seconds
+Lua memory usage: 2.12 MB/50 MB
+Number of Wikibase entities loaded: 0-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  164.311      1 - -total
+ 24.31%   39.950      2 - Template:By_whom
+ 21.12%   34.698      1 - Template:Cite_book
+ 20.31%   33.366      2 - Template:Fix
+ 17.48%   28.727      2 - Template:Category_handler
+ 16.78%   27.565      2 - Template:Navbox
+ 15.00%   24.645      1 - Template:Metaphysics
+ 14.59%   23.980      1 - Template:Redirect
+  7.55%   12.401      2 - Template:Main
+  5.78%    9.494      3 - Template:Icon
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:508057-0!*!0!!en!4!* and timestamp 20160129225011 and revision id 702331819
+ -->
+<noscript><img src="https://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;oldid=702331819">https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;oldid=702331819</a>"					</div>
+				<div id='catlinks' class='catlinks' data-mw='interface'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Abstraction" title="Category:Abstraction">Abstraction</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Concepts_in_metaphysics" title="Category:Concepts in metaphysics">Concepts in metaphysics</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Mathematical_terminology" title="Category:Mathematical terminology">Mathematical terminology</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Mereology" title="Category:Mereology">Mereology</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Ontology" title="Category:Ontology">Ontology</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Philosophical_concepts" title="Category:Philosophical concepts">Philosophical concepts</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Quality" title="Category:Quality">Quality</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Pages_using_citations_with_accessdate_and_no_URL" title="Category:Pages using citations with accessdate and no URL">Pages using citations with accessdate and no URL</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_specifically_marked_weasel-worded_phrases_from_March_2011" title="Category:Articles with specifically marked weasel-worded phrases from March 2011">Articles with specifically marked weasel-worded phrases from March 2011</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Wikipedia_articles_incorporating_text_from_PlanetMath" title="Category:Wikipedia articles incorporating text from PlanetMath">Wikipedia articles incorporating text from PlanetMath</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Property+%28philosophy%29&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Property+%28philosophy%29" title="You're encouraged to log in; however, it's not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="https://en.wikipedia.org/wiki/Property_(philosophy)"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="https://en.wikipedia.org/wiki/Talk:Property_(philosophy)"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="Property_(philosophy)#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="https://en.wikipedia.org/wiki/Property_(philosophy)" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=edit"  title="Edit this page [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Property_(philosophy)#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://en.wikipedia.org/w/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton" />							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage-description"><a href="https://en.wikipedia.org/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="https://en.wikipedia.org/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="https://en.wikipedia.org/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="https://en.wikipedia.org/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="https://shop.wikimedia.org/" title="Visit the Wikipedia store">Wikipedia store</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-help"><a href="https://en.wikipedia.org/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Property_(philosophy)" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Property_(philosophy)" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;oldid=702331819" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Q937228" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Property_%28philosophy%29&amp;id=702331819" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+						<li id="coll-create_a_book"><a href="https://en.wikipedia.org/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Property+%28philosophy%29">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="https://en.wikipedia.org/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Property+%28philosophy%29&amp;returnto=Property+%28philosophy%29&amp;oldid=702331819&amp;writer=rdf2latex">Download as PDF</a></li><li id="t-print"><a href="https://en.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+						<li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%AE%D8%A7%D8%B5%D9%8A%D8%A9_(%D9%81%D9%84%D8%B3%D9%81%D8%A9)" title="خاصية (فلسفة) – Arabic" lang="ar" hreflang="ar">العربية</a></li><li class="interlanguage-link interwiki-be"><a href="https://be.wikipedia.org/wiki/%D0%A3%D0%BB%D0%B0%D1%81%D1%86%D1%96%D0%B2%D0%B0%D1%81%D1%86%D1%8C" title="Уласцівасць – Belarusian" lang="be" hreflang="be">Беларуская</a></li><li class="interlanguage-link interwiki-bxr"><a href="https://bxr.wikipedia.org/wiki/%D0%A8%D1%8D%D0%BD%D0%B6%D1%8D" title="Шэнжэ – буряад" lang="bxr" hreflang="bxr">Буряад</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Eigenschaft" title="Eigenschaft – German" lang="de" hreflang="de">Deutsch</a></li><li class="interlanguage-link interwiki-et"><a href="https://et.wikipedia.org/wiki/Omadus" title="Omadus – Estonian" lang="et" hreflang="et">Eesti</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Propiedad_(l%C3%B3gica)" title="Propiedad (lógica) – Spanish" lang="es" hreflang="es">Español</a></li><li class="interlanguage-link interwiki-eo"><a href="https://eo.wikipedia.org/wiki/Eco" title="Eco – Esperanto" lang="eo" hreflang="eo">Esperanto</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Propri%C3%A9t%C3%A9_(philosophie)" title="Propriété (philosophie) – French" lang="fr" hreflang="fr">Français</a></li><li class="interlanguage-link interwiki-hy"><a href="https://hy.wikipedia.org/wiki/%D5%80%D5%A1%D5%BF%D5%AF%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6" title="Հատկություն – Armenian" lang="hy" hreflang="hy">Հայերեն</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%AA%D7%9B%D7%95%D7%A0%D7%94_(%D7%A4%D7%99%D7%9C%D7%95%D7%A1%D7%95%D7%A4%D7%99%D7%94)" title="תכונה (פילוסופיה) – Hebrew" lang="he" hreflang="he">עברית</a></li><li class="interlanguage-link interwiki-kk"><a href="https://kk.wikipedia.org/wiki/%D2%9A%D0%B0%D1%81%D0%B8%D0%B5%D1%82" title="Қасиет – Kazakh" lang="kk" hreflang="kk">Қазақша</a></li><li class="interlanguage-link interwiki-hu"><a href="https://hu.wikipedia.org/wiki/Tulajdons%C3%A1g" title="Tulajdonság – Hungarian" lang="hu" hreflang="hu">Magyar</a></li><li class="interlanguage-link interwiki-nl"><a href="https://nl.wikipedia.org/wiki/Eigenschap_(filosofie)" title="Eigenschap (filosofie) – Dutch" lang="nl" hreflang="nl">Nederlands</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.wikipedia.org/wiki/Propriedade_(filosofia)" title="Propriedade (filosofia) – Portuguese" lang="pt" hreflang="pt">Português</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%BE" title="Свойство – Russian" lang="ru" hreflang="ru">Русский</a></li><li class="interlanguage-link interwiki-ckb"><a href="https://ckb.wikipedia.org/wiki/%D8%B3%D8%A7%D9%85%D8%A7%D9%86_(%D9%81%DB%95%D9%84%D8%B3%DB%95%D9%81%DB%95)" title="سامان (فەلسەفە) – Central Kurdish" lang="ckb" hreflang="ckb">کوردیی ناوەندی</a></li><li class="interlanguage-link interwiki-fi"><a href="https://fi.wikipedia.org/wiki/Ominaisuus" title="Ominaisuus – Finnish" lang="fi" hreflang="fi">Suomi</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%92%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%B2%D1%96%D1%81%D1%82%D1%8C" title="Властивість – Ukrainian" lang="uk" hreflang="uk">Українська</a></li><li class="uls-p-lang-dummy"><a href="Property_(philosophy)#"></a></li>					</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Q937228#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 29 January 2016, at 22:50.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="https://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="https://wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="https://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wikimediafoundation.org/wiki/Privacy_policy" title="wmf:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-mobileview"><a href="https://en.m.wikipedia.org/w/index.php?title=Property_(philosophy)&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-cookiestatement"><a href="https://wikimediafoundation.org/wiki/Cookie_statement">Cookie statement</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+							<a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>						</li>
+											<li id="footer-poweredbyico">
+							<a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/1.27.0-wmf.10/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/1.27.0-wmf.10/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /static/1.27.0-wmf.10/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>window.RLQ = window.RLQ || []; window.RLQ.push( function () {
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","user":"ready","user.groups":"ready"});mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.eventLogging.subscriber","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.visualEditor.targetLoader","ext.wikimediaEvents","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"]);
+} );</script><script>window.RLQ = window.RLQ || []; window.RLQ.push( function () {
+mw.config.set({"wgBackendResponseTime":69,"wgHostname":"mw1242"}); /* @nomin */
+} );</script>
+	</body>
+</html>
