@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/solutions/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/solutions/lib/servlet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/solutions/lib/commons-math3-3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/solutions/lib/jfreechart-1.0.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/solutions/lib/hamcrest-library-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/solutions/lib/ant-junit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/solutions/lib/jedis-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/solutions/lib/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/solutions/lib/jsoup-1.8.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/solutions/lib/jcommon-1.0.23.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
