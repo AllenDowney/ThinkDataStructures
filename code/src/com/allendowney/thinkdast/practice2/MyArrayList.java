@@ -57,12 +57,11 @@ public class MyArrayList<T> implements List<T> {
 		return true;
 	}
 
+    /* 실제로는 System.arraycopy를 이용하여 구현되어 있음 */
 	@Override
 	public void add(int index, T element) {
-        /* rangeCehckForAdd(index) */
-		if (index < 0 || index > size) {
-			throw new IndexOutOfBoundsException();
-		}
+        /* rangeCheckForAdd(index) */
+		rangeCheckForAdd(index);
 		// add the element to get the resizing
 		add(element);
 
@@ -73,6 +72,14 @@ public class MyArrayList<T> implements List<T> {
 		// put the new one in the right place
 		array[index] = element;
 	}
+
+    private void rangeCheckForAdd(int index) {
+        if(index < 0 || index > size) {
+            throw new IndexOutOfBoundsException(outOfBoundMsg(index));
+        }
+    }
+
+    private String outOfBoundMsg(int index) { return "Index: " + index +", Size: " + size(); }
 
 	@Override
 	public boolean addAll(Collection<? extends T> collection) {
