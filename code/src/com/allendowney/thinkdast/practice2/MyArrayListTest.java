@@ -1,4 +1,4 @@
-package com.allendowney.thinkdast;
+package com.allendowney.thinkdast.practice2;
 
 //import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;

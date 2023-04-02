@@ -1,4 +1,4 @@
-package com.allendowney.thinkdast;
+package com.allendowney.thinkdast.practice2;
 
 import java.util.Arrays;
 import java.util.Collection;

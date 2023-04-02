@@ -1,10 +1,12 @@
 /**
  * 
  */
-package com.allendowney.thinkdast;
+package com.allendowney.thinkdast.practice3;
 
 import java.util.ArrayList;
 
+import com.allendowney.thinkdast.practice2.MyArrayListTest;
+import com.allendowney.thinkdast.practice3.MyLinkedList;
 import org.junit.Before;
 
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.allendowney.thinkdast;
+package com.allendowney.thinkdast.practice3;
 
 import java.util.Arrays;
 import java.util.Collection;
