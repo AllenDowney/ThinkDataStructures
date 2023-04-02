@@ -140,7 +140,7 @@ public class MyArrayList<T> implements List<T> {
 	 * Handles the special case that the target is null.
 	 *
 	 * @param target
-	 * @param object
+	 * @param element
 	 */
 	private boolean equals(Object target, Object element) {
 		if (target == null) {
@@ -202,8 +202,13 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public T remove(int index) {
-		// TODO: FILL THIS IN!
-		return null;
+        final int newSize = size = 1; // index < newSize
+        T oldValue = get(index);
+        if(index < newSize) {
+            System.arraycopy(array, index+1, array, index, newSize - index);
+        }
+        array[size = newSize] = null;
+		return oldValue;
 	}
 
 	@Override
