@@ -45,11 +45,21 @@ public class MyArrayList<T> implements List<T> {
 	@Override
 	public boolean add(T element) {
 		// TODO: FILL THIS IN!
-		return false;
+        /* validate Size */
+        if(array.length == size) {
+            /* grow() */
+            T[] temp = (T[]) new Object[size * 2];
+            System.arraycopy(array, 0, temp, 0, size);
+            array = temp;
+        }
+        /* add */
+        array[size++] = element;
+		return true;
 	}
 
 	@Override
 	public void add(int index, T element) {
+        /* rangeCehckForAdd(index) */
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
 		}
