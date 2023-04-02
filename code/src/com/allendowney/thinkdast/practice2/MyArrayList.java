@@ -44,7 +44,6 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public boolean add(T element) {
-		// TODO: FILL THIS IN!
         /* validate Size */
         if(array.length == size) {
             /* grow() */
