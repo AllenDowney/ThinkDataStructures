@@ -127,8 +127,8 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public int indexOf(Object target) {
-        for(int i = 0; i < size(); i++) {
-            if(equals(target, array[i])) {
+        for (int i = 0; i < size; i++) {
+            if (equals(target, array[i])) {
                 return i;
             }
         }
@@ -222,8 +222,9 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public T set(int index, T element) {
-		// TODO: FILL THIS IN!
-		return null;
+        T oldValue = get(index);
+        array[index] = element;
+		return oldValue;
 	}
 
 	@Override
