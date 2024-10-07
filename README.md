@@ -2,6 +2,7 @@
 
 LaTeX source and supporting code for *Think Data Structures: Algorithms and Information Retrieval in Java*
 
+This is an edit to demostrate a commit,, now I am going to pull request.
 
 Data structures and algorithms are among the most important inventions
 of the last 50 years, and they are fundamental tools
