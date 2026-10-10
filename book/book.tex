@@ -6,7 +6,7 @@
 \newcommand{\thetitle}{Think Data Structures}
 \newcommand{\thesubtitle}{Algorithms and Information Retrieval in Java}
 \newcommand{\theauthors}{Allen B. Downey}
-\newcommand{\theversion}{1.0.1}
+\newcommand{\theversion}{1.1.0}
 
 %%%% Both LATEX and PLASTEX
 
@@ -164,14 +164,14 @@ Needham, MA 02492
 Permission is granted to copy, distribute, and/or modify this work
 under the terms of the Creative Commons
 Attribution-NonCommercial-ShareAlike 3.0 Unported License, which is
-available at \url{http://thinkdast.com/cc30}.
+available at \url{https://greenteapress.com/dast/cc30}.
 
 The original form of this book is \LaTeX\ source code.  Compiling this
 code has the effect of generating a device-independent representation
 of the book, which can be converted to other formats and printed.
 
 The \LaTeX\ source for this book is available from
-\url{http://thinkdast.com/repo}.
+\url{https://greenteapress.com/dast/repo}.
 
 %--table of contents------------------------------------------
 
@@ -200,7 +200,7 @@ Copyright \copyright ~2016 \theauthors.
 Permission is granted to copy, distribute, and/or modify this work
 under the terms of the Creative Commons
 Attribution-NonCommercial-ShareAlike 3.0 Unported License, which is
-available at \url{http://thinkdast.com/cc30}.
+available at \url{https://greenteapress.com/dast/cc30}.
 
 \vspace{1em}
 
@@ -306,7 +306,7 @@ language.
 
 If you are not familiar with interfaces in Java, you might want to
 work through the tutorial called ``What Is an Interface?'' at
-\url{http://thinkdast.com/interface}.
+\url{https://greenteapress.com/dast/interface}.
 
 \index{interface}
 
@@ -326,13 +326,13 @@ language feature.
 You should also be familiar with type parameters and generic types.
 For example, you should know how create an object with a type
 parameter, like \java{ArrayList<Integer>}.  If not, you can read about
-type parameters at \url{http://thinkdast.com/types}.
+type parameters at \url{https://greenteapress.com/dast/types}.
 
 \index{type parameter}
 
 You should be familiar with the Java Collections Framework
 (JCF), which you can read about at
-\url{http://thinkdast.com/collections}.
+\url{https://greenteapress.com/dast/collections}.
 In particular, you should know about the \java{List} \java{interface}
 and the classes \java{ArrayList} and \java{LinkedList}.
 
@@ -341,14 +341,14 @@ and the classes \java{ArrayList} and \java{LinkedList}.
 
 Ideally you should be familiar with Apache Ant, which is an automated
 build tool for Java.  You can read more about Ant at
-\url{http://thinkdast.com/anttut}.
+\url{https://greenteapress.com/dast/anttut}.
 
 \index{Apache Ant}
 \index{Ant}
 
 And you should be familiar with {\tt JUnit}, which is a unit testing
 framework for Java.  You can read more about it at
-\url{http://thinkdast.com/junit}.
+\url{https://greenteapress.com/dast/junit}.
 
 \index{JUnit}
 
@@ -357,7 +357,7 @@ framework for Java.  You can read more about it at
 \label{code}
 
 The code for this book is in a Git repository at
-\url{http://thinkdast.com/repo}.
+\url{https://greenteapress.com/dast/repo}.
 
 \index{Git}
 \index{version control}
@@ -391,7 +391,7 @@ the code:
 
 \item If you don't want to use Git at all, you can download the code
   in a ZIP archive using the {\sf Download} button on the GitHub
-  page, or this link: \url{http://thinkdast.com/zip}.
+  page, or this link: \url{https://greenteapress.com/dast/zip}.
 
 \end{itemize}
 
@@ -495,7 +495,7 @@ work on the first application: a program that reads pages from Wikipedia,
 parses the contents, and navigates the resulting tree to find links
 and other features.  We'll use these tools to test the ``Getting
 to Philosophy'' conjecture (you can get a preview by reading
-\url{http://thinkdast.com/getphil}).
+\url{https://greenteapress.com/dast/getphil}).
 
 \index{tree}
 \index{Getting to Philosophy}
@@ -622,7 +622,7 @@ checks that it provides all methods defined by the
 As an aside, this implementation of \java{compareTo} uses the
 ``ternary operator'', sometimes written \java{?:}.  If you are not
 familiar with it, you can read about it at
-\url{http://thinkdast.com/ternary}.
+\url{https://greenteapress.com/dast/ternary}.
 
 
 \section{The List interface}
@@ -701,7 +701,7 @@ changes.
 
 This style is called {\bf interface-based programming},
 or more casually, ``programming to an interface''
-(see \url{http://thinkdast.com/interbaseprog}).
+(see \url{https://greenteapress.com/dast/interbaseprog}).
 Here we are talking about the general idea of an interface,
 not a Java \java{interface}.
 
@@ -934,7 +934,7 @@ Most simple algorithms fall into just a few categories.
 
 For example, here's an implementation of a simple algorithm called
 {\bf selection sort}
-(see \url{http://thinkdast.com/selectsort}):
+(see \url{https://greenteapress.com/dast/selectsort}):
 
 \begin{verbatim}
 public class SelectionSort {
@@ -1045,7 +1045,7 @@ algorithms belong to $O(n^2)$. This way of classifying algorithms is called
 
 NOTE: I am providing a casual definition of big O notation. For a more
 mathematical treatment, see
-\url{http://thinkdast.com/bigo}.
+\url{https://greenteapress.com/dast/bigo}.
 
 This notation provides a convenient way to write general rules about how
 algorithms behave when we compose them. For example, if you perform a
@@ -1164,7 +1164,7 @@ parameter; for example, the following will not work:
 
 To work around this limitation, you have to instantiate an array of
 \java{Object} and then typecast it. You can read more about this issue
-at \url{http://thinkdast.com/generics}.
+at \url{https://greenteapress.com/dast/generics}.
 
 Next we'll look at the method that adds elements to the list:
 
@@ -1191,7 +1191,7 @@ array and increment \java{size}.
 It might not be obvious why this method returns a boolean, since it
 seems like it always returns \java{true}. As always, you can find the
 answer in the documentation:
-\url{http://thinkdast.com/colladd}.
+\url{https://greenteapress.com/dast/colladd}.
 It's also not obvious how to analyze the performance of this
 method. In the normal case, it's constant time, but if we have to
 resize the array, it's linear. I'll explain how to handle this in
@@ -1231,7 +1231,7 @@ looks like this:
 \end{verbatim}
 
 Read the documentation of \java{set} at
-\url{http://thinkdast.com/listset}, then fill in the body of this
+\url{https://greenteapress.com/dast/listset}, then fill in the body of this
 method. If you run \java{MyArrayListTest} again, \java{testSet} should
 pass.
 
@@ -1240,7 +1240,7 @@ pass.
 HINT: Try to avoid repeating the index-checking code.
 
 Your next mission is to fill in \java{indexOf}. As usual, you should
-read the documentation at \url{http://thinkdast.com/listindof} so you
+read the documentation at \url{https://greenteapress.com/dast/listindof} so you
 know what it's supposed to do. In particular, notice how it is
 supposed to handle \java{null}.
 
@@ -1267,19 +1267,19 @@ the other elements to make room, if necessary.
 
 \index{add}
 
-Again, read the documentation at \url{http://thinkdast.com/listadd},
+Again, read the documentation at \url{https://greenteapress.com/dast/listadd},
 write an implementation, and run the tests for confirmation.
 
 HINT: Avoid repeating the code that makes the array bigger.
 
 Last one: fill in the body of \java{remove}.  The documentation is at
-\url{http://thinkdast.com/listrem}. When you finish this one, all
+\url{https://greenteapress.com/dast/listrem}. When you finish this one, all
 tests should pass.
 
 \index{remove}
 
 Once you have your implementation working, compare it to mine, which
-you can read at \url{http://thinkdast.com/myarraylist}.
+you can read at \url{https://greenteapress.com/dast/myarraylist}.
 
 
 \chapter{ArrayList}
@@ -1553,7 +1553,7 @@ analysis doesn't work.
 This way of classifying an algorithm, by computing the average time in a
 series of invocations, is called {\bf amortized analysis}.  You can
 read more about it at 
-\url{http://thinkdast.com/amort}. 
+\url{https://greenteapress.com/dast/amort}. 
 The key idea is that the extra cost of copying the array is
 spread, or ``amortized'', over a series of invocations.
 
@@ -1621,7 +1621,7 @@ always proportional to $n$, you have to give it more thought.
 For the next exercise I provide a partial implementation of the \java{List}
 interface that uses a linked list to store the elements.
 If you are not familiar with linked lists, you can read about them at
-\url{http://thinkdast.com/linkedlist},
+\url{https://greenteapress.com/dast/linkedlist},
 but this section provides a brief introduction.
 
 \index{linked data structures}
@@ -1801,7 +1801,7 @@ empty list, and sets \java{size} to 0.
 This class uses the type parameter \java{E} for the type of the
 elements. If you are not familiar with type parameters, you might want
 to read this tutorial:
-\url{http://thinkdast.com/types}.
+\url{https://greenteapress.com/dast/types}.
 
 The type parameter also appears in the definition of \java{Node},
 which is nested inside \java{MyLinkedList}:
@@ -1862,7 +1862,7 @@ This example demonstrates two patterns you'll need for your solutions:
 
 Now it's your turn.  Fill in the body of \java{indexOf}.  As usual,
 you should read the documentation, at
-\url{http://thinkdast.com/listindof},
+\url{https://greenteapress.com/dast/listindof},
 so you know what it is supposed to do. In particular, notice how it's
 supposed to handle \java{null}.
 
@@ -1881,13 +1881,13 @@ should pass now, as well as the other tests that depend on it.
 
 Next, you should fill in the two-parameter version of \java{add},
 which takes an index and stores the new value at the given index.
-Again, read the documentation at \url{http://thinkdast.com/listadd},
+Again, read the documentation at \url{https://greenteapress.com/dast/listadd},
 write an implementation, and run the tests for confirmation.
 
 \index{remove}
 
 Last one: fill in the body of \java{remove}.  The documentation is
-here: \url{http://thinkdast.com/listrem}.  When you finish this one,
+here: \url{https://greenteapress.com/dast/listrem}.  When you finish this one,
 all tests should pass.
 
 Once you have your implementation working, compare it to the version
@@ -2228,7 +2228,7 @@ The code that creates \java{timeable} is an {\bf anonymous class} that
 defines a new implementation of the \java{Timeable} interface and
 creates an instance of the new class at the same time. If you are not
 familiar with anonymous classes, you can read about them here:
-\url{http://thinkdast.com/anonclass}.
+\url{https://greenteapress.com/dast/anonclass}.
 
 But you don't need to know much for the next exercise; even if you
 are not comfortable with anonymous classes, you can
@@ -2722,7 +2722,7 @@ and the \java{MyArrayList} object itself has a link to the first node.
 \index{LinkedList}
 
 But if you read the documentation of \java{LinkedList} at
-\url{http://thinkdast.com/linked},
+\url{https://greenteapress.com/dast/linked},
 it says:
 
 \begin{quote}
@@ -2734,7 +2734,7 @@ end, whichever is closer to the specified index.
 \end{quote}
 
 If you are not familiar with doubly-linked lists, you can read more
-about them at \url{http://thinkdast.com/doublelist},
+about them at \url{https://greenteapress.com/dast/doublelist},
 but the short version is:
 
 \begin{itemize}
@@ -2877,7 +2877,7 @@ depth-first search and an iterative implementation that uses a Java
 A \textbf{web search engine}, like Google Search or Bing, takes a set
 of ``search terms'' and returns a list of web pages that are relevant
 to those terms (I'll discuss what ``relevant'' means later).  You can
-read more at \url{http://thinkdast.com/searcheng}, but I'll explain
+read more at \url{https://greenteapress.com/dast/searcheng}, but I'll explain
 what you need as we go along.
 
 \index{search engine}
@@ -2925,7 +2925,7 @@ articles, usually eventually gets one to the Philosophy article.
 \end{quote}
 
 This conjecture is stated at
-\url{http://thinkdast.com/getphil}{},
+\url{https://greenteapress.com/dast/getphil}{},
 and you can read its history there.
 
 Testing the conjecture will allow us to build the basic pieces of a
@@ -3014,9 +3014,9 @@ are viewing. In Chrome, you can right-click on any part of a web page
 and select ``Inspect'' from the menu that pops up. In Firefox, you can
 right-click and select ``Inspect Element'' from the menu. Safari
 provides a tool called Web Inspector, which you can read about at
-\url{http://thinkdast.com/safari}.
+\url{https://greenteapress.com/dast/safari}.
 For Internet Explorer, you can read the instructions at
-\url{http://thinkdast.com/explorer}.
+\url{https://greenteapress.com/dast/explorer}.
 
 \begin{figure}
 \centering
@@ -3027,7 +3027,7 @@ For Internet Explorer, you can read the instructions at
 
 Figure~\ref{fig-dom2}
 shows a screenshot of the DOM for the Wikipedia page on Java,
-\url{http://thinkdast.com/java}.
+\url{https://greenteapress.com/dast/java}.
 The element that's highlighted is the first paragraph of the main text
 of the article, which is contained in a
 \java{<div>} element with
@@ -3099,9 +3099,9 @@ Before you go on, you should skim the documentation of these classes so
 you know what they can do. The most important classes are
 \java{Element}, \java{Elements}, and \java{Node}, which you can read 
 about at 
-\url{http://thinkdast.com/jsoupelt},
-\url{http://thinkdast.com/jsoupelts}, and
-\url{http://thinkdast.com/jsoupnode}.
+\url{https://greenteapress.com/dast/jsoupelt},
+\url{https://greenteapress.com/dast/jsoupelts}, and
+\url{https://greenteapress.com/dast/jsoupnode}.
 
 \java{Node} represents a node in the DOM tree;  there are several
 subclasses that extend \java{Node}, including 
@@ -3212,13 +3212,13 @@ prints the contents. If the \java{Node} has any children, it invokes
 In this example, we print the contents of each \java{TextNode} before
 traversing the children, so this is an example of a ``pre-order''
 traversal. You can read about ``pre-order'', ``post-order'', and
-``in-order'' traversals at \url{http://thinkdast.com/treetrav}.  For
+``in-order'' traversals at \url{https://greenteapress.com/dast/treetrav}.  For
 this application, the traversal order doesn't matter.
 
 \index{call stack}
 
 By making recursive calls, \java{recursiveDFS} uses the call stack
-(\url{http://thinkdast.com/callstack}) to keep
+(\url{https://greenteapress.com/dast/callstack}) to keep
 track of the child nodes and process them in the right order. As an
 alternative, we can use a stack data structure to keep track of the
 nodes ourselves; if we do that, we can avoid the recursion and traverse
@@ -3329,7 +3329,7 @@ pronounced ``deck'', but some people say ``deek''. In Java, the
 \java{Deque} interface provides \java{push}, \java{pop},
 \java{peek}, and \java{isEmpty}, so you can use a \java{Deque} as
 a stack. It provides other methods, which you can read about at
-\url{http://thinkdast.com/deque},
+\url{https://greenteapress.com/dast/deque},
 but we won't use them for now.
 
 \index{deque}
@@ -3476,9 +3476,9 @@ compared to the recursive version, is that it is easier to wrap in an
 
 If you are not familiar with the \java{Iterator} and \java{Iterable}
 interfaces, you can read about them at
-\url{http://thinkdast.com/iterator}
+\url{https://greenteapress.com/dast/iterator}
 and
-\url{http://thinkdast.com/iterable}.
+\url{https://greenteapress.com/dast/iterable}.
 
 Take a look at the contents of \java{WikiNodeIterable.java}. The outer
 class, \java{WikiNodeIterable} implements the
@@ -3706,7 +3706,7 @@ NOTE: My implementation of \java{WikiFetcher} is simple, but it would
 be easy for someone to misuse it by creating multiple instances. You
 could avoid this problem by making \java{WikiFetcher} a ``singleton'',
 which you can read about at
-\url{http://thinkdast.com/singleton}.
+\url{https://greenteapress.com/dast/singleton}.
 
 
 \section{Exercise 5}
@@ -4042,7 +4042,7 @@ with indexing Web pages:
   splits the text into words. Then it loops through the words it found
   and calls \java{incrementTermCount} on each.  The \java{replaceAll}
   and \java{split} methods take {\bf regular expressions} as parameters;
-  you can read more about them at \url{http://thinkdast.com/regex}.
+  you can read more about them at \url{https://greenteapress.com/dast/regex}.
 
 \end{itemize}
 
@@ -4389,7 +4389,7 @@ is not complete.
 \index{put}
 
 Fill in \java{put}. You should read the documentation of
-\java{Map.put} at \url{http://thinkdast.com/listput} so you know what
+\java{Map.put} at \url{https://greenteapress.com/dast/listput} so you know what
 it is supposed to do. You might want to start with a version of
 \java{put} that always adds a new entry and does not modify an
 existing entry; that way you can test the simple case first.  Or if
@@ -4403,11 +4403,11 @@ Once you've got \java{put} working, the test for \java{containsKey}
 should pass.
 
 Read the documentation of \java{Map.get} at
-  \url{http://thinkdast.com/listget}
+  \url{https://greenteapress.com/dast/listget}
   and then fill in the method. Run the tests again.
 
 Finally, read the documentation of \java{Map.remove} at
-  \url{http://thinkdast.com/maprem}
+  \url{https://greenteapress.com/dast/maprem}
   and fill in the method.
 
 At this point, all tests should pass. Congratulations!
@@ -4770,7 +4770,7 @@ their \java{innerString} instance variables are equal.
 Java converts the character to an integer using its Unicode code point.
 You don't need to know anything about Unicode to understand this
 example, but if you are curious, you can read more at 
-\url{http://thinkdast.com/codepoint}.
+\url{https://greenteapress.com/dast/codepoint}.
 
 \index{Unicode}
 \index{code point}
@@ -4791,7 +4791,7 @@ when we have $k$ maps might be much less than $k$. So one of the goals
 of a hash function is to be uniform; that is, it should be equally
 likely to produce any value in the range.  You can read more about
 designing good hash functions at
-\url{http://thinkdast.com/hash}.
+\url{https://greenteapress.com/dast/hash}.
 
 \index{sub-map}
 
@@ -5387,7 +5387,7 @@ relationships between the classes:
 To help keep track of relationships like these, software engineers
 often use {\bf UML class diagrams}. UML stands for Unified Modeling
 Language
-(see \url{http://thinkdast.com/uml}).
+(see \url{https://greenteapress.com/dast/uml}).
 A ``class diagram'' is one of several graphical standards defined by UML.
 
 In a class diagram, each class is represented by a box, and
@@ -5543,7 +5543,7 @@ every \java{node} has the ``BST property'':
 Figure~\ref{fig-bst}
 shows a tree of integers that has this property.
 This figure is from the Wikipedia page on binary search trees at
-\url{http://thinkdast.com/bst}, which you
+\url{https://greenteapress.com/dast/bst}, which you
 might find useful while you work on this exercise.
 
 The key in the root is 8, and you can confirm that all keys to the left
@@ -5776,7 +5776,7 @@ to be able to compare keys, so we typecast \java{target} to
 it is comparable to an instance of type \java{K}, or any superclass of
 \java{K}.  If you are not familiar with this use of ``type
 wildcards'', you can read more at
-\url{http://thinkdast.com/gentut}.
+\url{https://greenteapress.com/dast/gentut}.
 
 \index{type wildcard}
 \index{superclass}
@@ -5864,13 +5864,13 @@ order of growth.
 \index{keySet}
 
 Finally, you should fill in the body of \java{keySet}.  According to
-the documentation at \url{http://thinkdast.com/mapkeyset}, this method
+the documentation at \url{https://greenteapress.com/dast/mapkeyset}, this method
 should return a \java{Set} that iterates the keys in order; that is,
 in increasing order according to the \java{compareTo} method.  The
 \java{HashSet} implementation of \java{Set}, which we used in
 Section~\ref{exercise6}, doesn't maintain the order of the keys, but
 the \java{LinkedHashSet} implementation does.  You can read about it
-at \url{http://thinkdast.com/linkedhashset}.
+at \url{https://greenteapress.com/dast/linkedhashset}.
 
 I've provided an outline of \java{keySet} that creates and returns a
 \java{LinkedHashSet}:
@@ -5889,7 +5889,7 @@ You should finish off this method so it adds the keys from the tree to
 \java{set} in ascending order. HINT: you might want to write a helper
 method; you might want to make it recursive; and you might want to
 read about in-order tree traversal at
-\url{http://thinkdast.com/inorder}.
+\url{https://greenteapress.com/dast/inorder}.
 
 \index{in-order} 
 \index{tree traversal}
@@ -6402,7 +6402,7 @@ avoid this problem by doing some additional work each time a new key is
 added.
 
 You can read more about self-balancing trees at
-\url{http://thinkdast.com/balancing}.
+\url{https://greenteapress.com/dast/balancing}.
 
 
 \section{One more exercise}
@@ -6413,7 +6413,7 @@ but you might want to try it. If you remove a node from the middle of
 the tree, you have to rearrange the remaining nodes to restore the BST
 property.  You can probably figure out how to do that on your own, or
 you can read the explanation at
-\url{http://thinkdast.com/bstdel}.
+\url{https://greenteapress.com/dast/bstdel}.
 
 \index{remove}
 
@@ -6495,7 +6495,7 @@ persistent, as well as data stored in databases.
 
 A simple way to make data persistent is to store it in a file. Before
 the program ends, it could translate its data structures into a format
-like JSON (\url{http://thinkdast.com/json}) and then write them
+like JSON (\url{https://greenteapress.com/dast/json}) and then write them
 into a file. When it starts again, it could read the file and rebuild
 the data structures.
 
@@ -6525,7 +6525,7 @@ writing the whole thing.
 
 There are many kinds of database management systems (DBMS) that provide
 different capabilities. You can read an overview at
-\url{http://thinkdast.com/database}.
+\url{https://greenteapress.com/dast/database}.
 
 \index{Redis}
 
@@ -6570,7 +6570,7 @@ exercise, I recommend:
 
 \item
   Rather than install and run the server yourself, consider using a
-  service like RedisToGo (\url{http://thinkdast.com/redistogo}), which runs
+  service like RedisToGo (\url{https://greenteapress.com/dast/redistogo}), which runs
   Redis in the cloud. They offer a free plan with enough resources for
   the exercise.
 
@@ -6588,7 +6588,7 @@ Here are more detailed instructions to help you get started:
 \begin{itemize}
 
 \item Create an account on RedisToGo, at
-  \url{http://thinkdast.com/redissign},
+  \url{https://greenteapress.com/dast/redissign},
   and select the plan you want (probably the free plan to get started).
 
 \item
@@ -6873,7 +6873,7 @@ operations.
 \index{Redis data type}
 
 You can read more about Redis data types at
-\url{http://thinkdast.com/redistypes}.
+\url{https://greenteapress.com/dast/redistypes}.
 
 
 \section{Exercise 11}
@@ -7122,7 +7122,7 @@ In my solution, we store two kinds of structures in Redis:
 \end{itemize}
 
 We discussed these data types in the previous chapter. You can also
-read about Redis structures at \url{http://thinkdast.com/redistypes}
+read about Redis structures at \url{https://greenteapress.com/dast/redistypes}
 
 \index{JedisIndex}
 
@@ -7384,7 +7384,7 @@ don't help identify relevant pages.
 \index{stop words}
 
 Most search engines avoid indexing common words, which are known in this
-context as stop words (\url{http://thinkdast.com/stopword}).
+context as stop words (\url{https://greenteapress.com/dast/stopword}).
 
 
 \section{Graph traversal}
@@ -7418,7 +7418,7 @@ people say ``Web crawler'' they usually mean a program that
 You can think of the Web as a graph
 where each page is a node and each link is a directed edge from one node
 to another. If you are not familiar with graphs, you can read about
-them at \url{http://thinkdast.com/graph}.
+them at \url{https://greenteapress.com/dast/graph}.
 
 \index{graph}
 \index{traversal}
@@ -7452,7 +7452,7 @@ traversal the crawler performs:
 \end{itemize}
 
 You can read more about graph traversal at
-\url{http://thinkdast.com/graphtrav}.
+\url{https://greenteapress.com/dast/graphtrav}.
 
 
 \section{Exercise 12}
@@ -7798,7 +7798,7 @@ we'll need include:
 
 The general term for processes like this is ``information retrieval'',
 which you can read more about at 
-\url{http://thinkdast.com/infret}.
+\url{https://greenteapress.com/dast/infret}.
 
 In this exercise, we'll focus on steps 3 and 4. We've already built a simple
 version of 2. If you are interested in building Web applications, you
@@ -7933,7 +7933,7 @@ relevance score, but most of them are based on ``term frequency'', which
 is the number of times the search terms appear on the page. A common
 relevance score is called TF-IDF, which stands for ``term frequency --
 inverse document frequency''.  You can read more about it at
-\url{http://thinkdast.com/tfidf}.
+\url{https://greenteapress.com/dast/tfidf}.
 
 \index{relevance}
 \index{term frequency}
@@ -8007,7 +8007,7 @@ Fill in the body of \java{sort} so the results are returned in
 increasing order of relevance. I suggest you use the \java{sort}
 method provided by \java{java.util.Collections}, which sorts any kind of
 \java{List}. You can read the documentation at
-\url{http://thinkdast.com/collections}.
+\url{https://greenteapress.com/dast/collections}.
 
 There are two versions of \java{sort}:
 
@@ -8155,7 +8155,7 @@ that considers ``Aces high'', like this:
 This code defines an anonymous class that implements \java{compare},
 as required. Then it creates an instance of the newly-defined, unnamed
 class. If you are not familiar with anonymous classes in Java, you can
-read about them at \url{http://thinkdast.com/anonclass}.
+read about them at \url{https://greenteapress.com/dast/anonclass}.
 
 \index{anonymous class}
 
@@ -8189,7 +8189,7 @@ on these optional exercises:
 
 \begin{itemize}
 
-\item Read about TF-IDF at \url{http://thinkdast.com/tfidf}
+\item Read about TF-IDF at \url{https://greenteapress.com/dast/tfidf}
   and implement it. You might have to modify \java{JavaIndex} to
   compute document frequencies; that is, the total number of times
   each term appears on all pages in the index.
@@ -8206,7 +8206,7 @@ on these optional exercises:
   terms appeared on the page. If you want to make a Web application
   for your user interface, consider using Heroku as a simple option
   for developing and deploying Web applications using Java.  See
-  \url{http://thinkdast.com/heroku}.
+  \url{https://greenteapress.com/dast/heroku}.
 
 \end{itemize}
 
@@ -8272,7 +8272,7 @@ qualities, as we'll see.
 
 Rather than explain the algorithm here, I suggest you read the
 insertion sort Wikipedia page at
-\url{http://thinkdast.com/insertsort}, which includes
+\url{https://greenteapress.com/dast/insertsort}, which includes
 pseudocode and animated examples. Come back when you get the general
 idea.
 
@@ -8400,7 +8400,7 @@ do better. In fact, much better.
 Merge sort is one of several algorithms whose runtime is better than
 quadratic. Again, rather than explaining the algorithm here, I suggest
 you read about it on Wikipedia at
-\url{http://thinkdast.com/mergesort}.  Once you get the idea, come
+\url{https://greenteapress.com/dast/mergesort}.  Once you get the idea, come
 back and you can test your understanding by writing an implementation.
 
 \index{merge sort}
@@ -8473,7 +8473,7 @@ the complexity of a recursive method.
 \index{recursion}
 
 Next, add a base case (see
-\url{http://thinkdast.com/basecase}). If you are
+\url{https://greenteapress.com/dast/basecase}). If you are
 given a list with only one element, you could return it immediately,
 since it is already sorted, sort of. Or if the length of the list is
 below some threshold, you could sort it using \java{Collections.sort}
@@ -8582,7 +8582,7 @@ Algorithms in $O(n \log n)$ are sometimes called
 It turns out that $O(n \log n)$ is the theoretical lower bound for
 sort algorithms that work by comparing elements to each other. That
 means there is no ``comparison sort'' whose order of growth is better
-than $n \log n$.  See \url{http://thinkdast.com/compsort}.
+than $n \log n$.  See \url{https://greenteapress.com/dast/compsort}.
 
 But as we'll see in the next section, there are non-comparison sorts
 that take linear time!
@@ -8605,11 +8605,11 @@ visited Google. Chief executive Eric Schmidt jokingly asked him for
 ``the most efficient way to sort a million 32-bit integers.'' Obama
 had apparently been tipped off, because he quickly replied, ``I think
 the bubble sort would be the wrong way to go.'' You can watch the
-video at \url{http://thinkdast.com/obama}.
+video at \url{https://greenteapress.com/dast/obama}.
 
 Obama was right: bubble sort is conceptually simple but its runtime is
 quadratic; and even among quadratic sort algorithms, its performance
-is not very good.  See \url{http://thinkdast.com/bubble}.
+is not very good.  See \url{https://greenteapress.com/dast/bubble}.
 
 \index{quadratic time}
 
@@ -8674,7 +8674,7 @@ So the order of growth is $O(wn)$, which is linear in $n$.
 
 There are many variations on radix sort, and many ways to implement
 each one. You can read more about them at
-\url{http://thinkdast.com/radix}. As an optional
+\url{https://greenteapress.com/dast/radix}. As an optional
 exercise, consider writing a version of radix sort.
 
 
@@ -8699,7 +8699,7 @@ the end of the day, and select the top $k$. That would take time
 proportional to $n \log n$, and it would be very slow because we
 probably can't fit a billion transactions in the memory of a single
 program. We would have to use an ``out of core'' sort algorithm. You
-can read about external sorting at \url{http://thinkdast.com/extsort}.
+can read about external sorting at \url{https://greenteapress.com/dast/extsort}.
 
 \index{out of core algorithm}
 \index{external sorting}
@@ -8749,7 +8749,7 @@ The smallest element in a heap is always at the root, so we can find
 it in constant time. Adding and removing elements from a heap takes
 time proportional to the height of the tree $h$. And because the heap
 is always balanced, $h$ is proportional to $\log n$.  You can read
-more about heaps at \url{http://thinkdast.com/heap}.
+more about heaps at \url{https://greenteapress.com/dast/heap}.
 
 \index{heap property}
 \index{constant time}
@@ -8793,7 +8793,7 @@ $n$ elements like this:
 Because \java{poll} returns the smallest element remaining in the
 queue, the elements are added to the \java{List} in ascending order.
 This way of sorting is called {\bf heap sort}
-(see \url{http://thinkdast.com/heapsort}).
+(see \url{https://greenteapress.com/dast/heapsort}).
 
 \index{heap sort}
 \index{linearithmic}
@@ -8914,7 +8914,7 @@ can be just as important or more so. For example:
   to fit the computation into memory, it might run much faster. In the
   same vein, a program that uses less space might make better use of
   CPU caches and run
-  faster (see \url{http://thinkdast.com/cache}).
+  faster (see \url{https://greenteapress.com/dast/cache}).
 
 \item On a server that runs many programs at the same time, if you can
   reduce the space needed for each program, you might be able to run
